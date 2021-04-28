@@ -1,0 +1,20 @@
+{
+	"title": "Nombres de las tablas de Vacuandes Uniandes para la aplicación A",
+	"unidadPersistencia": "Vacuandes",
+	"tablas":
+	[
+		"CITA",
+		"CIUDADANO",
+		"CONDICION",
+		"ESTADO_VACUNACION",
+		"LIST_CONDICIONES_CIUDADANO",
+		"LIST_CONTRAINDICACIONES_CIUDADANO",
+		"MINISTERIO_DE_SALUD",
+		"OFICINA_REGIONAL_EPS",
+		"PLAN_DE_VACUNACION",
+		"PUNTO_VACUNACION",
+		"TRABAJADOR",
+		"USUARIO",
+		"VACUNA"
+	]
+}

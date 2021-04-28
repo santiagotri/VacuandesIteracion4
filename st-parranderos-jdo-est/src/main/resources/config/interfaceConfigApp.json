@@ -1,0 +1,152 @@
+{
+	"title": "Aplicación transaccional de Vacuandes Uniandes",
+	"frameH": 600,
+	"frameW": 800,
+	"bannerPath": "./src/main/resources/config/vacuna-covid-n.png",
+	"menuBar":
+	[
+		{ "menuTitle": "Sesion actual",
+		  "options":
+			[
+				{
+					"label": "Iniciar sesion",
+					"event": "iniciarSesion"
+				},
+				{
+					"label": "Ver info. usuario actual",
+					"event": "infoUsuarioActual"
+				},
+				{
+					"label": "Cerrar sesion",
+					"event": "cerrarSesion"
+				}
+				
+			]
+		},
+		{ "menuTitle": "Registrar",
+		  "options":
+			[
+				{
+					"label": "Condiciones de priorizacion",
+					"event": "registrarCondicionesDePriorizacion"
+				},
+				{
+					"label": "Secuencia de estados validos",
+					"event": "registrarSecuenciaDeEstadosValidos"
+				},
+				{
+					"label": "Oficina de EPS regional",
+					"event": "registrarOficinaDeEPSRegional"
+				},
+				{
+					"label": "Usuario de vacuandes",
+					"event": "registrarUsuarioDeVacuandes"
+				},
+				{
+					"label": "Ciudadanos colombianos",
+					"event": "registrarCiudadanosColombianos"
+				},
+				{
+					"label": "Punto de vacunacion",
+					"event": "registarPuntoDeVacunacion"
+				},
+				{
+					"label": "Avance en vacunacion de persona",
+					"event": "registrarAvanceEnVacunacionDePersona"
+				},
+				{
+					"label": "Cambio de opinion vacunacion de un ciudadano",
+					"event": "cambiarOpinionVacunacionCiudadano"
+				}
+				
+			]
+		},
+		{ "menuTitle": "Asignar",
+		  "options":
+			[
+				{
+					"label": "Talento humano a un punto de vacunacion",
+					"event": "asignarTalentoHumanoAUnPuntoDeVacunacion"
+				},
+				{
+					"label": "Ciudadano a punto de Vacunacion",
+					"event": "asignarCiudadanoAPuntoDeVacunacion"
+				},
+				{
+					"label": "Cita de vacunacion a ciudadano",
+					"event": "asignarCitaDeVacunacionACiudadano"
+				}
+			]
+		},
+		{ "menuTitle": "Mostrar",
+		  "options":
+			[
+				{
+					"label": "Ciudadanos atendidos por un punto de vacunacion",
+					"event": "mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion"
+				},
+				{
+					"label": "20 puntos de vacunacion mas efectivos",
+					"event": "mostrar20PuntosDeVacunacionMasEfectivos"
+				},
+				{
+					"label": "Indice de vacunacion para grupo poblacional",
+					"event": "mostrarIndiceDeVacunacionParaGrupoPoblacional"
+				}
+			]
+		},
+		{ "menuTitle": "Mantenimiento",
+		  "options":
+			[
+				{
+					"label": "Mostrar log Vacuandes",
+					"event": "mostrarLogVacuandes"
+				},
+				{
+					"label": "Mostrar log datanucleus",
+					"event": "mostrarLogDatanuecleus"
+				},
+				{
+					"label": "Limpiar log de Vacuandes",
+					"event": "limpiarLogVacuandes"
+				},
+				{
+					"label": "Limpiar log de datanucleus",
+					"event": "limpiarLogDatanucleus"
+				}
+			]
+		},		
+		{ "menuTitle": "Documentación",
+		  "options":
+			[
+				{
+					"label": "Presentación general",
+					"event": "mostrarPresentacionGeneral"
+				},
+				{
+					"label": "Modelo conceptual",
+					"event": "mostrarModeloConceptual"
+				},
+				{
+					"label": "Esquema de la BD",
+					"event": "mostrarEsquemaBD"
+				},
+				{
+					"label": "Script creación de la BD",
+					"event": "mostrarScriptBD"
+				}
+			]
+		},		
+		{ "menuTitle": "Acerca de ...",
+		  "options":
+			[
+				{
+					"label": "Acerca de ...",
+					"event": "acercaDe"
+				}
+			]
+		}		
+		
+	]
+}
+	
