@@ -24,8 +24,8 @@ public class OficinaRegionalEPS implements VOOficinaRegionalEPS{
 	 * @param cantidad_Vacunas_Actuales
 	 * @param plan_De_Vacunacion
 	 */
-	public OficinaRegionalEPS(long id_oficina, String region, String administrador, int cantidad_Vacunas_Actuales,
-			long plan_De_Vacunacion, int cantidad_Vacunas_Enviables) {
+	public OficinaRegionalEPS(long id_oficina, String region, String administrador,int cantidad_Vacunas_Enviables, int cantidad_Vacunas_Actuales,
+			long plan_De_Vacunacion) {
 		this.id_oficina = id_oficina;
 		this.region = region;
 		this.administrador = administrador;
@@ -109,10 +109,13 @@ public class OficinaRegionalEPS implements VOOficinaRegionalEPS{
 	}
 	@Override
 	public String toString() {
-		return "OficinaRegionalEPS [id_oficina=" + id_oficina + ", region=" + region + ", administrador=" + administrador
-				+ ", cantidad_Vacunas_Actuales=" + cantidad_Vacunas_Actuales + ", plan_De_Vacunacion="
-				+ plan_De_Vacunacion + "]";
+		return "OficinaRegionalEPS [id_oficina=" + id_oficina + ", region=" + region + ", administrador="
+				+ administrador + ", cantidad_Vacunas_Actuales=" + cantidad_Vacunas_Actuales + ", plan_De_Vacunacion="
+				+ plan_De_Vacunacion + ", cantidad_Vacunas_Enviables=" + cantidad_Vacunas_Enviables + "]";
 	}
+	
+
+	
 	
 	
 	

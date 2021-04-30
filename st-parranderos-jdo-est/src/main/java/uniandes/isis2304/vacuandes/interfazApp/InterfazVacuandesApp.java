@@ -284,6 +284,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		setJMenuBar ( menuBar );	
 	}
 
+	
 	/* ****************************************************************
 	 * 			CRUD de TipoBebida
 	 *****************************************************************/
@@ -414,7 +415,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				resultado = "-- El trabajador no tenia el cargo indicado para ser administrador de la oficina --";
 				resultado += "\n Operación terminada";
 			}else {
-				OficinaRegionalEPS nueva = vacuandes.agregarOficinaRegional(region, usernameAdministrador, 0, plan_de_vacunacion);
+				OficinaRegionalEPS nueva = vacuandes.agregarOficinaRegional(region, usernameAdministrador,, 0, plan_de_vacunacion);
 				resultado = "-- Se ha añadido una oficina regional --";
 				resultado += "\n - Region: " + nueva.getRegion();
 				resultado += "\n - Administrador: " + nueva.getAdministrador();
@@ -617,8 +618,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private void VerificadoRegistrarLlegadaLoteVacunasEPSRegional() {
 		long idOficina = escogerOficinaRegionalEPS();
 		OficinaRegionalEPS oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
-		mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Capacidad actual "+oficinaAct.getCantidad_Vacunas_Actuales() + "/" + "" +")");
-		
+		String cantidadVacunas = mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Ocuppación actual "+oficinaAct.getCantidad_Vacunas_Actuales() + "/" + oficinaAct.getCantidad_Vacunas_Enviables() +")");
+		System.out.println(oficinaAct);
 	}
 
 	//RF9 PENDIENTE

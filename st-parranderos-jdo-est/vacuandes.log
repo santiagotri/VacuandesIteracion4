@@ -4117,3 +4117,51 @@ ORA-00001: restricción única (ISIS2304D10202110.VACUNA_UNICA) violada
 13:11:09,425 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
 13:11:09,583 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
 13:11:09,583 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+16:20:33,947 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:20:33,949 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:20:34,208 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:21:50,074 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+16:21:50,120 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+16:21:50,516 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "SELECT ID_OFICINA, REGION, ADMINISTRADOR, cantidad_vacunas_enviables, CANTIDAD_VACUNAS_ACTUALES, PLAN_DE_VACUNACION FROM OFICINA_REGIONAL_EPS".
+ORA-00904: "CANTIDAD_VACUNAS_ENVIABLES": identificador no válido
+
+16:23:36,058 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:23:36,060 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:23:36,156 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:23:56,019 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+16:23:56,073 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+16:23:56,416 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "SELECT ID_OFICINA, REGION, ADMINISTRADOR, cantidad_vacunas_enviables, CANTIDAD_VACUNAS_ACTUALES, PLAN_DE_VACUNACION FROM OFICINA_REGIONAL_EPS".
+ORA-00904: "CANTIDAD_VACUNAS_ENVIABLES": identificador no válido
+
+16:26:00,381 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:26:00,385 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:26:00,662 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:26:42,592 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+16:26:42,630 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+16:26:43,092 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "SELECT ID_OFICINA, REGION, ADMINISTRADOR, cantidad_vacunas_enviables, CANTIDAD_VACUNAS_ACTUALES, PLAN_DE_VACUNACION FROM OFICINA_REGIONAL_EPS".
+ORA-00904: "CANTIDAD_VACUNAS_ENVIABLES": identificador no válido
+
+16:27:53,920 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+16:27:53,933 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+16:27:54,054 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 oficinas regionales
+16:28:00,627 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 2
+16:28:00,628 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 2
+16:28:00,708 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 2
+16:29:50,336 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:29:50,340 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:29:51,179 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:29:57,998 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+16:29:57,999 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+16:29:58,078 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 oficinas regionales
+16:29:59,887 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+16:29:59,888 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+16:29:59,971 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+16:31:56,058 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:31:56,060 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:31:56,275 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:32:12,229 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+16:32:12,278 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+16:32:12,999 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 oficinas regionales
+16:32:15,883 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 2
+16:32:15,885 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 2
+16:32:15,967 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 2

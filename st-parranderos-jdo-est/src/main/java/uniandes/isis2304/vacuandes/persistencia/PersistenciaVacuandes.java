@@ -618,7 +618,7 @@ public class PersistenciaVacuandes {
             tx.commit();
             log.info ("Inserción de la oficina en la region: " + region + ": " + tuplaInsertada + " tuplas insertadas");
             
-            return new OficinaRegionalEPS(tuplaInsertada,region,administrador, cantidad_vacunas_actuales, plan_de_vacunacion, cantidad_vacunas_actuales);
+            return new OficinaRegionalEPS(tuplaInsertada,region,administrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion);
         	
         }
         catch (Exception e)
