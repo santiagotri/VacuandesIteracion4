@@ -235,6 +235,14 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public OficinaRegionalEPS darOficinaRegionalEPSPorId(long idOficina) {
+		log.info ("Buscando oficina regional con id " +idOficina);
+		OficinaRegionalEPS rta = pp.darOficinasRegionalEPSPorId(idOficina);
+		if(rta==null) log.info ("No se han encontrado oficinas regionales con id " + idOficina);
+		else {log.info ("Se ha encontrado una oficina con id: " + rta.getId_oficina());}
+        return rta;
+	}
+	
 	public long registrarLlegadaDeLoteDeVacunasEPS(long oficina_regional_eps, int cantidad_vacunas)
 	{
 		log.info ("Enviando lote de vacunas a oficina regional EPS de id: " + oficina_regional_eps);

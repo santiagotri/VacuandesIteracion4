@@ -609,19 +609,23 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//RF8
+	//RF8 PENDIENTE
 	public void registrarLlegadaLoteVacunasEPSRegional() {
-
+		//No especifica quienes lo pueden hacer o quienes no
+		VerificadoRegistrarLlegadaLoteVacunasEPSRegional();
 	}
-	public void VerificadoRegistrarLlegadaLoteVacunasEPSRegional() {
-
+	private void VerificadoRegistrarLlegadaLoteVacunasEPSRegional() {
+		long idOficina = escogerOficinaRegionalEPS();
+		OficinaRegionalEPS oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
+		mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Capacidad actual "+oficinaAct.getCantidad_Vacunas_Actuales() + "/" + "" +")");
+		
 	}
 
-	//RF9
+	//RF9 PENDIENTE
 	public void registrarLlegadaLoteVacunasPuntoVacunacion() {
 
 	}
-	public void VerificadoRegistrarLlegadaLoteVacunasPuntoVacunacion() {
+	private void VerificadoRegistrarLlegadaLoteVacunasPuntoVacunacion() {
 
 	}
 
@@ -1335,7 +1339,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione la oficina regional asociada", "Seleccione oficina", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione la oficina regional", "Seleccione oficina", JOptionPane.QUESTION_MESSAGE);
 		JOptionPane.showMessageDialog(this, optionList1, "Seleccione oficina", JOptionPane.QUESTION_MESSAGE);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_oficina();
@@ -1490,6 +1494,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	@SuppressWarnings("deprecation")
 	private Date convertirFechaDeStringADate(String fechaIngresada){
+
 		try {
 			String[] fechaIngresadaSplit = fechaIngresada.split("/");
 			Date fecha = new Date();
@@ -1506,6 +1511,25 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
+	private void mostrarMensajeInformativo(String titulo, String contenido) {
+		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	private void mostrarMensajeError(String titulo, String contenido) {
+		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.ERROR_MESSAGE);
+	}
+	
+	private String mostrarMensajeIntroducirTexto (String titulo, String contenido){
+		String rta = JOptionPane.showInputDialog (this, contenido, titulo, JOptionPane.QUESTION_MESSAGE);
+		return rta;
+	}
+	
+	private int mostrarMensajeBooleano (String titulo, String contenido){
+		int rta = JOptionPane.showConfirmDialog(this, contenido, titulo, JOptionPane.YES_NO_OPTION);
+		if (rta==1) rta =0;
+		else if (rta==0) rta =1;
+		return rta;
+	}
 
 
 
@@ -1540,6 +1564,16 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	 * 			Métodos login
 	 *****************************************************************/
 
+	public boolean verificarPermisos(String cargo) {
+		if (trabajadorActual!=null) {
+			if(cargo.contains(trabajadorActual.getTrabajo())) return true;
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+		}else {
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+		}
+		return false;
+	}
+	
 	public void iniciarSesion() {
 		interfazLogin = new InterfazLogin(this);
 	}

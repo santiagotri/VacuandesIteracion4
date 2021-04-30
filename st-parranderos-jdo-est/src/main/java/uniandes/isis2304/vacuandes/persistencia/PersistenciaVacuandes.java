@@ -1562,6 +1562,36 @@ public class PersistenciaVacuandes {
         
 	}
 
+
+	public OficinaRegionalEPS darOficinasRegionalEPSPorId(long idOficina) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	log.info ("Buscando oficina regional con id " +idOficina);
+            tx.begin();
+            OficinaRegionalEPS oficina = sqlOficinaRegionalEPS.darOficinaPorId(pm, idOficina);
+            tx.commit();
+            
+            return oficina;
+        	
+        }
+        catch (Exception e)
+        {
+        	// e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
 	
 	/**
 	public Cita buscarCita(Date fecha, long ciudadano) {
