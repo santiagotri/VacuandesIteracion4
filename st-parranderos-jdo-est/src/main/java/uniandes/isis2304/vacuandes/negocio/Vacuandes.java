@@ -252,9 +252,9 @@ public class Vacuandes {
 	 * 			Métodos para manejar PUNTO_VACUNACION
 	 *****************************************************************/
 	
-	public PuntoVacunacion agregarPuntoVacunacion(String localizacion, int capacidad_de_atencion_simultanea, String infraestructura_para_dosis, int cantidad_vacunas_enviables, int cantidad_vacunas_actuales, String tipo_punto_vacunacion, String administrador, long oficina_regional_eps) {
+	public PuntoVacunacion agregarPuntoVacunacion(String localizacion, int capacidad_de_atencion_simultanea, String infraestructura_para_dosis, int cantidad_vacunas_enviables, int cantidad_vacunas_actuales, String tipo_punto_vacunacion, String administrador, long oficina_regional_eps, int habilitado) {
 		log.info ("Creando un nuevo punto de vacunacion");
-		PuntoVacunacion rta = pp.adicionarPuntoVacunacion(localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables,cantidad_vacunas_actuales,tipo_punto_vacunacion,administrador, oficina_regional_eps);
+		PuntoVacunacion rta = pp.adicionarPuntoVacunacion(localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables,cantidad_vacunas_actuales,tipo_punto_vacunacion,administrador, oficina_regional_eps, habilitado);
         log.info ("Se creo el punto de vacunacion en la localizacion: " + localizacion);
         return rta;
 	}

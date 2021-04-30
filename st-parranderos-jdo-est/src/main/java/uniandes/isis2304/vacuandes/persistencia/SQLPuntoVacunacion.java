@@ -40,10 +40,10 @@ public class SQLPuntoVacunacion {
 		this.pp = pp;
 	}
 	
-	public long adicionarPuntoVacunacion(PersistenceManager pm, String localizacion, int capacidad_de_atencion_simultanea, String infraestructura_para_dosis, int cantidad_de_vacunas_enviables, int cantidad_de_vacunas_actuales, String tipo_punto_vacunacion, String administrador, long oficina_regional_eps)
+	public long adicionarPuntoVacunacion(PersistenceManager pm, String localizacion, int capacidad_de_atencion_simultanea, String infraestructura_para_dosis, int cantidad_de_vacunas_enviables, int cantidad_de_vacunas_actuales, String tipo_punto_vacunacion, String administrador, long oficina_regional_eps, int habilitado)
 	{
-		Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaPuntoVacunacion() + "(localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, cantidad_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps) values (?, ?, ?, ?, ?, ?, ?, ?)");
-		q.setParameters(localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_de_vacunas_enviables, cantidad_de_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps);
+		Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaPuntoVacunacion() + "(localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, cantidad_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps) values (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+		q.setParameters(localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_de_vacunas_enviables, cantidad_de_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps, habilitado);
 		return (long) q.executeUnique(); 
 	}
 

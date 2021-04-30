@@ -705,18 +705,18 @@ public class PersistenciaVacuandes {
 
 	public PuntoVacunacion adicionarPuntoVacunacion(String localizacion, int capacidad_de_atencion_simultanea,
 			String infraestructura_para_dosis, int cantidad_vacunas_enviables,
-			int cantidad_vacunas_actuales, String tipo_punto_vacunacion, String administrador, long oficina_regional_eps) {
+			int cantidad_vacunas_actuales, String tipo_punto_vacunacion, String administrador, long oficina_regional_eps, int habilitado) {
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
         	log.info ("Agregando un nuevo punto de vacuancion en la localizacion: " + localizacion);
             tx.begin();
-            long tuplaInsertada = sqlPuntoVacunacion.adicionarPuntoVacunacion(pm, localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, cantidad_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps);
+            long tuplaInsertada = sqlPuntoVacunacion.adicionarPuntoVacunacion(pm, localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, cantidad_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps, habilitado);
             tx.commit();
             log.info ("Inserción del punto de vacunacion en: " + localizacion + ": " + tuplaInsertada + " tuplas insertadas");
             
-            return new PuntoVacunacion(tuplaInsertada, localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, cantidad_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps);
+            return new PuntoVacunacion(tuplaInsertada, localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, cantidad_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps, habilitado);
         }
         catch (Exception e)
         {
