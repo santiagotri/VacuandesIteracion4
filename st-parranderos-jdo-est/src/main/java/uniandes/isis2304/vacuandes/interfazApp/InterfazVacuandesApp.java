@@ -287,7 +287,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	/* ****************************************************************
 	 * 			CRUD de TipoBebida
 	 *****************************************************************/
-	//REQ1
+	//RF1
 	public void registrarCondicionesDePriorizacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarCondicionesDePriorizacion();
@@ -327,7 +327,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//REQ2
+	//RF2
 	public void registrarSecuenciaDeEstadosValidos() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarSecuenciaDeEstadosValidos();
@@ -361,8 +361,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			else {
 
 				//ACÁ VA LA COMUNICACION CON EL BACKEND
-				
-			
+
+
 				String resultado = "Secuencia de estados validos añadidos : " + estados.toString();
 				resultado += "\nEn total se han añadido " + estados.size() + " estados para el proceso de vacunacion";
 				resultado += "\n Operación terminada";
@@ -381,7 +381,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	}
 
-	//REQ3
+	//RF3
 	public void registrarOficinaDeEPSRegional() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarOficinaDeEPSRegional();
@@ -400,7 +400,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			Trabajador trabajadorAdministrador = null;
 			if(usuarioAdministrador!=null) trabajadorAdministrador = vacuandes.darTrabajadorPorCedula(usuarioAdministrador.getCiudadano());
 			String resultado = "";
-			
+
 			if(usuarioAdministrador==null) {
 				JOptionPane.showMessageDialog(this, "No existe el usuario " + usernameAdministrador, "Usuario inexistente", JOptionPane.ERROR_MESSAGE);
 				resultado = "-- El usuario ingresado como adminstrador no existe --";
@@ -421,7 +421,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				resultado += "\n - Id plan de vacunacion: " + nueva.getPlan_De_Vacunacion();
 				resultado += "\n Operación terminada";
 			}
-			
+
 			panelDatos.actualizarInterfaz(resultado);
 		}
 		catch(Exception e) {
@@ -431,7 +431,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//REQ4
+	//RF4
 	public void registrarUsuarioDeVacuandes() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarUsuarioDeVacuandes();
@@ -476,7 +476,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//REQ5
+	//RF5
 	public void registrarCiudadanosColombianos() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarCiudadanosColombianos();
@@ -509,7 +509,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			}
 
 
-			
+
 			Ciudadano nuevo = vacuandes.agregarCiudadano(cedula, nombre, estado_vacunacion, region, desea_ser_vacunado, plan_de_vacunacion,null, oficina_regional_asignada);
 			if (nuevo!=null) vacuandes.agregarCondicionesCiudadano(nuevo.getCedula(), condicionesAAñadir);
 
@@ -531,7 +531,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//REQ6
+	//RF6
 	public void registarPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoRegistarPuntoDeVacunacion();
@@ -541,6 +541,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 	private void VerificadoRegistarPuntoDeVacunacion () {
+
 		try {
 			JOptionPane.showMessageDialog(this, "Ingrese los datos del punto vacunacion a registrar", "Ingrese datos punto vacunacion", JOptionPane.QUESTION_MESSAGE);
 			String localizacion = JOptionPane.showInputDialog (this, "Ingresa localizacion", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE);
@@ -558,16 +559,20 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(this, "Seleccione el tipo del punto de vacunacion", "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
 			JOptionPane.showMessageDialog(this, optionList1, "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
 
+			int habilitado = JOptionPane.showConfirmDialog(this, "¿Desea iniciar este punto de vacunacion como habilitado?", "Estado del punto", JOptionPane.YES_NO_OPTION);
+			if (habilitado==1) habilitado =0;
+			else if (habilitado==0) habilitado =1;
+
 			String tipo_punto_vacunacion = opciones1[optionList1.getSelectedIndex()];
 			String usernameAdministrador = JOptionPane.showInputDialog (this, "Ingresa username administrador", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE);
 			String region = escogerRegion();
 			long oficina_regional_eps = asignarPorRegionOficinaRegionalEPS(region);
-			
+
 			Usuario usuarioAdministrador = vacuandes.darUsuarioPorUsername(usernameAdministrador);
 			Trabajador trabajadorAdministrador = null;
 			if(usuarioAdministrador!=null) trabajadorAdministrador = vacuandes.darTrabajadorPorCedula(usuarioAdministrador.getCiudadano());
 			String resultado = "";
-			
+
 			if(usuarioAdministrador==null) {
 				JOptionPane.showMessageDialog(this, "No existe el usuario " + usernameAdministrador, "Usuario inexistente", JOptionPane.ERROR_MESSAGE);
 				resultado = "-- El usuario ingresado como adminstrador no existe --";
@@ -581,7 +586,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				resultado = "-- El trabajador no tenia el cargo indicado para ser administrador de la oficina --";
 				resultado += "\n Operación terminada";
 			}else {
-				PuntoVacunacion nuevo = vacuandes.agregarPuntoVacunacion(localizacion, capacidad_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, 0, tipo_punto_vacunacion, usernameAdministrador, oficina_regional_eps);
+				PuntoVacunacion nuevo = vacuandes.agregarPuntoVacunacion(localizacion, capacidad_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, 0, tipo_punto_vacunacion, usernameAdministrador, oficina_regional_eps, habilitado);
 
 				resultado = "-- Se ha añadido un punto de vacunacion-- ";
 				resultado += "\n - Tipo punto vacunacion: " + nuevo.getTipo_Punto_Vacunacion();
@@ -590,9 +595,10 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				resultado += "\n - cantidad vacunas enviables: " + nuevo.getCantidad_Vacunas_Enviables();
 				resultado += "\n - infraestructura para dosis: " + nuevo.getInfraestructura_Para_Dosis();
 				resultado += "\n - username administrador: "+nuevo.getAdministrador();
+				resultado += "\n - habilitado (1=si, 0=no): "+nuevo.getHabilitado();
 				resultado += "\n Operación terminada";
 			}
-			
+
 			panelDatos.actualizarInterfaz(resultado);
 
 		}
@@ -603,7 +609,23 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//REQ7
+	//RF8
+	public void registrarLlegadaLoteVacunasEPSRegional() {
+
+	}
+	public void VerificadoRegistrarLlegadaLoteVacunasEPSRegional() {
+
+	}
+
+	//RF9
+	public void registrarLlegadaLoteVacunasPuntoVacunacion() {
+
+	}
+	public void VerificadoRegistrarLlegadaLoteVacunasPuntoVacunacion() {
+
+	}
+
+	//RF 12
 	public void registrarAvanceEnVacunacionDePersona() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(OPERADOR_PUNTO_VACUNACION)) VerificadoRegistrarAvanceEnVacunacionDePersona();
@@ -707,9 +729,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
+	//RF13,14,15 PENDIENTE
+	public void registrarCambioEstadoPuntoVacunacion() {
 
+	}
+	private void VerificadoRegistrarCambioEstadoPuntoVacunacion() {
 
-	//REQ8
+	}
+
+	//RF7
 	public void asignarTalentoHumanoAUnPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoAsignarTalentoHumanoAUnPuntoDeVacunacion();
@@ -732,7 +760,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			else {
 				long punto_vacunacion = escogerPuntoVacunacion();
 				Trabajador agregado = vacuandes.agregarTrabajador(cedula, TALENTO_HUMANO_PUNTO_VACUNACION, 0, punto_vacunacion);
-				
+
 				String resultado = "-- Se ha registrado un nuevo trabajador en el punto de vacunacion-- ";
 				resultado += "\n - Nombre completo: " + act.getNombre_Completo();
 				resultado += "\n - Cedula: " + act.getCedula();
@@ -749,7 +777,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	}
 
-	//REQ9
+	//RF10
 	public void asignarCiudadanoAPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoAsignarCiudadanoAPuntoDeVacunacion() ;
@@ -800,7 +828,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//REQ10
+	//RF11
 	public void asignarCitaDeVacunacionACiudadano() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PUNTO_VACUNACION)) VerificadoAsignarCitaDeVacunacionACiudadano();
@@ -859,7 +887,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//REQ11
+	//RFC1 PENDIENTE
 	public void mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getAdministrador_Vacuandes()==1) VerificadoMostrarCiudadanosAtendidosPorUnPuntoDeVacunacion();
@@ -898,7 +926,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	}
 
-	//REQ12
+	//RFC2 PENDIENTE
 	public void mostrar20PuntosDeVacunacionMasEfectivos() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getAdministrador_Vacuandes()==1) VerificadoMostrar20PuntosDeVacunacionMasEfectivos();
@@ -908,32 +936,32 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 	private void VerificadoMostrar20PuntosDeVacunacionMasEfectivos() {
-//		try {
-//			String rta;
-//			int tipo_busqueda = escogerTipoDeBusquedaFechaRangoFechasUHoras();
-//			if(tipo_busqueda==0) {
-//				Date fechaEspecifica = escogerFechaEspecifica();
-//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosFechaEspecifica (fechaEspecifica);
-//			}else if (tipo_busqueda==1) {
-//				Date[] rangoFechas = escogerRangoDeFechas();
-//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoFechas (rangoFechas[0], rangoFechas[1]);
-//
-//			}else if (tipo_busqueda==2) {
-//				Integer[] rangoHoras = escogerRangoDeHoras();
-//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoHoras (rangoHoras[0], rangoHoras[1]);
-//			}else if (tipo_busqueda==3) {
-//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivos();
-//			}
-//			panelDatos.actualizarInterfaz(rta);
-//		}catch(Exception e) {
-//			e.printStackTrace();
-//			String resultado = generarMensajeError(e);
-//			panelDatos.actualizarInterfaz(resultado);
-//		}
-		
+		//		try {
+		//			String rta;
+		//			int tipo_busqueda = escogerTipoDeBusquedaFechaRangoFechasUHoras();
+		//			if(tipo_busqueda==0) {
+		//				Date fechaEspecifica = escogerFechaEspecifica();
+		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosFechaEspecifica (fechaEspecifica);
+		//			}else if (tipo_busqueda==1) {
+		//				Date[] rangoFechas = escogerRangoDeFechas();
+		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoFechas (rangoFechas[0], rangoFechas[1]);
+		//
+		//			}else if (tipo_busqueda==2) {
+		//				Integer[] rangoHoras = escogerRangoDeHoras();
+		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoHoras (rangoHoras[0], rangoHoras[1]);
+		//			}else if (tipo_busqueda==3) {
+		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivos();
+		//			}
+		//			panelDatos.actualizarInterfaz(rta);
+		//		}catch(Exception e) {
+		//			e.printStackTrace();
+		//			String resultado = generarMensajeError(e);
+		//			panelDatos.actualizarInterfaz(resultado);
+		//		}
+
 	}
 
-	//REQ13
+	//RFC3 PENDIENTE
 	public void mostrarIndiceDeVacunacionParaGrupoPoblacional() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION) || trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS) ) VerificadoMostrarIndiceDeVacunacionParaGrupoPoblacional();
@@ -943,17 +971,55 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 	private void VerificadoMostrarIndiceDeVacunacionParaGrupoPoblacional() {
-//		try {
-//			String region = escogerRegion();
-//			String rta = vacuandes.mostrarIndiceDeVacunacionParaGrupoPoblacional(region);
-//			panelDatos.actualizarInterfaz(rta);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			String resultado = generarMensajeError(e);
-//			panelDatos.actualizarInterfaz(resultado);
-//		}
-		
+		//		try {
+		//			String region = escogerRegion();
+		//			String rta = vacuandes.mostrarIndiceDeVacunacionParaGrupoPoblacional(region);
+		//			panelDatos.actualizarInterfaz(rta);
+		//		} catch (Exception e) {
+		//			e.printStackTrace();
+		//			String resultado = generarMensajeError(e);
+		//			panelDatos.actualizarInterfaz(resultado);
+		//		}
+
 	}
+
+	//RFC4 PENDIENTE BONO
+	public void mostrarPuntosVacunacionConDisponibilidadDosis() {
+
+	}
+
+	//RFC5 PENDIENTE BONO
+	public void mostrarProcesoVacunacionCiudadano() {
+
+	}
+	public void VerificadoMostrarProcesoVacunacionCiudadano() {
+
+	}
+
+	//RFC7 PEDIENTE
+	public void analizarOperacionVacuandes() {
+
+	}
+	private void VerificadoAnalizarOperacionVacuandes() {
+
+	}
+
+	//RFC8 PENDIENDE
+	public void analizarCohortesCiudadanosDadosCriteriosFlexibles() {
+
+	}
+	private void VerificadoAnalizarCohortesCiudadanosDadosCriteriosFlexibles() {
+
+	}
+
+	//RFC9 PENDIENTE
+	public void encontrarCiudadanosEnContacto() {
+
+	}
+	private void VerificadoEncontrarCiudadanosEnContacto() {
+
+	}
+
 
 
 	/* ****************************************************************
@@ -1065,6 +1131,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 
+
 	/* ****************************************************************
 	 * 			Métodos privados para la presentación de resultados y otras operaciones
 	 *****************************************************************/
@@ -1173,7 +1240,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	private Long escogerPuntoVacunacionPorRegion(String region) {
-		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeLaRegion(region);
+		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeLaRegionHabilitados(region);
 		System.out.println(planes.size());
 		String [] nombresDePlanes = new String [planes.size()];
 		for (int i = 0; i<planes.size(); i++) {
@@ -1188,7 +1255,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	private Long escogerPuntoVacunacion() {
-		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacion();
+		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionHabilitados();
 		String [] nombresDePlanes = new String [planes.size()];
 		for (int i = 0; i<planes.size(); i++) {
 			nombresDePlanes[i] = planes.get(i).getLocalizacion();
@@ -1202,6 +1269,50 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	private Long escogerPuntoVacunacionConNull() {
+		List <PuntoVacunacion> puntos = vacuandes.darTodosLosPuntosVacunacionHabilitados();
+		String [] nombresDePuntos = new String [puntos.size()+1];
+		nombresDePuntos[0] = "NO ESCOGER AUN";
+		for (int i = 0; i<puntos.size(); i++) {
+			nombresDePuntos[i+1] = puntos.get(i).getLocalizacion();
+		}
+		JComboBox optionList1 = new JComboBox(nombresDePuntos);
+		optionList1.setSelectedIndex(0);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		if(optionList1.getSelectedIndex()==0) return null;
+		return puntos.get(optionList1.getSelectedIndex()-1).getId_Punto_Vacunacion();
+	}
+
+	private Long escogerPuntoVacunacionPorRegionConDeshabilitados(String region) {
+		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeLaRegion(region);
+		System.out.println(planes.size());
+		String [] nombresDePlanes = new String [planes.size()];
+		for (int i = 0; i<planes.size(); i++) {
+			nombresDePlanes[i] = planes.get(i).getLocalizacion();
+		}
+		JComboBox optionList1 = new JComboBox(nombresDePlanes);
+		optionList1.setSelectedIndex(0);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado (mostrando solamente puntos de vacunacion en la region "+ region + ")", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+
+		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
+	}
+
+	private Long escogerPuntoVacunacionConDeshabilitados() {
+		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacion();
+		String [] nombresDePlanes = new String [planes.size()];
+		for (int i = 0; i<planes.size(); i++) {
+			nombresDePlanes[i] = planes.get(i).getLocalizacion();
+		}
+		JComboBox optionList1 = new JComboBox(nombresDePlanes);
+		optionList1.setSelectedIndex(0);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+
+		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
+	}
+
+	private Long escogerPuntoVacunacionConNullConDeshabilitados() {
 		List <PuntoVacunacion> puntos = vacuandes.darTodosLosPuntosVacunacion();
 		String [] nombresDePuntos = new String [puntos.size()+1];
 		nombresDePuntos[0] = "NO ESCOGER AUN";
