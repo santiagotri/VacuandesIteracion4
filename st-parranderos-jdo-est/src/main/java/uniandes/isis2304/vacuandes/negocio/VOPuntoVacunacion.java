@@ -5,6 +5,10 @@ public interface VOPuntoVacunacion {
 	/**
 	 * @return the idPuntoVacunacion
 	 */
+	public int getHabilitado();
+	/**
+	 * @return the idPuntoVacunacion
+	 */
 	public long getId_Punto_Vacunacion();
 	/**
 	 * @return the localizacion

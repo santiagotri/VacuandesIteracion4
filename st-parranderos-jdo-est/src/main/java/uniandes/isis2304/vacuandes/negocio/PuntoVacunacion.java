@@ -11,6 +11,7 @@ public class PuntoVacunacion implements VOPuntoVacunacion{
 	private String tipo_Punto_Vacunacion;
 	private String administrador;
 	private long oficina_regional_eps;
+	private int habilitado;
 	
 	
 	public PuntoVacunacion() {
@@ -24,6 +25,8 @@ public class PuntoVacunacion implements VOPuntoVacunacion{
 		this.tipo_Punto_Vacunacion = "";
 		this.administrador = "";
 		this.oficina_regional_eps = 0;
+		this.habilitado = 0;
+		
 	}
 
 
@@ -40,7 +43,7 @@ public class PuntoVacunacion implements VOPuntoVacunacion{
 	 */
 	public PuntoVacunacion(long id_Punto_Vacunacion, String localizacion, int capacidad_de_Atencion_Simultanea,
 			String infraestructura_Para_Dosis, int cantidad_Vacunas_Enviables, int cantidad_Vacunas_Actuales,
-			String tipo_Punto_Vacunacion, String administrador, long oficina_regional_eps) {
+			String tipo_Punto_Vacunacion, String administrador, long oficina_regional_eps, int habilitado) {
 		this.id_Punto_Vacunacion = id_Punto_Vacunacion;
 		this.localizacion = localizacion;
 		this.capacidad_de_Atencion_Simultanea = capacidad_de_Atencion_Simultanea;
@@ -50,9 +53,17 @@ public class PuntoVacunacion implements VOPuntoVacunacion{
 		this.tipo_Punto_Vacunacion = tipo_Punto_Vacunacion;
 		this.administrador = administrador;
 		this.oficina_regional_eps = oficina_regional_eps;
+		this.habilitado = habilitado;
 	}
 
 
+	/**
+	 * @return the id_Punto_Vacunacion
+	 */
+	public int getHabilitado() {
+		return habilitado;
+	}
+	
 	/**
 	 * @return the id_Punto_Vacunacion
 	 */
@@ -124,6 +135,12 @@ public class PuntoVacunacion implements VOPuntoVacunacion{
 		return oficina_regional_eps;
 	}
 
+	/**
+	 * @param id_Punto_Vacunacion the id_Punto_Vacunacion to set
+	 */
+	public void setHabilitado(int habilitado) {
+		this.habilitado = habilitado;
+	}
 
 	/**
 	 * @param id_Punto_Vacunacion the id_Punto_Vacunacion to set
