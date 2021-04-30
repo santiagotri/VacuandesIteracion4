@@ -1388,8 +1388,9 @@ public class PersistenciaVacuandes {
 	
 	//Metodo que sirve para deshabilitar un punto de vacunación, lo que hace es: Elimina las citas que estén en ese punto de vacunación después de la fecha actual, cambia todos los ciudadanos a otro punto de vacunación que entra por parámetro
 	// -1 si no se logró hacer, el id del punto si si sirvió
-	public long deshabilitarPuntoVacunacion(long punto_vacunacion)
+	public long deshabilitarPuntoVacunacion(long punto_vacunacion, long nuevo_punto)
 	{
+		long rta = punto_vacunacion; 
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
@@ -1401,11 +1402,18 @@ public class PersistenciaVacuandes {
             //Cambiamos a false el booleano de habilitado 
             tuplasInsertadas += sqlPuntoVacunacion.actualizarEstado(pm, punto_vacunacion, 0);	
             
+            //Todos los ciudadanos se les cambia el punto de vacunación por el nuevo asignado
+            tuplasInsertadas += sqlCiudadano.cambiarPuntosVacunacionCiudadanos(pm, punto_vacunacion, nuevo_punto);
+            
+            //Todas las citas que estaban con ese punto en una fecha mayor o igual a la actual se eliminan
+            tuplasInsertadas += sqlCita.eliminarCitaPorPuntoVacunacionDesdeFechaActual(pm, punto_vacunacion);
+            
             tx.commit();
             log.trace ("Se desahabilitó el punto de id: " + punto_vacunacion + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
         }
         catch (Exception e)
-        {
+        {	
+        	rta = -1; 
         	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
         }
@@ -1417,6 +1425,7 @@ public class PersistenciaVacuandes {
             }
             pm.close();
         }
+        return rta; 
         
 	}
 	

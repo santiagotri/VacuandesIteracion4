@@ -87,5 +87,11 @@ public class SQLCiudadano {
 		q.setParameters(punto_vacunacion);
 		return (List<Ciudadano>) q.executeUnique();
 	}
+
+	public long cambiarPuntosVacunacionCiudadanos(PersistenceManager pm, long punto_vacunacion, long nuevo_punto) {
+		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaCiudadano() + " SET punto_vacunacion= ? WHERE punto_vacunacion = ?");
+		q.setParameters(nuevo_punto , punto_vacunacion);
+		return (long) q.executeUnique();
+	}
 	
 }

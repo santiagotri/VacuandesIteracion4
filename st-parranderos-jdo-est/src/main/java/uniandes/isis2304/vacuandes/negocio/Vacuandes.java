@@ -295,6 +295,14 @@ public class Vacuandes {
 		return rta;
 	}
 	
+	public long deshabilitarPuntoVacunacion(long punto_vacunacion, long nuevo_punto)
+	{
+		log.info ("Deshabilitando el punto de vacunación indicado");
+		long rta = pp.deshabilitarPuntoVacunacion(punto_vacunacion, nuevo_punto);
+		log.info ("Se ha deshabilitado el punto de vacunación de id: " + punto_vacunacion);
+		return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/
