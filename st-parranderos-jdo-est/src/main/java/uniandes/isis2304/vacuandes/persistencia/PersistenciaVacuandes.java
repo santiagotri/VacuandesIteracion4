@@ -1327,6 +1327,99 @@ public class PersistenciaVacuandes {
 		return rta;
 	}
 	
+	//Dar todos los puntos de vacunación habilitados
+	public List<PuntoVacunacion> darTodosLosPuntosVacunacionHabilitados()
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	log.info ("Buscando todos los puntos de vacunación");
+            tx.begin();
+            List<PuntoVacunacion> lista = sqlPuntoVacunacion.darListPuntoVacunacionHabilitados(pm);
+            tx.commit();
+            
+            return lista;
+        }
+        catch (Exception e)
+        {
+        	// e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	//Dar todos los puntos de vacunación habilitados para una región especifica
+	public List<PuntoVacunacion> darTodosLosPuntosVacunacionDeLaRegionHabilitados(String region) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	log.info ("Buscando los puntos de vacunación que estén habilitados en la región " +  region +" en BD");
+            tx.begin();
+            List<PuntoVacunacion> lista = sqlPuntoVacunacion.darListPuntoVacunacionHabilitadosPorRegion(pm, region);
+            tx.commit();
+            
+            return lista;
+        }
+        catch (Exception e)
+        {
+        	// e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+	
+	//Metodo que sirve para deshabilitar un punto de vacunación, lo que hace es: Elimina las citas que estén en ese punto de vacunación después de la fecha actual, cambia todos los ciudadanos a otro punto de vacunación que entra por parámetro
+	// -1 si no se logró hacer, el id del punto si si sirvió
+	public long deshabilitarPuntoVacunacion(long punto_vacunacion)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+            tx.begin();
+            log.trace ("Deshabilitando el punto de vacunación de id: " + punto_vacunacion);
+            long tuplasInsertadas = 0; 
+            
+            //Cambiamos a false el booleano de habilitado 
+            tuplasInsertadas += sqlPuntoVacunacion.actualizarEstado(pm, punto_vacunacion, 0);	
+            
+            tx.commit();
+            log.trace ("Se desahabilitó el punto de id: " + punto_vacunacion + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
+        }
+        catch (Exception e)
+        {
+        	e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+        
+	}
+	
 	/**
 	public Cita buscarCita(Date fecha, long ciudadano) {
 		PersistenceManager pm = pmf.getPersistenceManager();

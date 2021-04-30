@@ -69,7 +69,7 @@ public class SQLPuntoVacunacion {
 	
 	public List<PuntoVacunacion> darListPuntoVacunacion(PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT id_Punto_Vacunacion,LOCALIZACION,CAPACIDAD_DE_ATENCION_SIMULTANEA,INFRAESTRUCTURA_PARA_DOSIS,CANTIDAD_VACUNAS_ENVIABLES,CANTIDAD_VACUNAS_ACTUALES,TIPO_PUNTO_VACUNACION,ADMINISTRADOR,OFICINA_REGIONAL_EPS FROM " + pp.darTablaPuntoVacunacion());
+		Query q = pm.newQuery(SQL, "SELECT id_Punto_Vacunacion,LOCALIZACION,CAPACIDAD_DE_ATENCION_SIMULTANEA,INFRAESTRUCTURA_PARA_DOSIS,CANTIDAD_VACUNAS_ENVIABLES,CANTIDAD_VACUNAS_ACTUALES,TIPO_PUNTO_VACUNACION,ADMINISTRADOR,OFICINA_REGIONAL_EPS, HABILITADO FROM " + pp.darTablaPuntoVacunacion());
 		q.setResultClass(PuntoVacunacion.class);
 		List<PuntoVacunacion> resp = q.executeList();
 		return resp;
@@ -97,6 +97,31 @@ public class SQLPuntoVacunacion {
 	public long disminuirVacunasDisponibles(PersistenceManager pm, long id_punto_vacunacion) {
 		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaPuntoVacunacion() + " SET CANTIDAD_VACUNAS_ACTUALES= CANTIDAD_VACUNAS_ACTUALES-1 WHERE id_punto_vacunacion = ?");
 		q.setParameters(id_punto_vacunacion);
+		return (long) q.executeUnique();
+	}
+
+	public List<PuntoVacunacion> darListPuntoVacunacionHabilitados(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT id_Punto_Vacunacion,LOCALIZACION,CAPACIDAD_DE_ATENCION_SIMULTANEA,INFRAESTRUCTURA_PARA_DOSIS,CANTIDAD_VACUNAS_ENVIABLES,CANTIDAD_VACUNAS_ACTUALES,TIPO_PUNTO_VACUNACION,ADMINISTRADOR,OFICINA_REGIONAL_EPS, HABILITADO FROM " + pp.darTablaPuntoVacunacion() + "WHERE HABILITADO = 1");
+		q.setResultClass(PuntoVacunacion.class);
+		List<PuntoVacunacion> resp = q.executeList();
+		return resp;
+	}
+	
+	public List<PuntoVacunacion> darListPuntoVacunacionHabilitadosPorRegion(PersistenceManager pm, String region) {
+		Query q = pm.newQuery(SQL, "\n"
+				+ "SELECT ID_PUNTO_VACUNACION, LOCALIZACION, CAPACIDAD_DE_ATENCION_SIMULTANEA, \n"
+				+ "INFRAESTRUCTURA_PARA_DOSIS, CANTIDAD_VACUNAS_ENVIABLES, punto.CANTIDAD_VACUNAS_ACTUALES, punto.TIPO_PUNTO_VACUNACION, punto.ADMINISTRADOR, OFICINA_REGIONAL_EPS \n"
+				+ "FROM PUNTO_VACUNACION punto INNER JOIN OFICINA_REGIONAL_EPS oficina ON punto.oficina_regional_eps = oficina.id_oficina \n"
+				+ "WHERE oficina.region = ? and punto.habilitado = 1");
+		q.setParameters(region);
+		q.setResultClass(PuntoVacunacion.class);
+		List<PuntoVacunacion> resp = q.executeList();
+		return resp;
+	}
+
+	public long actualizarEstado(PersistenceManager pm, long punto_vacunacion, int i) {
+		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaPuntoVacunacion() + " SET habilitado = ? WHERE ID_PUNTO_VACUNACION = ?");
+		q.setParameters(i, punto_vacunacion);
 		return (long) q.executeUnique();
 	}
 	
