@@ -618,7 +618,7 @@ public class PersistenciaVacuandes {
             tx.commit();
             log.info ("Inserción de la oficina en la region: " + region + ": " + tuplaInsertada + " tuplas insertadas");
             
-            return new OficinaRegionalEPS(tuplaInsertada,region,administrador, cantidad_vacunas_enviables,plan_de_vacunacion);
+            return new OficinaRegionalEPS(tuplaInsertada,region,administrador, cantidad_vacunas_actuales, plan_de_vacunacion, cantidad_vacunas_actuales);
         	
         }
         catch (Exception e)
@@ -1479,7 +1479,7 @@ public class PersistenciaVacuandes {
             OficinaRegionalEPS oficina = sqlOficinaRegionalEPS.darOficinaPorId(pm, oficina_regional_eps);
             
             //Verificamos que no exceda la capacidad de la oficina
-            if(oficina.getCapacidadActual() < cantidad_vacunas)
+            if(oficina.getCantidad_Vacunas_Enviables() < cantidad_vacunas || ((oficina.ge)))
             {
             	rta = -1; 
             	log.trace ("La eps regional de id: " + oficina_regional_eps + " no tiene suficiente capacidad para almacenar las vacunas");
