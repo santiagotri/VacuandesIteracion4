@@ -235,6 +235,14 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public long registrarLlegadaDeLoteDeVacunasEPS(long oficina_regional_eps, int cantidad_vacunas)
+	{
+		log.info ("Enviando lote de vacunas a oficina regional EPS de id: " + oficina_regional_eps);
+		long rta = pp.agregarVacunasEps(oficina_regional_eps, cantidad_vacunas);
+		log.info ("Se agregaron " + cantidad_vacunas + " a la eps de id " + oficina_regional_eps);
+		return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar PLAN_DE_VACUNACION
 	 *****************************************************************/
@@ -303,6 +311,21 @@ public class Vacuandes {
 		return rta;
 	}
 	
+	public long rehabilitarPuntoVacunacion(long punto_vacunacion)
+	{
+		log.info ("Rehabilitando el punto de vacunación indicado");
+		long rta = pp.rehabilitarPuntoVacunacion(punto_vacunacion);
+		log.info ("Se ha rehabilitado el punto de vacunación de id: " + punto_vacunacion);
+		return rta;
+	}
+	
+	public long registrarLlegadaDeLoteDeVacunasAPuntoVacunacion(long punto_vacunacion, int cantidad_vacunas)
+	{
+		log.info ("Enviando lote de vacunas a punto vacunacion de id: " + punto_vacunacion);
+		long rta = pp.agregarVacunasPuntoVacunacion(punto_vacunacion, cantidad_vacunas);
+		log.info ("Se agregaron " + cantidad_vacunas + " a la eps de id " + punto_vacunacion);
+		return rta;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/

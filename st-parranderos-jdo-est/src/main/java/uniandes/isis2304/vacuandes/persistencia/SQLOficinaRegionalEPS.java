@@ -75,7 +75,7 @@ public class SQLOficinaRegionalEPS {
 		return resp;
 	}
 	
-	private OficinaRegionalEPS darOficinaPorId(PersistenceManager pm, long id_oficina) 
+	public OficinaRegionalEPS darOficinaPorId(PersistenceManager pm, long id_oficina) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaOficinaRegionalEPS() + " WHERE id_oficina = ?");
 		q.setResultClass(OficinaRegionalEPS.class);
