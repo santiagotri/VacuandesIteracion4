@@ -40,10 +40,10 @@ public class SQLOficinaRegionalEPS {
 		this.pp = pp;
 	}
 
-	public long agregarOficinaRegional(PersistenceManager pm, String region, String administrador, int cantidad_vacunas_actuales, long plan_de_vacunacion)
+	public long agregarOficinaRegional(PersistenceManager pm, String region, String administrador, int cantidad_vacunas_enviables, int cantidad_vacunas_actuales, long plan_de_vacunacion)
 	{
-		Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaOficinaRegionalEPS() + "(region, administrador, cantidad_vacunas_actuales, plan_de_vacunacion) values (?, ?, ?, ?)" ); 
-		q.setParameters(region, administrador, cantidad_vacunas_actuales, plan_de_vacunacion); 
+		Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaOficinaRegionalEPS() + "(region, administrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion) values (?, ?, ?, ?, ?)" ); 
+		q.setParameters(region, administrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion); 
 		return (long) q.executeUnique();
 	}
 	
@@ -69,7 +69,7 @@ public class SQLOficinaRegionalEPS {
 	
 	public List<OficinaRegionalEPS> darListOficinaRegional(PersistenceManager pm)
 	{
-		Query q = pm.newQuery(SQL, "SELECT ID_OFICINA, REGION, ADMINISTRADOR, CANTIDAD_VACUNAS_ACTUALES, PLAN_DE_VACUNACION FROM " + pp.darTablaOficinaRegionalEPS());
+		Query q = pm.newQuery(SQL, "SELECT ID_OFICINA, REGION, ADMINISTRADOR, cantidad_vacunas_enviables, CANTIDAD_VACUNAS_ACTUALES, PLAN_DE_VACUNACION FROM " + pp.darTablaOficinaRegionalEPS());
 		q.setResultClass(OficinaRegionalEPS.class);
 		List<OficinaRegionalEPS> resp = q.executeList();
 		return resp;

@@ -606,7 +606,7 @@ public class PersistenciaVacuandes {
 	}
 
 
-	public OficinaRegionalEPS adicionarOficinaRegional(String region, String administrador,
+	public OficinaRegionalEPS adicionarOficinaRegional(String region, String administrador, int cantidad_vacunas_enviables, 
 		int cantidad_vacunas_actuales, long plan_de_vacunacion) {
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
@@ -614,11 +614,11 @@ public class PersistenciaVacuandes {
         {
         	log.info ("Agregando oficina regional en la region " + region);
             tx.begin();
-            long tuplaInsertada = sqlOficinaRegionalEPS.agregarOficinaRegional(pm, region, administrador, cantidad_vacunas_actuales, plan_de_vacunacion);
+            long tuplaInsertada = sqlOficinaRegionalEPS.agregarOficinaRegional(pm, region, administrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion);
             tx.commit();
             log.info ("Inserción de la oficina en la region: " + region + ": " + tuplaInsertada + " tuplas insertadas");
             
-            return new OficinaRegionalEPS(tuplaInsertada,region,administrador, 0 ,plan_de_vacunacion);
+            return new OficinaRegionalEPS(tuplaInsertada,region,administrador, cantidad_vacunas_enviables,plan_de_vacunacion);
         	
         }
         catch (Exception e)
