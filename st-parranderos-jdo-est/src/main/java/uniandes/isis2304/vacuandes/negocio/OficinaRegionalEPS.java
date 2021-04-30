@@ -7,11 +7,14 @@ public class OficinaRegionalEPS implements VOOficinaRegionalEPS{
 	private String administrador;
 	private int cantidad_Vacunas_Actuales;
 	private long plan_De_Vacunacion;
+	private int cantidad_Vacunas_Enviables;
+	
 	public OficinaRegionalEPS() {
 		this.id_oficina = 0;
 		this.region = "";
 		this.administrador =  "";
 		this.cantidad_Vacunas_Actuales = 0;
+		this.cantidad_Vacunas_Enviables = 0;
 		this.plan_De_Vacunacion = 0;
 	}
 	/**
@@ -22,13 +25,22 @@ public class OficinaRegionalEPS implements VOOficinaRegionalEPS{
 	 * @param plan_De_Vacunacion
 	 */
 	public OficinaRegionalEPS(long id_oficina, String region, String administrador, int cantidad_Vacunas_Actuales,
-			long plan_De_Vacunacion) {
+			long plan_De_Vacunacion, int cantidad_Vacunas_Enviables) {
 		this.id_oficina = id_oficina;
 		this.region = region;
 		this.administrador = administrador;
 		this.cantidad_Vacunas_Actuales = cantidad_Vacunas_Actuales;
 		this.plan_De_Vacunacion = plan_De_Vacunacion;
+		this.cantidad_Vacunas_Enviables = cantidad_Vacunas_Enviables;
+		
 	}
+	/**
+	 * @return the cantidad_Vacunas_Enviables
+	 */
+	public int getCantidad_Vacunas_Enviables() {
+		return cantidad_Vacunas_Enviables;
+	}
+
 	/**
 	 * @return the id_oficina
 	 */
@@ -88,6 +100,12 @@ public class OficinaRegionalEPS implements VOOficinaRegionalEPS{
 	 */
 	public void setPlan_De_Vacunacion(long plan_De_Vacunacion) {
 		this.plan_De_Vacunacion = plan_De_Vacunacion;
+	}
+	/**
+	 * @param cantidad_Vacunas_Enviables the cantidad_Vacunas_Enviables to set
+	 */
+	public void setCantidad_Vacunas_Enviables(int cantidad_Vacunas_Enviables) {
+		this.cantidad_Vacunas_Enviables = cantidad_Vacunas_Enviables;
 	}
 	@Override
 	public String toString() {

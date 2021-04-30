@@ -22,4 +22,8 @@ public interface VOOficinaRegionalEPS {
 	 * @return the plan_De_Vacunacion
 	 */
 	public long getPlan_De_Vacunacion();
+	/**
+	 * @return the plan_De_Vacunacion
+	 */
+	public int getCantidad_Vacunas_Enviables();
 }
