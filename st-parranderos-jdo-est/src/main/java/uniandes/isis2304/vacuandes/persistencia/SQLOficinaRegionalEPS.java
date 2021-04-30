@@ -89,5 +89,11 @@ public class SQLOficinaRegionalEPS {
 		return (long) q.executeUnique();
 	}
 
+	public long agregarVacunasAOficina(PersistenceManager pm, long oficina_regional_eps, int cantidad_vacunas) {
+		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaOficinaRegionalEPS() + " SET CANTIDAD_VACUNAS_ACTUALES= CANTIDAD_VACUNAS_ACTUALES + ? WHERE id_oficina = ?");
+		q.setParameters(cantidad_vacunas, oficina_regional_eps);
+		return (long) q.executeUnique();
+	}
+
 	
 }

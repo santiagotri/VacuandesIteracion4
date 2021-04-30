@@ -38,7 +38,7 @@ public class SQLVacuna {
 		this.pp = pp;
 	}
 
-	public long adicionarVacuna(PersistenceManager pm, String condicion_preservacion, long punto_vacunacion, long plan_de_vacunacion, long oficina_regional, boolean esta_utilizada)
+	public long adicionarVacuna(PersistenceManager pm, String condicion_preservacion, Long punto_vacunacion, Long plan_de_vacunacion, Long oficina_regional, boolean esta_utilizada)
 	{
 		int utilizada; 
 		if(esta_utilizada) {utilizada=1;}else {utilizada= 0;}

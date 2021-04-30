@@ -1465,32 +1465,34 @@ public class PersistenciaVacuandes {
 	}
 
 	//Agrega las vacunas a la eps regional solamente, las vacunas solo se crean en la tabla vacunas cuando se agregan al punto de vacunación
-	public long agregarVacunasEps(long oficina_regional_eps, int cantidad_vacunas) {
-		long rta = oficina_regional_eps; 
+	public long agregarVacunasEps(OficinaRegionalEPS oficinaRegionalEPS, int cantidad_vacunas, String condiciones_de_preservacion) {
+		long rta = oficinaRegionalEPS.getId_oficina(); 
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
             tx.begin();
-            log.trace ("Agregando lote de vacunas a la eps regional de id: " + oficina_regional_eps);
+            log.trace ("Agregando lote de vacunas a la eps regional de id: " + oficinaRegionalEPS.getId_oficina());
             long tuplasInsertadas = 0; 
             
-            //Retornamos la eps actual
-            OficinaRegionalEPS oficina = sqlOficinaRegionalEPS.darOficinaPorId(pm, oficina_regional_eps);
-            
             //Verificamos que no exceda la capacidad de la oficina
-            if(oficina.getCantidad_Vacunas_Enviables() < cantidad_vacunas || ((oficina.ge)))
+            if(oficinaRegionalEPS.getCantidad_Vacunas_Enviables() < cantidad_vacunas || ((oficinaRegionalEPS.getCantidad_Vacunas_Actuales()+ cantidad_vacunas)< oficinaRegionalEPS.getCantidad_Vacunas_Enviables()))
             {
             	rta = -1; 
-            	log.trace ("La eps regional de id: " + oficina_regional_eps + " no tiene suficiente capacidad para almacenar las vacunas");
+            	log.trace ("La eps regional de id: " + oficinaRegionalEPS.getId_oficina() + " no tiene suficiente capacidad para almacenar las vacunas");
             }
             else
             {
-            	tuplasInsertadas+= sqlOficinaRegionalEPS.agregarVacunasAOficina(pm, oficina_regional_eps, cantidad_vacunas); 
+            	//Se necesita la información de las vacunas que van a llegar
+            	tuplasInsertadas+= sqlOficinaRegionalEPS.agregarVacunasAOficina(pm, oficinaRegionalEPS.getId_oficina(), cantidad_vacunas); 
+            	for (int i = 0; i < cantidad_vacunas; i++) 
+            	{
+					tuplasInsertadas += sqlVacuna.adicionarVacuna(pm, condiciones_de_preservacion, null, oficinaRegionalEPS.getPlan_De_Vacunacion(), oficinaRegionalEPS.getId_oficina(), false);
+				}
             }
             
             tx.commit();
-            log.trace ("Se agregaron las vacunas a la eps de id: " + oficina_regional_eps + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
+            log.trace ("Se agregaron las vacunas a la eps de id: " + oficinaRegionalEPS.getId_oficina() + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
         }
         catch (Exception e)
         {	
@@ -1511,8 +1513,8 @@ public class PersistenciaVacuandes {
 	}
 
 	//Agrega las vacunas al punto de vacunación y luego las crea en la tabla de vacunas
-	public long agregarVacunasPuntoVacunacion(long punto_vacunacion, int cantidad_vacunas) {
-		long rta = punto_vacunacion; 
+	public long agregarVacunasPuntoVacunacion(PuntoVacunacion punto_vacunacion, int cantidad_vacunas) {
+		long rta = punto_vacunacion.getId_Punto_Vacunacion(); 
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
@@ -1521,28 +1523,18 @@ public class PersistenciaVacuandes {
             log.trace ("Agregando lote de vacunas a punto de vacunacion de id: " + punto_vacunacion);
             long tuplasInsertadas = 0; 
             
-            //Retornamos el punto de vacunación actual
-            PuntoVacunacion puntoVacunacion = sqlPuntoVacunacion.darPuntoPorId(pm, punto_vacunacion);
-            
             //Verificamos que no exceda las vacunas enviables y también que si se envían, la capacidad sea suficiente para guardar las actuales y las que llegarían
-            if(puntoVacunacion.getCantidad_Vacunas_Enviables() < cantidad_vacunas || ((puntoVacunacion.getCantidad_Vacunas_Actuales() + cantidad_vacunas) < puntoVacunacion.getCantidad_Vacunas_Enviables()))
+            if(punto_vacunacion.getCantidad_Vacunas_Enviables() < cantidad_vacunas || ((punto_vacunacion.getCantidad_Vacunas_Actuales() + cantidad_vacunas) < punto_vacunacion.getCantidad_Vacunas_Enviables()))
             {
             	rta = -1; 
             	log.trace ("El punto de vacunación de id: " + punto_vacunacion + " no tiene suficiente capacidad para almacenar las vacunas");
             }
             else
             {
-            	//Se necesita la información de las vacunas que van a llegar
-            	tuplasInsertadas+= sqlPuntoVacunacion.adicionarVacunasAPuntoVacunacion(pm, punto_vacunacion, cantidad_vacunas); 
-            	
-            	for (int i = 0; i < cantidad_vacunas; i++) 
-            	{
-					tuplasInsertadas += sqlVacuna.adicionarVacuna(pm, SQL, punto_vacunacion, punto_vacunacion, i, false);
-				}
+            	tuplasInsertadas += sqlPuntoVacunacion.adicionarVacunasAPunto(pm, punto_vacunacion.getId_Punto_Vacunacion(), cantidad_vacunas); 
             }
-            
             tx.commit();
-            log.trace ("Se agregaron las vacunas a la eps de id: " + oficina_regional_eps + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
+            log.trace ("Se agregaron las vacunas al punto de id: " + punto_vacunacion.getId_Punto_Vacunacion() + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
         }
         catch (Exception e)
         {	

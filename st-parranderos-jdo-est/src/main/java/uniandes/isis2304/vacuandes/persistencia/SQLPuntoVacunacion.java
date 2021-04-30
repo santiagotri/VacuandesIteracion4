@@ -124,5 +124,11 @@ public class SQLPuntoVacunacion {
 		q.setParameters(i, punto_vacunacion);
 		return (long) q.executeUnique();
 	}
+
+	public long adicionarVacunasAPunto(PersistenceManager pm, long id_Punto_Vacunacion, int cantidad_vacunas) {
+		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaPuntoVacunacion() + " SET CANTIDAD_VACUNAS_ACTUALES= CANTIDAD_VACUNAS_ACTUALES + ? WHERE id_punto_vacunacion = ?");
+		q.setParameters(cantidad_vacunas, id_Punto_Vacunacion);
+		return (long) q.executeUnique();
+	}
 	
 }
