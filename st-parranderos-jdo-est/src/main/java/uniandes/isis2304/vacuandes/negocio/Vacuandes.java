@@ -281,6 +281,20 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public List<PuntoVacunacion> darTodosLosPuntosVacunacionHabilitados() {
+		log.info ("Buscando los puntos de vacunación habilitados");
+		List<PuntoVacunacion> rta = pp.darTodosLosPuntosVacunacionHabilitados();
+		log.info ("Se han encontrado: " + rta.size() +" puntos vacunacion de que están habilitados");
+		return rta;
+	}
+	
+	public List<PuntoVacunacion> darTodosLosPuntosVacunacionDeLaRegionHabilitados(String region) {
+		log.info ("Buscando los puntos de vacunación habilitados para la región: " + region);
+		List<PuntoVacunacion> rta = pp.darTodosLosPuntosVacunacionDeLaRegionHabilitados(region);
+		log.info ("Se han encontrado: " + rta.size() +" puntos vacunacion de la region " + region + " que están habilitados");
+		return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/
@@ -393,5 +407,4 @@ public class Vacuandes {
         log.info ("Limpiando la BD de Parranderos: Listo!");
 	}
 	
-
 }
