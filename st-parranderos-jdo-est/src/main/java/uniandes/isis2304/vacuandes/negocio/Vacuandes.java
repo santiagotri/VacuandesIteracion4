@@ -221,9 +221,9 @@ public class Vacuandes {
 	 * 			Métodos para manejar OFICINA_REGIONAL_EPS
 	 *****************************************************************/
 	
-	public OficinaRegionalEPS agregarOficinaRegional(String region, String adminstrador, int cantidad_vacunas_actuales, long plan_de_vacunacion) {
+	public OficinaRegionalEPS agregarOficinaRegional(String region, String adminstrador, int cantidad_vacunas_enviables, int cantidad_vacunas_actuales, long plan_de_vacunacion) {
 		log.info ("Registrando una nueva oficina regional");
-		OficinaRegionalEPS rta = pp.adicionarOficinaRegional(region, adminstrador,cantidad_vacunas_actuales, plan_de_vacunacion);
+		OficinaRegionalEPS rta = pp.adicionarOficinaRegional(region, adminstrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion);
         log.info ("Se creo la oficina en la region: " + region +" con el administrador: " + adminstrador);
         return rta;
 	}
