@@ -12,7 +12,7 @@ public interface VOVacuna {
 	/**
 	 * @return the puntoVacunacion
 	 */
-	public long getPunto_Vacunacion();
+	public Long getPunto_Vacunacion();
 	/**
 	 * @return the planDeVacunacion
 	 */

@@ -4,7 +4,7 @@ public class Vacuna implements VOVacuna {
 
 	private long id_Vacuna;
 	private String condicion_Preservacion;
-	private long punto_Vacunacion;
+	private Long punto_Vacunacion;
 	private long plan_De_Vacunacion;
 	private long oficina_Regional;
 	private int utilizada;
@@ -21,13 +21,13 @@ public class Vacuna implements VOVacuna {
 	public Vacuna() {
 		this.id_Vacuna = 0;
 		this.condicion_Preservacion = "";
-		this.punto_Vacunacion = 0;
+		this.punto_Vacunacion = null;
 		this.plan_De_Vacunacion = 0;
 		this.oficina_Regional = 0;
 		this.utilizada = 0;
 	}
 	
-	public Vacuna(long id_Vacuna, String condicion_Preservacion, long punto_Vacunacion, long plan_De_Vacunacion,
+	public Vacuna(long id_Vacuna, String condicion_Preservacion, Long punto_Vacunacion, long plan_De_Vacunacion,
 			long oficina_Regional, int utilizada) {
 		this.id_Vacuna = id_Vacuna;
 		this.condicion_Preservacion = condicion_Preservacion;
@@ -51,7 +51,7 @@ public class Vacuna implements VOVacuna {
 	/**
 	 * @return the punto_Vacunacion
 	 */
-	public long getPunto_Vacunacion() {
+	public Long getPunto_Vacunacion() {
 		return punto_Vacunacion;
 	}
 	/**
@@ -86,7 +86,7 @@ public class Vacuna implements VOVacuna {
 	/**
 	 * @param punto_Vacunacion the punto_Vacunacion to set
 	 */
-	public void setPunto_Vacunacion(long punto_Vacunacion) {
+	public void setPunto_Vacunacion(Long punto_Vacunacion) {
 		this.punto_Vacunacion = punto_Vacunacion;
 	}
 	/**

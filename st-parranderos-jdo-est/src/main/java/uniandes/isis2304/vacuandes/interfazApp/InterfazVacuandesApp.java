@@ -396,6 +396,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(this, "Ingrese los datos de la oficina regional EPS que desea registrar", "Ingrese datos oficina", JOptionPane.QUESTION_MESSAGE);
 			String region = JOptionPane.showInputDialog (this, "Region de la oficina", "Adicionar oficina", JOptionPane.QUESTION_MESSAGE);
 			String usernameAdministrador = JOptionPane.showInputDialog (this, "Username del administrador de la oficina", "Adicionar oficina", JOptionPane.QUESTION_MESSAGE);
+			String cantidadVacunasEnviables = mostrarMensajeIntroducirTexto("Cantidad vacunas enviables", "Ingrese la cantidad de vacunas que puede tener esta oficina regional a la vez");
 			Long plan_de_vacunacion = escogerPlanDeVacunacion();
 			Usuario usuarioAdministrador = vacuandes.darUsuarioPorUsername(usernameAdministrador);
 			Trabajador trabajadorAdministrador = null;
@@ -415,7 +416,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				resultado = "-- El trabajador no tenia el cargo indicado para ser administrador de la oficina --";
 				resultado += "\n Operación terminada";
 			}else {
-				OficinaRegionalEPS nueva = vacuandes.agregarOficinaRegional(region, usernameAdministrador,, 0, plan_de_vacunacion);
+				OficinaRegionalEPS nueva = vacuandes.agregarOficinaRegional(region, usernameAdministrador,Integer.parseInt(cantidadVacunasEnviables), 0, plan_de_vacunacion);
 				resultado = "-- Se ha añadido una oficina regional --";
 				resultado += "\n - Region: " + nueva.getRegion();
 				resultado += "\n - Administrador: " + nueva.getAdministrador();
