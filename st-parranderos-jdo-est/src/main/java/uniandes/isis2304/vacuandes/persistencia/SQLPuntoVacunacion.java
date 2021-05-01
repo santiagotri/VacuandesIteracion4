@@ -107,6 +107,13 @@ public class SQLPuntoVacunacion {
 		return resp;
 	}
 	
+	public List<PuntoVacunacion> darListPuntoVacunacionDeshabilitados(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT id_Punto_Vacunacion,LOCALIZACION,CAPACIDAD_DE_ATENCION_SIMULTANEA,INFRAESTRUCTURA_PARA_DOSIS,CANTIDAD_VACUNAS_ENVIABLES,CANTIDAD_VACUNAS_ACTUALES,TIPO_PUNTO_VACUNACION,ADMINISTRADOR,OFICINA_REGIONAL_EPS, HABILITADO FROM " + pp.darTablaPuntoVacunacion() + "WHERE HABILITADO = 0");
+		q.setResultClass(PuntoVacunacion.class);
+		List<PuntoVacunacion> resp = q.executeList();
+		return resp;
+	}
+	
 	public List<PuntoVacunacion> darListPuntoVacunacionHabilitadosPorRegion(PersistenceManager pm, String region) {
 		Query q = pm.newQuery(SQL, "\n"
 				+ "SELECT ID_PUNTO_VACUNACION, LOCALIZACION, CAPACIDAD_DE_ATENCION_SIMULTANEA, \n"
@@ -130,5 +137,6 @@ public class SQLPuntoVacunacion {
 		q.setParameters(cantidad_vacunas, id_Punto_Vacunacion);
 		return (long) q.executeUnique();
 	}
+
 	
 }

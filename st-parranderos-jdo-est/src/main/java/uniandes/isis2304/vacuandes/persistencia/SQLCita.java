@@ -83,13 +83,11 @@ public class SQLCita {
 		return lista.size();
 	}
 	
-	public List<Cita> darCiudadanosPuntoVacunacion(PersistenceManager pm, long punto_vacunacion)
+	public List<Long> darCiudadanosPuntoVacunacion(PersistenceManager pm, long punto_vacunacion)
 	{
-		Query q = pm.newQuery(SQL, "SELECT CIUDADANO,FECHA, HORA_CITA,PUNTO_VACUNACION,VACUNA FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion+"");
-		System.out.println(punto_vacunacion);
-		
+		Query q = pm.newQuery(SQL, "SELECT CIUDADANO FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion);
 		q.setResultClass(Cita.class);
-		return (List<Cita>) q.execute();
+		return (List<Long>) q.execute();
 	}
 	
 	public List<Cita> darCiudadanosPuntoVacunacionYFecha(PersistenceManager pm, long punto_vacunacion, Date fecha)

@@ -304,6 +304,13 @@ public class Vacuandes {
 		return rta;
 	}
 	
+	public List<PuntoVacunacion> darTodosLosPuntosVacunacionDeshabilitados() {
+		log.info ("Buscando los puntos de vacunación deshabilitados");
+		List<PuntoVacunacion> rta = pp.darTodosLosPuntosVacunacionDeshabilitados();
+		log.info ("Se han encontrado: " + rta.size() +" puntos vacunacion de que están deshabilitados");
+		return rta;
+	}
+	
 	public List<PuntoVacunacion> darTodosLosPuntosVacunacionDeLaRegionHabilitados(String region) {
 		log.info ("Buscando los puntos de vacunación habilitados para la región: " + region);
 		List<PuntoVacunacion> rta = pp.darTodosLosPuntosVacunacionDeLaRegionHabilitados(region);
@@ -419,6 +426,11 @@ public class Vacuandes {
 		
 		return rta;
 	}
+	
+	/* ****************************************************************
+	 * 			Métodos para manejar Consultas
+	 *****************************************************************/
+	
 	
 
 	/* ****************************************************************

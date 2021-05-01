@@ -1283,12 +1283,11 @@ public class PersistenciaVacuandes {
         	String rta = ""; 
         	log.info ("Buscando ciudadanos en el punto: " +  punto_vacunacion );
             tx.begin();
-            List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacion(pm, punto_vacunacion);
+            List<Long> lista = sqlCita.darCiudadanosPuntoVacunacion(pm, punto_vacunacion);
             for(int i =0; i < lista.size(); i++)
             {
-            	Cita act = lista.get(i);
-            	Ciudadano ciudadano = sqlCiudadano.darCiudadanoPorCedula(pm, act.getCiudadano());
-            	rta += "\n-" + ciudadano.toString(); 
+            	Ciudadano ciudadanoAct = sqlCiudadano.darCiudadanoPorCedula(pm, lista.get(i)); 
+            	rta = rta + ciudadanoAct.toString() + "\n"; 
             }
             tx.commit();
             
@@ -1356,6 +1355,36 @@ public class PersistenciaVacuandes {
             pm.close();
         }
 	}
+	
+	
+	public List<PuntoVacunacion> darTodosLosPuntosVacunacionDeshabilitados() {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	log.info ("Buscando todos los puntos de vacunación");
+            tx.begin();
+            List<PuntoVacunacion> lista = sqlPuntoVacunacion.darListPuntoVacunacionDeshabilitados(pm);
+            tx.commit();
+            
+            return lista;
+        }
+        catch (Exception e)
+        {
+        	// e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return null;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
 	
 	//Dar todos los puntos de vacunación habilitados para una región especifica
 	public List<PuntoVacunacion> darTodosLosPuntosVacunacionDeLaRegionHabilitados(String region) {
@@ -1583,6 +1612,8 @@ public class PersistenciaVacuandes {
             pm.close();
         }
 	}
+
+
 
 	
 	/**
