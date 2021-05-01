@@ -121,7 +121,7 @@ public class SQLCita {
 	}
 
 	public long eliminarCitaPorPuntoVacunacionDesdeFechaActual(PersistenceManager pm, long punto_vacunacion) {
-		Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = ? AND FECHA = (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual)");
+		Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = ? AND FECHA >= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual)");
         q.setParameters(punto_vacunacion);
         return (long) q.executeUnique();
 	}
