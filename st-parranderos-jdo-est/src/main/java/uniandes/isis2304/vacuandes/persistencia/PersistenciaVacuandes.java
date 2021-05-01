@@ -1044,7 +1044,7 @@ public class PersistenciaVacuandes {
 	}
 
 
-	public String darCiudadanosPuntoVacunacionPorFechaEspecifica(long punto_vacunacion, Date fecha_especifica) {
+	public String darCiudadanosPuntoVacunacionPorFechaEspecifica(long punto_vacunacion, String fecha_especifica) {
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
@@ -1056,8 +1056,7 @@ public class PersistenciaVacuandes {
             for(int i =0; i < lista.size(); i++)
             {
             	Cita act = lista.get(i);
-            	Ciudadano ciudadano = sqlCiudadano.darCiudadanoPorCedula(pm, act.getCiudadano());
-            	rta += "\n-" + ciudadano.toString(); 
+            	rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita(); 
             }
             tx.commit();
             

@@ -90,7 +90,7 @@ public class SQLCita {
 		return (List<Cita>) q.executeList();
 	}
 	
-	public List<Cita> darCiudadanosPuntoVacunacionYFecha(PersistenceManager pm, long punto_vacunacion, Date fecha)
+	public List<Cita> darCiudadanosPuntoVacunacionYFecha(PersistenceManager pm, long punto_vacunacion, String fecha)
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha= ?");
 		q.setResultClass(Cita.class);
