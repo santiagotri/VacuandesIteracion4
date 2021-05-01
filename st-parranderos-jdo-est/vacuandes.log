@@ -4589,3 +4589,282 @@ ORA-00918: columna definida de forma ambigua
 19:00:45,288 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
 19:00:45,493 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
 19:00:45,493 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 1001168160
+19:50:45,724 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:50:45,725 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:50:45,793 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:51:02,028 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+19:51:02,061 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+19:51:02,480 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+19:51:02,482 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+19:51:02,482 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+19:51:02,483 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+19:51:02,588 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+19:51:02,588 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+19:51:17,106 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados
+19:51:17,107 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+19:51:17,213 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 puntos vacunacion de que están habilitados
+19:51:29,386 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+19:51:29,387 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+19:51:29,459 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+19:51:29,460 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=5, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+19:51:29,460 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+19:51:29,460 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+19:51:29,526 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+19:51:34,374 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Andina
+19:51:34,375 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Andina en BD
+19:51:34,458 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 puntos vacunacion de la region Andina que están habilitados
+19:51:42,634 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+19:51:42,635 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+19:51:42,707 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+19:51:42,707 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=9, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+19:51:42,707 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Deshabilitando el punto de vacunación indicado
+19:51:42,830 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha deshabilitado el punto de vacunación de id: 1
+19:53:29,505 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:53:29,517 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:53:30,347 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:53:42,186 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:53:42,188 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:53:42,261 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:54:06,250 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+19:54:06,275 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+19:54:06,631 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+19:54:06,632 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+19:54:06,632 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+19:54:06,633 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+19:54:06,690 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+19:54:06,690 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+19:54:10,946 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados
+19:54:10,947 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+19:54:11,021 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 puntos vacunacion de que están habilitados
+19:54:40,669 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+19:54:40,670 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+19:54:40,729 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+19:54:40,729 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=9, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+19:54:40,729 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+19:54:40,730 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+19:54:40,806 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+19:54:41,996 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Andina
+19:54:41,997 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Andina en BD
+19:54:42,082 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 puntos vacunacion de la region Andina que están habilitados
+19:55:54,746 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:55:54,749 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:55:54,852 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:56:07,478 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+19:56:07,506 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+19:56:07,833 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+19:56:07,834 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+19:56:07,834 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+19:56:07,834 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+19:56:07,894 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+19:56:07,894 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+19:56:11,669 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados
+19:56:11,672 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+19:56:11,753 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 puntos vacunacion de que están habilitados
+19:56:32,786 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+19:56:32,787 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+19:56:32,848 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+19:56:32,849 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+19:56:32,849 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+19:56:32,850 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+19:56:32,900 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+19:56:35,555 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Andina
+19:56:35,555 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Andina en BD
+19:56:35,634 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 puntos vacunacion de la region Andina que están habilitados
+19:56:43,159 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+19:56:43,160 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+19:56:43,234 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+19:56:43,234 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+19:56:43,234 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Deshabilitando el punto de vacunación indicado
+19:56:43,348 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha deshabilitado el punto de vacunación de id: 1
+20:04:15,357 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:04:15,359 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:04:15,424 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:04:30,569 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+20:04:30,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+20:04:31,113 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+20:04:31,115 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:04:31,115 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+20:04:31,116 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+20:04:31,180 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+20:04:31,180 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:04:42,871 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+20:04:42,872 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+20:04:42,946 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+20:04:42,946 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:04:42,946 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+20:04:42,947 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+20:04:42,998 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+20:04:42,998 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:04:48,701 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados
+20:04:48,702 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:04:48,801 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 puntos vacunacion de que están habilitados
+20:05:36,031 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+20:05:36,032 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+20:05:36,102 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+20:05:36,102 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+20:05:36,103 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+20:05:36,104 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+20:05:36,186 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+20:05:36,907 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Andina
+20:05:36,908 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Andina en BD
+20:05:36,976 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 puntos vacunacion de la region Andina que están habilitados
+20:05:41,116 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+20:05:41,117 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+20:05:41,187 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+20:05:41,187 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+20:05:41,187 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Deshabilitando el punto de vacunación indicado
+20:05:41,317 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha deshabilitado el punto de vacunación de id: 1
+20:08:43,387 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:08:43,390 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:08:43,513 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:08:56,857 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+20:08:56,915 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+20:08:57,327 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+20:08:57,328 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:08:57,328 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+20:08:57,329 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+20:08:57,393 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+20:08:57,394 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:09:05,293 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación deshabilitados
+20:09:05,294 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:09:05,371 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 puntos vacunacion de que están deshabilitados
+20:09:09,670 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+20:09:09,671 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+20:09:09,758 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+20:09:09,758 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+20:09:09,758 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Rehabilitando el punto de vacunación indicado
+20:09:09,857 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha rehabilitado el punto de vacunación de id: 0
+20:12:19,038 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:12:19,040 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:12:19,120 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:12:32,796 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+20:12:32,830 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+20:12:33,216 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+20:12:33,217 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:12:33,217 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+20:12:33,218 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+20:12:33,296 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+20:12:33,296 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:12:37,589 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación deshabilitados
+20:12:37,590 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:12:37,933 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 puntos vacunacion de que están deshabilitados
+20:12:39,667 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+20:12:39,668 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+20:12:39,733 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+20:12:39,734 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+20:12:39,734 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Rehabilitando el punto de vacunación indicado
+20:12:39,794 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha rehabilitado el punto de vacunación de id: 0
+20:19:07,762 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:19:07,764 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:19:07,837 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:19:23,541 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+20:19:23,566 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+20:19:24,002 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+20:19:24,004 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:19:24,004 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+20:19:24,006 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+20:19:24,088 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+20:19:24,088 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:19:33,629 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+20:19:33,630 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+20:19:33,687 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+20:19:33,687 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:19:33,688 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+20:19:33,688 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+20:19:33,775 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+20:19:33,775 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:19:39,632 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación deshabilitados
+20:19:39,633 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:19:39,719 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 puntos vacunacion de que están deshabilitados
+20:19:42,901 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+20:19:42,902 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+20:19:43,021 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+20:19:43,022 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+20:19:43,022 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Rehabilitando el punto de vacunación indicado (id:0)
+20:19:43,113 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha rehabilitado el punto de vacunación de id: 0
+20:20:25,475 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:20:25,478 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:20:25,587 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:20:44,083 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+20:20:44,115 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+20:20:44,454 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+20:20:44,454 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:20:44,454 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+20:20:44,455 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+20:20:44,512 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+20:20:44,512 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:20:49,506 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación deshabilitados
+20:20:49,508 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:20:49,580 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 puntos vacunacion de que están deshabilitados
+20:20:52,425 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+20:20:52,425 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+20:20:52,495 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+20:20:52,495 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+20:20:52,496 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Rehabilitando el punto de vacunación indicado (id:1)
+20:20:52,554 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha rehabilitado el punto de vacunación de id: 1
+20:21:16,472 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación deshabilitados
+20:21:16,473 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:21:16,527 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 0 puntos vacunacion de que están deshabilitados
+20:21:54,975 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación deshabilitados
+20:21:54,976 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:21:55,067 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 puntos vacunacion de que están deshabilitados
+20:22:01,526 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+20:22:01,529 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+20:22:01,591 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+20:22:01,592 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+20:22:01,592 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Rehabilitando el punto de vacunación indicado (id:2)
+20:22:01,665 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha rehabilitado el punto de vacunación de id: 2
+20:22:47,367 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168160
+20:22:47,368 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168160
+20:22:47,447 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+20:22:47,447 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+20:22:47,447 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+20:22:47,448 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+20:22:47,521 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+20:22:47,521 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+20:22:48,771 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Andina
+20:22:48,772 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Andina en BD
+20:22:48,856 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 0 puntos vacunacion de la region Andina que están habilitados
+20:23:27,235 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados
+20:23:27,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:23:27,323 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 puntos vacunacion de que están habilitados
+20:23:32,532 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id3
+20:23:32,533 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 3
+20:23:32,603 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id3
+20:23:32,604 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=3, localizacion=Diagonal 123 #14, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Cubiculos separados, cantidad_Vacunas_Enviables=1000, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Otro, administrador=j.ramirezb, oficina_regional_eps=2] con el id 3
+20:23:32,604 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 2
+20:23:32,605 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 2
+20:23:32,672 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 2
+20:23:33,574 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Caribe
+20:23:33,575 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Caribe en BD
+20:23:33,642 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 puntos vacunacion de la region Caribe que están habilitados
+20:25:36,839 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados
+20:25:36,840 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:25:36,926 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 puntos vacunacion de que están habilitados
+20:25:39,293 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+20:25:39,293 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+20:25:39,437 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+20:25:39,438 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+20:25:39,440 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+20:25:39,443 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+20:25:39,559 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+20:25:40,341 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Andina
+20:25:40,342 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Andina en BD
+20:25:40,667 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 puntos vacunacion de la region Andina que están habilitados
+20:25:43,207 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+20:25:43,207 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+20:25:43,453 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+20:25:43,454 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+20:25:43,454 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Deshabilitando el punto de vacunación indicado
+20:25:43,654 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha deshabilitado el punto de vacunación de id: 1
+20:26:20,950 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168170
+20:26:20,950 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168170
+20:26:21,027 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168170
+20:26:21,027 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+20:26:21,027 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados
+20:26:21,028 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todos los puntos de vacunación
+20:26:21,097 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 2 puntos vacunacion de que están habilitados
+20:26:28,674 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo trabajador
+20:26:28,675 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo trabajador con cedula: 1001168170
+20:26:28,743 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del trabajador de cedula: 1001168170: 1 tuplas insertadas
+20:26:28,743 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el trabajador con cedula: 1001168170

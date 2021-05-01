@@ -328,7 +328,7 @@ public class Vacuandes {
 	
 	public long rehabilitarPuntoVacunacion(long punto_vacunacion)
 	{
-		log.info ("Rehabilitando el punto de vacunación indicado");
+		log.info ("Rehabilitando el punto de vacunación indicado (id:" + punto_vacunacion + ")");
 		long rta = pp.rehabilitarPuntoVacunacion(punto_vacunacion);
 		log.info ("Se ha rehabilitado el punto de vacunación de id: " + punto_vacunacion);
 		return rta;

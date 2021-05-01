@@ -819,12 +819,27 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				resultado+= "\n id punto deshabilitado: " +puntoVacunacionADeshabilitar.getId_Punto_Vacunacion() ;
 				resultado+= "\n Localizacion punto de reemplazo: " +puntoReemplazo.getLocalizacion() ;
 				resultado+= "\n id punto de reemplazo: " +puntoReemplazo.getId_Punto_Vacunacion() ;
+				resultado += "\n Operación terminada";
 			}
 			
 		}
 		else if(opcion==0) {
-			
+			mostrarMensajeInformativo("Escoger punto a habilitar", "Escoja el punto que desea habilitar");
+			long idPuntoRehabilitar = escogerPuntoVacunacionDeshabilitado();
+			PuntoVacunacion habilitado = vacuandes.darPuntoVacunacionPorId(idPuntoRehabilitar);
+			long rta =  vacuandes.rehabilitarPuntoVacunacion(idPuntoRehabilitar);
+			if(rta!=idPuntoRehabilitar) {
+				resultado+= "-- Ha surgido un error --";
+				resultado+= "\n (id recibido " +rta + ")" ;
+				resultado += "\n Operación cancelada";
+			}else {
+				resultado+= "-- Se ha habilitado correctamente el punto --";
+				resultado+= "\n Localizacion punto habilitado: " +habilitado.getLocalizacion() ;
+				resultado+= "\n id punto habilitado: " +habilitado.getId_Punto_Vacunacion() ;
+				resultado += "\n Operación terminada";
+			}
 		}
+		panelDatos.actualizarInterfaz(resultado);
 	}
 
 	//RF7
