@@ -1166,9 +1166,7 @@ public class PersistenciaVacuandes {
             List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoFechas(pm, punto_vacunacion, primera_fecha, segunda_fecha);
             for(int i =0; i < lista.size(); i++)
             {
-            	Cita act = lista.get(i);
-            	Ciudadano ciudadano = sqlCiudadano.darCiudadanoPorCedula(pm, act.getCiudadano());
-            	rta += "\n-" + ciudadano.toString(); 
+            	rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita() + "\n" ; 
             }
             tx.commit();
             
