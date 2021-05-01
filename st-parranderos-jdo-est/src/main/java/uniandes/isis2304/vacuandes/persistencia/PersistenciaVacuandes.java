@@ -1166,7 +1166,7 @@ public class PersistenciaVacuandes {
             List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoFechas(pm, punto_vacunacion, primera_fecha, segunda_fecha);
             for(int i =0; i < lista.size(); i++)
             {
-            	rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita() + "\n" ; 
+            	rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita() + ", Fecha: "+ convertirDateAformatoString(lista.get(i).getFecha())+"\n" ; 
             }
             tx.commit();
             
@@ -1186,6 +1186,11 @@ public class PersistenciaVacuandes {
             }
             pm.close();
         }
+	}
+	
+	private String convertirDateAformatoString (Date fechaAConvertir) {
+		String rta = fechaAConvertir.getDate() + "/" + (fechaAConvertir.getMonth()+1) + "/" + (fechaAConvertir.getYear()+1900);
+		return rta;
 	}
 
 
