@@ -1251,7 +1251,7 @@ public class PersistenciaVacuandes {
             List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoHoras(pm, punto_vacunacion, primera_hora, segunda_hora);
             for(int i =0; i < lista.size(); i++)
             {
-            	rta += rta + lista.get(i).getCiudadano() + " " + lista.get(i).getFecha() + "\n-"; 
+            	rta += rta + "Ciudano " + i + ": "  + lista.get(i).getCiudadano() + " Fecha de cita" + lista.get(i).getFecha().getDay()+ "/" + lista.get(i).getFecha().getMonth() + "/" + lista.get(i).getFecha().getYear() +"\n-"; 
             }
             tx.commit();
             

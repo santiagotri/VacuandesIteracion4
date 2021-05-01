@@ -103,7 +103,7 @@ public class SQLCita {
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha between TO_DATE('?', 'dd/mm/yyyy') AND TO_DATE('?', 'dd/mm/yyyy')");
 		q.setResultClass(Cita.class);
-		q.setParameters(punto_vacunacion, primera_fecha, segunda_fecha);
+		q.setParameters(punto_vacunacion, new Timestamp(primera_fecha.getTime()), new Timestamp(segunda_fecha.getTime()));
 		return (List<Cita>) q.executeList();
 	}
 
