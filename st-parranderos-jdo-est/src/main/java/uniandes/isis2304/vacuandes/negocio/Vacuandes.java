@@ -197,6 +197,7 @@ public class Vacuandes {
         log.info ("Se actualizó la opinión del ciudadano");
 	}
 	
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar LIST_CONDICIONES_CIUDADANO
 	 *****************************************************************/

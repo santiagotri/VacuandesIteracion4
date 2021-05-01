@@ -1247,7 +1247,7 @@ public class PersistenciaVacuandes {
         	String rta = ""; 
         	log.info ("Buscando ciudadanos en el rango de horas en el punto: " +  punto_vacunacion );
             tx.begin();
-            List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoHoras(pm, punto_vacunacion, primera_hora, segunda_hora);
+            List<Long> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoHoras(pm, punto_vacunacion, primera_hora, segunda_hora);
             for(int i =0; i < lista.size(); i++)
             {
             	Cita act = lista.get(i);
@@ -1283,14 +1283,13 @@ public class PersistenciaVacuandes {
         	String rta = ""; 
         	log.info ("Buscando ciudadanos en el punto: " +  punto_vacunacion );
             tx.begin();
-            List<Long> lista = sqlCita.darCiudadanosPuntoVacunacion(pm, punto_vacunacion);
+            List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacion(pm, punto_vacunacion);
             for(int i =0; i < lista.size(); i++)
             {
-            	Ciudadano ciudadanoAct = sqlCiudadano.darCiudadanoPorCedula(pm, lista.get(i)); 
-            	rta = rta + ciudadanoAct.toString() + "\n"; 
+            	rta = rta + " Ciudadano (" + (i+1) + "): " +  lista.get(i).getCiudadano() + "\n"; 
             }
             tx.commit();
-            
+            if(rta.equals("")) rta = "No hay ciudadanos que hayan sido atendidos por este punto (no hay registro de citas que ya hayan ocurrido)";
             return rta;
         }
         catch (Exception e)

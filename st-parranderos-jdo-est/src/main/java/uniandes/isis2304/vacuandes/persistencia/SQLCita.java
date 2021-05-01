@@ -83,11 +83,11 @@ public class SQLCita {
 		return lista.size();
 	}
 	
-	public List<Long> darCiudadanosPuntoVacunacion(PersistenceManager pm, long punto_vacunacion)
+	public List<Cita> darCiudadanosPuntoVacunacion(PersistenceManager pm, long punto_vacunacion)
 	{
-		Query q = pm.newQuery(SQL, "SELECT CIUDADANO FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion);
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion + " AND FECHA <= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY')");
 		q.setResultClass(Cita.class);
-		return (List<Long>) q.execute();
+		return (List<Cita>) q.executeList();
 	}
 	
 	public List<Cita> darCiudadanosPuntoVacunacionYFecha(PersistenceManager pm, long punto_vacunacion, Date fecha)
@@ -95,7 +95,7 @@ public class SQLCita {
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha= ?");
 		q.setResultClass(Cita.class);
 		q.setParameters(punto_vacunacion, fecha);
-		return (List<Cita>) q.execute();
+		return (List<Cita>) q.executeList();
 	}
 
 	public List<Cita> darCiudadanosPuntoVacunacionYRangoFechas(PersistenceManager pm, long punto_vacunacion,
@@ -104,7 +104,7 @@ public class SQLCita {
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha between TO_DATE('?', 'dd/mm/yyyy') AND TO_DATE('?', 'dd/mm/yyyy')");
 		q.setResultClass(Cita.class);
 		q.setParameters(punto_vacunacion, primera_fecha, segunda_fecha);
-		return (List<Cita>) q.executeUnique();
+		return (List<Cita>) q.executeList();
 	}
 
 	public List<Cita> darCiudadanosPuntoVacunacionYRangoHoras(PersistenceManager pm, long punto_vacunacion,
@@ -112,7 +112,7 @@ public class SQLCita {
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND hora_cita>= ? AND hora_cita<= ?");
 		q.setResultClass(Cita.class);
 		q.setParameters(punto_vacunacion, primera_hora, segunda_hora);
-		return (List<Cita>) q.executeUnique();
+		return (List<Cita>) q.executeList();
 	}
 
 	public List<Object> darPuntosMasEfectivos(PersistenceManager pm) {
