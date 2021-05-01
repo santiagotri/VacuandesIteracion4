@@ -94,7 +94,7 @@ public class Vacuandes {
         return rta;
 	}
 	
-	public String mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionRangoFechas (long punto_vacunacion, Date primera_fecha, Date segunda_fecha) {
+	public String mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionRangoFechas (long punto_vacunacion, String primera_fecha, String segunda_fecha) {
 		log.info ("Buscando los ciudadanos en el punto de vacunacion: " + punto_vacunacion + " en la fechas indicadas ");
 		String rta = pp.darCiudadanosPuntoVacunacionPorRangoFechas(punto_vacunacion, primera_fecha, segunda_fecha);
         log.info ("Se retornaron todos los ciudadanos encontrados");

@@ -1154,8 +1154,8 @@ public class PersistenciaVacuandes {
 	}
 
 
-	public String darCiudadanosPuntoVacunacionPorRangoFechas(long punto_vacunacion, Date primera_fecha,
-			Date segunda_fecha) {
+	public String darCiudadanosPuntoVacunacionPorRangoFechas(long punto_vacunacion, String primera_fecha,
+			String segunda_fecha) {
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try

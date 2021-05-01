@@ -99,11 +99,11 @@ public class SQLCita {
 	}
 
 	public List<Cita> darCiudadanosPuntoVacunacionYRangoFechas(PersistenceManager pm, long punto_vacunacion,
-			Date primera_fecha, Date segunda_fecha) 
+			String primera_fecha, String segunda_fecha) 
 	{
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha >= TO_DATE(?, 'dd/mm/yyyy') AND fecha <= TO_DATE(?, 'dd/mm/yyyy')");
 		q.setResultClass(Cita.class);
-		q.setParameters(punto_vacunacion, new Timestamp(primera_fecha.getTime()), new Timestamp(segunda_fecha.getTime()));
+		q.setParameters(punto_vacunacion, primera_fecha, segunda_fecha);
 		return (List<Cita>) q.executeList();
 	}
 
