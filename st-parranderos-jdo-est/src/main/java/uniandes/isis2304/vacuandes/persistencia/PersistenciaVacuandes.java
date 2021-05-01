@@ -1245,16 +1245,16 @@ public class PersistenciaVacuandes {
         Transaction tx=pm.currentTransaction();
         try
         {
-        	String rta = ""; 
+        	String rta = "Los ciudadanos que han sido atendidos por el punto de vacunacion con id " + punto_vacunacion + " entre las " + primera_hora + " y las " +  segunda_hora +" son:\n"; 
         	log.info ("Buscando ciudadanos en el rango de horas en el punto: " +  punto_vacunacion );
             tx.begin();
             List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoHoras(pm, punto_vacunacion, primera_hora, segunda_hora);
             for(int i =0; i < lista.size(); i++)
             {
-            	rta += "Ciudadano: (" + (i+1) + "): "  + lista.get(i).getCiudadano() + " Fecha de cita: " + lista.get(i).getFecha().getDate()+ "/" + (lista.get(i).getFecha().getMonth()+1) + "/" + (lista.get(i).getFecha().getYear()+1900) +"\n-"; 
+            	rta += "- Ciudadano: (" + (i+1) + "): "  + lista.get(i).getCiudadano() + " Fecha de cita: " + lista.get(i).getFecha().getDate()+ "/" + (lista.get(i).getFecha().getMonth()+1) + "/" + (lista.get(i).getFecha().getYear()+1900) +"\n"; 
             }
             tx.commit();
-            
+            if(rta.equals("Los ciudadanos que han sido atendidos por el punto de vacunacion con id " + punto_vacunacion + " entre las " + primera_hora + " y las " +  segunda_hora +" son:\n")) rta = "No existen ciudadanos atendidos en ese rango de horas";
             return rta;
         }
         catch (Exception e)

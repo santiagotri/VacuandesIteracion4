@@ -1,8 +1,11 @@
 package uniandes.isis2304.vacuandes.interfazApp;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.Desktop.Action;
 import java.awt.GridLayout;
+import java.awt.Toolkit;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -56,7 +59,15 @@ public class InterfazLogin extends JFrame implements ActionListener {
 	      setTitle("Iniciar sesion");
 	      setSize(450,125);
 	      setVisible(true);
+	      moveToCenter(this);
 	   }
+	   
+	   public static void moveToCenter(Window window) {
+	        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	        window.setLocation(
+	                (int) (screenSize.getWidth() / 2.0 - window.getWidth() / 2.0),
+	                (int) (screenSize.getHeight() / 2.0 - window.getHeight() / 2.0));
+	    }
 	   
 	   @Override
 	   public void actionPerformed(ActionEvent ae) {

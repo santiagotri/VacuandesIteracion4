@@ -912,7 +912,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 					puntoVacunacionAnterior = vacuandes.darPuntoVacunacionPorId(IdpuntoVacunacionAnterior);
 					JOptionPane.showMessageDialog(this, "Actualmente el ciudadano se encuentra en el punto de vacunacion localizado en " + puntoVacunacionAnterior.getLocalizacion() +". Escoja el nuevo punto de vacunacion", "Nuevo punto vacunacion", JOptionPane.INFORMATION_MESSAGE);
 				}
-				System.out.println(act.getRegion());
 				long punto_vacunacion = escogerPuntoVacunacionPorRegion(act.getRegion());
 
 				long id = vacuandes.agregarACiudadanoPuntoDeVacunacion(cedula, punto_vacunacion);
@@ -1023,7 +1022,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			}else if (tipo_busqueda==3) {
 				rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion(idPuntoVacunacion);
 			}
-			System.out.println(rta);
 			panelDatos.actualizarInterfaz(rta);
 		}
 		catch(Exception e) {
@@ -1094,7 +1092,12 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	//RFC4 PENDIENTE BONO
 	public void mostrarPuntosVacunacionConDisponibilidadDosis() {
 
+
 	}
+	private void VerificadoMostrarPuntosVacunacionConDisponibilidadDosis() {
+
+	}
+
 
 	//RFC5 PENDIENTE BONO
 	public void mostrarProcesoVacunacionCiudadano() {
@@ -1349,7 +1352,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	private Long escogerPuntoVacunacionPorRegion(String region) {
 		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeLaRegionHabilitados(region);
-		System.out.println(planes.size());
 		String [] nombresDePlanes = new String [planes.size()];
 		for (int i = 0; i<planes.size(); i++) {
 			nombresDePlanes[i] = planes.get(i).getLocalizacion();
@@ -1407,7 +1409,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	private Long escogerPuntoVacunacionPorRegionConDeshabilitados(String region) {
 		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeLaRegion(region);
-		System.out.println(planes.size());
 		String [] nombresDePlanes = new String [planes.size()];
 		for (int i = 0; i<planes.size(); i++) {
 			nombresDePlanes[i] = planes.get(i).getLocalizacion();
