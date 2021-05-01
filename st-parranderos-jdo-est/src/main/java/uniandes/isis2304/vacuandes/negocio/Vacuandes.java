@@ -247,7 +247,7 @@ public class Vacuandes {
 	{
 		log.info ("Enviando lote de vacunas a oficina regional EPS de id: " + oficina_regional_eps);
 		long rta = pp.agregarVacunasEps(oficina_regional_eps, cantidad_vacunas, condiciones_de_preservacion);
-		log.info ("Se agregaron " + cantidad_vacunas + " a la eps de id " + oficina_regional_eps);
+		log.info ("Se agregaron " + cantidad_vacunas + " a la eps de id " + oficina_regional_eps.getId_oficina());
 		return rta;
 	}
 	

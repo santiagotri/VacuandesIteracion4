@@ -37,7 +37,14 @@ public class SQLVacuna {
 	{
 		this.pp = pp;
 	}
-
+	
+	public long adicionarVacunaOficinaRegional(PersistenceManager pm, String condicion_preservacion, long plan_de_vacunacion,  Long oficina_regional)
+	{
+		Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaVacuna() + "(condicion_preservacion, plan_de_vacunacion, oficina_regional, utilizada) values (?, ?, ?, ?)");
+		q.setParameters(condicion_preservacion, plan_de_vacunacion,oficina_regional, 0); 
+		return (long) q.executeUnique();	
+	}
+	
 	public long adicionarVacuna(PersistenceManager pm, String condicion_preservacion, Long punto_vacunacion, Long plan_de_vacunacion, Long oficina_regional, boolean esta_utilizada)
 	{
 		int utilizada; 

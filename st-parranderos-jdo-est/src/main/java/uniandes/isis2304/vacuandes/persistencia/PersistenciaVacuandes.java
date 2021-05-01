@@ -1505,7 +1505,7 @@ public class PersistenciaVacuandes {
             long tuplasInsertadas = 0; 
             
             //Verificamos que no exceda la capacidad de la oficina
-            if(oficinaRegionalEPS.getCantidad_Vacunas_Enviables() < cantidad_vacunas || ((oficinaRegionalEPS.getCantidad_Vacunas_Actuales()+ cantidad_vacunas)< oficinaRegionalEPS.getCantidad_Vacunas_Enviables()))
+            if((oficinaRegionalEPS.getCantidad_Vacunas_Actuales()+ cantidad_vacunas)> oficinaRegionalEPS.getCantidad_Vacunas_Enviables())
             {
             	rta = -1; 
             	log.trace ("La eps regional de id: " + oficinaRegionalEPS.getId_oficina() + " no tiene suficiente capacidad para almacenar las vacunas");
@@ -1516,7 +1516,7 @@ public class PersistenciaVacuandes {
             	tuplasInsertadas+= sqlOficinaRegionalEPS.agregarVacunasAOficina(pm, oficinaRegionalEPS.getId_oficina(), cantidad_vacunas); 
             	for (int i = 0; i < cantidad_vacunas; i++) 
             	{
-					tuplasInsertadas += sqlVacuna.adicionarVacuna(pm, condiciones_de_preservacion, null, oficinaRegionalEPS.getPlan_De_Vacunacion(), oficinaRegionalEPS.getId_oficina(), false);
+					tuplasInsertadas += sqlVacuna.adicionarVacunaOficinaRegional(pm, condiciones_de_preservacion, oficinaRegionalEPS.getPlan_De_Vacunacion(), oficinaRegionalEPS.getId_oficina());
 				}
             }
             
@@ -1553,7 +1553,7 @@ public class PersistenciaVacuandes {
             long tuplasInsertadas = 0; 
             
             //Verificamos que no exceda las vacunas enviables y también que si se envían, la capacidad sea suficiente para guardar las actuales y las que llegarían
-            if(punto_vacunacion.getCantidad_Vacunas_Enviables() < cantidad_vacunas || ((punto_vacunacion.getCantidad_Vacunas_Actuales() + cantidad_vacunas) < punto_vacunacion.getCantidad_Vacunas_Enviables()))
+            if((punto_vacunacion.getCantidad_Vacunas_Actuales() + cantidad_vacunas) > punto_vacunacion.getCantidad_Vacunas_Enviables())
             {
             	rta = -1; 
             	log.trace ("El punto de vacunación de id: " + punto_vacunacion + " no tiene suficiente capacidad para almacenar las vacunas");

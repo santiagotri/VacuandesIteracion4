@@ -78,7 +78,7 @@ public class SQLPuntoVacunacion {
 	public List<PuntoVacunacion> darListPuntoVacunacionDeLaRegion(PersistenceManager pm, String region) {
 		Query q = pm.newQuery(SQL, "\n"
 				+ "SELECT ID_PUNTO_VACUNACION, LOCALIZACION, CAPACIDAD_DE_ATENCION_SIMULTANEA, \n"
-				+ "INFRAESTRUCTURA_PARA_DOSIS, CANTIDAD_VACUNAS_ENVIABLES, punto.CANTIDAD_VACUNAS_ACTUALES, punto.TIPO_PUNTO_VACUNACION, punto.ADMINISTRADOR, OFICINA_REGIONAL_EPS \n"
+				+ "INFRAESTRUCTURA_PARA_DOSIS, punto.CANTIDAD_VACUNAS_ENVIABLES, punto.CANTIDAD_VACUNAS_ACTUALES, punto.TIPO_PUNTO_VACUNACION, punto.ADMINISTRADOR, OFICINA_REGIONAL_EPS, habilitado \n"
 				+ "FROM PUNTO_VACUNACION punto INNER JOIN OFICINA_REGIONAL_EPS oficina ON punto.oficina_regional_eps = oficina.id_oficina \n"
 				+ "WHERE oficina.region = ?");
 		q.setParameters(region);
@@ -115,10 +115,10 @@ public class SQLPuntoVacunacion {
 	}
 	
 	public List<PuntoVacunacion> darListPuntoVacunacionHabilitadosPorRegion(PersistenceManager pm, String region) {
-		Query q = pm.newQuery(SQL, "\n"
-				+ "SELECT ID_PUNTO_VACUNACION, LOCALIZACION, CAPACIDAD_DE_ATENCION_SIMULTANEA, \n"
-				+ "INFRAESTRUCTURA_PARA_DOSIS, CANTIDAD_VACUNAS_ENVIABLES, punto.CANTIDAD_VACUNAS_ACTUALES, punto.TIPO_PUNTO_VACUNACION, punto.ADMINISTRADOR, OFICINA_REGIONAL_EPS \n"
-				+ "FROM PUNTO_VACUNACION punto INNER JOIN OFICINA_REGIONAL_EPS oficina ON punto.oficina_regional_eps = oficina.id_oficina \n"
+		Query q = pm.newQuery(SQL, 
+			   "SELECT ID_PUNTO_VACUNACION, LOCALIZACION, CAPACIDAD_DE_ATENCION_SIMULTANEA, "
+				+ "INFRAESTRUCTURA_PARA_DOSIS, punto.CANTIDAD_VACUNAS_ENVIABLES, punto.CANTIDAD_VACUNAS_ACTUALES, punto.TIPO_PUNTO_VACUNACION, punto.ADMINISTRADOR, OFICINA_REGIONAL_EPS, habilitado "
+				+ "FROM PUNTO_VACUNACION punto INNER JOIN OFICINA_REGIONAL_EPS oficina ON punto.oficina_regional_eps = oficina.id_oficina "
 				+ "WHERE oficina.region = ? and punto.habilitado = 1");
 		q.setParameters(region);
 		q.setResultClass(PuntoVacunacion.class);

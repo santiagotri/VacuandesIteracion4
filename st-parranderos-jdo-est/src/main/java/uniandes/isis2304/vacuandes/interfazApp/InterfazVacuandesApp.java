@@ -30,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.jdo.JDODataStoreException;
 import javax.swing.ImageIcon;
@@ -284,7 +285,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		setJMenuBar ( menuBar );	
 	}
 
-	
+
 	/* ****************************************************************
 	 * 			CRUD de TipoBebida
 	 *****************************************************************/
@@ -480,6 +481,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RF5
 	public void registrarCiudadanosColombianos() {
+
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarCiudadanosColombianos();
 			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
@@ -617,19 +619,74 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		VerificadoRegistrarLlegadaLoteVacunasEPSRegional();
 	}
 	private void VerificadoRegistrarLlegadaLoteVacunasEPSRegional() {
-		long idOficina = escogerOficinaRegionalEPS();
-		OficinaRegionalEPS oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
-		String cantidadVacunas = mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Ocuppación actual "+oficinaAct.getCantidad_Vacunas_Actuales() + "/" + oficinaAct.getCantidad_Vacunas_Enviables() +")");
-		System.out.println(oficinaAct);
+		try {
+			InterfazWaitWindow ventanaCarga = new InterfazWaitWindow (this, "Añadiendo vacunas a la oficina");
+			
+			long idOficina = escogerOficinaRegionalEPS();
+			OficinaRegionalEPS oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
+			String cantidadVacunas = mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Ocuppación actual "+oficinaAct.getCantidad_Vacunas_Actuales() + "/" + oficinaAct.getCantidad_Vacunas_Enviables() +")");
+			String condiciones_de_preservacion = mostrarMensajeIntroducirTexto("Condiciones preservación", "Ingrese las condiciones de preservación de TODAS las vacunas que llegaran");
+			ventanaCarga.mostrar();
+			long rta = vacuandes.registrarLlegadaDeLoteDeVacunasEPS(oficinaAct, Integer.parseInt(cantidadVacunas), condiciones_de_preservacion);
+			String resultado ="";
+			if(idOficina != rta) {
+				resultado += "-- Ha surgido un error con la cantidad de vacunas que se han intentado ingresar -- ";
+				resultado += "\nOperacion cancelada ";
+			}else {
+				oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
+				resultado += "-- Se han registrado correctamente la llegada del lote de vacunas -- ";
+				resultado += "\n - Region: " + oficinaAct.getRegion();
+				resultado += "\n - id de la Oficina: " + oficinaAct.getId_oficina();
+				resultado += "\n - Condiciones de preservación de las vacunas: " + condiciones_de_preservacion;
+				resultado += "\n - Cantidad vacunas nuevas: " + cantidadVacunas;
+				resultado += "\n - Cantidad vacunas actuales en la oficina: "+ oficinaAct.getCantidad_Vacunas_Actuales();
+				resultado += "\n Operación terminada";
+
+			}
+			panelDatos.actualizarInterfaz(resultado);
+			ventanaCarga.close();
+		}
+
+		catch(Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
 	}
 
 	//RF9 PENDIENTE
 	public void registrarLlegadaLoteVacunasPuntoVacunacion() {
-
+		if(verificarPermisos(ADMINISTRADOR_PUNTO_VACUNACION)) VerificadoRegistrarLlegadaLoteVacunasPuntoVacunacion();
 	}
 	private void VerificadoRegistrarLlegadaLoteVacunasPuntoVacunacion() {
+		
+		try {
+			long idOficina = escogerOficinaRegionalEPS();
+			OficinaRegionalEPS oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
+			long idPuntoVacunacion = escogerPuntoVacunacionPorRegion(oficinaAct.getRegion());
+			PuntoVacunacion puntoVacunacion = vacuandes.darPuntoVacunacionPorId(idPuntoVacunacion);
+			String cantidadVacunas = mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Ocupación punto vacunacion "+puntoVacunacion.getCantidad_Vacunas_Actuales() + "/" + puntoVacunacion.getCantidad_Vacunas_Enviables() +", Vacunas disponibles en of. regional "+oficinaAct.getCantidad_Vacunas_Actuales() +")");
+			long rta = vacuandes.registrarLlegadaDeLoteDeVacunasAPuntoVacunacion(puntoVacunacion, Integer.parseInt(cantidadVacunas));
+		
+			puntoVacunacion = vacuandes.darPuntoVacunacionPorId(idPuntoVacunacion);
+			String resultado = "-- Se han registrado correctamente la llegada del lote de vacunas -- ";
+			resultado += "\n - Region: " + oficinaAct.getRegion();
+			resultado += "\n - id de la Oficina: " + oficinaAct.getId_oficina();
+			resultado += "\n - Localizacion punto vacunacion: " + puntoVacunacion.getLocalizacion();
+			resultado += "\n - id del punto vacunacion: " + puntoVacunacion.getId_Punto_Vacunacion();
+			resultado += "\n - Cantidad vacunas nuevas: " + cantidadVacunas;
+			resultado += "\n - Cantidad vacunas actuales en la oficina: " + puntoVacunacion.getCantidad_Vacunas_Actuales();
+			resultado += "\n Operación terminada";
+			panelDatos.actualizarInterfaz(resultado);
+		}
 
+		catch(Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+		}
 	}
+	
 
 	//RF 12
 	public void registrarAvanceEnVacunacionDePersona() {
@@ -737,10 +794,37 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RF13,14,15 PENDIENTE
 	public void registrarCambioEstadoPuntoVacunacion() {
-
+		if(verificarPermisos(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoRegistrarCambioEstadoPuntoVacunacion();
 	}
 	private void VerificadoRegistrarCambioEstadoPuntoVacunacion() {
-
+		int opcion = mostrarMensajeBooleano("Escoger Accion", "¿Desea deshabilitar un punto que se encuentra habilitado? (Si deshabilitar, no habilitar un punto)");
+		String resultado ="";
+		if(opcion ==1) {
+			mostrarMensajeInformativo("Escoger punto a deshabilitar", "Escoja primero el punto que se desea deshabilitar");
+			long idPuntoVacunacionADeshabilitar = escogerPuntoVacunacion();
+			PuntoVacunacion puntoVacunacionADeshabilitar = vacuandes.darPuntoVacunacionPorId(idPuntoVacunacionADeshabilitar);
+			OficinaRegionalEPS oficinaPunto = vacuandes.darOficinaRegionalEPSPorId(puntoVacunacionADeshabilitar.getOficina_regional_eps());
+			mostrarMensajeInformativo("Escoger punto reemplazo", "Escoger punto al que se trasladaran los ciudadanos asignados a ese punto");
+			
+			long idPuntoVacunacionNuevo = escogerPuntoVacunacionPorRegion(oficinaPunto.getRegion());
+			if(idPuntoVacunacionADeshabilitar==idPuntoVacunacionNuevo) {
+				mostrarMensajeError("Error mismo punto", "Ha escogido el mismo punto de reemplazo");
+				resultado+= "-- Se ha escogido el mismo punto de vacunacion como reemplazo --";
+				resultado+= "\n Operacion cancelada";
+			}else {
+				PuntoVacunacion puntoReemplazo = vacuandes.darPuntoVacunacionPorId(idPuntoVacunacionNuevo);
+				vacuandes.deshabilitarPuntoVacunacion(idPuntoVacunacionADeshabilitar, idPuntoVacunacionNuevo);
+				resultado+= "-- Se ha dehabilitado correctamente el punto --";
+				resultado+= "\n Localizacion punto deshabilitado: " +puntoVacunacionADeshabilitar.getLocalizacion() ;
+				resultado+= "\n id punto deshabilitado: " +puntoVacunacionADeshabilitar.getId_Punto_Vacunacion() ;
+				resultado+= "\n Localizacion punto de reemplazo: " +puntoReemplazo.getLocalizacion() ;
+				resultado+= "\n id punto de reemplazo: " +puntoReemplazo.getId_Punto_Vacunacion() ;
+			}
+			
+		}
+		else if(opcion==0) {
+			
+		}
 	}
 
 	//RF7
@@ -792,6 +876,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
 		}
 	}
+	
 	private void VerificadoAsignarCiudadanoAPuntoDeVacunacion() {
 		try {
 			long cedula = Long.parseLong(JOptionPane.showInputDialog (this, "Ingresa la cedula del ciudadano", "Asignar ciudadano punto vacunacion", JOptionPane.QUESTION_MESSAGE));
@@ -1273,6 +1358,20 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
 	}
+	
+	private Long escogerPuntoVacunacionDeshabilitado() {
+		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeshabilitados();
+		String [] nombresDePlanes = new String [planes.size()];
+		for (int i = 0; i<planes.size(); i++) {
+			nombresDePlanes[i] = planes.get(i).getLocalizacion();
+		}
+		JComboBox optionList1 = new JComboBox(nombresDePlanes);
+		optionList1.setSelectedIndex(0);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+
+		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
+	}
 
 	private Long escogerPuntoVacunacionConNull() {
 		List <PuntoVacunacion> puntos = vacuandes.darTodosLosPuntosVacunacionHabilitados();
@@ -1516,16 +1615,16 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private void mostrarMensajeInformativo(String titulo, String contenido) {
 		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.INFORMATION_MESSAGE);
 	}
-	
+
 	private void mostrarMensajeError(String titulo, String contenido) {
 		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.ERROR_MESSAGE);
 	}
-	
+
 	private String mostrarMensajeIntroducirTexto (String titulo, String contenido){
 		String rta = JOptionPane.showInputDialog (this, contenido, titulo, JOptionPane.QUESTION_MESSAGE);
 		return rta;
 	}
-	
+
 	private int mostrarMensajeBooleano (String titulo, String contenido){
 		int rta = JOptionPane.showConfirmDialog(this, contenido, titulo, JOptionPane.YES_NO_OPTION);
 		if (rta==1) rta =0;
@@ -1575,7 +1674,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		return false;
 	}
-	
+
 	public void iniciarSesion() {
 		interfazLogin = new InterfazLogin(this);
 	}
