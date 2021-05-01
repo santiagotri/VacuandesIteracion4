@@ -1248,12 +1248,10 @@ public class PersistenciaVacuandes {
         	String rta = ""; 
         	log.info ("Buscando ciudadanos en el rango de horas en el punto: " +  punto_vacunacion );
             tx.begin();
-            List<Long> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoHoras(pm, punto_vacunacion, primera_hora, segunda_hora);
+            List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacionYRangoHoras(pm, punto_vacunacion, primera_hora, segunda_hora);
             for(int i =0; i < lista.size(); i++)
             {
-            	Cita act = lista.get(i);
-            	Ciudadano ciudadano = sqlCiudadano.darCiudadanoPorCedula(pm, act.getCiudadano());
-            	rta += "\n-" + ciudadano.toString(); 
+            	rta += rta + lista.get(i).getCiudadano() + " " + lista.get(i).getFecha() + "\n-"; 
             }
             tx.commit();
             
