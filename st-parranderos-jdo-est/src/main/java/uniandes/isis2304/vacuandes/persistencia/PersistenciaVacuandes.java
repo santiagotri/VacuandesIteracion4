@@ -810,11 +810,12 @@ public class PersistenciaVacuandes {
             long tuplaInsertada = sqlCita.adicionarCita(pm, fecha, ciudadano, punto_vacunacion, vacuna.getId_Vacuna(), hora_cita);
             PuntoVacunacion punto = sqlPuntoVacunacion.darPuntoPorId(pm, punto_vacunacion); 
             sqlPuntoVacunacion.disminuirVacunasDisponibles(pm, punto_vacunacion);
+            Cita cita = sqlCita.darCita(pm, fecha, ciudadano, punto_vacunacion, hora_cita); 
             //sqlOficinaRegionalEPS.disminuirVacunasDisponibles(pm, punto.getOficina_regional_eps());
             tx.commit();
             log.info ("Inserción de la cita en el punto: " + punto_vacunacion + ": " + tuplaInsertada + " tuplas insertadas");
             
-            return new Cita(fecha, ciudadano, punto_vacunacion, vacuna.getId_Vacuna(), hora_cita);
+            return cita;
         }
         catch (Exception e)
         {
@@ -1280,7 +1281,7 @@ public class PersistenciaVacuandes {
         Transaction tx=pm.currentTransaction();
         try
         {
-        	String rta = ""; 
+        	String rta = "Los ciudadanos que han sido atendidos por el punto de vacunacion con id " + punto_vacunacion + " son:\n"; 
         	log.info ("Buscando ciudadanos en el punto: " +  punto_vacunacion );
             tx.begin();
             List<Cita> lista = sqlCita.darCiudadanosPuntoVacunacion(pm, punto_vacunacion);
@@ -1289,7 +1290,7 @@ public class PersistenciaVacuandes {
             	rta = rta + " Ciudadano (" + (i+1) + "): " +  lista.get(i).getCiudadano() + "\n"; 
             }
             tx.commit();
-            if(rta.equals("")) rta = "No hay ciudadanos que hayan sido atendidos por este punto (no hay registro de citas que ya hayan ocurrido)";
+            if(rta.equals("Los ciudadanos que han sido atendidos por el punto de vacunacion con id " + punto_vacunacion + " son:\n")) rta = "No hay ciudadanos que hayan sido atendidos por este punto (no hay registro de citas que ya hayan ocurrido)";
             return rta;
         }
         catch (Exception e)

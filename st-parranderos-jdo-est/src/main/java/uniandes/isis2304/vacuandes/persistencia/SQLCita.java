@@ -85,7 +85,7 @@ public class SQLCita {
 	
 	public List<Cita> darCiudadanosPuntoVacunacion(PersistenceManager pm, long punto_vacunacion)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion + " AND FECHA <= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY')");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion + " AND FECHA <= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual)");
 		q.setResultClass(Cita.class);
 		return (List<Cita>) q.executeList();
 	}
@@ -124,6 +124,13 @@ public class SQLCita {
 		Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = ? AND FECHA >= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual)");
         q.setParameters(punto_vacunacion);
         return (long) q.executeUnique();
+	}
+
+	public Cita darCita(PersistenceManager pm, Date fecha, long ciudadano, long punto_vacunacion, int hora_cita) {
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE FECHA = ? AND CIUDADANO = ? AND PUNTO_VACUNACION = ? AND HORA_CITA = ?");
+		q.setResultClass(Cita.class);
+		q.setParameters(new Timestamp(fecha.getTime()), ciudadano, punto_vacunacion, hora_cita);
+		return (Cita) q.executeUnique();
 	}
 
 }

@@ -5,6 +5,10 @@ import java.util.Date;
 public interface VOCita {
 
 	/**
+	 * @return the hora_cita
+	 */
+	public long getId_cita() ;
+	/**
 	 * @return the fecha
 	 */
 	public Date getFecha();

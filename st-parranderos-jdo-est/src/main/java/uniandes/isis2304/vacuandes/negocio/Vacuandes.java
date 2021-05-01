@@ -109,9 +109,9 @@ public class Vacuandes {
 	}
 	
 	public String mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion(long punto_vacunacion) {
-		log.info ("Buscando los ciudadanos en el punto de vacunacion: " + punto_vacunacion );
+		log.info ("Buscando los ciudadanos atendidos en el punto de vacunacion: " + punto_vacunacion );
 		String rta = pp.darCiudadanosPuntoVacunacion(punto_vacunacion);
-        log.info ("Se retornaron todos los ciudadanos encontrados");
+        log.info ("Se retornaron todos los ciudadanos atendidos que fueron encontrados");
         return rta;
 	}
 	

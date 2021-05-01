@@ -981,6 +981,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				Date fechaCita = citaCreada.getFecha();
 				SimpleDateFormat formatoFecha = new SimpleDateFormat( "dd/MM/yyyy");
 				resultado += "\n - Fecha: " + formatoFecha.format(fechaCita);
+				resultado += "\n - id_cita: " + citaCreada.getId_cita();
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
 			}
@@ -1022,6 +1023,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			}else if (tipo_busqueda==3) {
 				rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion(idPuntoVacunacion);
 			}
+			System.out.println(rta);
 			panelDatos.actualizarInterfaz(rta);
 		}
 		catch(Exception e) {
