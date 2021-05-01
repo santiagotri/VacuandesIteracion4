@@ -810,7 +810,7 @@ public class PersistenciaVacuandes {
             long tuplaInsertada = sqlCita.adicionarCita(pm, fecha, ciudadano, punto_vacunacion, vacuna.getId_Vacuna(), hora_cita);
             PuntoVacunacion punto = sqlPuntoVacunacion.darPuntoPorId(pm, punto_vacunacion); 
             sqlPuntoVacunacion.disminuirVacunasDisponibles(pm, punto_vacunacion);
-            sqlOficinaRegionalEPS.disminuirVacunasDisponibles(pm, punto.getOficina_regional_eps());
+            //sqlOficinaRegionalEPS.disminuirVacunasDisponibles(pm, punto.getOficina_regional_eps());
             tx.commit();
             log.info ("Inserción de la cita en el punto: " + punto_vacunacion + ": " + tuplaInsertada + " tuplas insertadas");
             
@@ -1561,6 +1561,7 @@ public class PersistenciaVacuandes {
             else
             {
             	tuplasInsertadas += sqlPuntoVacunacion.adicionarVacunasAPunto(pm, punto_vacunacion.getId_Punto_Vacunacion(), cantidad_vacunas); 
+            	tuplasInsertadas += sqlOficinaRegionalEPS.disminuirVacunasDisponiblesConValor(pm, punto_vacunacion.getOficina_regional_eps(), cantidad_vacunas);
             }
             tx.commit();
             log.trace ("Se agregaron las vacunas al punto de id: " + punto_vacunacion.getId_Punto_Vacunacion() + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
