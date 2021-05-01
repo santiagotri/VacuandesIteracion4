@@ -1056,7 +1056,7 @@ public class PersistenciaVacuandes {
             for(int i =0; i < lista.size(); i++)
             {
             	Cita act = lista.get(i);
-            	rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita(); 
+            	rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita() +"\n"; 
             }
             tx.commit();
             

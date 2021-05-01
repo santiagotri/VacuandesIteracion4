@@ -85,7 +85,8 @@ public class SQLCita {
 	
 	public List<Cita> darCiudadanosPuntoVacunacion(PersistenceManager pm, long punto_vacunacion)
 	{
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion + " AND FECHA <= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual)");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+ punto_vacunacion);
+		//Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = "+punto_vacunacion + " AND FECHA <= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual)");
 		q.setResultClass(Cita.class);
 		return (List<Cita>) q.executeList();
 	}
