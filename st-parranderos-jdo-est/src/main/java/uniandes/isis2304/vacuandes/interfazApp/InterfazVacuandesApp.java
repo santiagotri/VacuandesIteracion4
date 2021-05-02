@@ -18,6 +18,9 @@ package uniandes.isis2304.vacuandes.interfazApp;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
@@ -154,6 +157,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	 * Menú de la aplicación
 	 */
 	private JMenuBar menuBar;
+	
+	
 
 	/* ****************************************************************
 	 * 			Métodos
@@ -182,8 +187,18 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 		setLayout (new BorderLayout());
 		add (new JLabel (new ImageIcon (path)), BorderLayout.NORTH );          
-		add( panelDatos, BorderLayout.CENTER );        
+		add( panelDatos, BorderLayout.CENTER );
+		moveToCenter(this);
+		
+		
 	}
+	
+	public static void moveToCenter(Window window) {
+	      Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	      window.setLocation(
+	              (int) (screenSize.getWidth() / 2.0 - window.getWidth() / 2.0),
+	              (int) (screenSize.getHeight() / 2.0 - window.getHeight() / 2.0));
+	  }
 
 	/* ****************************************************************
 	 * 			Métodos de configuración de la interfaz
@@ -620,13 +635,12 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 	private void VerificadoRegistrarLlegadaLoteVacunasEPSRegional() {
 		try {
-			InterfazWaitWindow ventanaCarga = new InterfazWaitWindow (this, "Añadiendo vacunas a la oficina");
-			
 			long idOficina = escogerOficinaRegionalEPS();
 			OficinaRegionalEPS oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
 			String cantidadVacunas = mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Ocuppación actual "+oficinaAct.getCantidad_Vacunas_Actuales() + "/" + oficinaAct.getCantidad_Vacunas_Enviables() +")");
+			panelDatos.actualizarInterfaz("\nCARGANDO...\n Esto puede tardar un rato");
+			
 			String condiciones_de_preservacion = mostrarMensajeIntroducirTexto("Condiciones preservación", "Ingrese las condiciones de preservación de TODAS las vacunas que llegaran");
-			ventanaCarga.mostrar();
 			long rta = vacuandes.registrarLlegadaDeLoteDeVacunasEPS(oficinaAct, Integer.parseInt(cantidadVacunas), condiciones_de_preservacion);
 			String resultado ="";
 			if(idOficina != rta) {
@@ -644,7 +658,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 			}
 			panelDatos.actualizarInterfaz(resultado);
-			ventanaCarga.close();
 		}
 
 		catch(Exception e) {
@@ -1010,17 +1023,23 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			String rta ="Error desconocido";
 			int tipo_busqueda = escogerTipoDeBusquedaFechaRangoFechasUHoras();
 			if(tipo_busqueda==0) {
-				Date fechaEspecifica = escogerFechaEspecifica();
+				String fechaEspecifica = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha especifica de la busqueda en el formato dd/mm/yyyy");
 				rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionFechaEspecifica (idPuntoVacunacion, fechaEspecifica);
 			}else if (tipo_busqueda==1) {
-				Date[] rangoFechas = escogerRangoDeFechas();
-				rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionRangoFechas (idPuntoVacunacion, rangoFechas[0], rangoFechas[1]);
+				String fechaInicial = mostrarMensajeIntroducirTexto("Fecha inicial", "Introduzca la fecha incial de la busqueda en el formato dd/mm/yyyy");
+				String fechaFinal = mostrarMensajeIntroducirTexto("Fecha final", "Introduzca la fecha final de la busqueda en el formato dd/mm/yyyy");
+				rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionRangoFechas (idPuntoVacunacion, fechaInicial, fechaFinal);
 
 			}else if (tipo_busqueda==2) {
 				Integer[] rangoHoras = escogerRangoDeHoras();
 				rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionRangoHora (idPuntoVacunacion, rangoHoras[0], rangoHoras[1]);
 			}else if (tipo_busqueda==3) {
 				rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion(idPuntoVacunacion);
+			}
+			if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada en la region " + region + ", con el punto de vacunacioncon id "+ idPuntoVacunacion;
+			else if(rta.equals("")) rta = "No se han encontrado resultados para la busqueda realizada en la region " + region + ", con el punto de vacunacioncon id "+ idPuntoVacunacion;
+			else {
+				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
 			}
 			panelDatos.actualizarInterfaz(rta);
 		}
