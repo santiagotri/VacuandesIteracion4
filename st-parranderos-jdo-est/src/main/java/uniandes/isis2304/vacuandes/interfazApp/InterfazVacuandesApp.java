@@ -33,7 +33,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.jdo.JDODataStoreException;
 import javax.swing.ImageIcon;
@@ -44,7 +43,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 import org.apache.log4j.Logger;
@@ -55,14 +53,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
-import uniandes.isis2304.parranderos.negocio.Parranderos;
-import uniandes.isis2304.parranderos.negocio.VOTipoBebida;
 import uniandes.isis2304.vacuandes.negocio.PlanDeVacunacion;
 import uniandes.isis2304.vacuandes.negocio.PuntoVacunacion;
 import uniandes.isis2304.vacuandes.negocio.Trabajador;
 import uniandes.isis2304.vacuandes.negocio.Cita;
 import uniandes.isis2304.vacuandes.negocio.Ciudadano;
-import uniandes.isis2304.vacuandes.negocio.Condicion;
 import uniandes.isis2304.vacuandes.negocio.EstadoVacunacion;
 import uniandes.isis2304.vacuandes.negocio.OficinaRegionalEPS;
 import uniandes.isis2304.vacuandes.negocio.Usuario;
@@ -116,8 +111,11 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	private InterfazDate interfazDate;
 	private InterfazLogin interfazLogin;
+	private InterfazCarga interfazCarga;
+	private InterfazCargandoRequerimiento interfazCargandoRequerimiento;
 	private Usuario usuarioActual;
 	private Trabajador trabajadorActual;
+	
 
 	private String [] opciones1 = {
 			"Adulto mayor (+80)", 
@@ -189,6 +187,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		add (new JLabel (new ImageIcon (path)), BorderLayout.NORTH );          
 		add( panelDatos, BorderLayout.CENTER );
 		moveToCenter(this);
+		interfazCarga = new InterfazCarga(); 
+		interfazCargandoRequerimiento = new InterfazCargandoRequerimiento();
 		
 		
 	}
@@ -638,9 +638,10 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			long idOficina = escogerOficinaRegionalEPS();
 			OficinaRegionalEPS oficinaAct = vacuandes.darOficinaRegionalEPSPorId(idOficina);
 			String cantidadVacunas = mostrarMensajeIntroducirTexto("Cantidad de vacunas que llegaran", "Introduzca el numero de la cantidad de vacunas que llegaran (Ocuppación actual "+oficinaAct.getCantidad_Vacunas_Actuales() + "/" + oficinaAct.getCantidad_Vacunas_Enviables() +")");
-			panelDatos.actualizarInterfaz("\nCARGANDO...\n Esto puede tardar un rato");
-			
+			interfazCargandoRequerimiento.mostrar();
 			String condiciones_de_preservacion = mostrarMensajeIntroducirTexto("Condiciones preservación", "Ingrese las condiciones de preservación de TODAS las vacunas que llegaran");
+			interfazCargandoRequerimiento.traerAlfrente();
+			 
 			long rta = vacuandes.registrarLlegadaDeLoteDeVacunasEPS(oficinaAct, Integer.parseInt(cantidadVacunas), condiciones_de_preservacion);
 			String resultado ="";
 			if(idOficina != rta) {
@@ -658,12 +659,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 			}
 			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
+			
 		}
 
 		catch(Exception e) {
 			e.printStackTrace();
 			String resultado = generarMensajeError(e);
 			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
 		}
 	}
 
@@ -1110,8 +1114,14 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RFC4 PENDIENTE BONO
 	public void mostrarPuntosVacunacionConDisponibilidadDosis() {
-
-
+		interfazCargandoRequerimiento.mostrar();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		interfazCargandoRequerimiento.ocultar();
 	}
 	private void VerificadoMostrarPuntosVacunacionConDisponibilidadDosis() {
 
@@ -1120,6 +1130,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RFC5 PENDIENTE BONO
 	public void mostrarProcesoVacunacionCiudadano() {
+		interfazCargandoRequerimiento.ocultar();
 
 	}
 	public void VerificadoMostrarProcesoVacunacionCiudadano() {
@@ -1713,6 +1724,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	public void iniciarSesion() {
+		interfazCargandoRequerimiento.mostrar();
 		interfazLogin = new InterfazLogin(this);
 	}
 
@@ -1741,6 +1753,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	public void Enviar() {
+		interfazLogin.close();
+		interfazCargandoRequerimiento.traerAlfrente();
 		String usernameUsuarioActual = interfazLogin.darUsuarioIngresado();
 		String contrasenaUsuarioActual = interfazLogin.darContrasenaIngresada();
 		Usuario rta = vacuandes.verificarInicioDeSesion(usernameUsuarioActual, contrasenaUsuarioActual);
@@ -1762,8 +1776,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 
 		}
-
-		interfazLogin.close();
+		interfazCargandoRequerimiento.ocultar();
 	}
 
 

@@ -44,6 +44,7 @@ public class InterfazLogin extends JFrame implements ActionListener {
 	      password_text = new JPasswordField();
 	      // Submit
 	      submit = new JButton("Enviar");
+	      getRootPane().setDefaultButton(submit);
 	      panel = new JPanel(new GridLayout(3, 1));
 	      panel.add(user_label);
 	      panel.add(userName_text);
@@ -60,6 +61,7 @@ public class InterfazLogin extends JFrame implements ActionListener {
 	      setSize(450,125);
 	      setVisible(true);
 	      moveToCenter(this);
+	      
 	   }
 	   
 	   public static void moveToCenter(Window window) {
