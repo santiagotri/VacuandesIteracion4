@@ -187,7 +187,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		add (new JLabel (new ImageIcon (path)), BorderLayout.NORTH );          
 		add( panelDatos, BorderLayout.CENTER );
 		moveToCenter(this);
-		interfazCarga = new InterfazCarga(); 
+		//interfazCarga = new InterfazCarga(); 
 		interfazCargandoRequerimiento = new InterfazCargandoRequerimiento();
 		
 		
@@ -956,7 +956,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	//RF11
-	public void asignarCitaDeVacunacionACiudadano() {
+	public void asignarDeVacunacionACiudadano() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PUNTO_VACUNACION)) VerificadoAsignarCitaDeVacunacionACiudadano();
 			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
@@ -996,14 +996,21 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			}else {
 				interfazDate.close();
 				Cita citaCreada = vacuandes.agregarCita(dateIngresada, cedulaCiudadano, ciudadano.getPunto_Vacunacion(), horaIngresada);
-				String resultado = "-- Se ha asignado la cita correctamente -- ";
-				resultado += "\n - Cedula: " + citaCreada.getCiudadano();
-				resultado += "\n - Hora: " + citaCreada.getHora_cita();
-				Date fechaCita = citaCreada.getFecha();
-				SimpleDateFormat formatoFecha = new SimpleDateFormat( "dd/MM/yyyy");
-				resultado += "\n - Fecha: " + formatoFecha.format(fechaCita);
-				resultado += "\n - id_cita: " + citaCreada.getId_cita();
-				resultado += "\n Operación terminada";
+				String resultado ="";
+				if(citaCreada == null) {
+					resultado = "No hay disponibilidad para esa fecha y hora en el punto de vacunacion";
+					resultado += "\n Operación cancelada";
+				}else {
+					resultado = "-- Se ha asignado la cita correctamente -- ";
+					resultado += "\n - Cedula: " + citaCreada.getCiudadano();
+					resultado += "\n - Hora: " + citaCreada.getHora_cita();
+					Date fechaCita = citaCreada.getFecha();
+					SimpleDateFormat formatoFecha = new SimpleDateFormat( "dd/MM/yyyy");
+					resultado += "\n - Fecha: " + formatoFecha.format(fechaCita);
+					resultado += "\n - id_cita: " + citaCreada.getId_cita();
+					resultado += "\n Operación terminada";
+				}
+				
 				panelDatos.actualizarInterfaz(resultado);
 			}
 
@@ -1126,7 +1133,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 
-	//RFC5 PENDIENTE BONO
+	//RFC5 PENDIENTE
 	public void mostrarProcesoVacunacionCiudadano() {
 
 	}

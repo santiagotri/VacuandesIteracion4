@@ -6350,3 +6350,160 @@ ORA-00001: restricción única (ISIS2304D10202110.CONDICION_CIUDADANO) violada
 07:58:01,580 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Santi de cedula: 1234567
 07:58:01,580 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Insertando condiciones para el ciudadano de cedula: 1234567
 07:58:01,642 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se adicionaron las condiciones al ciudadano de cedula: 1234567
+12:34:39,037 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:34:39,039 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:34:39,105 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:34:59,468 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+12:34:59,518 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+12:35:00,184 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+12:35:00,186 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+12:35:00,186 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+12:35:00,187 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+12:35:00,247 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+12:35:00,247 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+12:35:13,761 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+12:35:13,762 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+12:35:13,841 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+12:35:13,841 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+12:35:13,842 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+12:35:13,842 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+12:35:13,974 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+12:35:13,974 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+12:36:26,857 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168160
+12:36:26,858 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168160
+12:36:26,939 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+12:36:26,939 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+12:36:26,940 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+12:36:26,940 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+12:36:27,032 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+12:36:27,032 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+12:36:27,032 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificando si el horario está disponible para esa cita
+12:36:27,033 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Verificando horario para la cita en el punto 1
+12:36:27,058 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "SELECT * FROM CITA WHERE FECHA = ? AND HORA_CITA = ? AND PUNTO_VACUNACION = ?" necesita 3 parametros pero no hay ninguno
+
+12:36:27,061 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Ese horario está disponible para el punto de vacunacion? false
+12:36:27,086 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+12:36:27,285 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+12:36:27,443 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "SELECT * FROM CITA WHERE punto_vacunacion = ? AND fecha = TO_DATE(?, 'dd/mm/yyyy') AND hora_cita = ?".
+Tipo de columna no válido
+12:42:08,391 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:42:08,393 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:42:08,447 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:42:26,584 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario J.RAMIREZB
+12:42:26,623 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "J.RAMIREZB" con contrasena "contrasena2"
+12:42:26,984 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Cannot invoke "uniandes.isis2304.vacuandes.negocio.Usuario.getUsername()" because "usuario" is null
+
+12:42:26,986 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+12:42:34,488 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+12:42:34,488 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+12:42:34,568 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+12:42:34,568 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+12:42:34,568 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+12:42:34,569 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+12:42:34,643 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+12:42:34,643 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+12:43:01,212 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168160
+12:43:01,213 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168160
+12:43:01,295 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+12:43:01,296 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+12:43:01,296 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+12:43:01,297 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+12:43:01,355 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+12:43:01,356 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=8, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+12:43:01,356 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificando si el horario está disponible para esa cita
+12:43:01,356 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Verificando horario para la cita en el punto 1
+12:43:01,368 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "SELECT * FROM CITA WHERE FECHA = ? AND HORA_CITA = ? AND PUNTO_VACUNACION = ?" necesita 3 parametros pero no hay ninguno
+
+12:43:01,369 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Ese horario está disponible para el punto de vacunacion? false
+12:43:01,370 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+12:43:01,520 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+12:43:01,784 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
+12:43:01,784 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 1001168160
+12:48:06,528 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168163
+12:48:06,528 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168163
+12:48:06,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168163
+12:48:06,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+12:48:06,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+12:48:06,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+12:48:06,659 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+12:48:06,659 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=30, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+12:50:51,605 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168161
+12:50:51,606 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168161
+12:51:09,952 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "SELECT CEDULA, NOMBRE_COMPLETO, ESTADO_VACUNACION, REGION, DESEA_SER_VACUNADO, PLAN_DE_VACUNACION, PUNTO_VACUNACION, OFICINA_REGIONAL_ASIGNADA FROM CIUDADANO WHERE cedula = ?".
+Conexión cerrada
+12:51:46,774 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1
+12:51:46,774 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1
+12:51:47,438 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1
+12:52:26,159 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168161
+12:52:26,159 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168161
+12:52:26,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+12:52:26,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+12:52:26,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+12:52:26,279 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+12:52:26,409 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+12:52:26,409 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=6, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+12:52:26,409 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificando si el horario está disponible para esa cita
+12:52:26,410 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Verificando horario para la cita en el punto 1
+12:52:26,411 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "SELECT * FROM CITA WHERE FECHA = ? AND HORA_CITA = ? AND PUNTO_VACUNACION = ?" necesita 3 parametros pero no hay ninguno
+
+12:52:26,412 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Ese horario está disponible para el punto de vacunacion? false
+12:52:26,412 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+12:52:45,487 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "SELECT * FROM VACUNA WHERE punto_vacunacion = 1 AND utilizada = 0".
+Conexión cerrada
+12:53:09,928 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:53:09,930 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:53:09,973 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:53:29,376 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+12:53:29,421 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+12:53:30,092 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+12:53:30,093 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+12:53:30,093 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+12:53:30,094 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+12:53:30,249 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+12:53:30,250 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+12:54:02,553 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168161
+12:54:02,554 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168161
+12:54:02,666 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+12:54:02,666 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+12:54:02,667 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+12:54:02,667 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+12:54:02,806 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+12:54:02,806 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=6, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+12:54:02,806 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificando si el horario está disponible para esa cita
+12:54:02,807 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Verificando horario para la cita en el punto 1
+12:54:02,819 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "SELECT * FROM CITA WHERE FECHA = ? AND HORA_CITA = ? AND PUNTO_VACUNACION = ?" necesita 3 parametros pero no hay ninguno
+
+12:54:02,820 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Ese horario está disponible para el punto de vacunacion? false
+12:54:02,821 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+12:54:03,076 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+12:54:03,545 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
+12:54:03,545 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 1001168161
+12:57:01,695 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168160
+12:57:01,696 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168160
+12:57:15,863 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:57:15,865 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:57:15,942 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:58:41,955 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+12:58:41,998 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+12:58:42,828 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+12:58:42,830 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+12:58:42,830 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+12:58:42,831 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+12:58:42,920 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+12:58:42,920 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+13:00:21,339 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168160
+13:00:21,339 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168160
+13:00:21,448 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+13:00:21,449 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+13:00:21,449 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+13:00:21,449 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+13:00:21,548 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+13:00:21,549 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=2, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=5, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+13:00:21,549 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificando si el horario está disponible para esa cita
+13:00:21,549 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Verificando horario para la cita en el punto 1
+13:00:21,558 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "SELECT * FROM CITA WHERE FECHA = ? AND HORA_CITA = ? AND PUNTO_VACUNACION = ?" necesita 3 parametros pero no hay ninguno
+
+13:00:21,559 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Ese horario está disponible para el punto de vacunacion? false
+13:00:21,560 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+13:00:21,764 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+13:00:21,951 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 1001168160

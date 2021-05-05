@@ -816,7 +816,7 @@ public class PersistenciaVacuandes {
             List<Cita> citasEnRango = sqlCita.darCiudadanosPorFechaYHora(pm, punto_vacunacion, fecha, hora_cita); 
             if(citasEnRango!=null) 
             {
-            	if(vacuna!= null && citasEnRango.size()<=atendidosEnRango)
+            	if(vacuna!= null && citasEnRango.size()<atendidosEnRango)
             	{
             		tx.begin();
 
@@ -1445,6 +1445,8 @@ public class PersistenciaVacuandes {
             log.trace ("Deshabilitando el punto de vacunación de id: " + punto_vacunacion);
             long tuplasInsertadas = 0; 
             
+            PuntoVacunacion punto = darPuntoVacunacionPorId(punto_vacunacion);
+            int cantidadVacunas = punto.getCantidad_Vacunas_Actuales();
             //Cambiamos a false el booleano de habilitado 
             tuplasInsertadas += sqlPuntoVacunacion.actualizarEstado(pm, punto_vacunacion, 0);	
             
@@ -1461,8 +1463,18 @@ public class PersistenciaVacuandes {
             for (int i = 0; i < listaEliminadas.size(); i++) {
 				Cita citaAct = listaEliminadas.get(i);
 				try {
-					adicionarCita(citaAct.getFecha(), citaAct.getCiudadano(), punto_vacunacion, citaAct.getHora_cita()); 	
+					if(cantidadVacunas>0) {
+						while(verificarFechaParaCambioCita(fecha)) {
+							fecha = fecha
+						}
+						adicionarCita(citaAct.getFecha(), citaAct.getCiudadano(), punto_vacunacion, citaAct.getHora_cita()); 	
+						cantidadVacunas--;
+					}else {
+						rta += 
+					}
+					
 				} catch (Exception e) {
+					
 					if (e.equals(e))
 				}
 			}
