@@ -1125,11 +1125,28 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 
-	//RFC4 PENDIENTE
+	//RFC4
 	public void mostrarPuntosVacunacionConDisponibilidadDosis() {
+		if(verificarPermisos(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS+ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_PUNTO_VACUNACION));
 	}
 	private void VerificadoMostrarPuntosVacunacionConDisponibilidadDosis() {
-		
+		String rta  ="";
+		if(rta.equals("")) rta = "No existen puntos de vacunacion que tengan dosis disponibles";
+		 List<PuntoVacunacion> puntos = vacuandes.darTodosLosPuntosVacunacion();
+		 for (int i = 0 ; i<puntos.size(); i++) {
+			PuntoVacunacion puntoVacunacion = puntos.get(i);
+			rta += "\nPunto de vacunacion "+ (i+1);
+			rta +="\n - Region: " + vacuandes.darOficinaRegionalEPSPorId(puntoVacunacion.getOficina_regional_eps()).getRegion();
+			rta +="\n - Localizacion: " + puntoVacunacion.getLocalizacion();
+			rta +="\n - Administador: " + puntoVacunacion.getAdministrador();
+			rta +="\n - Dosis disponibles: " + puntoVacunacion.getCantidad_Vacunas_Actuales();
+			rta +="\n - Habilitado(1=si,0=no): " + puntoVacunacion.getHabilitado();
+			rta +="\n " ;
+		}
+		if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+		else {
+			rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+		}
 	}
 
 
