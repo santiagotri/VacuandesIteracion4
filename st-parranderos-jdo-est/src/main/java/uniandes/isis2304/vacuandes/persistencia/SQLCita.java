@@ -143,9 +143,9 @@ public class SQLCita {
 
 	public List<Cita> darCiudadanosPorFechaYHora(PersistenceManager pm, long punto_vacunacion, Date fecha,
 			int hora_cita) {
-		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha = TO_DATE(?, 'dd/mm/yyyy') AND hora_cita = ?");
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha = ? AND hora_cita = ?");
 		q.setResultClass(Cita.class);
-		q.setParameters(punto_vacunacion, fecha, hora_cita);
+		q.setParameters(punto_vacunacion, new Timestamp(fecha.getTime()), hora_cita);
 		return (List<Cita>) q.executeList();
 	}
 
