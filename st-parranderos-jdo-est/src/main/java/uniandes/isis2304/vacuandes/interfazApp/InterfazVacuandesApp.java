@@ -1127,26 +1127,33 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RFC4
 	public void mostrarPuntosVacunacionConDisponibilidadDosis() {
-		if(verificarPermisos(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS+ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_PUNTO_VACUNACION));
+		if(verificarPermisos(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS+ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_PUNTO_VACUNACION)) VerificadoMostrarPuntosVacunacionConDisponibilidadDosis();
+		interfazCargandoRequerimiento.mostrar();
 	}
 	private void VerificadoMostrarPuntosVacunacionConDisponibilidadDosis() {
+		
+		interfazCargandoRequerimiento.traerAlfrente();
 		String rta  ="";
-		if(rta.equals("")) rta = "No existen puntos de vacunacion que tengan dosis disponibles";
 		 List<PuntoVacunacion> puntos = vacuandes.darTodosLosPuntosVacunacion();
 		 for (int i = 0 ; i<puntos.size(); i++) {
 			PuntoVacunacion puntoVacunacion = puntos.get(i);
-			rta += "\nPunto de vacunacion "+ (i+1);
-			rta +="\n - Region: " + vacuandes.darOficinaRegionalEPSPorId(puntoVacunacion.getOficina_regional_eps()).getRegion();
-			rta +="\n - Localizacion: " + puntoVacunacion.getLocalizacion();
-			rta +="\n - Administador: " + puntoVacunacion.getAdministrador();
-			rta +="\n - Dosis disponibles: " + puntoVacunacion.getCantidad_Vacunas_Actuales();
-			rta +="\n - Habilitado(1=si,0=no): " + puntoVacunacion.getHabilitado();
-			rta +="\n " ;
+			int cantidadDosis = puntoVacunacion.getCantidad_Vacunas_Actuales();
+			if(cantidadDosis>0) {
+				rta += "\nPunto de vacunacion "+ (i+1) + " (id = " +puntoVacunacion.getId_Punto_Vacunacion() + ")";
+				rta +="\n - Region: " + vacuandes.darOficinaRegionalEPSPorId(puntoVacunacion.getOficina_regional_eps()).getRegion();
+				rta +="\n - Localizacion: " + puntoVacunacion.getLocalizacion();
+				rta +="\n - Administador: " + puntoVacunacion.getAdministrador();
+				rta +="\n - Dosis disponibles: " + puntoVacunacion.getCantidad_Vacunas_Actuales();
+				rta +="\n - Habilitado(1=si,0=no): " + puntoVacunacion.getHabilitado();
+				rta +="\n " ;
+			}
 		}
 		if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
 		else {
 			rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
 		}
+		panelDatos.actualizarInterfaz(rta);
+		interfazCargandoRequerimiento.ocultar();
 	}
 
 
