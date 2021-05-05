@@ -1461,53 +1461,52 @@ public class PersistenciaVacuandes {
             
             //Agrega las citas del anterior punto de vacunación al nuevo punto de vacunación
             for (int i = 0; i < listaEliminadas.size(); i++) {
-				Cita citaAct = listaEliminadas.get(i);
-				try {
-					if(cantidadVacunas>0) {
-						Date fechaCita = citaAct.getFecha();
-						int horaCita = citaAct.getHora_cita();
-						while(!verificarFechaParaCambioCita(fechaCita, horaCita)) 
-						{
-							if(horaCita<1800)
-							{
-								horaCita+=100; 
-							}
-							else if(horaCita==1800)
-							{
-								horaCita = 700;
-								if(fechaCita.getDay()<5)
-								{
-									fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
-								}
-								else
-								{
-									fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
-									fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
-								}
-							}
-						}
-						Cita citaAdicionada = adicionarCita(citaAct.getFecha(), citaAct.getCiudadano(), punto_vacunacion, citaAct.getHora_cita()); 	
-						if(citaAdicionada !=null) {
-							cantidadVacunas--;
-							rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita() +"\n"; 
-						}
-					}else {
-						rta += 
-					}
-					
+            	Cita citaAct = listaEliminadas.get(i);
+            	try {
+            		if(cantidadVacunas>0) {
+            			Date fechaCita = citaAct.getFecha();
+            			int horaCita = citaAct.getHora_cita();
+            			while(!verificarFechaParaCambioCita(punto_vacunacion, punto.getCapacidad_de_Atencion_Simultanea(), fechaCita, horaCita)); 
+            			{
+            				if(horaCita<=1600)
+            				{
+            					horaCita+=100; 
+            				}
+            				else if(horaCita>1600)
+            				{
+            					horaCita = 700;
+            					if(fechaCita.getDay()<5)
+            					{
+            						fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
+            					}
+            					else 
+            					{
+            						fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
+            						fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
+            						fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
+            					}
+            				}
+            			}
+            			Cita citaAdicionada = adicionarCita(fechaCita, citaAct.getCiudadano(), punto_vacunacion, horaCita); 	
+            			if(citaAdicionada !=null) {
+            				cantidadVacunas--;
+            				rta += "- Ciudadano: (" + (i+1) + ") de cedula: " +  listaEliminadas.get(i).getCiudadano() + ", Se le cambio la cita a la fecha: " + fechaCita + " y hora: " + horaCita+"\n"; 
+            			}
+            		}else {
+            			rta += "- Ciudadano: (" + (i+1) + ") de cedula: " +  listaEliminadas.get(i).getCiudadano() + ". No tiene una cita asignada porque se acabaron las vacunas del punto. " + "\n"; 
+            		}
+
 				} catch (Exception e) {
 					
-					if (e.equals(e))
 				}
 			}
             
-            return rta; 
             tx.commit();
             log.trace ("Se desahabilitó el punto de id: " + punto_vacunacion + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
+            return rta; 
         }
         catch (Exception e)
         {	
-        	rta = -1; 
         	e.printStackTrace();
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
         }
@@ -1523,9 +1522,43 @@ public class PersistenciaVacuandes {
         
 	}
 
-	private boolean verificarFechaParaCambioCita(Date fecha, int hora_cita)
+	private boolean verificarFechaParaCambioCita(long punto, int capacidad, Date fecha, int hora_cita)
 	{
-		
+		boolean rta = false; 
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	log.info ("Revisando que la fecha: " + fecha.toString() + " esté disponible.");
+            tx.begin();
+            List<Cita> citas = sqlCita.darCiudadanosPorFechaYHora(pm, punto, fecha, hora_cita);
+            int cantidad = citas.size(); 
+            tx.commit();
+            
+            if(cantidad >= darPuntoVacunacionPorId(punto).getCapacidad_de_Atencion_Simultanea())
+            {
+            	rta = false; 
+            }
+            else
+            {
+            	rta = true; 
+            }
+            return rta;
+        }
+        catch (Exception e)
+        {
+        	// e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	return false; 
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
 	}
 
 	public long rehabilitarPuntoVacunacion(long punto_vacunacion) {
