@@ -3,6 +3,7 @@ package uniandes.isis2304.vacuandes.persistencia;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -800,20 +801,33 @@ public class PersistenciaVacuandes {
 
 
 	public Cita adicionarCita(Date fecha, long ciudadano, long punto_vacunacion, int hora_cita) {
+		Cita cita = null; 
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
         {
+        	//Verificar que hayan vacunas disponibles
         	Vacuna vacuna = sqlVacuna.darPrimeraVacunaPorPuntoDeVacunacion(pm, punto_vacunacion); 
         	log.info ("Agregando una nueva cita en el punto de vacunación: " + punto_vacunacion);
-            tx.begin();
-            long tuplaInsertada = sqlCita.adicionarCita(pm, fecha, ciudadano, punto_vacunacion, vacuna.getId_Vacuna(), hora_cita);
+        	
+        	//Verificar que hayan cupos disponibles 
             PuntoVacunacion punto = sqlPuntoVacunacion.darPuntoPorId(pm, punto_vacunacion); 
-            sqlPuntoVacunacion.disminuirVacunasDisponibles(pm, punto_vacunacion);
-            Cita cita = sqlCita.darCita(pm, fecha, ciudadano, punto_vacunacion, hora_cita); 
-            //sqlOficinaRegionalEPS.disminuirVacunasDisponibles(pm, punto.getOficina_regional_eps());
-            tx.commit();
-            log.info ("Inserción de la cita en el punto: " + punto_vacunacion + ": " + tuplaInsertada + " tuplas insertadas");
+            int atendidosEnRango = punto.getCapacidad_de_Atencion_Simultanea();
+            List<Cita> citasEnRango = sqlCita.darCiudadanosPorFechaYHora(pm, punto_vacunacion, fecha, hora_cita); 
+            if(citasEnRango!=null) 
+            {
+            	if(vacuna!= null && citasEnRango.size()<=atendidosEnRango)
+            	{
+            		tx.begin();
+
+            		//Inserta la nueva cita
+            		long tuplaInsertada = sqlCita.adicionarCita(pm, fecha, ciudadano, punto_vacunacion, vacuna.getId_Vacuna(), hora_cita);
+            		sqlPuntoVacunacion.disminuirVacunasDisponibles(pm, punto_vacunacion);
+            		cita = sqlCita.darCita(pm, fecha, ciudadano, punto_vacunacion, hora_cita); 
+            		tx.commit();
+            		log.info ("Inserción de la cita en el punto: " + punto_vacunacion + ": " + tuplaInsertada + " tuplas insertadas");
+            	}
+            }
             
             return cita;
         }
@@ -833,7 +847,7 @@ public class PersistenciaVacuandes {
         }
 	}
 
-	
+
 	
 	public List<PlanDeVacunacion> darTodosLosPlanesDeVacunacion() {
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1434,8 +1448,21 @@ public class PersistenciaVacuandes {
             //Todos los ciudadanos se les cambia el punto de vacunación por el nuevo asignado
             tuplasInsertadas += sqlCiudadano.cambiarPuntosVacunacionCiudadanos(pm, punto_vacunacion, nuevo_punto);
             
+            //Se pide una lista de todas las citas que se eliminan
+            List<Cita> listaEliminadas = sqlCita.darListaCitasQueVanASerEliminadas(pm, punto_vacunacion);
+            
             //Todas las citas que estaban con ese punto en una fecha mayor o igual a la actual se eliminan
             tuplasInsertadas += sqlCita.eliminarCitaPorPuntoVacunacionDesdeFechaActual(pm, punto_vacunacion);
+            
+            //Agrega las citas del anterior punto de vacunación al nuevo punto de vacunación
+            for (int i = 0; i < listaEliminadas.size(); i++) {
+				Cita citaAct = listaEliminadas.get(i);
+				try {
+					adicionarCita(citaAct.getFecha(), citaAct.getCiudadano(), punto_vacunacion, citaAct.getHora_cita()); 	
+				} catch (Exception e) {
+					if (e.equals(e))
+				}
+			}
             
             tx.commit();
             log.trace ("Se desahabilitó el punto de id: " + punto_vacunacion + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");

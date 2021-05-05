@@ -134,4 +134,19 @@ public class SQLCita {
 		return (Cita) q.executeUnique();
 	}
 
+	public List<Cita> darListaCitasQueVanASerEliminadas(PersistenceManager pm, long punto_vacunacion) {
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE PUNTO_VACUNACION = ? AND FECHA >= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual)");
+        q.setParameters(punto_vacunacion);
+        q.setResultClass(Cita.class);
+        return (List<Cita>) q.executeList();
+	}
+
+	public List<Cita> darCiudadanosPorFechaYHora(PersistenceManager pm, long punto_vacunacion, Date fecha,
+			int hora_cita) {
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCita() + " WHERE punto_vacunacion = ? AND fecha = TO_DATE(?, 'dd/mm/yyyy') AND hora_cita = ?");
+		q.setResultClass(Cita.class);
+		q.setParameters(punto_vacunacion, fecha, hora_cita);
+		return (List<Cita>) q.executeList();
+	}
+
 }
