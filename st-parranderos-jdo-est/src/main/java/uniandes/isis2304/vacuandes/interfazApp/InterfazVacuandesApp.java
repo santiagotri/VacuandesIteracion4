@@ -366,6 +366,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				}else {
 					estados.add(nombreTipo);
 				}
+				interfazCargandoRequerimiento.mostrar();
 				int rta = JOptionPane.showConfirmDialog(this, "¿Desea añadir otro estado?", "", JOptionPane.YES_NO_OPTION);
 				if (rta==1) termino=true;
 			}
@@ -376,14 +377,18 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				panelDatos.actualizarInterfaz(resultado);
 			}
 			else {
-
-				//ACÁ VA LA COMUNICACION CON EL BACKEND
+				interfazCargandoRequerimiento.traerAlfrente();
+				for (String act : estados) {
+					vacuandes.agregarEstadoVacunacion(act);
+				}
+				
 
 
 				String resultado = "Secuencia de estados validos añadidos : " + estados.toString();
 				resultado += "\nEn total se han añadido " + estados.size() + " estados para el proceso de vacunacion";
 				resultado += "\n Operación terminada";
 				panelDatos.actualizarInterfaz(resultado);
+				interfazCargandoRequerimiento.ocultar();
 
 			}
 		}
