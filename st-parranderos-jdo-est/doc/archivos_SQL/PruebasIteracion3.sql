@@ -6,3 +6,5 @@ UPDATE punto_vacunacion SET habilitado = 0 WHERE ID_PUNTO_VACUNACION = 1;
 SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY HH:MI:SS') FROM dual;
 
 SELECT * FROM cita WHERE PUNTO_VACUNACION = 1 AND FECHA >= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual);
+
+SELECT punto_vacunacion, COUNT(id_cita) FROM cita GROUP BY punto_vacunacion;

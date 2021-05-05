@@ -342,6 +342,15 @@ public class Vacuandes {
 		log.info ("Se agregaron " + cantidad_vacunas + " a la eps de id " + punto_vacunacion);
 		return rta;
 	}
+	
+	public String mostrar20PuntosMasEfectivosGeneral() {
+		log.info ("Buscando los 20 puntos de vacunación más efectivos");
+		String rta = pp.darPuntosMasEfectivos();
+        log.info ("Se retornaron los 20 puntos de vacunación más efectivos");
+        return rta;
+	}
+	
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/
