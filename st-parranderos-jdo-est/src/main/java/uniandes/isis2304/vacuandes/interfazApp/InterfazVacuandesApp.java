@@ -628,7 +628,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//RF8 PENDIENTE
+	//RF8
 	public void registrarLlegadaLoteVacunasEPSRegional() {
 		//No especifica quienes lo pueden hacer o quienes no
 		VerificadoRegistrarLlegadaLoteVacunasEPSRegional();
@@ -671,7 +671,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//RF9 PENDIENTE
+	//RF9
 	public void registrarLlegadaLoteVacunasPuntoVacunacion() {
 		if(verificarPermisos(ADMINISTRADOR_PUNTO_VACUNACION)) VerificadoRegistrarLlegadaLoteVacunasPuntoVacunacion();
 	}
@@ -1010,7 +1010,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//RFC1 PENDIENTE
+	//RFC1
 	public void mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getAdministrador_Vacuandes()==1) VerificadoMostrarCiudadanosAtendidosPorUnPuntoDeVacunacion();
@@ -1114,14 +1114,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RFC4 PENDIENTE BONO
 	public void mostrarPuntosVacunacionConDisponibilidadDosis() {
-		interfazCargandoRequerimiento.mostrar();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		interfazCargandoRequerimiento.ocultar();
 	}
 	private void VerificadoMostrarPuntosVacunacionConDisponibilidadDosis() {
 
@@ -1130,7 +1122,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RFC5 PENDIENTE BONO
 	public void mostrarProcesoVacunacionCiudadano() {
-		interfazCargandoRequerimiento.ocultar();
 
 	}
 	public void VerificadoMostrarProcesoVacunacionCiudadano() {
