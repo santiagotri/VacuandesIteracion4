@@ -117,7 +117,7 @@ public class SQLCita {
 	}
 
 	public List<Object> darPuntosMasEfectivos(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) FROM " + pp.darTablaCita() + " GROUP BY punto_vacunacion");
+		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " GROUP BY punto_vacunacion ORDER BY citas DESC");
 		return q.executeList();
 	}
 

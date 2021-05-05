@@ -835,13 +835,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				resultado+= "\n Operacion cancelada";
 			}else {
 				PuntoVacunacion puntoReemplazo = vacuandes.darPuntoVacunacionPorId(idPuntoVacunacionNuevo);
-				vacuandes.deshabilitarPuntoVacunacion(idPuntoVacunacionADeshabilitar, idPuntoVacunacionNuevo);
+				String resultadoCambios = vacuandes.deshabilitarPuntoVacunacion(idPuntoVacunacionADeshabilitar, idPuntoVacunacionNuevo);
 				resultado+= "-- Se ha dehabilitado correctamente el punto --";
 				resultado+= "\n Localizacion punto deshabilitado: " +puntoVacunacionADeshabilitar.getLocalizacion() ;
 				resultado+= "\n id punto deshabilitado: " +puntoVacunacionADeshabilitar.getId_Punto_Vacunacion() ;
 				resultado+= "\n Localizacion punto de reemplazo: " +puntoReemplazo.getLocalizacion() ;
 				resultado+= "\n id punto de reemplazo: " +puntoReemplazo.getId_Punto_Vacunacion() ;
-				resultado += "\n Operación terminada";
+				resultado+= "\n -- CAMBIOS REALIZADOS EN LAS CITAS DE LOS CIUDADANOS -- \n";
+				resultado+= resultadoCambios;
+				resultado += "\n -- Operación terminada -- ";
 			}
 			
 		}
@@ -1091,7 +1093,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 						Integer[] rangoHoras = escogerRangoDeHoras();
 						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoHoras (rangoHoras[0], rangoHoras[1]);
 					}else if (tipo_busqueda==3) {
-						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivos();
+						rta = vacuandes.mostrar20PuntosMasEfectivosGeneral();
 					}
 					if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada (error00)";
 					else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
@@ -1103,6 +1105,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 					e.printStackTrace();
 					String resultado = generarMensajeError(e);
 					panelDatos.actualizarInterfaz(resultado);
+					interfazCargandoRequerimiento.ocultar();
 				}
 
 	}
@@ -1115,11 +1118,12 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				try {
 					String region = escogerRegion();
 					//String rta = vacuandes.mostrarIndiceDeVacunacionParaGrupoPoblacional(region);
-					panelDatos.actualizarInterfaz(rta);
+					//panelDatos.actualizarInterfaz(rta);
 				} catch (Exception e) {
 					e.printStackTrace();
 					String resultado = generarMensajeError(e);
 					panelDatos.actualizarInterfaz(resultado);
+					interfazCargandoRequerimiento.ocultar();
 				}
 
 	}
@@ -1159,15 +1163,42 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RFC5 PENDIENTE
 	public void mostrarProcesoVacunacionCiudadano() {
-
+		interfazCargandoRequerimiento.mostrar();
+		VerificadoMostrarProcesoVacunacionCiudadano();
 	}
 	public void VerificadoMostrarProcesoVacunacionCiudadano() {
-
+		try {
+			String cedulaCiudadano = mostrarMensajeIntroducirTexto("Cedula", "Introduzca la cedula del ciudadano");
+			interfazCargandoRequerimiento.traerAlfrente();
+			Ciudadano ciudadano = vacuandes.darCiudadanoPorCedula(Long.parseLong(cedulaCiudadano));
+			String rta = "";
+			if(ciudadano!=null) {
+				rta = "Informacion de ciudadano con la cedula " + cedulaCiudadano;
+				rta +="\n - Nombre: " + ciudadano.getNombre_Completo();
+				rta +="\n - Identificacion: " + ciudadano.getCedula();
+				rta +="\n - Region: " + ciudadano.getRegion();
+				rta +="\n - ¿Desea ser vacunado? (si=1,no=0): " + ciudadano.getDesea_ser_vacunado();
+				if(ciudadano.getEstado_vacunacion() !=null)rta +="\n - Estado vacunacion: " + ciudadano.getEstado_vacunacion();
+				else {rta += "\n - No se ha registrado el estado de vacunacion de esta ciudadno aun.";}
+				if(ciudadano.getPunto_Vacunacion() !=null)rta +="\n - Punto vacunacion: " + vacuandes.darPuntoVacunacionPorId(ciudadano.getPunto_Vacunacion()).getLocalizacion();
+				else {rta += "\n - No se ha asignado el ciudadno a un punto de vacunacion todavia.";}
+				rta += "\nOperacion terminada.";
+			}else {
+				rta = "No existe un ciudadano con la cedula " + cedulaCiudadano;
+				rta += "\nOperacion cancelada.";
+			}
+			panelDatos.actualizarInterfaz(rta);
+			interfazCargandoRequerimiento.ocultar();
+		} catch (Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
+		}
+				
 	}
 
 	//RFC7 PEDIENTE
-	
-
 	public void analizarOperacionVacuandes() {
 
 	}

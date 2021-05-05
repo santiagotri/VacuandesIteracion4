@@ -99,7 +99,11 @@ public class SQLVacuna {
 	
 	public Vacuna darPrimeraVacunaPorPuntoDeVacunacion(PersistenceManager pm, long punto_vacunacion)
 	{
-		Vacuna vacuna = darVacunasDisponiblesPorPuntoDeVacunacion(pm, punto_vacunacion).get(0);
+		List<Vacuna> vacunas = darVacunasDisponiblesPorPuntoDeVacunacion(pm, punto_vacunacion);
+		Vacuna vacuna = null;
+		if(!vacunas.isEmpty()) {
+			vacuna = vacunas.get(0);
+		}
 		actualizarEstadoAUsada(pm, vacuna.getId_Vacuna());
 		return vacuna;
 	}
