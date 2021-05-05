@@ -1433,10 +1433,10 @@ public class PersistenciaVacuandes {
 	}
 	
 	//Metodo que sirve para deshabilitar un punto de vacunación, lo que hace es: Elimina las citas que estén en ese punto de vacunación después de la fecha actual, cambia todos los ciudadanos a otro punto de vacunación que entra por parámetro
-	// -1 si no se logró hacer, el id del punto si si sirvió
-	public long deshabilitarPuntoVacunacion(long punto_vacunacion, long nuevo_punto)
+	//Retorna un String 
+	public String deshabilitarPuntoVacunacion(long punto_vacunacion, long nuevo_punto)
 	{
-		long rta = punto_vacunacion; 
+		String rta = ""; 
 		PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx=pm.currentTransaction();
         try
@@ -1464,11 +1464,33 @@ public class PersistenciaVacuandes {
 				Cita citaAct = listaEliminadas.get(i);
 				try {
 					if(cantidadVacunas>0) {
-						while(verificarFechaParaCambioCita(fecha)) {
-							fecha = fecha
+						Date fechaCita = citaAct.getFecha();
+						int horaCita = citaAct.getHora_cita();
+						while(!verificarFechaParaCambioCita(fechaCita, horaCita)) 
+						{
+							if(horaCita<1800)
+							{
+								horaCita+=100; 
+							}
+							else if(horaCita==1800)
+							{
+								horaCita = 700;
+								if(fechaCita.getDay()<5)
+								{
+									fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
+								}
+								else
+								{
+									fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
+									fechaCita = new Date(fechaCita.getTime()+(1000 * 60 * 60 * 24));
+								}
+							}
 						}
-						adicionarCita(citaAct.getFecha(), citaAct.getCiudadano(), punto_vacunacion, citaAct.getHora_cita()); 	
-						cantidadVacunas--;
+						Cita citaAdicionada = adicionarCita(citaAct.getFecha(), citaAct.getCiudadano(), punto_vacunacion, citaAct.getHora_cita()); 	
+						if(citaAdicionada !=null) {
+							cantidadVacunas--;
+							rta += "- Ciudadano: (" + (i+1) + "): " +  lista.get(i).getCiudadano() + ", Hora: " + lista.get(i).getHora_cita() +"\n"; 
+						}
 					}else {
 						rta += 
 					}
@@ -1479,6 +1501,7 @@ public class PersistenciaVacuandes {
 				}
 			}
             
+            return rta; 
             tx.commit();
             log.trace ("Se desahabilitó el punto de id: " + punto_vacunacion + "Se actualizaron: " + tuplasInsertadas + " tuplas cambiadas");
         }
@@ -1500,6 +1523,10 @@ public class PersistenciaVacuandes {
         
 	}
 
+	private boolean verificarFechaParaCambioCita(Date fecha, int hora_cita)
+	{
+		
+	}
 
 	public long rehabilitarPuntoVacunacion(long punto_vacunacion) {
 		long rta = punto_vacunacion; 
