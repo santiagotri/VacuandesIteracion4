@@ -8,3 +8,5 @@ SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY HH:MI:SS') FROM dual;
 SELECT * FROM cita WHERE PUNTO_VACUNACION = 1 AND FECHA >= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual);
 
 SELECT punto_vacunacion, COUNT(id_cita) FROM cita GROUP BY punto_vacunacion;
+
+INSERT INTO estado_vacunacion (ESTADO) values 'Vacunado completamente'

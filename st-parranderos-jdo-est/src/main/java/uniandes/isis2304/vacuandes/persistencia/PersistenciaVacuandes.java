@@ -1616,6 +1616,37 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public EstadoVacunacion adicionarEstadoVacunacion(String estado) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+        Transaction tx=pm.currentTransaction();
+        try
+        {
+        	log.info ("Agregando un nuevo estado llamado: " + estado);
+            tx.begin();
+            long tuplaInsertada = sqlEstadoVacunacion.agregarEstado(pm, estado);
+            tx.commit();
+            log.info ("Inserción del estado: " + estado + ": " + tuplaInsertada + " tuplas insertadas");
+            
+            return new EstadoVacunacion(estado);
+        	
+        }
+        catch (Exception e)
+        {
+        	// e.printStackTrace();
+        	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+        	throw e;
+        }
+        finally
+        {
+            if (tx.isActive())
+            {
+                tx.rollback();
+            }
+            pm.close();
+        }
+	}
+
+
 
 	
 	/**

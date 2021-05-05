@@ -47,4 +47,11 @@ public class SQLEstadoVacunacion {
 		List<EstadoVacunacion> resp = q.executeList();
 		return resp;
 	}
+
+
+	public long agregarEstado(PersistenceManager pm, String estado) {
+		Query q = pm.newQuery(SQL, "INSERT INTO " + pp.darTablaEstadoVacunacion() + "(ESTADO) values (?)");
+		q.setParameters(estado);
+		return (long) q.executeUnique(); 
+	}
 }

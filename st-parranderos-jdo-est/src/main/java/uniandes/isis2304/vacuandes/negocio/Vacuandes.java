@@ -197,6 +197,16 @@ public class Vacuandes {
         log.info ("Se actualizó la opinión del ciudadano");
 	}
 	
+	/* ****************************************************************
+	 * 			Métodos para manejar Estado_Vacunacion
+	 *****************************************************************/
+	public EstadoVacunacion agregarEstadoVacunacion(String estado)
+	{
+		log.info ("Insertando el estado de vacunacion: " + estado);
+		EstadoVacunacion rta = pp.adicionarEstadoVacunacion(estado);
+        log.info ("Se agregó correctamente el estado: " + estado);
+        return rta; 
+	}
 	
 	/* ****************************************************************
 	 * 			Métodos para manejar LIST_CONDICIONES_CIUDADANO
