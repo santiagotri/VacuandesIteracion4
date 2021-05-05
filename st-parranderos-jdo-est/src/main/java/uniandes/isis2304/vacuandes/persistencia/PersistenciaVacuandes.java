@@ -834,6 +834,9 @@ public class PersistenciaVacuandes {
         catch (Exception e)
         {
         	// e.printStackTrace();
+        	System.out.println("mensaje" + e.getMessage());
+        	System.out.println("causa" + e.getCause());
+        	
         	log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
         	throw e;
         }
