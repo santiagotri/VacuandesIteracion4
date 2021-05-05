@@ -1070,58 +1070,59 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 	private void VerificadoMostrar20PuntosDeVacunacionMasEfectivos() {
-		//		try {
-		//			String rta;
-		//			int tipo_busqueda = escogerTipoDeBusquedaFechaRangoFechasUHoras();
-		//			if(tipo_busqueda==0) {
-		//				Date fechaEspecifica = escogerFechaEspecifica();
-		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosFechaEspecifica (fechaEspecifica);
-		//			}else if (tipo_busqueda==1) {
-		//				Date[] rangoFechas = escogerRangoDeFechas();
-		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoFechas (rangoFechas[0], rangoFechas[1]);
-		//
-		//			}else if (tipo_busqueda==2) {
-		//				Integer[] rangoHoras = escogerRangoDeHoras();
-		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoHoras (rangoHoras[0], rangoHoras[1]);
-		//			}else if (tipo_busqueda==3) {
-		//				rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivos();
-		//			}
-		//			panelDatos.actualizarInterfaz(rta);
-		//		}catch(Exception e) {
-		//			e.printStackTrace();
-		//			String resultado = generarMensajeError(e);
-		//			panelDatos.actualizarInterfaz(resultado);
-		//		}
+				try {
+					String rta =null;
+					int tipo_busqueda = escogerTipoDeBusquedaFechaRangoFechasUHoras();
+					if(tipo_busqueda==0) {
+						String fechaEspecifica = escogerFechaEspecifica();
+						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosFechaEspecifica (fechaEspecifica);
+					}else if (tipo_busqueda==1) {
+						String[] rangoFechas = escogerRangoDeFechas();
+						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoFechas (rangoFechas[0], rangoFechas[1]);
+		
+					}else if (tipo_busqueda==2) {
+						Integer[] rangoHoras = escogerRangoDeHoras();
+						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoHoras (rangoHoras[0], rangoHoras[1]);
+					}else if (tipo_busqueda==3) {
+						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivos();
+					}
+					if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+					else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+					else {
+						rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+					}
+					panelDatos.actualizarInterfaz(rta);
+				}catch(Exception e) {
+					e.printStackTrace();
+					String resultado = generarMensajeError(e);
+					panelDatos.actualizarInterfaz(resultado);
+				}
 
 	}
-
+	
 	//RFC3 PENDIENTE
 	public void mostrarIndiceDeVacunacionParaGrupoPoblacional() {
-		if (trabajadorActual!=null) {
-			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION) || trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS) ) VerificadoMostrarIndiceDeVacunacionParaGrupoPoblacional();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
-		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
-		}
+		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS))VerificadoMostrarIndiceDeVacunacionParaGrupoPoblacional();
 	}
 	private void VerificadoMostrarIndiceDeVacunacionParaGrupoPoblacional() {
-		//		try {
-		//			String region = escogerRegion();
-		//			String rta = vacuandes.mostrarIndiceDeVacunacionParaGrupoPoblacional(region);
-		//			panelDatos.actualizarInterfaz(rta);
-		//		} catch (Exception e) {
-		//			e.printStackTrace();
-		//			String resultado = generarMensajeError(e);
-		//			panelDatos.actualizarInterfaz(resultado);
-		//		}
+				try {
+					String region = escogerRegion();
+					//String rta = vacuandes.mostrarIndiceDeVacunacionParaGrupoPoblacional(region);
+					panelDatos.actualizarInterfaz(rta);
+				} catch (Exception e) {
+					e.printStackTrace();
+					String resultado = generarMensajeError(e);
+					panelDatos.actualizarInterfaz(resultado);
+				}
 
 	}
 
-	//RFC4 PENDIENTE BONO
+
+	//RFC4 PENDIENTE
 	public void mostrarPuntosVacunacionConDisponibilidadDosis() {
 	}
 	private void VerificadoMostrarPuntosVacunacionConDisponibilidadDosis() {
-
+		
 	}
 
 
@@ -1134,6 +1135,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	//RFC7 PEDIENTE
+	
+
 	public void analizarOperacionVacuandes() {
 
 	}
@@ -1572,17 +1575,40 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		return n;
 	}
 
-	private Date escogerFechaEspecifica(){
-		String fechaIngresada = JOptionPane.showInputDialog (this, "Fecha especifica en la que desea buscar en formato dd/MM/yyyy", "Fecha especifica", JOptionPane.QUESTION_MESSAGE);
-		return convertirFechaDeStringADate(fechaIngresada);
+	private String escogerFechaEspecifica(){
+		boolean centinela =true;
+		String fechaEspecifica ="";
+		while (centinela) {
+			fechaEspecifica = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha especifica de la busqueda en el formato dd/mm/yyyy");
+			String [] informacionFecha = fechaEspecifica.split("/");
+			if(informacionFecha.length>2) centinela = false;
+			else {
+				mostrarMensajeError("Error en formato fecha", "Ha existido un error en la entrada de la fecha por favor revise la entrada e intentelo de nuevo");
+			}
+		}
+		return fechaEspecifica;
 	}
 
-	private Date[] escogerRangoDeFechas() {
-		Date[] rta = new Date[2];
-		String fechaAntiguaIngresada = JOptionPane.showInputDialog (this, "Fecha mas antigua en la que desea buscar en formato dd/MM/yyyy", "Fecha antigua", JOptionPane.QUESTION_MESSAGE);
-		rta[0] = convertirFechaDeStringADate(fechaAntiguaIngresada);
-		String fechaIngresada = JOptionPane.showInputDialog (this, "Fecha mas reciente en la que desea buscar en formato dd/MM/yyyy", "Fecha reciente", JOptionPane.QUESTION_MESSAGE);
-		rta[1] = convertirFechaDeStringADate(fechaIngresada);
+	private String[] escogerRangoDeFechas() {
+		String[] rta = new String[2];
+		boolean centinela =true;
+		while (centinela) {
+			rta[1] = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha inicial de la busqueda en el formato dd/mm/yyyy");
+			String [] informacionFecha = rta[1].split("/");
+			if(informacionFecha.length>2) centinela = false;
+			else {
+				mostrarMensajeError("Error en formato fecha", "Ha existido un error en la entrada de la fecha por favor revise la entrada e intentelo de nuevo");
+			}
+		}
+		centinela = true;
+		while (centinela) {
+			rta[2] = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha final de la busqueda en el formato dd/mm/yyyy");
+			String [] informacionFecha = rta[2].split("/");
+			if(informacionFecha.length>2) centinela = false;
+			else {
+				mostrarMensajeError("Error en formato fecha", "Ha existido un error en la entrada de la fecha por favor revise la entrada e intentelo de nuevo");
+			}
+		}
 		return rta;
 	}
 
