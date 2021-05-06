@@ -360,6 +360,26 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public String mostrar20PuntosMasEfectivosEnFechaEspecifica(Date fecha) {
+		log.info ("Buscando los 20 puntos de vacunación más efectivos en la fecha: " + fecha);
+		String rta = pp.darPuntosMasEfectivosPorFecha(fecha);
+        log.info ("Se retornaron los 20 puntos de vacunación más efectivos");
+        return rta;
+	}
+	
+	public String mostrar20PuntosMasEfectivosEnRangoDeFechas(Date primera_fecha, Date segunda_fecha) {
+		log.info ("Buscando los 20 puntos de vacunación más efectivos entre las fechas: " + primera_fecha + "  -  " + segunda_fecha);
+		String rta = pp.darPuntosMasEfectivosPorRangoDeFechas(primera_fecha,segunda_fecha);
+        log.info ("Se retornaron los 20 puntos de vacunación más efectivos");
+        return rta;
+	}
+	
+	public String mostrar20PuntosMasEfectivosEnRangoDeHoras(int primera_hora, int segunda_hora) {
+		log.info ("Buscando los 20 puntos de vacunación más efectivos entre las horas: " + primera_hora + "  -  " + segunda_hora);
+		String rta = pp.darPuntosMasEfectivosPorRangoDeHoras(primera_hora,segunda_hora);
+        log.info ("Se retornaron los 20 puntos de vacunación más efectivos");
+        return rta;
+	}
 	
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR

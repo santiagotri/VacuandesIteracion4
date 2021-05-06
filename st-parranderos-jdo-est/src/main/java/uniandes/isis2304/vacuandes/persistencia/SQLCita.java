@@ -149,4 +149,24 @@ public class SQLCita {
 		return (List<Cita>) q.executeList();
 	}
 
+	public List<Object> darPuntosMasEfectivosPorFecha(PersistenceManager pm, Date fecha){
+		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE fecha = ? GROUP BY punto_vacunacion ORDER BY citas DESC");
+		q.setParameters( new Timestamp(fecha.getTime()));
+		return q.executeList();
+	}
+
+	public List<Object> darPuntosMasEfectivosPorRangoDeFechas(PersistenceManager pm, Date primera_fecha,
+			Date segunda_fecha) {
+		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE fecha >= ? AND fecha <= ? GROUP BY punto_vacunacion ORDER BY citas DESC");
+		q.setParameters( new Timestamp(primera_fecha.getTime()), new Timestamp(segunda_fecha.getTime()));
+		return q.executeList();
+	}
+
+	public List<Object> darPuntosMasEfectivosPorRangoDeHoras(PersistenceManager pm, int primera_hora,
+			int segunda_hora) {
+		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE hora_cita >= ? AND hora_cita <= ? GROUP BY punto_vacunacion ORDER BY citas DESC");
+		q.setParameters( primera_hora, segunda_hora);
+		return q.executeList();
+	}
+
 }

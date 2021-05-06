@@ -1757,6 +1757,54 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public String darPuntosMasEfectivosPorFecha(Date fecha) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlCita.darPuntosMasEfectivosPorFecha(pmf.getPersistenceManager(), fecha);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			long cantidad = ((BigDecimal) datos [1]).longValue ();
+			rta += "\n-" + "Punto Vacunacion: " + idPuntoVacunacion + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	public String darPuntosMasEfectivosPorRangoDeFechas(Date primera_fecha, Date segunda_fecha) 
+	{
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlCita.darPuntosMasEfectivosPorRangoDeFechas(pmf.getPersistenceManager(), primera_fecha, segunda_fecha);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			long cantidad = ((BigDecimal) datos [1]).longValue ();
+			rta += "\n-" + "Punto Vacunacion: " + idPuntoVacunacion + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	public String darPuntosMasEfectivosPorRangoDeHoras(int primera_hora, int segunda_hora) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlCita.darPuntosMasEfectivosPorRangoDeHoras(pmf.getPersistenceManager(), primera_hora, segunda_hora);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			long cantidad = ((BigDecimal) datos [1]).longValue ();
+			rta += "\n-" + "Punto Vacunacion: " + idPuntoVacunacion + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
 
 
 	/**
