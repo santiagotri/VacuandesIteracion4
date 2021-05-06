@@ -1,6 +1,6 @@
 package uniandes.isis2304.vacuandes.persistencia;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -138,5 +138,14 @@ public class SQLPuntoVacunacion {
 		return (long) q.executeUnique();
 	}
 
+	public List<Object> darSobrecupoDiaEspecifico(PersistenceManager pm, String tipo_punto,
+			Date dia) {
+		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, CITAS, FECHA, HORA_CITA citas from" + pp.darTablaPuntoVacunacion()
+		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
+		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
+		+ " tabla_citas.citas >= tabla_punto.capacidad_de_atencion_simultanea*0.9 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.fecha = TO_DATE(?, 'dd/mm/yyyy')");
+		q.setParameters( tipo_punto, dia);
+		return q.executeList();
+	}
 	
 }

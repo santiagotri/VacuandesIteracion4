@@ -2,6 +2,7 @@
 package uniandes.isis2304.vacuandes.persistencia;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -1800,6 +1801,25 @@ public class PersistenciaVacuandes {
 			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
 			long cantidad = ((BigDecimal) datos [1]).longValue ();
 			rta += "\n-" + "Punto Vacunacion: " + idPuntoVacunacion + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	public String analizarOperacionesEnDiaEspecificoSobrecupo(String tipo_punto, Date dia) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlPuntoVacunacion.darSobrecupoDiaEspecifico(pmf.getPersistenceManager(), tipo_punto, dia);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			long cantidad = ((BigDecimal) datos [1]).longValue ();
+			Timestamp timest = (Timestamp) datos[2]; 
+			Date fecha = timest; 
+			long horaCita = ((BigDecimal) datos [3]).longValue ();
+			rta += "\n-" + "Hora: " + horaCita + " Fecha: " + fecha + " Cantidad atendidos: " + cantidad + " Id punto: " + idPuntoVacunacion; 
 		}
 
 		return rta;

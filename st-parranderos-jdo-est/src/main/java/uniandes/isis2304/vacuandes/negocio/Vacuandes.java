@@ -381,6 +381,53 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public String analizarOperacionDeVacuandesDiaEspecificoSobrecupo(String tipo_punto, Date dia)
+	{
+		log.info ("Buscando para ese día las horas de mayor afluencia");
+		String rta = pp.analizarOperacionesEnDiaEspecificoSobrecupo(tipo_punto, dia);
+		log.info ("Se retornaron las horas de mayor afluencia");
+		return rta;
+	}
+	
+	public String analizarOperacionDeVacuandesDiaEspecificoFaltaDeCupo(String tipo_punto, Date dia)
+	{
+		log.info ("Buscando para ese día las horas de menor afluencia");
+		String rta = pp.analizarOperacionesEnDiaEspecificoFaltaDeCupo(tipo_punto, dia);
+		log.info ("Se retornaron las horas de menor afluencia");
+		return rta;
+	}
+	
+	public String analizarOperacionDeVacuandesEnRangoHorasSobreCupo(String tipo_punto, int primera_hora, int segunda_hora)
+	{
+		log.info ("Buscando para ese día las horas de mayor afluencia en el rango de horas" + primera_hora + " - " + segunda_hora);
+		String rta = pp.analizarOperacionesEnRangoDeHorasSobrecupo(tipo_punto, primera_hora,segunda_hora);
+		log.info ("Se retornaron las horas de mayor afluencia");
+		return rta;
+	}
+	
+	public String analizarOperacionDeVacuandesEnRangoHorasFaltaDeCupo(String tipo_punto, int primera_hora, int segunda_hora)
+	{
+		log.info ("Buscando para ese día las horas de mayor afluencia en el rango de horas" + primera_hora + " - " + segunda_hora);
+		String rta = pp.analizarOperacionesEnRangoDeHorasFaltaDeCupo(tipo_punto, primera_hora,segunda_hora);
+		log.info ("Se retornaron las horas de menor afluencia");
+		return rta;
+	}
+	
+	public String analizarOperacionDeVacuandesEnRangoDeFechasSobrecupo(String tipo_punto, Date primera_fecha, Date segunda_fecha)
+	{
+		log.info ("Buscando para ese día las horas de mayor afluencia en el rango de fechas" + primera_fecha + " - " + segunda_fecha);
+		String rta = pp.analizarOperacionesEnRangoDeFechasSobreCupo(tipo_punto, primera_fecha,segunda_fecha);
+		log.info ("Se retornaron las horas de mayor afluencia");
+		return rta;
+	}
+	
+	public String analizarOperacionDeVacuandesEnRangoDeFechasFaltaDeCupo(String tipo_punto, Date primera_fecha, Date segunda_fecha)
+	{
+		log.info ("Buscando para ese día las horas de menor afluencia en el rango de fechas" + primera_fecha + " - " + segunda_fecha);
+		String rta = pp.analizarOperacionesEnRangoDeFechasFaltaDeCupo(tipo_punto, primera_fecha,segunda_fecha);
+		log.info ("Se retornaron las horas de menor afluencia");
+		return rta;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/
