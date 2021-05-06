@@ -1807,7 +1807,7 @@ public class PersistenciaVacuandes {
 	}
 
 
-	public String analizarOperacionesEnDiaEspecificoSobrecupo(String tipo_punto, Date dia) {
+	public String analizarOperacionesEnDiaEspecificoSobrecupo(String tipo_punto, String dia) {
 		String rta = ""; 
 		List<Object []> respuesta = new LinkedList <Object []> ();
 		List<Object> tuplas = sqlPuntoVacunacion.darSobrecupoDiaEspecifico(pmf.getPersistenceManager(), tipo_punto, dia);

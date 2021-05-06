@@ -381,7 +381,7 @@ public class Vacuandes {
         return rta;
 	}
 	
-	public String analizarOperacionDeVacuandesDiaEspecificoSobrecupo(String tipo_punto, Date dia)
+	public String analizarOperacionDeVacuandesDiaEspecificoSobrecupo(String tipo_punto, String dia)
 	{
 		log.info ("Buscando para ese día las horas de mayor afluencia");
 		String rta = pp.analizarOperacionesEnDiaEspecificoSobrecupo(tipo_punto, dia);
