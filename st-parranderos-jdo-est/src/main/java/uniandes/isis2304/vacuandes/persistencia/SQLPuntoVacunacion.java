@@ -139,7 +139,7 @@ public class SQLPuntoVacunacion {
 	}
 
 	public List<Object> darSobrecupoDiaEspecifico(PersistenceManager pm, String tipo_punto,
-			Date dia) {
+			String dia) {
 		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, CITAS, FECHA, HORA_CITA citas from" + pp.darTablaPuntoVacunacion()
 		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
 		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
