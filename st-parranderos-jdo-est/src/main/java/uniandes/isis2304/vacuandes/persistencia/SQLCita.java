@@ -169,4 +169,18 @@ public class SQLCita {
 		return q.executeList();
 	}
 
+	public List<Object> darPuntosValidos(PersistenceManager pm, String fecha_diez_atras, String fecha)  {
+		Query q = pm.newQuery(SQL, "SELECT fecha, hora_cita, punto_vacunacion, count(id_cita) FROM " + pp.darTablaCita() 
+		+ " WHERE fecha >= TO_DATE(?, 'dd/mm/yyyy') AND fecha <= TO_DATE(?, 'dd/mm/yyyy') GROUP BY fecha, hora_cita, punto_vacunacion");
+		q.setParameters( fecha_diez_atras, fecha);
+		return q.executeList();
+	}
+
+	public List<Long> getCiudadanosQueSeCruzan(PersistenceManager pm, long idPuntoVacunacion,
+			Date fechaBusqueda, long horaCita)  {
+		Query q = pm.newQuery(SQL, "SELECT ciudadano FROM " + pp.darTablaCita() + " WHERE fecha = TO_DATE(?, 'dd/mm/yyyy') AND hora_cita = ? AND punto_vacunacion = ?");
+		q.setParameters( fechaBusqueda, horaCita, idPuntoVacunacion);
+		return q.executeList();
+	}
+
 }

@@ -1932,6 +1932,36 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public String encontrarCiudadanosEnContacto(String fecha_diez_atras, String fecha) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlCita.darPuntosValidos(pmf.getPersistenceManager(), fecha_diez_atras, fecha);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			Timestamp timest = (Timestamp) datos[0]; 
+			Date fechaBusqueda = timest; 
+			long horaCita = ((BigDecimal) datos [1]).longValue ();
+			long idPuntoVacunacion = ((BigDecimal) datos [2]).longValue ();
+			long conteo = ((BigDecimal) datos [3]).longValue ();
+			
+			if(conteo>1)
+			{
+				List<Long> ciudadanosCruzados = sqlCita.getCiudadanosQueSeCruzan(pmf.getPersistenceManager(), idPuntoVacunacion, fechaBusqueda, horaCita);
+				rta += "\n-" + " Los ciudadanos : ";
+				
+				for (int i = 0; i < ciudadanosCruzados.size(); i++) 
+				{
+					rta += "\n-" + ciudadanosCruzados.get(i); 
+				} 
+				rta += "\n-" + "Tuvieron contacto en el punto: " + idPuntoVacunacion + " en la fecha: " + fechaBusqueda + " en la hora: " + horaCita;
+			}
+		}
+
+		return rta;
+	}
+
+
 	
 
 	/**

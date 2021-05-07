@@ -428,6 +428,7 @@ public class Vacuandes {
 		log.info ("Se retornaron las horas de menor afluencia");
 		return rta;
 	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/
@@ -517,7 +518,13 @@ public class Vacuandes {
 	/* ****************************************************************
 	 * 			Métodos para manejar Consultas
 	 *****************************************************************/
-	
+	public String encontrarCiudadanosEnContacto(String fecha_diez_atras, String fecha)
+	{
+		log.info ("Buscando ciudadanos que se hayan cruzado en el rango de fechas: " + fecha_diez_atras + " hasta la fecha " + fecha);
+		String rta = pp.encontrarCiudadanosEnContacto(fecha_diez_atras, fecha);
+		log.info ("Se retornaron los ciudadanos que estuvieron en contacto en las mismas horas, fechas y puntos");
+		return rta;
+	}
 	
 
 	/* ****************************************************************
