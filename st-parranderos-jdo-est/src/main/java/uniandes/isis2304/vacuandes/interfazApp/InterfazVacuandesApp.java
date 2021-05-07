@@ -573,21 +573,11 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			int cantidad_vacunas_enviables = Integer.parseInt(JOptionPane.showInputDialog (this, "Ingresar la cantidad de vacunas enviables", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE));
 			String infraestructura_para_dosis = JOptionPane.showInputDialog (this, "Ingresar una descripcion de la infraestructura que tiene para almacenar las dosis", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE);
 
-			String [] opciones1 = {
-					"Hospital", 
-					"Clinica", 
-					"Centro de salud", 
-			"Otro"};
-			JComboBox optionList1 = new JComboBox(opciones1);
-			optionList1.setSelectedIndex(0);
-			JOptionPane.showMessageDialog(this, "Seleccione el tipo del punto de vacunacion", "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
-			JOptionPane.showMessageDialog(this, optionList1, "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
-
 			int habilitado = JOptionPane.showConfirmDialog(this, "¿Desea iniciar este punto de vacunacion como habilitado?", "Estado del punto", JOptionPane.YES_NO_OPTION);
 			if (habilitado==1) habilitado =0;
 			else if (habilitado==0) habilitado =1;
 
-			String tipo_punto_vacunacion = opciones1[optionList1.getSelectedIndex()];
+			String tipo_punto_vacunacion = escogerTipoPuntoVacunacion();
 			String usernameAdministrador = JOptionPane.showInputDialog (this, "Ingresa username administrador", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE);
 			String region = escogerRegion();
 			long oficina_regional_eps = asignarPorRegionOficinaRegionalEPS(region);
@@ -1069,7 +1059,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	}
 
-	//RFC2 PENDIENTE
+	//RFC2
 	public void mostrar20PuntosDeVacunacionMasEfectivos() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getAdministrador_Vacuandes()==1) VerificadoMostrar20PuntosDeVacunacionMasEfectivos();
@@ -1084,14 +1074,14 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 					int tipo_busqueda = escogerTipoDeBusquedaFechaRangoFechasUHoras();
 					if(tipo_busqueda==0) {
 						String fechaEspecifica = escogerFechaEspecifica();
-						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosFechaEspecifica (fechaEspecifica);
-					}else if (tipo_busqueda==1) {
+						rta = vacuandes.mostrar20PuntosMasEfectivosEnFechaEspecifica(new SimpleDateFormat("dd/MM/yyyy").parse(fechaEspecifica));
+					}else if(tipo_busqueda==1) {
 						String[] rangoFechas = escogerRangoDeFechas();
-						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoFechas (rangoFechas[0], rangoFechas[1]);
+						rta = vacuandes.mostrar20PuntosMasEfectivosEnRangoDeFechas (new SimpleDateFormat("dd/MM/yyyy").parse(rangoFechas[0]), new SimpleDateFormat("dd/MM/yyyy").parse(rangoFechas[1]));
 		
 					}else if (tipo_busqueda==2) {
 						Integer[] rangoHoras = escogerRangoDeHoras();
-						//rta = vacuandes.Mostrar20PuntosDeVacunacionMasEfectivosRangoHoras (rangoHoras[0], rangoHoras[1]);
+						rta = vacuandes.mostrar20PuntosMasEfectivosEnRangoDeHoras(rangoHoras[0], rangoHoras[1]);
 					}else if (tipo_busqueda==3) {
 						rta = vacuandes.mostrar20PuntosMasEfectivosGeneral();
 					}
@@ -1161,7 +1151,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 
-	//RFC5 PENDIENTE
+	//RFC5
 	public void mostrarProcesoVacunacionCiudadano() {
 		interfazCargandoRequerimiento.mostrar();
 		VerificadoMostrarProcesoVacunacionCiudadano();
@@ -1199,11 +1189,44 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	//RFC7 PEDIENTE
+	
 	public void analizarOperacionVacuandes() {
-
+		if(verificarPermisos(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoAnalizarOperacionVacuandes();
 	}
 	private void VerificadoAnalizarOperacionVacuandes() {
-
+		String rta = null;
+		
+		String  tipoPunto = escogerTipoPuntoVacunacion();
+		int tipoBusquedaTemporal = escogerTipoDeBusquedaFechaRangoFechasUHorasSinTodosLosRegistros();
+		int tipoAnalisis =  escogerTipoAnalisisMayorOMenorRiesgo();
+		
+		//Mayor riesgo
+		if(tipoBusquedaTemporal==0 && tipoAnalisis==0) {
+			//fecha especifica
+			String fechaEspecifica = escogerFechaEspecifica();
+			
+			rta = vacuandes.analizarOperacionDeVacuandesDiaEspecificoSobrecupo(tipoPunto, fechaEspecifica);
+		}else if (tipoBusquedaTemporal==1 && tipoAnalisis==0) {
+			//rango fechas
+		}else if (tipoBusquedaTemporal==2 && tipoAnalisis==0) {
+			//rango horas
+		}
+		
+		//Menor riesgo
+		else if(tipoBusquedaTemporal==0 && tipoAnalisis==1) {
+			//fecha especifica
+		}else if (tipoBusquedaTemporal==1 && tipoAnalisis==1) {
+			//rango fechas
+		}else if (tipoBusquedaTemporal==2 && tipoAnalisis==1) {
+			//rango horas
+		}
+		
+		if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+		else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+		else {
+			rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+		}
+		panelDatos.actualizarInterfaz(rta);
 	}
 
 	//RFC8 PENDIENDE
@@ -1636,6 +1659,35 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				options[3]);
 		return n;
 	}
+	
+	private int escogerTipoDeBusquedaFechaRangoFechasUHorasSinTodosLosRegistros() {
+		Object[] options = {"Fecha especifica",
+				"Rango de fechas",
+				"Rango de horas"};
+		int n = JOptionPane.showOptionDialog(null,//parent container of JOptionPane
+				"Escoja el tipo de busqueda que desea realizar",
+				"Tipo de busqueda",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,//do not use a custom Icon
+				options,//the titles of buttons
+				options[0]);
+		return n;
+	}
+	
+	private int escogerTipoAnalisisMayorOMenorRiesgo() {
+		Object[] options = {"Mayor riesgo",
+				"Menor riesgo"};
+		int n = JOptionPane.showOptionDialog(null,//parent container of JOptionPane
+				"Escoja el tipo de analisis que desea realizar",
+				"Tipo de analisis",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,//do not use a custom Icon
+				options,//the titles of buttons
+				options[0]);
+		return n;
+	}
 
 	private String escogerFechaEspecifica(){
 		boolean centinela =true;
@@ -1655,8 +1707,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		String[] rta = new String[2];
 		boolean centinela =true;
 		while (centinela) {
-			rta[1] = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha inicial de la busqueda en el formato dd/mm/yyyy");
-			String [] informacionFecha = rta[1].split("/");
+			rta[0] = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha inicial de la busqueda en el formato dd/mm/yyyy");
+			String [] informacionFecha = rta[0].split("/");
 			if(informacionFecha.length>2) centinela = false;
 			else {
 				mostrarMensajeError("Error en formato fecha", "Ha existido un error en la entrada de la fecha por favor revise la entrada e intentelo de nuevo");
@@ -1664,8 +1716,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		centinela = true;
 		while (centinela) {
-			rta[2] = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha final de la busqueda en el formato dd/mm/yyyy");
-			String [] informacionFecha = rta[2].split("/");
+			rta[1] = mostrarMensajeIntroducirTexto("Fecha", "Introduzca la fecha final de la busqueda en el formato dd/mm/yyyy");
+			String [] informacionFecha = rta[1].split("/");
 			if(informacionFecha.length>2) centinela = false;
 			else {
 				mostrarMensajeError("Error en formato fecha", "Ha existido un error en la entrada de la fecha por favor revise la entrada e intentelo de nuevo");
@@ -1720,6 +1772,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	private int transformarHoraAMilitar(String hora) {
+
 		String[] numeros = hora.split(":");
 		return Integer.parseInt(numeros[0]+numeros[1]);
 	}
@@ -1764,7 +1817,18 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		return rta;
 	}
 
-
+	private String escogerTipoPuntoVacunacion() {
+		String [] opciones1 = {
+				"Hospital", 
+				"Clinica", 
+				"Centro de salud", 
+		"Otro"};
+		JComboBox optionList1 = new JComboBox(opciones1);
+		optionList1.setSelectedIndex(0);
+		JOptionPane.showMessageDialog(this, "Seleccione el tipo del punto de vacunacion", "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
+		return opciones1[optionList1.getSelectedIndex()];
+	}
 
 	/* ****************************************************************
 	 * 			Métodos de la Interacción

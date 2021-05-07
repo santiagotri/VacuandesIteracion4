@@ -140,10 +140,10 @@ public class SQLPuntoVacunacion {
 
 	public List<Object> darSobrecupoDiaEspecifico(PersistenceManager pm, String tipo_punto,
 			String dia) {
-		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, CITAS, FECHA, HORA_CITA citas from" + pp.darTablaPuntoVacunacion()
+		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, LOCALIZACION , CITAS, FECHA, HORA_CITA citas from " + pp.darTablaPuntoVacunacion()
 		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
 		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
-		+ " tabla_citas.citas >= tabla_punto.capacidad_de_atencion_simultanea*0.9 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.fecha = TO_DATE(?, 'dd/mm/yyyy')");
+		+ " WHERE tabla_citas.citas >= tabla_punto.capacidad_de_atencion_simultanea*0.9 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.fecha = TO_DATE(?, 'dd/mm/yyyy')");
 		q.setParameters( tipo_punto, dia);
 		return q.executeList();
 	}

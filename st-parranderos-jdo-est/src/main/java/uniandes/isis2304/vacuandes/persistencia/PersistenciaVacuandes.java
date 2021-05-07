@@ -1815,16 +1815,20 @@ public class PersistenciaVacuandes {
 		{
 			Object [] datos = (Object []) tupla;
 			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
-			long cantidad = ((BigDecimal) datos [1]).longValue ();
-			Timestamp timest = (Timestamp) datos[2]; 
+			String localizacion = (String) datos[1]; 
+			long cantidad = ((BigDecimal) datos [2]).longValue ();
+			Timestamp timest = (Timestamp) datos[3]; 
 			Date fecha = timest; 
-			long horaCita = ((BigDecimal) datos [3]).longValue ();
-			rta += "\n-" + "Hora: " + horaCita + " Fecha: " + fecha + " Cantidad atendidos: " + cantidad + " Id punto: " + idPuntoVacunacion; 
+			long horaCita = ((BigDecimal) datos [4]).longValue ();
+			rta += "\n-" + " Id punto: " + idPuntoVacunacion + " Localizacion: " + localizacion + " Hora: " + horaCita + " Fecha: " + pasarDateAString(fecha) + " Cantidad atendidos: " + cantidad; 
 		}
 
 		return rta;
 	}
 
+	private String pasarDateAString(Date fecha) {
+		return fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + (fecha.getYear()+1900);
+	}
 
 
 	/**
