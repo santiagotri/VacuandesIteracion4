@@ -421,7 +421,7 @@ public class Vacuandes {
 		return rta;
 	}
 	
-	public String analizarOperacionDeVacuandesEnRangoDeFechasFaltaDeCupo(String tipo_punto, Date primera_fecha, Date segunda_fecha)
+	public String analizarOperacionDeVacuandesEnRangoDeFechasFaltaDeCupo(String tipo_punto, String primera_fecha, String segunda_fecha)
 	{
 		log.info ("Buscando para ese día las horas de menor afluencia en el rango de fechas" + primera_fecha + " - " + segunda_fecha);
 		String rta = pp.analizarOperacionesEnRangoDeFechasFaltaDeCupo(tipo_punto, primera_fecha,segunda_fecha);

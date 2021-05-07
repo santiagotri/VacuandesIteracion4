@@ -1911,8 +1911,8 @@ public class PersistenciaVacuandes {
 	}
 
 
-	public String analizarOperacionesEnRangoDeFechasFaltaDeCupo(String tipo_punto, Date primera_fecha,
-			Date segunda_fecha) {
+	public String analizarOperacionesEnRangoDeFechasFaltaDeCupo(String tipo_punto, String primera_fecha,
+			String segunda_fecha) {
 		String rta = ""; 
 		List<Object []> respuesta = new LinkedList <Object []> ();
 		List<Object> tuplas = sqlPuntoVacunacion.darFaltaDeCupoEnRangoFechas(pmf.getPersistenceManager(), tipo_punto, primera_fecha, segunda_fecha);
