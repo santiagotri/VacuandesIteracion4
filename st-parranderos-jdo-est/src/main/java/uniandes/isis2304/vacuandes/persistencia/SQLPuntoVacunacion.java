@@ -147,5 +147,55 @@ public class SQLPuntoVacunacion {
 		q.setParameters( tipo_punto, dia);
 		return q.executeList();
 	}
+
+	public List<Object> darFaltaDeCupoDiaEspecifico(PersistenceManager pm, String tipo_punto,
+			String dia)  {
+		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, LOCALIZACION , CITAS, FECHA, HORA_CITA citas from " + pp.darTablaPuntoVacunacion()
+		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
+		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
+		+ " WHERE tabla_citas.citas <= tabla_punto.capacidad_de_atencion_simultanea*0.1 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.fecha = TO_DATE(?, 'dd/mm/yyyy')");
+		q.setParameters( tipo_punto, dia);
+		return q.executeList();
+	}
+
+	public List<Object> darSobreCupoEnRangoDeHoras(PersistenceManager pm, String tipo_punto,
+			int primera_hora, int segunda_hora) {
+		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, LOCALIZACION , CITAS, FECHA, HORA_CITA citas from " + pp.darTablaPuntoVacunacion()
+		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
+		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
+		+ " WHERE tabla_citas.citas >= tabla_punto.capacidad_de_atencion_simultanea*0.9 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.hora_cita between ? and ?");
+		q.setParameters( tipo_punto, primera_hora, segunda_hora);
+		return q.executeList();
+	}
+
+	public List<Object> darFaltaDeCupoEnRangoDeHoras(PersistenceManager pm, String tipo_punto,
+			int primera_hora, int segunda_hora) {
+		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, LOCALIZACION , CITAS, FECHA, HORA_CITA citas from " + pp.darTablaPuntoVacunacion()
+		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
+		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
+		+ " WHERE tabla_citas.citas <= tabla_punto.capacidad_de_atencion_simultanea*0.1 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.hora_cita between ? and ?");
+		q.setParameters( tipo_punto, primera_hora, segunda_hora);
+		return q.executeList();
+	}
+
+	public List<Object> darSobreCupoEnRangoFechas(PersistenceManager pm, String tipo_punto,
+			String primera_fecha, String segunda_fecha) {
+		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, LOCALIZACION , CITAS, FECHA, HORA_CITA citas from " + pp.darTablaPuntoVacunacion()
+		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
+		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
+		+ " WHERE tabla_citas.citas >= tabla_punto.capacidad_de_atencion_simultanea*0.9 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.fecha >= TO_DATE(?, 'dd/mm/yyyy') AND tabla_citas.fecha <= TO_DATE(?, 'dd/mm/yyyy')");
+		q.setParameters( tipo_punto, primera_fecha, segunda_fecha);
+		return q.executeList();
+	}
+
+	public List<Object> darFaltaDeCupoEnRangoFechas(PersistenceManager pm, String tipo_punto,
+			Date primera_fecha, Date segunda_fecha) {
+		Query q = pm.newQuery(SQL, "SELECT ID_PUNTO_VACUNACION, LOCALIZACION , CITAS, FECHA, HORA_CITA citas from " + pp.darTablaPuntoVacunacion()
+		+ " tabla_punto INNER JOIN (SELECT PUNTO_VACUNACION, FECHA, hora_cita, COUNT(ID_CITA) citas FROM " + pp.darTablaCita() 
+		+ " GROUP BY punto_vacunacion,fecha, hora_cita ORDER BY citas DESC) tabla_citas ON tabla_punto.Id_punto_vacunacion = tabla_citas.punto_vacunacion "
+		+ " WHERE tabla_citas.citas <= tabla_punto.capacidad_de_atencion_simultanea*0.1 AND tabla_punto.tipo_punto_vacunacion = ? AND tabla_citas.fecha >= TO_DATE(?, 'dd/mm/yyyy') AND tabla_citas.fecha <= TO_DATE(?, 'dd/mm/yyyy')");
+		q.setParameters( tipo_punto, primera_fecha, segunda_fecha);
+		return q.executeList();
+	}
 	
 }

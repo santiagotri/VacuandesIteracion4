@@ -413,7 +413,7 @@ public class Vacuandes {
 		return rta;
 	}
 	
-	public String analizarOperacionDeVacuandesEnRangoDeFechasSobrecupo(String tipo_punto, Date primera_fecha, Date segunda_fecha)
+	public String analizarOperacionDeVacuandesEnRangoDeFechasSobrecupo(String tipo_punto, String primera_fecha, String segunda_fecha)
 	{
 		log.info ("Buscando para ese día las horas de mayor afluencia en el rango de fechas" + primera_fecha + " - " + segunda_fecha);
 		String rta = pp.analizarOperacionesEnRangoDeFechasSobreCupo(tipo_punto, primera_fecha,segunda_fecha);

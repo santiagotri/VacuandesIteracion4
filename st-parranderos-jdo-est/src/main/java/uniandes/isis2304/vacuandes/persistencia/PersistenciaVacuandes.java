@@ -1825,11 +1825,114 @@ public class PersistenciaVacuandes {
 
 		return rta;
 	}
-
+	
 	private String pasarDateAString(Date fecha) {
 		return fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + (fecha.getYear()+1900);
 	}
 
+	public String analizarOperacionesEnDiaEspecificoFaltaDeCupo(String tipo_punto, String dia) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlPuntoVacunacion.darFaltaDeCupoDiaEspecifico(pmf.getPersistenceManager(), tipo_punto, dia);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			String localizacion = (String) datos[1]; 
+			long cantidad = ((BigDecimal) datos [2]).longValue ();
+			Timestamp timest = (Timestamp) datos[3]; 
+			Date fecha = timest; 
+			long horaCita = ((BigDecimal) datos [4]).longValue ();
+			rta += "\n-" + " Id punto: " + idPuntoVacunacion + " Localizacion: " + localizacion + " Hora: " + horaCita + " Fecha: " + pasarDateAString(fecha) + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	public String analizarOperacionesEnRangoDeHorasSobrecupo(String tipo_punto, int primera_hora, int segunda_hora) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlPuntoVacunacion.darSobreCupoEnRangoDeHoras(pmf.getPersistenceManager(), tipo_punto, primera_hora, segunda_hora);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			String localizacion = (String) datos[1]; 
+			long cantidad = ((BigDecimal) datos [2]).longValue ();
+			Timestamp timest = (Timestamp) datos[3]; 
+			Date fecha = timest; 
+			long horaCita = ((BigDecimal) datos [4]).longValue ();
+			rta += "\n-" + " Id punto: " + idPuntoVacunacion + " Localizacion: " + localizacion + " Hora: " + horaCita + " Fecha: " + pasarDateAString(fecha) + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	public String analizarOperacionesEnRangoDeHorasFaltaDeCupo(String tipo_punto, int primera_hora, int segunda_hora) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlPuntoVacunacion.darFaltaDeCupoEnRangoDeHoras(pmf.getPersistenceManager(), tipo_punto, primera_hora, segunda_hora);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			String localizacion = (String) datos[1]; 
+			long cantidad = ((BigDecimal) datos [2]).longValue ();
+			Timestamp timest = (Timestamp) datos[3]; 
+			Date fecha = timest; 
+			long horaCita = ((BigDecimal) datos [4]).longValue ();
+			rta += "\n-" + " Id punto: " + idPuntoVacunacion + " Localizacion: " + localizacion + " Hora: " + horaCita + " Fecha: " + pasarDateAString(fecha) + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	public String analizarOperacionesEnRangoDeFechasSobreCupo(String tipo_punto, String primera_fecha,
+			String segunda_fecha) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlPuntoVacunacion.darSobreCupoEnRangoFechas(pmf.getPersistenceManager(), tipo_punto, primera_fecha, segunda_fecha);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			String localizacion = (String) datos[1]; 
+			long cantidad = ((BigDecimal) datos [2]).longValue ();
+			Timestamp timest = (Timestamp) datos[3]; 
+			Date fecha = timest; 
+			long horaCita = ((BigDecimal) datos [4]).longValue ();
+			rta += "\n-" + " Id punto: " + idPuntoVacunacion + " Localizacion: " + localizacion + " Hora: " + horaCita + " Fecha: " + pasarDateAString(fecha) + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	public String analizarOperacionesEnRangoDeFechasFaltaDeCupo(String tipo_punto, Date primera_fecha,
+			Date segunda_fecha) {
+		String rta = ""; 
+		List<Object []> respuesta = new LinkedList <Object []> ();
+		List<Object> tuplas = sqlPuntoVacunacion.darFaltaDeCupoEnRangoFechas(pmf.getPersistenceManager(), tipo_punto, primera_fecha, segunda_fecha);
+		for ( Object tupla : tuplas)
+		{
+			Object [] datos = (Object []) tupla;
+			long idPuntoVacunacion = ((BigDecimal) datos [0]).longValue ();
+			String localizacion = (String) datos[1]; 
+			long cantidad = ((BigDecimal) datos [2]).longValue ();
+			Timestamp timest = (Timestamp) datos[3]; 
+			Date fecha = timest; 
+			long horaCita = ((BigDecimal) datos [4]).longValue ();
+			rta += "\n-" + " Id punto: " + idPuntoVacunacion + " Localizacion: " + localizacion + " Hora: " + horaCita + " Fecha: " + pasarDateAString(fecha) + " Cantidad atendidos: " + cantidad; 
+		}
+
+		return rta;
+	}
+
+
+	
 
 	/**
 	public Cita buscarCita(Date fecha, long ciudadano) {
