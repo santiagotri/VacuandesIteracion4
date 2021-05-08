@@ -2022,7 +2022,17 @@ public class PersistenciaVacuandes {
 		String stringPuntosVacunacion = analizarCohorteFlexiblePuntos(puntos_vacunacion); 
 		String stringCantVacunasAplicadas = analizarCohorteFlexibleCantidad(cantVacunasAplicadas); 
 		List<Ciudadano> ciudadanosQueCumplen = sqlCiudadano.darCohorteFlexible(pmf.getPersistenceManager(), stringCondiciones, stringPuntosVacunacion, stringCantVacunasAplicadas);
-	
+		
+		rta+= "\n-" + " Los ciudadanos que cumplen los criterios son : ";
+		for (int i = 0; i < ciudadanosQueCumplen.size(); i++) 
+		{
+			Ciudadano act = ciudadanosQueCumplen.get(i); 
+			rta+= "\n-" + " Nombre: " + act.getNombre_Completo() + " Cedula: " + act.getCedula() + " Estado vacunacion: " + act.getEstado_vacunacion() 
+			+ " El ciudadano desea ser vacunado: " + act.getDesea_ser_vacunado() + " Plan de vacunacion: " + act.getPlan_De_Vacunacion() 
+			+ " Punto de vacunacion: " + act.getPunto_Vacunacion() + " Oficina Regional "
+			+ " Numero de dosis aplicadas: " + cantVacunasAplicadas;
+		}
+		return rta; 
 	}
 
 
