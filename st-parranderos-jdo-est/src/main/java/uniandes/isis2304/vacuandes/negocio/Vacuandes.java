@@ -1,5 +1,6 @@
 package uniandes.isis2304.vacuandes.negocio;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -526,6 +527,13 @@ public class Vacuandes {
 		return rta;
 	}
 	
+	public String analizarLasCohorteDeCiudadanos(ArrayList<String> condiciones, ArrayList<Long> puntos_vacunacion, Integer cantVacunasAplicadas)
+	{
+		log.info ("Buscando ciudadanos con cohortes flexibles: ");
+		String rta = pp.analizarCohorteFlexibleCompleto(condiciones, puntos_vacunacion, cantVacunasAplicadas);
+		log.info ("Se retornaron los ciudadanos que cumplen ");
+		return rta;
+	}
 
 	/* ****************************************************************
 	 * 			Métodos para manejar ESTADO_VACUNACION

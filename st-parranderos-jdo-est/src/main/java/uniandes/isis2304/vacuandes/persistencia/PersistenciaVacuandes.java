@@ -3,6 +3,7 @@ package uniandes.isis2304.vacuandes.persistencia;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -1959,6 +1960,69 @@ public class PersistenciaVacuandes {
 		}
 
 		return rta;
+	}
+
+
+	public String analizarCohorteFlexibleCondiciones(ArrayList<String> condiciones) {
+		String rta = "";
+		
+		if(condiciones.size()>0)
+		{
+			for (int i = 0; i < condiciones.size(); i++) {
+				
+				if(i == 0)
+				{
+					rta+= "WHERE condicion = " + condiciones.get(i); 
+				}
+				else
+				{
+					rta+= "OR condicion = " + condiciones.get(i); 
+				}
+			}
+		}
+
+		return rta;
+	}
+	
+	public String analizarCohorteFlexiblePuntos(ArrayList<Long> puntos) {
+		String rta = "";
+		
+		if(puntos.size()>0)
+		{
+			for (int i = 0; i < puntos.size(); i++) {
+				
+				if(i == 0)
+				{
+					rta+= "WHERE tabla_ciudadano.punto_vacunacion = " + puntos.get(i); 
+				}
+				else
+				{
+					rta+= "OR tabla_ciudadano.punto_vacunacion = " + puntos.get(i); 
+				}
+			}
+		}
+
+		return rta;
+	}
+	
+	public String analizarCohorteFlexibleCantidad(Integer cantVacunasAplicadas) {
+		String rta = "";
+		if(cantVacunasAplicadas!= null)
+		{
+			rta+= "Where tabla_citas.contador = " + cantVacunasAplicadas; 
+		}
+		
+		return rta;
+	}
+
+	public String analizarCohorteFlexibleCompleto(ArrayList<String> condiciones, ArrayList<Long> puntos_vacunacion,
+			Integer cantVacunasAplicadas) {
+		String rta = "";
+		String stringCondiciones = analizarCohorteFlexibleCondiciones(condiciones); 
+		String stringPuntosVacunacion = analizarCohorteFlexiblePuntos(puntos_vacunacion); 
+		String stringCantVacunasAplicadas = analizarCohorteFlexibleCantidad(cantVacunasAplicadas); 
+		List<Ciudadano> ciudadanosQueCumplen = sqlCiudadano.darCohorteFlexible(pmf.getPersistenceManager(), stringCondiciones, stringPuntosVacunacion, stringCantVacunasAplicadas);
+	
 	}
 
 

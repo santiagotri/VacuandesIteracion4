@@ -1,5 +1,6 @@
 package uniandes.isis2304.vacuandes.persistencia;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -92,6 +93,26 @@ public class SQLCiudadano {
 		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaCiudadano() + " SET punto_vacunacion= ? WHERE punto_vacunacion = ?");
 		q.setParameters(nuevo_punto , punto_vacunacion);
 		return (long) q.executeUnique();
+	}
+
+	public List<Ciudadano> darCohorteFlexible(PersistenceManager pm, String stringCondiciones,
+			String stringPuntosVacunacion, String stringCantVacunasAplicadas) {
+		Query q = pm.newQuery(SQL, "Select cedula, nombre_completo, estado_vacunacion, region, desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada FROM " 
+			+ " SELECT cedula, nombre_completo, estado_vacunacion, region, desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada "
+			+ " FROM CIUDADANO tabla_ciudadano INNER JOIN "
+			+ " (SELECT ciudadano FROM LIST_CONDICIONES_CIUDADANO "
+			+ stringCondiciones
+			+ ") tabla_condiciones ON tabla_ciudadano.cedula = tabla_condiciones.ciudadano "
+			+ stringPuntosVacunacion 
+			+ " ) tabla_ciudadanos INNER JOIN ( "
+			+ " SELECT CIUDADANO, COUNT(id_cita) contador "
+			+ " FROM cita\r\n"
+			+ " WHERE FECHA <= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual) "
+			+ " GROUP BY ciudadano) TABLA_CITAS "
+			+ " ON tabla_citas.ciudadano = tabla_ciudadanos.cedula " 
+			+ stringCantVacunasAplicadas);
+		q.setResultClass(Ciudadano.class);
+		return (List<Ciudadano>) q.executeUnique();
 	}
 	
 }
