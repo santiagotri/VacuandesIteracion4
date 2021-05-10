@@ -198,6 +198,13 @@ public class Vacuandes {
         log.info ("Se actualizó la opinión del ciudadano");
 	}
 	
+	public long eliminarCiudadanoPorCedula(long cedula) {
+		log.info ("Eliminando ciudadano en VacuAndes de cedula: " + cedula);
+		long rta = pp.eliminarCiudadano(cedula);
+        log.info ("Se elimino el ciudadano  de cedula: " + cedula);
+        return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar Estado_Vacunacion
 	 *****************************************************************/
@@ -266,6 +273,13 @@ public class Vacuandes {
 	public long eliminarOficinaRegionalEPSPorId(long idOficina) {
 		log.info ("eliminando una nueva oficina regional con id " +idOficina);
 		long rta = pp.eliminarOficinaRegionalPorId(idOficina);
+        log.info ("Se elimino la oficina en la region con id " + idOficina);
+        return rta;
+	}
+	
+	public long actualizarCantidadVacunasActualesOficinaRegional(long idOficina, int cantidadVacunasAnterior) {
+		log.info ("actualizando la oficina regional con id " +idOficina);
+		long rta = pp.actualizarCantidadVacunasActualesOficinaRegional(idOficina, cantidadVacunasAnterior);
         log.info ("Se elimino la oficina en la region con id " + idOficina);
         return rta;
 	}
@@ -479,6 +493,20 @@ public class Vacuandes {
 	 * 			Métodos para manejar VACUNA
 	 *****************************************************************/
 	
+	public List<Vacuna> darVacunasPorCondicion(String condicion) {
+		log.info ("buscando vacunas por condicion " +condicion);
+		List<Vacuna> rta = pp.darVacunasPorCondicion(condicion);
+        if(rta!=null)log.info ("vacunas encotradas " + rta.size());
+        else {log.info("vacunas NO encontradas");}
+        return rta;
+	}
+	
+	public long eliminarVacunasPorCondicion(String condicion) {
+		log.info ("eliminando vacunas por condicion " +condicion);
+		long rta = pp.eliminarVacunasPorCondicion(condicion);
+        log.info ("vacunas eliminadas");
+        return rta;
+	}
 	
 	/* ****************************************************************
 	 * 			Métodos para manejar CONDICION
@@ -566,5 +594,7 @@ public class Vacuandes {
         pp.limpiarParranderos();	
         log.info ("Limpiando la BD de Parranderos: Listo!");
 	}
+
+
 	
 }

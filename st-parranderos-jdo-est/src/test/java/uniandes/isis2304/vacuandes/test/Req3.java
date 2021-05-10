@@ -35,7 +35,7 @@ public class Req3 {
 	
 
 	@Test
-	public void verificarReq1Registrar() {
+	public void verificarReq3Registrar() {
 		escenario1(); 
 		
 		OficinaRegionalEPS nueva = vacuandes.agregarOficinaRegional("Region_Test", "a.trianaa",1000, 0, 1);

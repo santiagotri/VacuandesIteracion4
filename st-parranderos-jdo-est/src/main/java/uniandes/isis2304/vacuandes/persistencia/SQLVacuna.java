@@ -107,4 +107,18 @@ public class SQLVacuna {
 		actualizarEstadoAUsada(pm, vacuna.getId_Vacuna());
 		return vacuna;
 	}
+
+	public long eliminarVacunasPorCondicion(PersistenceManager pm, String condicion) {
+		Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaVacuna() + " WHERE CONDICION_PRESERVACION = ?");
+        q.setParameters(condicion);
+        return (long) q.executeUnique();
+	}
+
+	public List<Vacuna> darVacunasPorCondicion(PersistenceManager pm, String condicion) {
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaVacuna() + " WHERE CONDICION_PRESERVACION = ?");
+		
+		q.setResultClass(Vacuna.class);
+		q.setParameters(condicion);
+		return (List<Vacuna>) q.executeList();
+	}
 }

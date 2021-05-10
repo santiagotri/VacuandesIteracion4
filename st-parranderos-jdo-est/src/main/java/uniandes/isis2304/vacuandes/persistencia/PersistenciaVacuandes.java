@@ -2068,6 +2068,120 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public long eliminarCiudadano(long cedula) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long tuplaEliminado = sqlCiudadano.eliminarCiudadanoPorCedula(pm, cedula);
+			tx.commit();
+		
+			return tuplaEliminado;
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			throw e;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
+	public long eliminarVacunasPorCondicion(String condicion) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long tuplaEliminado = sqlVacuna.eliminarVacunasPorCondicion(pm, condicion);
+			tx.commit();
+		
+			return tuplaEliminado;
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			throw e;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
+	public List<Vacuna> darVacunasPorCondicion(String condicion) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			List<Vacuna> lista = sqlVacuna.darVacunasPorCondicion(pm, condicion);
+			tx.commit();
+
+			return lista;
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
+	public long actualizarCantidadVacunasActualesOficinaRegional(long idOficina, int cantidadVacunasAnterior) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long rta = sqlOficinaRegionalEPS.disminuirVacunasDisponiblesConValor(pm, idOficina, cantidadVacunasAnterior);
+			tx.commit();
+
+			return rta;
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return -1;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
 	
 
 	/**

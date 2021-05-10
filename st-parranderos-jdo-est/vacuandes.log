@@ -8361,3 +8361,98 @@ ORA-02292: restricción de integridad (ISIS2304D10202110.OFICINA_REGIONAL_ASIGNA
 17:04:19,115 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 44
 17:04:19,115 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 44
 17:04:19,180 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - No se han encontrado oficinas regionales con id 44
+17:22:03,574 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 222222
+17:22:03,606 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Ciudadano_test
+17:22:04,384 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 222222: 1 tuplas insertadas
+17:22:04,386 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Ciudadano_test de cedula: 222222
+17:22:04,386 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 222222
+17:22:04,386 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 222222
+17:22:04,553 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 222222
+17:22:04,553 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+17:22:04,553 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 222222
+17:22:04,754 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 222222
+17:22:04,754 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 222222
+17:22:04,754 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 222222
+17:22:04,967 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 222222
+18:06:42,766 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:06:42,804 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:06:43,166 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:06:43,166 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=0, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+18:06:43,270 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 1 a la eps de id 1
+18:06:43,270 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:06:43,270 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:06:43,389 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:06:43,389 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:06:43,405 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "SELECT * FROM VACUNA WHERE condicion_preservacion = ?" necesita 1 parametros pero no hay ninguno
+
+18:06:43,406 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas NO encontradas
+18:08:17,643 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:08:17,672 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:08:18,043 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:08:18,043 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=1, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+18:08:18,131 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 1 a la eps de id 1
+18:08:18,131 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:08:18,132 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:08:18,209 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:08:18,209 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:08:18,313 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 2
+18:10:03,927 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:10:03,958 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:10:04,990 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:10:04,990 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=2, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+18:10:05,083 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 1 a la eps de id 1
+18:10:05,084 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:10:05,084 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:10:05,159 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:10:05,159 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:10:05,262 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 1
+18:10:05,262 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando vacunas por condicion condicion_prueba
+18:10:05,334 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas eliminadas
+18:10:05,334 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:10:05,410 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 0
+18:10:28,768 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:10:28,797 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:10:29,537 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:10:29,537 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=3, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+18:10:29,729 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 1 a la eps de id 1
+18:10:29,729 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:10:29,729 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:10:29,822 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:10:29,823 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:10:29,956 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 1
+18:10:29,956 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando vacunas por condicion condicion_prueba
+18:10:30,035 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas eliminadas
+18:10:30,035 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:10:30,344 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 0
+18:10:30,344 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - actualizando la oficina regional con id 1
+18:10:30,444 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 1
+18:10:30,444 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:10:30,445 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:10:30,545 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:10:49,805 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:10:49,830 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:10:50,423 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:10:50,431 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=3, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+18:10:53,613 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 100 a la eps de id 1
+18:10:53,613 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:10:53,613 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:10:53,686 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:11:53,252 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:11:53,297 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:11:53,821 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:11:53,821 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=103, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+18:11:56,939 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 100 a la eps de id 1
+18:11:56,939 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:11:56,939 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:11:57,039 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+18:11:57,039 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:11:57,563 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 100
+18:11:57,563 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando vacunas por condicion condicion_prueba
+18:11:57,738 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas eliminadas
+18:11:57,738 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+18:11:57,812 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 0
+18:11:57,812 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - actualizando la oficina regional con id 1
+18:11:57,903 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 1
+18:11:57,904 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+18:11:57,904 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+18:11:57,980 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
