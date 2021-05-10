@@ -100,6 +100,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private static final String OPERADOR_PUNTO_VACUNACION = "Operador punto vacunacion";
 	private static final String TALENTO_HUMANO_PUNTO_VACUNACION = "Talento humano punto vacunacion";
 	private static final Boolean MOSTRAR_VENTANA_DE_CARGA = true;
+	private static final Boolean REPRODUCIR_SOUNDTRACK = false;
 
 
 	/* ****************************************************************
@@ -122,6 +123,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private Usuario usuarioActual;
 	private Trabajador trabajadorActual;
 	private Clip clip;
+	private ImageIcon iconoVacuna;
+	private ImageIcon iconoError;
+	private ImageIcon iconoLugar;
 	
 
 	private String [] opciones1 = {
@@ -196,12 +200,13 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		moveToCenter(this);
 		
 		if(MOSTRAR_VENTANA_DE_CARGA) {
-			reproducirSoundtrack();
+			if(REPRODUCIR_SOUNDTRACK)reproducirSoundtrack();
 			interfazCarga = new InterfazCarga(); 
 		}
 		interfazCargandoRequerimiento = new InterfazCargandoRequerimiento();
-		
-		
+		iconoVacuna =new ImageIcon(guiConfig.get("icono_vacuna").getAsString());
+		iconoError =new ImageIcon(guiConfig.get("icono_error").getAsString());
+		iconoLugar=new ImageIcon(guiConfig.get("icono_lugar").getAsString());
 	}
 	
 	public static void moveToCenter(Window window) {
@@ -236,7 +241,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		{
 			//			// e.printStackTrace ();
 			log.info ("NO se encontró un archivo de configuración válido");			
-			JOptionPane.showMessageDialog(null, "No se encontró un archivo de configuración de interfaz válido: " + tipo, "Parranderos App", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "No se encontró un archivo de configuración de interfaz válido: " + tipo, "Parranderos App", JOptionPane.ERROR_MESSAGE, iconoError);
 		}	
 		return config;
 	}
@@ -319,9 +324,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void registrarCondicionesDePriorizacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarCondicionesDePriorizacion();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 
 	}
@@ -329,14 +334,14 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		try {
 			JComboBox optionList1 = new JComboBox(opciones1);
 			optionList1.setSelectedIndex(0);
-			JOptionPane.showMessageDialog(this, "Seleccione la condicion que desea priorizar", "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
-			JOptionPane.showMessageDialog(this, optionList1, "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Seleccione la condicion que desea priorizar", "Seleccione condicion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+			JOptionPane.showMessageDialog(this, optionList1, "Seleccione condicion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 
 			String [] opciones2 = {"1","2","3","4","5"};
 			JComboBox optionList2 = new JComboBox(opciones2);
 			optionList2.setSelectedIndex(0);
-			JOptionPane.showMessageDialog(this, "Seleccione la etapa de priorizacion", "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
-			JOptionPane.showMessageDialog(this, optionList2, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Seleccione la etapa de priorizacion", "Seleccione condicion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+			JOptionPane.showMessageDialog(this, optionList2, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 
 			vacuandes.registrarCondicionesDePriorizacion(optionList1.getSelectedItem().toString(), Integer.parseInt(optionList2.getSelectedItem().toString()));
 			//System.out.println(optionList1.getSelectedItem().toString() + Integer.parseInt(optionList2.getSelectedItem().toString()));
@@ -359,9 +364,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void registrarSecuenciaDeEstadosValidos() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarSecuenciaDeEstadosValidos();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoRegistrarSecuenciaDeEstadosValidos() {
@@ -373,7 +378,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			while(!termino) {
 				String nombreTipo = JOptionPane.showInputDialog (this, "Nombre del estado a añadir", "Adicionar estado", JOptionPane.QUESTION_MESSAGE);
 				if(nombreTipo.isBlank()) {
-					JOptionPane.showMessageDialog(this, "El estado no puede estar vacío", "Estado vacío", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(this, "El estado no puede estar vacío", "Estado vacío", JOptionPane.ERROR_MESSAGE, iconoError);
 				}else {
 					estados.add(nombreTipo);
 				}
@@ -418,14 +423,14 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void registrarOficinaDeEPSRegional() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarOficinaDeEPSRegional();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoRegistrarOficinaDeEPSRegional() {
 		try {
-			JOptionPane.showMessageDialog(this, "Ingrese los datos de la oficina regional EPS que desea registrar", "Ingrese datos oficina", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Ingrese los datos de la oficina regional EPS que desea registrar", "Ingrese datos oficina", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 			String region = JOptionPane.showInputDialog (this, "Region de la oficina", "Adicionar oficina", JOptionPane.QUESTION_MESSAGE);
 			String usernameAdministrador = JOptionPane.showInputDialog (this, "Username del administrador de la oficina", "Adicionar oficina", JOptionPane.QUESTION_MESSAGE);
 			String cantidadVacunasEnviables = mostrarMensajeIntroducirTexto("Cantidad vacunas enviables", "Ingrese la cantidad de vacunas que puede tener esta oficina regional a la vez");
@@ -436,15 +441,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			String resultado = "";
 
 			if(usuarioAdministrador==null) {
-				JOptionPane.showMessageDialog(this, "No existe el usuario " + usernameAdministrador, "Usuario inexistente", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe el usuario " + usernameAdministrador, "Usuario inexistente", JOptionPane.ERROR_MESSAGE, iconoError);
 				resultado = "-- El usuario ingresado como adminstrador no existe --";
 				resultado += "\n Operación terminada";
 			}else if(trabajadorAdministrador==null){
-				JOptionPane.showMessageDialog(this, "No existe el trabajador con usuario " + usernameAdministrador, "Usuario no trabajador", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe el trabajador con usuario " + usernameAdministrador, "Usuario no trabajador", JOptionPane.ERROR_MESSAGE, iconoError);
 				resultado = "-- El usuario ingresado no es un trabajador --";
 				resultado += "\n Operación terminada";
 			}else if(!trabajadorAdministrador.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) {
-				JOptionPane.showMessageDialog(this, "El usuario " + usernameAdministrador + " trabaja como " + trabajadorAdministrador.getTrabajo()+ ". Es necesario que sea un " + ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS, "Trabajador no indicado", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El usuario " + usernameAdministrador + " trabaja como " + trabajadorAdministrador.getTrabajo()+ ". Es necesario que sea un " + ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS, "Trabajador no indicado", JOptionPane.ERROR_MESSAGE, iconoError);
 				resultado = "-- El trabajador no tenia el cargo indicado para ser administrador de la oficina --";
 				resultado += "\n Operación terminada";
 			}else {
@@ -469,9 +474,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void registrarUsuarioDeVacuandes() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarUsuarioDeVacuandes();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoRegistrarUsuarioDeVacuandes() {
@@ -482,8 +487,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			String contrasena = JOptionPane.showInputDialog (this, "Ingresa contraseña para tu usuario", "Adicionar usuario", JOptionPane.QUESTION_MESSAGE);
 			String contrasenaConfirmacion = JOptionPane.showInputDialog (this, "Ingresa confirmacion contraseña", "Adicionar usuario", JOptionPane.QUESTION_MESSAGE);
 			if (!username.equals(usernameConfirmacion) || !contrasena.equals(contrasenaConfirmacion)) {
-				if (!username.equals(usernameConfirmacion))JOptionPane.showMessageDialog(this, "Se ha n ingresado usuarios diferentes, operacion cancelada", "Error de digitacion", JOptionPane.ERROR_MESSAGE);
-				if (!contrasena.equals(contrasenaConfirmacion))JOptionPane.showMessageDialog(this, "Se ha n ingresado contraseñas diferentes, operacion cancelada", "Error de digitacion", JOptionPane.ERROR_MESSAGE);
+				if (!username.equals(usernameConfirmacion))JOptionPane.showMessageDialog(this, "Se ha n ingresado usuarios diferentes, operacion cancelada", "Error de digitacion", JOptionPane.ERROR_MESSAGE, iconoError);
+				if (!contrasena.equals(contrasenaConfirmacion))JOptionPane.showMessageDialog(this, "Se ha n ingresado contraseñas diferentes, operacion cancelada", "Error de digitacion", JOptionPane.ERROR_MESSAGE, iconoError);
 				String resultado = "Ha existido un error de digacion";
 				resultado += "\n Operacion cancelada";
 				panelDatos.actualizarInterfaz(resultado);
@@ -515,9 +520,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) VerificadoRegistrarCiudadanosColombianos();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoRegistrarCiudadanosColombianos() {
@@ -537,7 +542,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			boolean termino = false;
 			while(!termino) {
 				JComboBox optionList1 = new JComboBox(opciones1);
-				JOptionPane.showMessageDialog(this, optionList1, "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
+				JOptionPane.showMessageDialog(this, optionList1, "Seleccione condicion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 				condicionesAAñadir.add(opciones1[optionList1.getSelectedIndex()]);
 				int rta = JOptionPane.showConfirmDialog(this, "¿Desea añadir otra condicion?", "", JOptionPane.YES_NO_OPTION);
 				if (rta==1) termino=true;
@@ -570,15 +575,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void registarPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoRegistarPuntoDeVacunacion();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoRegistarPuntoDeVacunacion () {
 
 		try {
-			JOptionPane.showMessageDialog(this, "Ingrese los datos del punto vacunacion a registrar", "Ingrese datos punto vacunacion", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Ingrese los datos del punto vacunacion a registrar", "Ingrese datos punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 			String localizacion = JOptionPane.showInputDialog (this, "Ingresa localizacion", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE);
 			int capacidad_atencion_simultanea =Integer.parseInt(JOptionPane.showInputDialog (this, "Ingresar la capacidad de atencion simultanea (numero)", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE));
 			int cantidad_vacunas_enviables = Integer.parseInt(JOptionPane.showInputDialog (this, "Ingresar la cantidad de vacunas enviables", "Adicionar punto vacunacion", JOptionPane.QUESTION_MESSAGE));
@@ -599,15 +604,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			String resultado = "";
 
 			if(usuarioAdministrador==null) {
-				JOptionPane.showMessageDialog(this, "No existe el usuario " + usernameAdministrador, "Usuario inexistente", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe el usuario " + usernameAdministrador, "Usuario inexistente", JOptionPane.ERROR_MESSAGE, iconoError);
 				resultado = "-- El usuario ingresado como adminstrador no existe --";
 				resultado += "\n Operación terminada";
 			}else if(trabajadorAdministrador==null){
-				JOptionPane.showMessageDialog(this, "No existe el trabajador con usuario " + usernameAdministrador, "Usuario no trabajador", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe el trabajador con usuario " + usernameAdministrador, "Usuario no trabajador", JOptionPane.ERROR_MESSAGE, iconoError);
 				resultado = "-- El usuario ingresado no es un trabajador --";
 				resultado += "\n Operación terminada";
 			}else if(!trabajadorAdministrador.getTrabajo().equals(ADMINISTRADOR_PUNTO_VACUNACION)) {
-				JOptionPane.showMessageDialog(this, "El usuario " + usernameAdministrador + " trabaja como " + trabajadorAdministrador.getTrabajo()+ ". Es necesario que sea un " + ADMINISTRADOR_PUNTO_VACUNACION, "Trabajador no indicado", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El usuario " + usernameAdministrador + " trabaja como " + trabajadorAdministrador.getTrabajo()+ ". Es necesario que sea un " + ADMINISTRADOR_PUNTO_VACUNACION, "Trabajador no indicado", JOptionPane.ERROR_MESSAGE, iconoError);
 				resultado = "-- El trabajador no tenia el cargo indicado para ser administrador de la oficina --";
 				resultado += "\n Operación terminada";
 			}else {
@@ -715,9 +720,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void registrarAvanceEnVacunacionDePersona() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(OPERADOR_PUNTO_VACUNACION)) VerificadoRegistrarAvanceEnVacunacionDePersona();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoRegistrarAvanceEnVacunacionDePersona() {
@@ -726,22 +731,22 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			Ciudadano act = vacuandes.darCiudadanoPorCedula(cedula);
 
 			if (act == null) {
-				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE, iconoError);
 				String resultado = "Se ha introducido una cedula inexistente en la BD";
 				resultado += "\n Operación terminada";
 			}else if(act.getPunto_Vacunacion()==null) {
-				JOptionPane.showMessageDialog(this, "El ciudadano " +act.getNombre_Completo() + " aun no tiene un punto de vacunacion asignado, por lo que no puede actualizarse su estado de vacunacion", "Ciudadano sin punto vacunacion", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El ciudadano " +act.getNombre_Completo() + " aun no tiene un punto de vacunacion asignado, por lo que no puede actualizarse su estado de vacunacion", "Ciudadano sin punto vacunacion", JOptionPane.ERROR_MESSAGE, iconoError);
 				String resultado = "El ciudadano no tiene aun un punto de vacunacion asignado";
 				resultado += "\n Operación terminada";
 			}
 			else {
 				String estadoAnterior = null;
 				if(act.getEstado_vacunacion()==null) {
-					JOptionPane.showMessageDialog(this, "No se ha decidido anteriormente el estado de vacunacion de este ciudadano, ingrese el nuevo estado de vacunacion", "Nuevo estado vacunacion", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "No se ha decidido anteriormente el estado de vacunacion de este ciudadano, ingrese el nuevo estado de vacunacion", "Nuevo estado vacunacion", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 
 				}else {
 					estadoAnterior = act.getEstado_vacunacion();
-					JOptionPane.showMessageDialog(this, "Actualmente el ciudadano se encuentra en estado " + act.getEstado_vacunacion() +". Escoja el nuevo estado del paciente.", "Actualizar estado vacunacion", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "Actualmente el ciudadano se encuentra en estado " + act.getEstado_vacunacion() +". Escoja el nuevo estado del paciente.", "Actualizar estado vacunacion", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 				}
 				String estado_vacunacion = escogerEstadoVacunacion();
 				vacuandes.actualizarEstadoVacunacionCiudadano(act.getCedula(),estado_vacunacion);
@@ -765,9 +770,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void cambiarOpinionVacunacionCiudadano() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(OPERADOR_PUNTO_VACUNACION)) VerificadoCambiarOpinionVacunacionCiudadano();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoCambiarOpinionVacunacionCiudadano() {
@@ -776,21 +781,21 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			Ciudadano act = vacuandes.darCiudadanoPorCedula(cedula);
 
 			if (act == null) {
-				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE, iconoError);
 				String resultado = "Se ha introducido una cedula inexistente en la BD";
 				resultado += "\n Operación terminada";
 			}
 			else {
 				int estadoAnterior = -1;
 				if(act.getDesea_ser_vacunado()!=1 && act.getDesea_ser_vacunado()!=0) {//OR
-					JOptionPane.showMessageDialog(this, "No se ha decidido anteriormente el estado de vacunacion de este ciudadano, ingrese el nuevo estado de vacunacion", "Nuevo estado vacunacion", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "No se ha decidido anteriormente el estado de vacunacion de este ciudadano, ingrese el nuevo estado de vacunacion", "Nuevo estado vacunacion", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 
 				}else {
 					estadoAnterior = act.getDesea_ser_vacunado();
-					if(estadoAnterior==1) JOptionPane.showMessageDialog(this, "Actualmente el ciudadano SI quiere ser vacunado. Escoja el nuevo estado del paciente.", "Actualizar estado vacunacion", JOptionPane.INFORMATION_MESSAGE);
-					else if(estadoAnterior==0) JOptionPane.showMessageDialog(this, "Actualmente el ciudadano NO quiere ser vacunado. Escoja el nuevo estado del paciente.", "Actualizar estado vacunacion", JOptionPane.INFORMATION_MESSAGE);
+					if(estadoAnterior==1) JOptionPane.showMessageDialog(this, "Actualmente el ciudadano SI quiere ser vacunado. Escoja el nuevo estado del paciente.", "Actualizar estado vacunacion", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
+					else if(estadoAnterior==0) JOptionPane.showMessageDialog(this, "Actualmente el ciudadano NO quiere ser vacunado. Escoja el nuevo estado del paciente.", "Actualizar estado vacunacion", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 					else {
-						JOptionPane.showMessageDialog(this, "error desconocido intentelo más tarde", "error", JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(this, "error desconocido intentelo más tarde", "error", JOptionPane.ERROR_MESSAGE, iconoError);
 					}
 				}
 				int rta = JOptionPane.showConfirmDialog(this, "¿Desea ser vacunado?", "", JOptionPane.YES_NO_OPTION);
@@ -871,19 +876,19 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void asignarTalentoHumanoAUnPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoAsignarTalentoHumanoAUnPuntoDeVacunacion();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoAsignarTalentoHumanoAUnPuntoDeVacunacion() {
-		JOptionPane.showMessageDialog(this, "Ingrese los datos del talento humano a registrar", "Ingrese datos punto vacunacion", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Ingrese los datos del talento humano a registrar", "Ingrese datos punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 		try {
 			long cedula = Long.parseLong(JOptionPane.showInputDialog (this, "Ingresa la cedula del ciudadano al que se desea inscribir como trabajador del punto de vacunacion", "Registrar TH punto vacunacion", JOptionPane.QUESTION_MESSAGE));
 			Ciudadano act = vacuandes.darCiudadanoPorCedula(cedula);
 
 			if (act == null) {
-				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE, iconoError);
 				String resultado = "Se ha introducido una cedula inexistente en la BD";
 				resultado += "\n Operación terminada";
 			}
@@ -911,9 +916,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void asignarCiudadanoAPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoAsignarCiudadanoAPuntoDeVacunacion() ;
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	
@@ -923,7 +928,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			Ciudadano act = vacuandes.darCiudadanoPorCedula(cedula);
 
 			if (act == null) {
-				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No existe un ciudadano con la cedula " +cedula, "Ciudadano no existe", JOptionPane.ERROR_MESSAGE, iconoError);
 				String resultado = "Se ha introducido una cedula inexistente en la BD";
 				resultado += "\n Operación terminada";
 			}
@@ -931,11 +936,11 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 				Long IdpuntoVacunacionAnterior = null;
 				PuntoVacunacion puntoVacunacionAnterior =null;
 				if(act.getPunto_Vacunacion()==null) {
-					JOptionPane.showMessageDialog(this, "No se ha decidido anteriormente el punto de vacunacion de este ciudadano, ingrese el punto de vacunacion deñ vacunacion", "Nuevo punto vacunacion", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "No se ha decidido anteriormente el punto de vacunacion de este ciudadano, ingrese el punto de vacunacion deñ vacunacion", "Nuevo punto vacunacion", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 				}else {
 					IdpuntoVacunacionAnterior = act.getPunto_Vacunacion();
 					puntoVacunacionAnterior = vacuandes.darPuntoVacunacionPorId(IdpuntoVacunacionAnterior);
-					JOptionPane.showMessageDialog(this, "Actualmente el ciudadano se encuentra en el punto de vacunacion localizado en " + puntoVacunacionAnterior.getLocalizacion() +". Escoja el nuevo punto de vacunacion", "Nuevo punto vacunacion", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "Actualmente el ciudadano se encuentra en el punto de vacunacion localizado en " + puntoVacunacionAnterior.getLocalizacion() +". Escoja el nuevo punto de vacunacion", "Nuevo punto vacunacion", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 				}
 				long punto_vacunacion = escogerPuntoVacunacionPorRegion(act.getRegion());
 
@@ -962,9 +967,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void asignarDeVacunacionACiudadano() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PUNTO_VACUNACION)) VerificadoAsignarCitaDeVacunacionACiudadano();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoAsignarCitaDeVacunacionACiudadano() {
@@ -983,19 +988,19 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			Ciudadano ciudadano = vacuandes.darCiudadanoPorCedula(cedulaCiudadano);
 
 			if(ciudadano == null) {
-				JOptionPane.showMessageDialog(this, "El ciudadano con la cedula " + cedulaCiudadano + " no existe", "Error en cedula", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El ciudadano con la cedula " + cedulaCiudadano + " no existe", "Error en cedula", JOptionPane.ERROR_MESSAGE, iconoError);
 			} else if ( ciudadano.getPunto_Vacunacion() == null){
-				JOptionPane.showMessageDialog(this, "El ciudadano no tiene un punto de vacunacion aun, por lo que no se le pueden agendar citas", "Error en ciudadano", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El ciudadano no tiene un punto de vacunacion aun, por lo que no se le pueden agendar citas", "Error en ciudadano", JOptionPane.ERROR_MESSAGE, iconoError);
 			} 
 			else if(dateIngresada.before(dateActual)) {
-				JOptionPane.showMessageDialog(this, "No puede escoger un dia igual o menor a la fecha actual", "Error en fecha", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "No puede escoger un dia igual o menor a la fecha actual", "Error en fecha", JOptionPane.ERROR_MESSAGE, iconoError);
 			}else if (dateIngresada.getDay()==0 || dateIngresada.getDay()==6){
-				JOptionPane.showMessageDialog(this, "Los puntos de vacunacion solamente asignan citas de lunes a viernes", "Error en fecha", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "Los puntos de vacunacion solamente asignan citas de lunes a viernes", "Error en fecha", JOptionPane.ERROR_MESSAGE, iconoError);
 			}else if(vacuandes.darPuntoVacunacionPorId(ciudadano.getPunto_Vacunacion()).getCantidad_Vacunas_Actuales()<=0) {
-				JOptionPane.showMessageDialog(this, "El punto de vacunacion asignado para el ciudadano no tiene vacunas disponibles actualmente, por ello no puede asignar citas", "Error en fecha", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El punto de vacunacion asignado para el ciudadano no tiene vacunas disponibles actualmente, por ello no puede asignar citas", "Error en fecha", JOptionPane.ERROR_MESSAGE, iconoError);
 			}
 			else if(vacuandes.verificarHoraNoLlena(dateIngresada, horaIngresada, ciudadano.getPunto_Vacunacion())){
-				JOptionPane.showMessageDialog(this, "El punto de vacunacion asignado para el ciudadano no tiene disponibilidad para la fecha y hora indicadas", "Error en fecha", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(this, "El punto de vacunacion asignado para el ciudadano no tiene disponibilidad para la fecha y hora indicadas", "Error en fecha", JOptionPane.ERROR_MESSAGE, iconoError);
 			}else {
 				interfazDate.close();
 				Cita citaCreada = vacuandes.agregarCita(dateIngresada, cedulaCiudadano, ciudadano.getPunto_Vacunacion(), horaIngresada);
@@ -1029,9 +1034,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void mostrarCiudadanosAtendidosPorUnPuntoDeVacunacion() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getAdministrador_Vacuandes()==1) VerificadoMostrarCiudadanosAtendidosPorUnPuntoDeVacunacion();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 
 	}
@@ -1074,9 +1079,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void mostrar20PuntosDeVacunacionMasEfectivos() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getAdministrador_Vacuandes()==1) VerificadoMostrar20PuntosDeVacunacionMasEfectivos();
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 	}
 	private void VerificadoMostrar20PuntosDeVacunacionMasEfectivos() {
@@ -1433,7 +1438,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	 */
 	public void mostrarScriptBD ()
 	{
-		mostrarArchivo ("doc/archivos_SQL/Creacion_tablas_iteracion2.sql");
+		mostrarArchivo ("doc/archivos_SQL/todoJuntoIteracion3.sql");
 	}
 
 
@@ -1443,20 +1448,25 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	 */
 	public void acercaDe ()
 	{
+		if(clip!=null)clip.stop();
+		reproducirSoundtrack();
 		String resultado = "\n\n ************************************\n\n";
 		resultado += " * Universidad	de	los	Andes	(Bogotá	- Colombia)\n";
 		resultado += " * Departamento	de	Ingeniería	de	Sistemas	y	Computación\n";
 		resultado += " * \n";		
 		resultado += " * Curso: isis2304 - Sistemas Transaccionales\n";
-		resultado += " * Proyecto: Vacuandes Uniandes - Iteracion 2\n";
-		resultado += " * @version 1.0\n";
+		resultado += " * Proyecto: Vacuandes Uniandes - Iteracion 3\n";
+		resultado += " * @version 2.0\n";
 		resultado += " * @author Santiago Triana 201923265\n";
 		resultado += " * @author Juan Sebastian Ramirez 201923800\n";
-		resultado += " * Abril de 2021\n";
+		resultado += " * Mayo de 2021\n";
 		resultado += " * \n";
 		resultado += "\n ************************************\n\n";
 
-		panelDatos.actualizarInterfaz(resultado);		
+		panelDatos.actualizarInterfaz(resultado);	
+		ImageIcon fotoCreadores = new ImageIcon(guiConfig.get("foto_creadores").getAsString());
+		JOptionPane.showMessageDialog(this,"", "Foto Creadores",JOptionPane.INFORMATION_MESSAGE,fotoCreadores);
+		
 	}
 
 
@@ -1546,8 +1556,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el plan de vacunacion asociado", "Seleccione plan de vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione plan", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el plan de vacunacion asociado", "Seleccione plan de vacunacion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione plan", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_plan_de_vacunacion();
 	}
@@ -1561,8 +1571,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePuntos);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el plan de vacunacion asociado", "Seleccione plan de vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione plan", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el plan de vacunacion asociado", "Seleccione plan de vacunacion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione plan", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 
 		if(optionList1.getSelectedIndex()==0) return null;
 		return puntos.get(optionList1.getSelectedIndex()-1).getId_plan_de_vacunacion();
@@ -1576,13 +1586,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado (mostrando solamente puntos de vacunacion en la region "+ region + ")", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado (mostrando solamente puntos de vacunacion en la region "+ region + ")", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
 	}
 
 	private Long escogerPuntoVacunacion() {
+		interfazCargandoRequerimiento.mostrar();
+		interfazCargandoRequerimiento.traerAlfrente();
 		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionHabilitados();
 		String [] nombresDePlanes = new String [planes.size()];
 		for (int i = 0; i<planes.size(); i++) {
@@ -1590,8 +1602,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		interfazCargandoRequerimiento.ocultar();
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
 	}
@@ -1604,8 +1617,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
 	}
@@ -1619,13 +1632,16 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePuntos);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 		if(optionList1.getSelectedIndex()==0) return null;
 		return puntos.get(optionList1.getSelectedIndex()-1).getId_Punto_Vacunacion();
 	}
 
 	private Long escogerPuntoVacunacionPorRegionConDeshabilitados(String region) {
+		interfazCargandoRequerimiento.mostrar();
+		interfazCargandoRequerimiento.traerAlfrente();
+		
 		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeLaRegion(region);
 		String [] nombresDePlanes = new String [planes.size()];
 		for (int i = 0; i<planes.size(); i++) {
@@ -1633,8 +1649,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado (mostrando solamente puntos de vacunacion en la region "+ region + ")", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		interfazCargandoRequerimiento.ocultar();
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado (mostrando solamente puntos de vacunacion en la region "+ region + ")", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
 	}
@@ -1647,8 +1664,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
 	}
@@ -1662,13 +1679,15 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePuntos);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el punto de vacunacion asociado", "Seleccione punto vacunacion", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 		if(optionList1.getSelectedIndex()==0) return null;
 		return puntos.get(optionList1.getSelectedIndex()-1).getId_Punto_Vacunacion();
 	}
 
 	private Long escogerOficinaRegionalEPS() {
+		interfazCargandoRequerimiento.mostrar();
+		interfazCargandoRequerimiento.traerAlfrente();
 		List <OficinaRegionalEPS> planes = vacuandes.darTodasLasOficinasRegionalEPS();
 		String [] nombresDePlanes = new String [planes.size()];
 		for (int i = 0; i<planes.size(); i++) {
@@ -1676,8 +1695,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione la oficina regional", "Seleccione oficina", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione oficina", JOptionPane.QUESTION_MESSAGE);
+		interfazCargandoRequerimiento.ocultar();
+		JOptionPane.showMessageDialog(this, "Seleccione la oficina regional", "Seleccione oficina", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione oficina", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_oficina();
 	}
@@ -1691,8 +1711,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePuntos);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione la oficina regional asociada", "Seleccione oficina", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione la oficina regional asociada", "Seleccione oficina", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 		if(optionList1.getSelectedIndex()==0) return null;
 		return puntos.get(optionList1.getSelectedIndex()-1).getId_oficina();
 	}
@@ -1713,8 +1733,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione la region", "Seleccione region", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione region", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione la region", "Seleccione region", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione region", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getRegion();
 	}
@@ -1727,8 +1747,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePlanes);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el estado de vacunacion", "Seleccione estado", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el estado de vacunacion", "Seleccione estado", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 
 		return planes.get(optionList1.getSelectedIndex()).getEstado();
 	}
@@ -1742,8 +1762,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 		JComboBox optionList1 = new JComboBox(nombresDePuntos);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el estado de vacunacion", "Seleccione estado", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el estado de vacunacion", "Seleccione estado", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione etapa", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 		if(optionList1.getSelectedIndex()==0) return null;
 		return puntos.get(optionList1.getSelectedIndex()-1).getEstado();
 	}
@@ -1859,12 +1879,12 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			JComboBox optionList1 = new JComboBox(horas);
 			optionList1.setSelectedIndex(0);
 
-			JOptionPane.showMessageDialog(this, "Seleccione la hora mas temprana", "Seleccione rango horas", JOptionPane.QUESTION_MESSAGE);
-			JOptionPane.showMessageDialog(this, optionList1, "Seleccione hora", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Seleccione la hora mas temprana", "Seleccione rango horas", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+			JOptionPane.showMessageDialog(this, optionList1, "Seleccione hora", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 			rta [0] = transformarHoraAMilitar(horas[optionList1.getSelectedIndex()]);
 
-			JOptionPane.showMessageDialog(this, "Seleccione la hora mas tarde", "Seleccione rango horas", JOptionPane.QUESTION_MESSAGE);
-			JOptionPane.showMessageDialog(this, optionList1, "Seleccione hora", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(this, "Seleccione la hora mas tarde", "Seleccione rango horas", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+			JOptionPane.showMessageDialog(this, optionList1, "Seleccione hora", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 			rta [1] = transformarHoraAMilitar(horas[optionList1.getSelectedIndex()]);
 
 			return rta;
@@ -1906,11 +1926,11 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	private void mostrarMensajeInformativo(String titulo, String contenido) {
-		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 	}
 
 	private void mostrarMensajeError(String titulo, String contenido) {
-		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.ERROR_MESSAGE);
+		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.ERROR_MESSAGE, iconoError);
 	}
 
 	private String mostrarMensajeIntroducirTexto (String titulo, String contenido){
@@ -1933,16 +1953,16 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		"Otro"};
 		JComboBox optionList1 = new JComboBox(opciones1);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione el tipo del punto de vacunacion", "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione el tipo del punto de vacunacion", "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione tipo punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 		return opciones1[optionList1.getSelectedIndex()];
 	}
 
 	private String escogerCondicionCiudadano() {
 		JComboBox optionList1 = new JComboBox(opciones1);
 		optionList1.setSelectedIndex(0);
-		JOptionPane.showMessageDialog(this, "Seleccione condicion", "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
-		JOptionPane.showMessageDialog(this, optionList1, "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, "Seleccione condicion", "Seleccione condicion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione condicion", JOptionPane.QUESTION_MESSAGE, iconoVacuna);
 		return (String) optionList1.getSelectedItem();
 	}
 	/* ****************************************************************
@@ -1979,9 +1999,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public boolean verificarPermisos(String cargo) {
 		if (trabajadorActual!=null) {
 			if(cargo.contains(trabajadorActual.getTrabajo())) return true;
-			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);}
+			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
 		}else {
-			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);
 		}
 		return false;
 	}
@@ -1994,9 +2014,9 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void cerrarSesion() {
 
 		if (usuarioActual==null) {
-			JOptionPane.showMessageDialog(this, "No hay una sesion para cerrar", "Error cierre de sesion", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(this, "No hay una sesion para cerrar", "Error cierre de sesion", JOptionPane.ERROR_MESSAGE, iconoError);
 		}else {
-			JOptionPane.showMessageDialog (this, "Cierre de sesion exitoso", "Se ha cerrado la sesion del usuario "+ usuarioActual.getUsername() +" exitosamente.", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog (this, "Cierre de sesion exitoso", "Se ha cerrado la sesion del usuario "+ usuarioActual.getUsername() +" exitosamente.", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 		}
 		usuarioActual =null;
 		panelDatos.setUsuario(null);
@@ -2005,12 +2025,12 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	public void infoUsuarioActual() {
 		if(usuarioActual==null) {
-			JOptionPane.showMessageDialog (this,"Actualmente no esta loggeado como ningun usuario", "Informacion sesion actual", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog (this,"Actualmente no esta loggeado como ningun usuario", "Informacion sesion actual", JOptionPane.ERROR_MESSAGE, iconoError);
 
 		}else {
 			String rta = "Actualmente esta loggeado como "+ usuarioActual.getUsername();
 			if(trabajadorActual!=null) rta += " (" + trabajadorActual.getTrabajo() + ")";
-			JOptionPane.showMessageDialog (this,rta, "Informacion sesion actual", JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog (this,rta, "Informacion sesion actual", JOptionPane.INFORMATION_MESSAGE, iconoVacuna);
 		}
 
 	}
@@ -2022,7 +2042,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		String contrasenaUsuarioActual = interfazLogin.darContrasenaIngresada();
 		Usuario rta = vacuandes.verificarInicioDeSesion(usernameUsuarioActual, contrasenaUsuarioActual);
 		if(rta==null) {
-			JOptionPane.showMessageDialog (this,"El usuario " + usernameUsuarioActual + " no existe.", "Usuario inexistente", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog (this,"El usuario " + usernameUsuarioActual + " no existe.", "Usuario inexistente", JOptionPane.ERROR_MESSAGE, iconoError);
 			trabajadorActual = null;
 			panelDatos.setUsuario(null);
 		}
@@ -2035,7 +2055,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			usuarioActual = null;
 			trabajadorActual = null;
 			panelDatos.setUsuario(null);
-			JOptionPane.showMessageDialog (this,"Contraseña incorrecta", "Contraseña incorrecta", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog (this,"Contraseña incorrecta", "Contraseña incorrecta", JOptionPane.ERROR_MESSAGE, iconoError);
 
 
 		}

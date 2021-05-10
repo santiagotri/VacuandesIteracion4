@@ -8006,3 +8006,270 @@ ORA-12899: el valor es demasiado grande para la columna "ISIS2304D10202110"."CIU
 23:38:53,268 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Conexión realizada correstamente
 23:38:53,269 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Cerrando la conexión
 23:38:53,294 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Conexión cerrada
+11:02:03,449 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:02:03,459 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:02:03,719 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:02:31,013 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:02:31,062 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:02:31,476 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:02:31,478 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:02:31,478 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:02:31,479 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:02:31,634 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:02:31,634 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:07:35,610 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+11:07:36,068 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+11:07:37,125 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+11:07:37,125 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - La causa es: javax.jdo.JDOUserException: PersistenceManagerFactory debe usar "persistence-unit" con nombre "ParranderosErrorDS" pero no hay ninguna con ese nombre
+11:07:37,128 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+11:07:37,131 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+11:07:37,282 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Prueba realizada exitosamente. La excepción generada es: javax.jdo.JDOFatalUserException
+11:07:37,282 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - La causa es: javax.jdo.JDOUserException: PersistenceManagerFactory debe usar "persistence-unit" con nombre "ParranderosErrorUser" pero no hay ninguna con ese nombre
+11:07:37,283 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+11:07:37,284 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+11:07:41,360 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Conexión realizada correstamente
+11:07:41,361 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Cerrando la conexión
+11:07:41,427 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Conexión cerrada
+11:08:16,286 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:08:16,288 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:08:16,379 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:08:43,347 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:08:43,433 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:08:43,990 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:08:43,992 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:08:43,992 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:08:43,993 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:08:44,125 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:08:44,126 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:16:13,794 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:16:13,804 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:16:13,891 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:16:59,513 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:16:59,598 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:17:00,131 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:17:00,134 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:17:00,135 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:17:00,136 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:17:00,215 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:17:00,216 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:17:36,653 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:17:36,693 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:17:36,780 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:17:36,780 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:17:36,780 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:17:36,781 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:17:36,852 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:17:36,852 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:18:00,893 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+11:18:00,895 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+11:18:00,988 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+11:18:05,496 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+11:18:05,499 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+11:18:05,822 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+11:18:36,503 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando planes de vacunacion existentes
+11:18:36,503 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando planesDeVacunacion en BD
+11:18:36,606 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 planes de vacunacion
+11:42:40,736 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:42:40,738 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:42:40,810 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:43:08,463 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:43:08,532 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:43:09,099 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:43:09,100 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:43:09,100 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:43:09,101 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:43:09,167 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:43:09,167 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:43:31,519 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:43:31,520 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:43:31,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:43:31,609 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:43:31,610 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:43:31,610 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:43:31,687 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:43:31,687 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:43:46,605 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+11:43:46,606 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+11:43:46,694 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+11:43:56,863 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+11:43:56,864 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+11:43:57,113 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+11:44:06,376 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando planes de vacunacion existentes
+11:44:06,377 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando planesDeVacunacion en BD
+11:44:06,516 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 planes de vacunacion
+11:44:14,962 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+11:44:14,963 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+11:44:15,197 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+11:44:22,402 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1234
+11:44:22,403 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: hola
+11:44:22,475 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO CIUDADANO(cedula, nombre_completo,estado_vacunacion,region,desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada) values (?, ? ,? ,? ,? ,? ,? ,?)".
+ORA-00001: restricción única (ISIS2304D10202110.CEDULA) violada
+
+11:44:45,518 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+11:44:45,518 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+11:44:45,666 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+11:44:52,634 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+11:44:52,635 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+11:44:52,836 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+11:45:00,862 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando planes de vacunacion existentes
+11:45:00,863 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando planesDeVacunacion en BD
+11:45:00,955 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 planes de vacunacion
+11:45:04,029 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+11:45:04,029 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+11:45:04,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+11:45:11,431 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1111
+11:45:11,432 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: hola
+11:45:11,521 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1111: 1 tuplas insertadas
+11:45:11,523 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: hola de cedula: 1111
+11:45:11,523 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Insertando condiciones para el ciudadano de cedula: 1111
+11:45:11,594 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se adicionaron las condiciones al ciudadano de cedula: 1111
+11:45:24,526 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:45:24,526 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:45:25,892 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:45:54,155 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:45:54,168 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:45:55,344 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:48:55,503 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:48:55,505 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:48:55,564 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:49:21,142 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:49:21,393 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:49:23,408 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:49:23,411 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:49:23,412 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:49:23,413 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:49:23,497 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:49:23,497 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:49:33,017 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+11:49:33,020 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+11:49:33,097 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+11:49:35,181 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+11:49:35,182 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+11:49:35,457 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+11:49:55,724 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando planes de vacunacion existentes
+11:49:55,725 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando planesDeVacunacion en BD
+11:49:55,827 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 1 planes de vacunacion
+11:49:58,453 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+11:49:58,454 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+11:49:58,652 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+11:50:02,368 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 333
+11:50:02,368 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: sdfaf
+11:50:02,490 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 333: 1 tuplas insertadas
+11:50:02,492 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: sdfaf de cedula: 333
+11:50:02,492 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Insertando condiciones para el ciudadano de cedula: 333
+11:50:02,580 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se adicionaron las condiciones al ciudadano de cedula: 333
+11:51:10,251 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:51:10,252 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:51:10,316 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:51:32,258 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:51:32,304 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:51:32,705 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:51:32,708 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:51:32,708 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:51:32,709 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:51:32,783 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:51:32,783 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:51:37,285 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:51:37,286 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:51:38,651 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:51:43,863 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:51:43,863 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:51:44,881 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:52:46,146 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:52:46,148 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:52:46,200 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:53:12,312 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+11:53:12,352 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+11:53:12,911 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+11:53:12,913 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:53:12,913 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+11:53:12,913 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+11:53:12,999 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+11:53:12,999 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:53:27,233 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:53:27,236 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:53:28,560 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:53:33,594 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:53:33,595 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:53:34,547 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:54:08,762 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:54:08,763 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:54:09,721 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:54:15,299 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:54:15,301 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:54:16,477 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:54:20,420 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando puntos de vacunacion existentes
+11:54:20,421 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando PuntosVacunacion en BD
+11:54:21,263 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 300 puntos vacunacion
+11:54:30,672 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadanos con cohortes flexibles: 
+11:54:31,349 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los ciudadanos que cumplen 
+11:57:10,168 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+11:57:10,170 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+11:57:10,442 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+11:59:06,668 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+11:59:06,716 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+11:59:07,129 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+11:59:07,131 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:59:07,131 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+11:59:07,131 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+11:59:07,198 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+11:59:07,198 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:59:18,299 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+11:59:18,300 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+11:59:18,381 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+11:59:18,381 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+11:59:18,381 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+11:59:18,381 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+11:59:18,442 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+11:59:18,443 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:59:28,240 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 333
+11:59:28,241 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 333
+11:59:28,409 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 333
+11:59:28,409 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+11:59:31,944 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Cundinamarca
+11:59:31,945 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Cundinamarca en BD
+11:59:32,059 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 6 puntos vacunacion de la region Cundinamarca que están habilitados
+11:59:43,831 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Actualizando ciudadano de cedula: 333
+11:59:43,832 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 333
+11:59:43,891 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 333
+11:59:43,892 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Actualizando el ciudadano de cedula: 333 con el punto de vacunación: 143
+11:59:43,970 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se actualizo el ciudadano de cedula: 333 a punto vacunacion: 143
+11:59:43,970 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+11:59:53,667 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 333
+11:59:53,669 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 333
+11:59:53,743 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 333
+11:59:53,743 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+11:59:53,743 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id143
+11:59:53,743 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 143
+11:59:53,811 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id143
+11:59:53,812 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=143, localizacion=Calle 6 # 54-82, capacidad_de_Atencion_Simultanea=6, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=2150, cantidad_Vacunas_Actuales=10, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=24] con el id 143
+11:59:55,217 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Cundinamarca
+11:59:55,217 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Cundinamarca en BD
+11:59:55,316 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 6 puntos vacunacion de la region Cundinamarca que están habilitados
+12:00:03,380 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Actualizando ciudadano de cedula: 333
+12:00:03,381 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 333
+12:00:03,449 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 333
+12:00:03,449 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Actualizando el ciudadano de cedula: 333 con el punto de vacunación: 110
+12:00:03,529 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se actualizo el ciudadano de cedula: 333 a punto vacunacion: 110
+12:00:03,529 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+12:07:45,656 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:07:45,658 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:07:45,723 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:09:34,230 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:09:34,231 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:09:34,467 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:10:10,027 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:10:10,030 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:10:10,133 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:11:25,116 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:11:25,118 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:11:25,188 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:12:22,278 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:12:22,280 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:12:22,346 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:13:03,853 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:13:03,854 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:13:04,099 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+12:14:33,053 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+12:14:33,054 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+12:14:33,112 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD

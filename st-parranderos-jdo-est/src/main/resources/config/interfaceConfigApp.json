@@ -3,6 +3,10 @@
 	"frameH": 600,
 	"frameW": 800,
 	"music": "./src/main/resources/config/soundtrack.wav",
+	"icono_vacuna": "./src/main/resources/config/icono_vacuna.png",
+	"foto_creadores": "./src/main/resources/config/foto_creadores.png",
+	"icono_error": "./src/main/resources/config/icono_error.png",
+	"icono_lugar": "./src/main/resources/config/icono_lugar.png",
 	"bannerPath": "./src/main/resources/config/vacuna-covid-n.png",
 	"menuBar":
 	[
