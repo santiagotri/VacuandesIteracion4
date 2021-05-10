@@ -6,17 +6,16 @@ import java.io.FileReader;
 
 import javax.swing.JOptionPane;
 
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
-import uniandes.isis2304.vacuandes.negocio.Condicion;
+import uniandes.isis2304.vacuandes.negocio.EstadoVacunacion;
 import uniandes.isis2304.vacuandes.negocio.Vacuandes;
 
-public class Requerimiento1 {
+public class Req2 {
 
 	/**
 	 * Ruta al archivo de configuración de los nombres de tablas de la base de datos: La unidad de persistencia existe y el esquema de la BD también
@@ -33,12 +32,12 @@ public class Requerimiento1 {
 	
 
 	@Test
-	public void verificarReq1Registrar() {
+	public void verificarReq1RegistrarEstado() {
 		escenario1(); 
 		
 		//parte 1
-		Condicion cond = vacuandes.getCondicion("Adulto mayor (+80)");
-		assertEquals( cond.getEtapa(),1); 
+		EstadoVacunacion estado = vacuandes.darTodosLosEstadosVacunacion().get(0);
+		assertEquals( estado.getEtapa(),1); 
 		
 		//parte 2
 		cond = vacuandes.registrarCondicionesDePriorizacion("Adulto mayor (+80)", 3);
