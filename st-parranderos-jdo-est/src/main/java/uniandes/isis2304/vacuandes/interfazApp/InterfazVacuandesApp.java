@@ -1262,28 +1262,52 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	//RFC8 PENDIENDE
 	public void analizarCohortesCiudadanosDadosCriteriosFlexibles() {
-
+		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION))VerificadoAnalizarCohortesCiudadanosDadosCriteriosFlexibles();
 	}
 	private void VerificadoAnalizarCohortesCiudadanosDadosCriteriosFlexibles() {
 		try {
 			ArrayList<Long> puntosVacunacion = new ArrayList<Long>();
-			boolean centinela = true;
-			while(centinela) {
-				puntosVacunacion.add(escogerPuntoVacunacionConDeshabilitados());
-				int termino = JOptionPane.showConfirmDialog(this, "¿Desea añadir otro punto de vacunacion al filtro de analisis?", "", JOptionPane.YES_NO_OPTION);
-				if (termino==1) centinela=true;
+			int deseaAnadirPuntoVacunacion = mostrarMensajeBooleano("Añadir filtro de punto vacunacion", "¿Desea añadir un filtro para puntos de vacunacion?");
+			if(deseaAnadirPuntoVacunacion==1) {
+				boolean centinela = true;
+				while(centinela) {
+					puntosVacunacion.add(escogerPuntoVacunacionConDeshabilitados());
+					int termino = JOptionPane.showConfirmDialog(this, "¿Desea añadir otro punto de vacunacion al filtro de analisis?", "", JOptionPane.YES_NO_OPTION);
+					if (termino==1) centinela=false;
+				}
 			}
 			
 			ArrayList<String> condicionesCiudadano = new ArrayList<String>();
-			
-			mostrarMensajeInformativo("Escoger condiciones de los ciudadanos", "Escoja la(s) condicion(es) para el filtro de analisis");
-			centinela = true;
-			while(centinela) {
-				condicionesCiudadano.add(escogerCondicionCiudadano());
-				int termino = JOptionPane.showConfirmDialog(this, "¿Desea añadir otro punto de vacunacion al filtro de analisis?", "", JOptionPane.YES_NO_OPTION);
-				if (termino==1) centinela=true;
+			int deseaAnadirFiltroCondiciones = mostrarMensajeBooleano("Añadir filtro condiciones", "¿Desea añadir un filtro para las condiciones de los ciudadanos?");
+			if(deseaAnadirFiltroCondiciones==1) {
+				mostrarMensajeInformativo("Escoger condiciones de los ciudadanos", "Escoja la(s) condicion(es) para el filtro de analisis");
+				boolean centinela = true;
+				while(centinela) {
+					condicionesCiudadano.add(escogerCondicionCiudadano());
+					int termino = JOptionPane.showConfirmDialog(this, "¿Desea añadir otra condicion al filtro de analisis?", "", JOptionPane.YES_NO_OPTION);
+					if (termino==1) centinela=false;
+				}
+				
 			}
 			
+			Integer cantidadVacunasAplicadas = null;
+			int deseaAnadirFiltroVacunasAplicadas = mostrarMensajeBooleano("Añadir filtro de cantidad dosis", "¿Desea añadir un filtro para la cantidad de dosis aplicadas?");
+			if(deseaAnadirFiltroVacunasAplicadas==1) {
+				cantidadVacunasAplicadas =  Integer.parseInt(mostrarMensajeIntroducirTexto("Introduzca numero vacunas", "Introduzca el numero de dosis con el que desea activar este filtro"));
+			}
+			
+			String rta = null;
+			rta = vacuandes.analizarLasCohorteDeCiudadanos(condicionesCiudadano, puntosVacunacion, cantidadVacunasAplicadas);
+			
+			if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+			else {
+				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+			}
+			
+			panelDatos.actualizarInterfaz(rta);
+			interfazCargandoRequerimiento.ocultar();
+					
 		} catch (Exception e) {
 			e.printStackTrace();
 			String resultado = generarMensajeError(e);

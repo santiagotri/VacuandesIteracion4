@@ -124,7 +124,7 @@
 					"event": "analizarOperacionVacuandes"
 				},
 				{
-					"label": "Cohertes ciudadanos dados criterios flexibles",
+					"label": "Cohortes ciudadanos dados criterios flexibles",
 					"event": "analizarCohortesCiudadanosDadosCriteriosFlexibles"
 				},
 				{

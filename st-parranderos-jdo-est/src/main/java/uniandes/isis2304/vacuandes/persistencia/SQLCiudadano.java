@@ -86,7 +86,7 @@ public class SQLCiudadano {
 		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaCiudadano() + " WHERE punto_vacunacion = ?");
 		q.setResultClass(Ciudadano.class);
 		q.setParameters(punto_vacunacion);
-		return (List<Ciudadano>) q.executeUnique();
+		return (List<Ciudadano>) q.execute();
 	}
 
 	public long cambiarPuntosVacunacionCiudadanos(PersistenceManager pm, long punto_vacunacion, long nuevo_punto) {
@@ -97,7 +97,20 @@ public class SQLCiudadano {
 
 	public List<Ciudadano> darCohorteFlexible(PersistenceManager pm, String stringCondiciones,
 			String stringPuntosVacunacion, String stringCantVacunasAplicadas) {
-		Query q = pm.newQuery(SQL, "Select cedula, nombre_completo, estado_vacunacion, region, desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada FROM " 
+		
+		if(stringCantVacunasAplicadas.equals("")) {
+			
+			Query q = pm.newQuery(SQL,
+					" SELECT cedula, nombre_completo, estado_vacunacion, region, desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada "
+					+ " FROM CIUDADANO tabla_ciudadano INNER JOIN "
+					+ " (SELECT ciudadano FROM LIST_CONDICIONES_CIUDADANO "
+					+ stringCondiciones
+					+ ") tabla_condiciones ON tabla_ciudadano.cedula = tabla_condiciones.ciudadano "
+					+ stringPuntosVacunacion );
+				q.setResultClass(Ciudadano.class);
+				return (List<Ciudadano>) q.execute();
+		}else {
+		Query q = pm.newQuery(SQL, "Select cedula, nombre_completo, estado_vacunacion, region, desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada FROM (" 
 			+ " SELECT cedula, nombre_completo, estado_vacunacion, region, desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada "
 			+ " FROM CIUDADANO tabla_ciudadano INNER JOIN "
 			+ " (SELECT ciudadano FROM LIST_CONDICIONES_CIUDADANO "
@@ -105,14 +118,15 @@ public class SQLCiudadano {
 			+ ") tabla_condiciones ON tabla_ciudadano.cedula = tabla_condiciones.ciudadano "
 			+ stringPuntosVacunacion 
 			+ " ) tabla_ciudadanos INNER JOIN ( "
-			+ " SELECT CIUDADANO, COUNT(id_cita) contador "
-			+ " FROM cita\r\n"
+			+ " SELECT CIUDADANO, COUNT(id_cita) contador "	
+			+ " FROM cita "
 			+ " WHERE FECHA <= (SELECT TO_CHAR(SYSDATE, 'DD-MON-YYYY') FROM dual) "
 			+ " GROUP BY ciudadano) TABLA_CITAS "
 			+ " ON tabla_citas.ciudadano = tabla_ciudadanos.cedula " 
 			+ stringCantVacunasAplicadas);
 		q.setResultClass(Ciudadano.class);
-		return (List<Ciudadano>) q.executeUnique();
+		return (List<Ciudadano>) q.execute();
+		}
 	}
 	
 }

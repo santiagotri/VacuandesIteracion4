@@ -1973,11 +1973,11 @@ public class PersistenciaVacuandes {
 				
 				if(i == 0)
 				{
-					rta+= "WHERE condicion = " + condiciones.get(i); 
+					rta+= " WHERE condicion = '" + condiciones.get(i) + "' "; 
 				}
 				else
 				{
-					rta+= "OR condicion = " + condiciones.get(i); 
+					rta+= " OR condicion = '" + condiciones.get(i) + "' "; 
 				}
 			}
 		}
@@ -1994,11 +1994,11 @@ public class PersistenciaVacuandes {
 				
 				if(i == 0)
 				{
-					rta+= "WHERE tabla_ciudadano.punto_vacunacion = " + puntos.get(i); 
+					rta+= " WHERE tabla_ciudadano.punto_vacunacion = " + puntos.get(i) + " "; 
 				}
 				else
 				{
-					rta+= "OR tabla_ciudadano.punto_vacunacion = " + puntos.get(i); 
+					rta+= " OR tabla_ciudadano.punto_vacunacion = " + puntos.get(i) + " "; 
 				}
 			}
 		}
@@ -2010,7 +2010,7 @@ public class PersistenciaVacuandes {
 		String rta = "";
 		if(cantVacunasAplicadas!= null)
 		{
-			rta+= "Where tabla_citas.contador = " + cantVacunasAplicadas; 
+			rta+= " Where tabla_citas.contador = " + cantVacunasAplicadas; 
 		}
 		
 		return rta;
@@ -2028,10 +2028,13 @@ public class PersistenciaVacuandes {
 		for (int i = 0; i < ciudadanosQueCumplen.size(); i++) 
 		{
 			Ciudadano act = ciudadanosQueCumplen.get(i); 
-			rta+= "\n-" + " Nombre: " + act.getNombre_Completo() + " Cedula: " + act.getCedula() + " Estado vacunacion: " + act.getEstado_vacunacion() 
-			+ " El ciudadano desea ser vacunado: " + act.getDesea_ser_vacunado() + " Plan de vacunacion: " + act.getPlan_De_Vacunacion() 
-			+ " Punto de vacunacion: " + act.getPunto_Vacunacion() + " Oficina Regional "
-			+ " Numero de dosis aplicadas: " + cantVacunasAplicadas;
+			rta+= "\n\n" + (i+1) +".\n" + " Nombre: " + act.getNombre_Completo() + "\n Cedula: " + act.getCedula() + "\n Estado vacunacion: " + act.getEstado_vacunacion() 
+			+ "\n El ciudadano desea ser vacunado: " + act.getDesea_ser_vacunado() + "\n Plan de vacunacion: " + act.getPlan_De_Vacunacion() 
+			+ "\n Punto de vacunacion: " + act.getPunto_Vacunacion() + "\n Oficina Regional " + act.getOficina_Regional_Asignada();
+			
+			if(cantVacunasAplicadas!=null)rta+= "\n Numero de dosis aplicadas: " + cantVacunasAplicadas;
+			
+			
 		}
 		return rta; 
 	}
