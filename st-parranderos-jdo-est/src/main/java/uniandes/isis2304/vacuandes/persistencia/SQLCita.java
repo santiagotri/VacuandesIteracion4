@@ -177,7 +177,7 @@ public class SQLCita {
 	}
 
 	public List<Long> getCiudadanosQueSeCruzan(PersistenceManager pm, long idPuntoVacunacion,
-			Date fechaBusqueda, long horaCita)  {
+			String fechaBusqueda, long horaCita)  {
 		Query q = pm.newQuery(SQL, "SELECT ciudadano FROM " + pp.darTablaCita() + " WHERE fecha = TO_DATE(?, 'dd/mm/yyyy') AND hora_cita = ? AND punto_vacunacion = ?");
 		q.setParameters( fechaBusqueda, horaCita, idPuntoVacunacion);
 		return q.executeList();

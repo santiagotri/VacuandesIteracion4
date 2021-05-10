@@ -25,9 +25,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -35,6 +37,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.jdo.JDODataStoreException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -94,6 +99,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private static final String ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS = "Administrador oficina punto regional eps";
 	private static final String OPERADOR_PUNTO_VACUNACION = "Operador punto vacunacion";
 	private static final String TALENTO_HUMANO_PUNTO_VACUNACION = "Talento humano punto vacunacion";
+	private static final Boolean MOSTRAR_VENTANA_DE_CARGA = true;
 
 
 	/* ****************************************************************
@@ -115,6 +121,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private InterfazCargandoRequerimiento interfazCargandoRequerimiento;
 	private Usuario usuarioActual;
 	private Trabajador trabajadorActual;
+	private Clip clip;
 	
 
 	private String [] opciones1 = {
@@ -187,7 +194,11 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		add (new JLabel (new ImageIcon (path)), BorderLayout.NORTH );          
 		add( panelDatos, BorderLayout.CENTER );
 		moveToCenter(this);
-		//interfazCarga = new InterfazCarga(); 
+		
+		if(MOSTRAR_VENTANA_DE_CARGA) {
+			reproducirSoundtrack();
+			interfazCarga = new InterfazCarga(); 
+		}
 		interfazCargandoRequerimiento = new InterfazCargandoRequerimiento();
 		
 		
@@ -1194,39 +1205,59 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		if(verificarPermisos(ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS)) VerificadoAnalizarOperacionVacuandes();
 	}
 	private void VerificadoAnalizarOperacionVacuandes() {
-		String rta = null;
-		
-		String  tipoPunto = escogerTipoPuntoVacunacion();
-		int tipoBusquedaTemporal = escogerTipoDeBusquedaFechaRangoFechasUHorasSinTodosLosRegistros();
-		int tipoAnalisis =  escogerTipoAnalisisMayorOMenorRiesgo();
-		
-		//Mayor riesgo
-		if(tipoBusquedaTemporal==0 && tipoAnalisis==0) {
-			//fecha especifica
-			String fechaEspecifica = escogerFechaEspecifica();
+		try {
+			String rta = null;
 			
-			rta = vacuandes.analizarOperacionDeVacuandesDiaEspecificoSobrecupo(tipoPunto, fechaEspecifica);
-		}else if (tipoBusquedaTemporal==1 && tipoAnalisis==0) {
-			//rango fechas
-		}else if (tipoBusquedaTemporal==2 && tipoAnalisis==0) {
-			//rango horas
+			String  tipoPunto = escogerTipoPuntoVacunacion();
+			int tipoBusquedaTemporal = escogerTipoDeBusquedaFechaRangoFechasUHorasSinTodosLosRegistros();
+			interfazCargandoRequerimiento.mostrar();
+			int tipoAnalisis =  escogerTipoAnalisisMayorOMenorRiesgo();
+			interfazCargandoRequerimiento.traerAlfrente();
+			//Mayor riesgo
+			if(tipoBusquedaTemporal==0 && tipoAnalisis==0) {
+				//fecha especifica
+				String fechaEspecifica = escogerFechaEspecifica();
+				
+				rta = vacuandes.analizarOperacionDeVacuandesDiaEspecificoSobrecupo(tipoPunto, fechaEspecifica);
+			}else if (tipoBusquedaTemporal==1 && tipoAnalisis==0) {
+				//rango fechas
+				String[] rangoFechas = escogerRangoDeFechas();
+				rta = vacuandes.analizarOperacionDeVacuandesEnRangoDeFechasSobrecupo(tipoPunto, rangoFechas[0], rangoFechas[1]);
+			}else if (tipoBusquedaTemporal==2 && tipoAnalisis==0) {
+				//rango horas
+				Integer [] rangoHoras = escogerRangoDeHoras();
+				rta = vacuandes.analizarOperacionDeVacuandesEnRangoHorasSobreCupo(tipoPunto, rangoHoras[0], rangoHoras[1]);
+			}
+			
+			//Menor riesgo
+			if(tipoBusquedaTemporal==0 && tipoAnalisis==1) {
+				//fecha especifica
+				String fechaEspecifica = escogerFechaEspecifica();
+				rta = vacuandes.analizarOperacionDeVacuandesDiaEspecificoFaltaDeCupo(tipoPunto, fechaEspecifica);
+				
+			}else if (tipoBusquedaTemporal==1 && tipoAnalisis==1) {
+				//rango fechas
+				String[] rangoFechas = escogerRangoDeFechas();
+				rta = vacuandes.analizarOperacionDeVacuandesEnRangoDeFechasFaltaDeCupo(tipoPunto, rangoFechas[0], rangoFechas[1]);
+			}else if (tipoBusquedaTemporal==2 && tipoAnalisis==1) {
+				//rango horas
+				Integer [] rangoHoras = escogerRangoDeHoras();
+				rta = vacuandes.analizarOperacionDeVacuandesEnRangoHorasFaltaDeCupo(tipoPunto, rangoHoras[0], rangoHoras[1]);
+			}
+			
+			if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+			else {
+				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+			}
+			panelDatos.actualizarInterfaz(rta);
+			interfazCargandoRequerimiento.ocultar();
+		} catch (Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
 		}
-		
-		//Menor riesgo
-		else if(tipoBusquedaTemporal==0 && tipoAnalisis==1) {
-			//fecha especifica
-		}else if (tipoBusquedaTemporal==1 && tipoAnalisis==1) {
-			//rango fechas
-		}else if (tipoBusquedaTemporal==2 && tipoAnalisis==1) {
-			//rango horas
-		}
-		
-		if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada (error00)";
-		else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
-		else {
-			rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
-		}
-		panelDatos.actualizarInterfaz(rta);
 	}
 
 	//RFC8 PENDIENDE
@@ -1234,15 +1265,64 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 	}
 	private void VerificadoAnalizarCohortesCiudadanosDadosCriteriosFlexibles() {
-
+		try {
+			ArrayList<Long> puntosVacunacion = new ArrayList<Long>();
+			boolean centinela = true;
+			while(centinela) {
+				puntosVacunacion.add(escogerPuntoVacunacionConDeshabilitados());
+				int termino = JOptionPane.showConfirmDialog(this, "¿Desea añadir otro punto de vacunacion al filtro de analisis?", "", JOptionPane.YES_NO_OPTION);
+				if (termino==1) centinela=true;
+			}
+			
+			ArrayList<String> condicionesCiudadano = new ArrayList<String>();
+			
+			mostrarMensajeInformativo("Escoger condiciones de los ciudadanos", "Escoja la(s) condicion(es) para el filtro de analisis");
+			centinela = true;
+			while(centinela) {
+				condicionesCiudadano.add(escogerCondicionCiudadano());
+				int termino = JOptionPane.showConfirmDialog(this, "¿Desea añadir otro punto de vacunacion al filtro de analisis?", "", JOptionPane.YES_NO_OPTION);
+				if (termino==1) centinela=true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
+		}
+		
 	}
 
 	//RFC9 PENDIENTE
 	public void encontrarCiudadanosEnContacto() {
-
+		VerificadoEncontrarCiudadanosEnContacto();
 	}
 	private void VerificadoEncontrarCiudadanosEnContacto() {
-
+		try {
+			interfazCargandoRequerimiento.mostrar();
+			String rta =null;
+			mostrarMensajeInformativo("Escoger fecha", "Escoja la fecha desde la que quiere verificar los ciudadanos en contacto, recuerde que el informe se generara a partir de 10 dias de anterioridad de la fecha ingresada");
+			
+			String fechaFinalString = escogerFechaEspecifica();
+			Date fechaFinal = convertirFechaDeStringADate(fechaFinalString);
+			Date fechaInicial = new Date(fechaFinal.getTime()-10*(1000 * 60 * 60 * 24));
+			String fechaInicialString = convertirDateAString(fechaInicial);
+			interfazCargandoRequerimiento.traerAlfrente();
+			rta = vacuandes.encontrarCiudadanosEnContacto(fechaInicialString, fechaFinalString);
+			
+			if(rta==null) rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+			else {
+				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+			}
+			panelDatos.actualizarInterfaz(rta);
+			interfazCargandoRequerimiento.ocultar();
+		} catch (Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
+		}
 	}
 
 
@@ -1796,6 +1876,10 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			return null;
 		}
 	}
+	
+	private String convertirDateAString(Date fecha) {
+		return fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + (fecha.getYear()+1900);
+	}
 
 	private void mostrarMensajeInformativo(String titulo, String contenido) {
 		JOptionPane.showMessageDialog(this, contenido, titulo, JOptionPane.INFORMATION_MESSAGE);
@@ -1830,6 +1914,13 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		return opciones1[optionList1.getSelectedIndex()];
 	}
 
+	private String escogerCondicionCiudadano() {
+		JComboBox optionList1 = new JComboBox(opciones1);
+		optionList1.setSelectedIndex(0);
+		JOptionPane.showMessageDialog(this, "Seleccione condicion", "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
+		JOptionPane.showMessageDialog(this, optionList1, "Seleccione condicion", JOptionPane.QUESTION_MESSAGE);
+		return (String) optionList1.getSelectedItem();
+	}
 	/* ****************************************************************
 	 * 			Métodos de la Interacción
 	 *****************************************************************/
@@ -1927,6 +2018,19 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		interfazCargandoRequerimiento.ocultar();
 	}
 
+	
+	private void reproducirSoundtrack() {
+		try {
+			File musicFile = new File (guiConfig.get("music").getAsString());
+			AudioInputStream audio = AudioSystem.getAudioInputStream(musicFile);
+			clip = AudioSystem.getClip();
+			clip.open(audio);
+			clip.start();
+		}catch (Exception e) {
+			System.out.println("Ha existido un error al reproducir la musica");
+			e.printStackTrace();
+		}
+	}
 
 
 	/* ****************************************************************

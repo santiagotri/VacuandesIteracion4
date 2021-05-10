@@ -61,7 +61,7 @@ public class InterfazCarga {
         while( i<=100)
         {
             try{
-                Thread.sleep(50);
+                Thread.sleep(100);
                 progressBar.setValue(i);
                 message.setText("LOADING "+Integer.toString(i)+"%");
                 i++;

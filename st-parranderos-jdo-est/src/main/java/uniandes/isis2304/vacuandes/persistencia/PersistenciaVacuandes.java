@@ -1942,20 +1942,21 @@ public class PersistenciaVacuandes {
 			Object [] datos = (Object []) tupla;
 			Timestamp timest = (Timestamp) datos[0]; 
 			Date fechaBusqueda = timest; 
+			String fechaBusquedaEnString = convertirDateAformatoString(fechaBusqueda);
 			long horaCita = ((BigDecimal) datos [1]).longValue ();
 			long idPuntoVacunacion = ((BigDecimal) datos [2]).longValue ();
 			long conteo = ((BigDecimal) datos [3]).longValue ();
 			
 			if(conteo>1)
 			{
-				List<Long> ciudadanosCruzados = sqlCita.getCiudadanosQueSeCruzan(pmf.getPersistenceManager(), idPuntoVacunacion, fechaBusqueda, horaCita);
+				List<Long> ciudadanosCruzados = sqlCita.getCiudadanosQueSeCruzan(pmf.getPersistenceManager(), idPuntoVacunacion, fechaBusquedaEnString, horaCita);
 				rta += "\n-" + " Los ciudadanos : ";
 				
 				for (int i = 0; i < ciudadanosCruzados.size(); i++) 
 				{
 					rta += "\n-" + ciudadanosCruzados.get(i); 
 				} 
-				rta += "\n-" + "Tuvieron contacto en el punto: " + idPuntoVacunacion + " en la fecha: " + fechaBusqueda + " en la hora: " + horaCita;
+				rta += "\n-" + "Tuvieron contacto en el punto: " + idPuntoVacunacion + " en la fecha: " + fechaBusqueda + " en la hora: " + horaCita + "\n";
 			}
 		}
 
