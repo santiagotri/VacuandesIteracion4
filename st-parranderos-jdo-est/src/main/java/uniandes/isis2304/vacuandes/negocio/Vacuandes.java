@@ -263,6 +263,13 @@ public class Vacuandes {
 		return rta;
 	}
 	
+	public long eliminarOficinaRegionalEPSPorId(long idOficina) {
+		log.info ("eliminando una nueva oficina regional con id " +idOficina);
+		long rta = pp.eliminarOficinaRegionalPorId(idOficina);
+        log.info ("Se elimino la oficina en la region con id " + idOficina);
+        return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar PLAN_DE_VACUNACION
 	 *****************************************************************/

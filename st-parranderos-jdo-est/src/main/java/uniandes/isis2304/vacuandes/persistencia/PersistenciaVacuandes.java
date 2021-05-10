@@ -22,7 +22,6 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
-import uniandes.isis2304.parranderos.negocio.Bebedor;
 import uniandes.isis2304.vacuandes.negocio.Cita;
 import uniandes.isis2304.vacuandes.negocio.Ciudadano;
 import uniandes.isis2304.vacuandes.negocio.Condicion;
@@ -2037,6 +2036,35 @@ public class PersistenciaVacuandes {
 			
 		}
 		return rta; 
+	}
+
+
+	public long eliminarOficinaRegionalPorId(long idOficina) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			long tuplaEliminado = sqlOficinaRegionalEPS.eliminarOficinaPorIdOficina(pm, idOficina);
+			tx.commit();
+		
+			return tuplaEliminado;
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			throw e;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
 	}
 
 

@@ -8273,3 +8273,91 @@ ORA-00001: restricción única (ISIS2304D10202110.CEDULA) violada
 12:14:33,053 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
 12:14:33,054 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
 12:14:33,112 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:29:40,484 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+16:29:40,488 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+16:29:40,654 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+16:47:08,724 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+16:47:08,765 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+16:47:09,126 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+16:47:09,128 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+16:47:09,128 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+16:47:09,129 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+16:47:09,282 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+16:49:42,679 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+16:49:42,720 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+16:49:43,232 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+16:49:43,236 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+16:49:43,236 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+16:49:43,237 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+16:49:43,331 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+16:50:33,454 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+16:50:33,489 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+16:50:33,846 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO OFICINA_REGIONAL_EPS(region, administrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion) values (?, ?, ?, ?, ?)".
+ORA-00001: restricción única (ISIS2304D10202110.REGION_UNICA) violada
+
+16:50:58,334 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+16:50:58,376 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+16:50:58,695 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "INSERT INTO OFICINA_REGIONAL_EPS(region, administrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion) values (?, ?, ?, ?, ?)".
+ORA-00001: restricción única (ISIS2304D10202110.REGION_UNICA) violada
+
+16:52:03,050 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+16:52:03,080 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+16:52:03,447 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+16:52:03,450 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+16:52:03,450 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+16:52:03,450 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+16:52:03,541 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+16:54:50,326 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+16:54:50,366 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+16:54:50,390 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "INSERT INTO OFICINA_REGIONAL_EPS(region, administrador, cantidad_vacunas_enviables, cantidad_vacunas_actuales, plan_de_vacunacion) values (?, ?, ?, ?, ?)" necesita 5 parametros pero no hay ninguno
+
+16:55:24,091 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+16:55:24,128 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+16:55:24,474 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+16:55:24,477 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+16:55:24,477 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+16:55:24,478 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+16:55:24,594 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+17:01:53,198 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+17:01:53,243 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+17:01:53,790 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+17:01:53,793 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+17:01:53,793 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+17:01:53,795 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+17:01:54,117 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 36 oficinas regionales
+17:01:54,117 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+17:01:54,118 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+17:01:54,178 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+17:01:54,178 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando una nueva oficina regional con id 1
+17:01:54,420 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "DELETE FROM OFICINA_REGIONAL_EPS WHERE id_oficina = ?".
+ORA-02292: restricción de integridad (ISIS2304D10202110.OFICINA_REGIONAL_ASIGNADA_CIUDADANO) violada - registro secundario encontrado
+
+17:03:09,201 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+17:03:09,231 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+17:03:09,853 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+17:03:09,855 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+17:03:09,855 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+17:03:09,856 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+17:03:10,096 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 36 oficinas regionales
+17:03:10,097 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+17:03:10,097 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+17:03:10,168 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+17:03:10,169 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando una nueva oficina regional con id 1
+17:03:10,230 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error con la ejecucion de Query de SQL "DELETE FROM OFICINA_REGIONAL_EPS WHERE id_oficina = ?".
+ORA-02292: restricción de integridad (ISIS2304D10202110.OFICINA_REGIONAL_ASIGNADA_CIUDADANO) violada - registro secundario encontrado
+
+17:04:18,357 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+17:04:18,392 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+17:04:18,741 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+17:04:18,744 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+17:04:18,744 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+17:04:18,745 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+17:04:18,991 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 36 oficinas regionales
+17:04:18,991 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 44
+17:04:18,992 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 44
+17:04:19,054 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 44
+17:04:19,054 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando una nueva oficina regional con id 44
+17:04:19,114 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 44
+17:04:19,115 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 44
+17:04:19,115 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 44
+17:04:19,180 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - No se han encontrado oficinas regionales con id 44
