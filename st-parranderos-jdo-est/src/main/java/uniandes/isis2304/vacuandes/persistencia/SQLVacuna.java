@@ -5,6 +5,8 @@ import java.util.List;
 import javax.jdo.PersistenceManager;
 import javax.jdo.Query;
 
+import uniandes.isis2304.vacuandes.negocio.OficinaRegionalEPS;
+import uniandes.isis2304.vacuandes.negocio.PuntoVacunacion;
 import uniandes.isis2304.vacuandes.negocio.Vacuna;
 
 public class SQLVacuna {
@@ -120,5 +122,13 @@ public class SQLVacuna {
 		q.setResultClass(Vacuna.class);
 		q.setParameters(condicion);
 		return (List<Vacuna>) q.executeList();
+	}
+
+	public long updateMultiplePuntoVacunacion(PersistenceManager pm, OficinaRegionalEPS oficina,
+			PuntoVacunacion punto_vacunacion, int cantidad_vacunas) 
+	{
+		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaVacuna() + " SET punto_vacunacion = ? WHERE oficina_regional = ? AND punto_vacunacion is null AND rownum<= ?");
+		q.setParameters(punto_vacunacion, oficina, cantidad_vacunas);
+		return (long) q.executeUnique();
 	}
 }
