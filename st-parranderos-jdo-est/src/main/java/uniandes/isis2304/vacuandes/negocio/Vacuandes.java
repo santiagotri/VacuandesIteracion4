@@ -280,6 +280,14 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public OficinaRegionalEPS darOficinaRegionalEPSPorRegion(String region) {
+		log.info ("Buscando oficina en la region " + region);
+		OficinaRegionalEPS rta = pp.darOficinasRegionalEPSPorRegion(region);
+		if(rta==null) log.info ("No se han encontrado oficinas para esa region: " + region);
+		else {log.info ("Se ha encontrado una oficina en la region: " + region);}
+        return rta;
+	}
+	
 	public long registrarLlegadaDeLoteDeVacunasEPS(OficinaRegionalEPS oficina_regional_eps, int cantidad_vacunas, String condiciones_de_preservacion)
 	{
 		log.info ("Enviando lote de vacunas a oficina regional EPS de id: " + oficina_regional_eps);
@@ -289,7 +297,7 @@ public class Vacuandes {
 	}
 	
 	public long eliminarOficinaRegionalEPSPorId(long idOficina) {
-		log.info ("eliminando una nueva oficina regional con id " +idOficina);
+		log.info ("Eliminando la oficina regional con el id: " +idOficina);
 		long rta = pp.eliminarOficinaRegionalPorId(idOficina);
         log.info ("Se elimino la oficina en la region con id " + idOficina);
         return rta;

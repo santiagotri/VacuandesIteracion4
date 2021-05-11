@@ -2097,10 +2097,11 @@ public class PersistenciaVacuandes {
 		Transaction tx=pm.currentTransaction();
 		try
 		{
+			log.info ("Eliminando la oficina de id: " + idOficina);
 			tx.begin();
 			long tuplaEliminado = sqlOficinaRegionalEPS.eliminarOficinaPorIdOficina(pm, idOficina);
 			tx.commit();
-		
+			log.info ("Se eliminó " + tuplaEliminado + " oficina de id: " + idOficina);
 			return tuplaEliminado;
 		}
 		catch (Exception e)
@@ -2351,6 +2352,35 @@ public class PersistenciaVacuandes {
 			// e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 			return 0;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
+	public OficinaRegionalEPS darOficinasRegionalEPSPorRegion(String region) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			log.info ("Buscando oficina de la region: " + region);
+			tx.begin();
+			OficinaRegionalEPS oficina = sqlOficinaRegionalEPS.darOficinaPorRegion(pm, region);
+			tx.commit();
+			return oficina;
+
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
 		}
 		finally
 		{

@@ -83,6 +83,15 @@ public class SQLOficinaRegionalEPS {
         return (OficinaRegionalEPS) q.executeUnique();
 	}
 	
+
+	public OficinaRegionalEPS darOficinaPorRegion(PersistenceManager pm, String region) 
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaOficinaRegionalEPS() + " WHERE region = ?");
+		q.setResultClass(OficinaRegionalEPS.class);
+		q.setParameters(region);
+        return (OficinaRegionalEPS) q.executeUnique();
+	}
+	
 	public long disminuirVacunasDisponibles(PersistenceManager pm, long id_oficina) {
 		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaOficinaRegionalEPS() + " SET CANTIDAD_VACUNAS_ACTUALES= CANTIDAD_VACUNAS_ACTUALES-1 WHERE id_oficina = ?");
 		q.setParameters(id_oficina);
@@ -101,8 +110,6 @@ public class SQLOficinaRegionalEPS {
 		q.setParameters(cantidad_vacunas, oficina_regional_eps);
 		return (long) q.executeUnique();
 	}
-
-	
 
 	
 }
