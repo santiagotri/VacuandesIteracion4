@@ -507,6 +507,14 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public long eliminarUsuarioPorUsername(String username)
+	{
+		log.info ("Eliminando el usuario: " + username);
+		long rta = pp.eliminarUsuarioPorUsername(username);
+        log.info ("Se elimino el usuario: " + username);
+        return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar VACUNA
 	 *****************************************************************/

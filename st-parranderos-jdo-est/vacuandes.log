@@ -8492,3 +8492,266 @@ ORA-02292: restricción de integridad (ISIS2304D10202110.OFICINA_REGIONAL_ASIGNA
 14:54:10,780 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el estado: No se va a vacunar
 14:54:10,806 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminado el estado: No se va a vacunar: 1 tupla eliminada
 14:54:10,806 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó correctamente el estado: No se va a vacunar
+15:19:20,174 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:19:20,191 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:19:20,425 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:19:20,425 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:19:20,425 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:19:20,426 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:19:20,464 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1001591721: 1 tuplas insertadas
+15:19:20,465 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Juan Prueba Ramirez de cedula: 1001591721
+15:19:20,465 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+15:19:20,465 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+15:19:20,492 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del usuario: usuarioPrueba: 1 tuplas insertadas
+15:19:20,492 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el usuario: usuarioPrueba de cedula: 1001591721
+15:19:20,493 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: usuarioPrueba
+15:19:20,493 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "usuarioPrueba"
+15:19:20,520 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "usuarioPrueba" 
+15:19:20,520 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:19:20,520 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el usuario: usuarioPrueba
+15:19:20,520 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando desde persistencia al usuario: usuarioPrueba
+15:19:20,549 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+15:19:20,549 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
+15:19:23,880 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:19:23,897 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:19:24,064 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:19:24,064 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:19:24,064 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:19:24,064 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:19:24,090 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error executing SQL query "INSERT INTO CIUDADANO(cedula, nombre_completo,estado_vacunacion,region,desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada) values (?, ? ,? ,? ,? ,? ,? ,?)".
+ORA-00001: unique constraint (ISIS2304D10202110.CEDULA) violated
+
+15:20:00,134 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:20:00,151 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:20:00,325 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:20:00,325 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:20:00,325 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:20:00,326 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:20:00,352 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error executing SQL query "INSERT INTO CIUDADANO(cedula, nombre_completo,estado_vacunacion,region,desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada) values (?, ? ,? ,? ,? ,? ,? ,?)".
+ORA-00001: unique constraint (ISIS2304D10202110.CEDULA) violated
+
+15:20:42,912 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:20:42,928 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:20:43,159 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:20:43,160 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:20:43,160 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
+15:20:43,203 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721
+15:20:43,203 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:20:43,204 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:20:43,235 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1001591721: 1 tuplas insertadas
+15:20:43,236 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Juan Prueba Ramirez de cedula: 1001591721
+15:20:43,236 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+15:20:43,236 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+15:20:43,263 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del usuario: usuarioPrueba: 1 tuplas insertadas
+15:20:43,263 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el usuario: usuarioPrueba de cedula: 1001591721
+15:20:43,263 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: usuarioPrueba
+15:20:43,263 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "usuarioPrueba"
+15:20:43,288 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "usuarioPrueba" 
+15:20:43,288 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:20:43,288 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el usuario: usuarioPrueba
+15:20:43,288 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando desde persistencia al usuario: usuarioPrueba
+15:20:43,317 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+15:20:43,317 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
+15:20:46,455 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:20:46,472 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:20:46,634 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:20:46,634 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:20:46,635 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
+15:20:46,658 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721
+15:20:46,658 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:20:46,658 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:20:46,684 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1001591721: 1 tuplas insertadas
+15:20:46,686 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Juan Prueba Ramirez de cedula: 1001591721
+15:20:46,686 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+15:20:46,686 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+15:20:46,708 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del usuario: usuarioPrueba: 1 tuplas insertadas
+15:20:46,708 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el usuario: usuarioPrueba de cedula: 1001591721
+15:20:46,708 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: usuarioPrueba
+15:20:46,708 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "usuarioPrueba"
+15:20:46,729 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "usuarioPrueba" 
+15:20:46,730 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:20:46,730 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el usuario: usuarioPrueba
+15:20:46,730 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando desde persistencia al usuario: usuarioPrueba
+15:20:46,754 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+15:20:46,754 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
+15:20:55,615 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:20:55,632 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:20:55,802 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:20:55,803 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:20:55,803 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:20:55,803 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:20:55,832 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error executing SQL query "INSERT INTO CIUDADANO(cedula, nombre_completo,estado_vacunacion,region,desea_ser_vacunado, plan_de_vacunacion, punto_vacunacion, oficina_regional_asignada) values (?, ? ,? ,? ,? ,? ,? ,?)".
+ORA-00001: unique constraint (ISIS2304D10202110.CEDULA) violated
+
+15:21:11,050 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:21:11,065 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:21:11,240 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:21:11,240 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:21:11,240 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
+15:21:11,268 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721
+15:21:11,268 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+15:21:11,268 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+15:21:11,289 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error executing SQL query "INSERT INTO USUARIO(username, contrasena, correo, plan_de_vacunacion, ciudadano) values (?, ?, ?, ?, ?)".
+ORA-02291: integrity constraint (ISIS2304D10202110.CIUDADANO_USUARIO) violated - parent key not found
+
+15:21:21,376 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:21:21,392 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:21:21,560 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:21:21,561 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:21:21,561 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:21:21,561 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:21:21,585 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1001591721: 1 tuplas insertadas
+15:21:21,586 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Juan Prueba Ramirez de cedula: 1001591721
+15:21:21,586 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+15:21:21,587 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+15:21:21,620 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del usuario: usuarioPrueba: 1 tuplas insertadas
+15:21:21,620 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el usuario: usuarioPrueba de cedula: 1001591721
+15:21:21,621 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: usuarioPrueba
+15:21:21,621 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "usuarioPrueba"
+15:21:21,646 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "usuarioPrueba" 
+15:21:21,646 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:21:21,646 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el usuario: usuarioPrueba
+15:21:21,646 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando desde persistencia al usuario: usuarioPrueba
+15:21:21,670 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+15:21:21,670 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
+15:21:21,670 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
+15:21:21,696 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721
+15:21:24,886 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:21:24,903 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:21:25,067 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:21:25,067 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:21:25,067 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:21:25,068 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:21:25,092 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1001591721: 1 tuplas insertadas
+15:21:25,093 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Juan Prueba Ramirez de cedula: 1001591721
+15:21:25,093 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+15:21:25,093 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+15:21:25,117 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del usuario: usuarioPrueba: 1 tuplas insertadas
+15:21:25,117 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el usuario: usuarioPrueba de cedula: 1001591721
+15:21:25,117 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: usuarioPrueba
+15:21:25,117 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "usuarioPrueba"
+15:21:25,142 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "usuarioPrueba" 
+15:21:25,142 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:21:25,142 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el usuario: usuarioPrueba
+15:21:25,142 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando desde persistencia al usuario: usuarioPrueba
+15:21:25,167 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+15:21:25,167 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
+15:21:25,167 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
+15:21:25,195 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721
+15:21:37,286 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 222222
+15:21:37,307 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Ciudadano_test
+15:21:37,471 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 222222: 1 tuplas insertadas
+15:21:37,472 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Ciudadano_test de cedula: 222222
+15:21:37,472 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 222222
+15:21:37,472 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 222222
+15:21:37,520 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 222222
+15:21:37,520 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+15:21:37,521 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 222222
+15:21:37,546 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 222222
+15:21:37,546 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 222222
+15:21:37,546 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 222222
+15:21:37,571 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 222222
+15:21:37,573 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+15:21:37,573 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+15:21:37,607 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+15:21:37,607 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=0, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+15:21:38,596 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 100 a la eps de id 1
+15:21:38,596 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+15:21:38,597 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+15:21:38,617 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+15:21:38,617 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+15:21:38,753 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 100
+15:21:38,753 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando vacunas por condicion condicion_prueba
+15:21:38,779 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas eliminadas
+15:21:38,779 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+15:21:38,808 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 0
+15:21:38,808 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - actualizando la oficina regional con id 1
+15:21:38,833 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 1
+15:21:38,833 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+15:21:38,833 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+15:21:38,858 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+15:21:38,858 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Probando el acceso a la base de datos con una base de datos que no existe
+15:21:38,872 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+15:21:38,874 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Probando el acceso a la base de datos con datos de usuario incorrectos
+15:21:38,880 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+15:21:38,881 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Probando el acceso a la base de datos con datos válidos (BD, credenciales, esquema
+15:21:38,881 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Se encontró un archivo de configuración de tablas válido
+15:21:38,881 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Conexión realizada correstamente
+15:21:38,881 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Cerrando la conexión
+15:21:38,899 (main) INFO  [uniandes.isis2304.vacuandes.test.ConexionTest] - Conexión cerrada
+15:21:39,111 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+15:21:39,111 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+15:21:39,268 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+15:21:39,268 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+15:21:39,268 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+15:21:39,268 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+15:21:39,291 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+15:21:39,292 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+15:21:39,292 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Actualizando una condicion
+15:21:39,292 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Actualizando la condicion llamada: Adulto mayor (+80)
+15:21:39,321 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se actualizo la condicion Adulto mayor (+80) a etapa 3
+15:21:39,321 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se actualizo la condicionAdulto mayor (+80) a etapa 3
+15:21:39,321 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+15:21:39,321 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+15:21:39,346 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+15:21:39,346 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+15:21:39,346 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+15:21:39,346 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+15:21:39,369 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+15:21:39,369 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+15:21:39,369 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Actualizando una condicion
+15:21:39,369 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Actualizando la condicion llamada: Adulto mayor (+80)
+15:21:39,396 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se actualizo la condicion Adulto mayor (+80) a etapa 1
+15:21:39,396 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se actualizo la condicionAdulto mayor (+80) a etapa 1
+15:21:39,396 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+15:21:39,397 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+15:21:39,419 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+15:21:39,419 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Insertando el estado de vacunacion: No se va a vacunar
+15:21:39,419 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo estado llamado: No se va a vacunar
+15:21:39,440 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del estado: No se va a vacunar: 1 tuplas insertadas
+15:21:39,440 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregó correctamente el estado: No se va a vacunar
+15:21:39,440 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trayendo el estado de vacunacion: No se va a vacunar
+15:21:39,440 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trayendo el estado: No se va a vacunar
+15:21:39,467 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Estado: No se va a vacunar traido correctamente
+15:21:39,467 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se trajo correctamente el estado: No se va a vacunar
+15:21:39,467 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el estado: No se va a vacunar
+15:21:39,467 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el estado: No se va a vacunar
+15:21:39,493 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminado el estado: No se va a vacunar: 1 tupla eliminada
+15:21:39,493 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó correctamente el estado: No se va a vacunar
+15:21:39,494 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+15:21:39,494 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+15:21:39,524 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+15:21:39,524 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+15:21:39,524 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+15:21:39,524 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+15:21:39,590 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 36 oficinas regionales
+15:21:39,590 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 41
+15:21:39,590 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 41
+15:21:39,612 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 41
+15:21:39,612 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando una nueva oficina regional con id 41
+15:21:39,643 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 41
+15:21:39,643 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 41
+15:21:39,643 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 41
+15:21:39,664 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - No se han encontrado oficinas regionales con id 41
+15:21:39,665 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+15:21:39,665 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+15:21:39,691 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+15:21:39,691 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:21:39,691 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+15:21:39,691 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+15:21:39,716 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1001591721: 1 tuplas insertadas
+15:21:39,716 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Juan Prueba Ramirez de cedula: 1001591721
+15:21:39,716 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+15:21:39,717 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+15:21:39,739 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del usuario: usuarioPrueba: 1 tuplas insertadas
+15:21:39,739 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el usuario: usuarioPrueba de cedula: 1001591721
+15:21:39,739 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: usuarioPrueba
+15:21:39,739 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "usuarioPrueba"
+15:21:39,760 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "usuarioPrueba" 
+15:21:39,760 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+15:21:39,760 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el usuario: usuarioPrueba
+15:21:39,761 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando desde persistencia al usuario: usuarioPrueba
+15:21:39,783 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+15:21:39,783 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
+15:21:39,783 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
+15:21:39,805 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721

@@ -412,14 +412,6 @@ public class PersistenciaVacuandes {
 			log.info ("Usuario buscado \"" + usuario.getUsername() + "\" ");
 
 			return usuario;
-
-
-
-			//        	tx.begin();
-			//        	long rta = sqlMinisterioSalud.agregarMinisterioDeSalud(pm, 1);
-			//        	System.out.println(rta);
-			//        	tx.commit();
-			//        	return null;
 		}
 		catch (Exception e)
 		{
@@ -2239,6 +2231,39 @@ public class PersistenciaVacuandes {
 				tx.rollback();
 			}
 			pm.close();
+		}
+	}
+
+
+	public long eliminarUsuarioPorUsername(String username) {
+		// TODO Auto-generated method stub
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				log.info ("Eliminando desde persistencia al usuario: " + username);
+				tx.begin();
+				long tuplas = sqlUsuario.eliminarUsuarioPorUsername(pm, username);
+				tx.commit();
+				log.info ("Se elimino: " + tuplas + " tupla");
+
+				return tuplas;
+			}
+			catch (Exception e)
+			{
+				// e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return 0;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
 		}
 	}
 
