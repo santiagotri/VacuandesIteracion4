@@ -8755,3 +8755,28 @@ ORA-02291: integrity constraint (ISIS2304D10202110.CIUDADANO_USUARIO) violated -
 15:21:39,783 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
 15:21:39,783 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
 15:21:39,805 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721
+17:43:30,139 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+17:43:30,158 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+17:43:30,340 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+17:43:30,341 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=10, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=15, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+17:43:30,341 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo punto de vacunacion
+17:43:30,342 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo punto de vacuancion en la localizacion: La clinica de pruebas
+17:43:30,365 (main) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : Error executing SQL query "INSERT INTO PUNTO_VACUNACION(localizacion, capacidad_de_atencion_simultanea, infraestructura_para_dosis, cantidad_vacunas_enviables, cantidad_vacunas_actuales, tipo_punto_vacunacion, administrador, oficina_regional_eps) values (?, ?, ?, ?, ?, ?, ?, ?, ?)".
+ORA-00913: too many values
+
+17:53:04,634 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+17:53:04,655 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+17:53:04,860 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+17:53:04,860 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=10, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=15, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+17:53:04,860 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo punto de vacunacion
+17:53:04,860 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo punto de vacuancion en la localizacion: La clinica de pruebas
+17:53:04,907 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del punto de vacunacion en: La clinica de pruebas: 1 tuplas insertadas
+17:53:04,907 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el punto de vacunacion en la localizacion: La clinica de pruebas
+17:53:04,907 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de localizacion La clinica de pruebas
+17:53:04,909 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de localizacion: La clinica de pruebas
+17:53:04,943 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion de localizacion: La clinica de pruebas
+17:53:04,943 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=301, localizacion=La clinica de pruebas, capacidad_de_Atencion_Simultanea=100, infraestructura_Para_Dosis=Neveras de pruebas, cantidad_Vacunas_Enviables=10, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Otro, administrador=j.ramirezb, oficina_regional_eps=1]
+17:53:04,943 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando punto de vacunacion de localizacion La clinica de pruebas
+17:53:04,944 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el punto de vacunacion de localizacion: La clinica de pruebas
+17:53:04,983 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1tupla
+17:53:04,983 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó el punto en la localización: La clinica de pruebas

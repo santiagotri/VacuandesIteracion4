@@ -2300,6 +2300,38 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public long eliminarPuntoPorLocalizacion(String localizacion) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			log.info ("Eliminando el punto de vacunacion de localizacion: " + localizacion);
+			tx.begin();
+			long tuplasEliminadas = sqlPuntoVacunacion.eliminarPuntoVacunacionPorLocalizacion(pm, localizacion);
+			tx.commit();
+			log.info ("Se elimino: " + tuplasEliminadas + "tupla");
+
+			return tuplasEliminadas;
+
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return 0;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
 	
 
 	/**

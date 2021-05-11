@@ -48,8 +48,7 @@ public class Req6 {
 		
 		//parte 3 verificar get y borrar el punto creado para prueba
 		vacuandes.darPuntoVacunacionPorLocalizacion("La clinica de pruebas");
-		long eliminado = vacuandes.eliminarUsuarioPorUsername("usuarioPrueba"); 
-		long ciudadanoEliminado = vacuandes.eliminarCiudadanoPorCedula(1001591721); 
+		long eliminado = vacuandes.eliminarPuntoPorLocalizacion("La clinica de pruebas"); 
 		assertEquals(eliminado, 1); 
 	}
 	

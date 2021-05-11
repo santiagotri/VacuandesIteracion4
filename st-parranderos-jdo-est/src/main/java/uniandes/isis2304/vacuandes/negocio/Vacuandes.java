@@ -475,6 +475,13 @@ public class Vacuandes {
         log.info ("Se encontró el punto " + rta);
         return rta;
 	}
+	
+	public long eliminarPuntoPorLocalizacion(String localizacion) {
+		log.info ("Eliminando punto de vacunacion de localizacion "+ localizacion);
+		long rta = pp.eliminarPuntoPorLocalizacion(localizacion);
+        log.info ("Se eliminó el punto en la localización: " + localizacion);
+        return rta;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/
@@ -626,7 +633,6 @@ public class Vacuandes {
         pp.limpiarParranderos();	
         log.info ("Limpiando la BD de Parranderos: Listo!");
 	}
-
 
 	
 }
