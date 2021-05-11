@@ -2310,8 +2310,39 @@ public class PersistenciaVacuandes {
 			tx.begin();
 			long tuplasEliminadas = sqlPuntoVacunacion.eliminarPuntoVacunacionPorLocalizacion(pm, localizacion);
 			tx.commit();
-			log.info ("Se elimino: " + tuplasEliminadas + "tupla");
+			log.info ("Se elimino: " + tuplasEliminadas + " tupla");
 
+			return tuplasEliminadas;
+
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return 0;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
+	public long eliminarTrabajador(long cedula) 
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			log.info ("Eliminando el trabajador de cedula: " + cedula);
+			tx.begin();
+			long tuplasEliminadas = sqlTrabajador.eliminarTrabajadorPorCedula(pm, cedula);
+			tx.commit();
+			log.info ("Se elimino: " + tuplasEliminadas + " tupla");
 			return tuplasEliminadas;
 
 		}

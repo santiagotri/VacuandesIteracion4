@@ -500,6 +500,14 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public long eliminarTrabajador(long cedula)
+	{
+		log.info ("Eliminando trabajador");
+		long rta = pp.eliminarTrabajador(cedula);
+        log.info ("Se eliminó el trabajador con cedula: " + cedula);
+        return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar USUARIO
 	 *****************************************************************/
