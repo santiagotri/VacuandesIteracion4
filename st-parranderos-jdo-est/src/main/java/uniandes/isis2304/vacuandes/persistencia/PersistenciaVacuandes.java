@@ -2236,7 +2236,6 @@ public class PersistenciaVacuandes {
 
 
 	public long eliminarUsuarioPorUsername(String username) {
-		// TODO Auto-generated method stub
 		{
 			PersistenceManager pm = pmf.getPersistenceManager();
 			Transaction tx=pm.currentTransaction();
@@ -2255,6 +2254,39 @@ public class PersistenciaVacuandes {
 				// e.printStackTrace();
 				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
 				return 0;
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	}
+
+
+	public PuntoVacunacion darPuntoVacunacionPorLocalizacion(String localizacion) {
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				log.info ("Buscando el punto de vacunacion de localizacion: " + localizacion);
+				tx.begin();
+				PuntoVacunacion punto_vacunacion = sqlPuntoVacunacion.darPuntoPorLocalizacion(pm, localizacion);
+				tx.commit();
+				log.info ("Se encontro el punto de vacunacion de localizacion: " + localizacion);
+
+				return punto_vacunacion;
+
+			}
+			catch (Exception e)
+			{
+				// e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null;
 			}
 			finally
 			{

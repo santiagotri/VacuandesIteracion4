@@ -93,6 +93,13 @@ public class SQLPuntoVacunacion {
 		q.setParameters(id_punto_vacunacion); 
 		return (PuntoVacunacion) q.executeUnique();
 	}
+	
+	public PuntoVacunacion darPuntoPorLocalizacion(PersistenceManager pm, String localizacion) {
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaPuntoVacunacion() + " WHERE localizacion = ?");
+		q.setResultClass(PuntoVacunacion.class);
+		q.setParameters(localizacion); 
+		return (PuntoVacunacion) q.executeUnique();
+	}
 
 	public long disminuirVacunasDisponibles(PersistenceManager pm, long id_punto_vacunacion) {
 		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaPuntoVacunacion() + " SET CANTIDAD_VACUNAS_ACTUALES= CANTIDAD_VACUNAS_ACTUALES-1 WHERE id_punto_vacunacion = ?");
@@ -197,5 +204,6 @@ public class SQLPuntoVacunacion {
 		q.setParameters( tipo_punto, primera_fecha, segunda_fecha);
 		return q.executeList();
 	}
+
 	
 }

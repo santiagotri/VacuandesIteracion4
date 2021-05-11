@@ -469,6 +469,12 @@ public class Vacuandes {
 		return rta;
 	}
 	
+	public PuntoVacunacion darPuntoVacunacionPorLocalizacion(String localizacion) {
+		log.info ("Buscando punto de vacunacion de localizacion "+ localizacion);
+		PuntoVacunacion rta = pp.darPuntoVacunacionPorLocalizacion(localizacion);
+        log.info ("Se encontró el punto " + rta);
+        return rta;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar TRABAJADOR
 	 *****************************************************************/
