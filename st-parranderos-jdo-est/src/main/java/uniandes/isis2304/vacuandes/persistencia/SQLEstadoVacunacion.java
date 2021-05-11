@@ -54,4 +54,19 @@ public class SQLEstadoVacunacion {
 		q.setParameters(estado);
 		return (long) q.executeUnique(); 
 	}
+	
+	public long eliminarEstadoPorNombre(PersistenceManager pm, String nombreEstado)
+	{
+		Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaEstadoVacunacion() + " WHERE estado = ?");
+        q.setParameters(nombreEstado);
+        return (long) q.executeUnique();
+	}
+	
+	public EstadoVacunacion darEstadoVacuancionPorNombre(PersistenceManager pm, String nombreEstado)
+	{
+		Query q = pm.newQuery(SQL, "SELECT * FROM " + pp.darTablaEstadoVacunacion() + " WHERE estado = ?");
+		q.setResultClass(EstadoVacunacion.class);
+		q.setParameters(nombreEstado);
+        return (EstadoVacunacion) q.executeUnique();
+	}
 }

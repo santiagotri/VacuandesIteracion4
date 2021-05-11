@@ -216,6 +216,24 @@ public class Vacuandes {
         return rta; 
 	}
 	
+	public long eliminarEstadoVacunacion(String estado)
+	{
+		log.info ("Eliminando el estado: " + estado);
+		long rta = pp.eliminarEstadoVacunacion(estado);
+        log.info ("Se eliminó correctamente el estado: " + estado); 
+        return rta; 
+	}
+	
+	public EstadoVacunacion darEstadoVacunacionPorNombre(String estado)
+	{
+		log.info ("Trayendo el estado de vacunacion: " + estado);
+		EstadoVacunacion rta = pp.darEstadoVacunacionPorNombre(estado);
+        log.info ("Se trajo correctamente el estado: " + rta.getEstado());
+        return rta; 
+	}
+	
+	
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar LIST_CONDICIONES_CIUDADANO
 	 *****************************************************************/

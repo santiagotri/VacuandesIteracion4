@@ -32,22 +32,23 @@ public class Req2 {
 	
 
 	@Test
-	public void verificarReq1RegistrarEstado() {
+	public void verificarReq2RegistrarEstado() {
 		escenario1(); 
 		
-		//parte 1
-		EstadoVacunacion estado = vacuandes.darTodosLosEstadosVacunacion().get(0);
-		assertEquals( estado.getEtapa(),1); 
+		//parte 1 probar que el estado guardado es correcto
+		EstadoVacunacion estado = vacuandes.darTodosLosEstadosVacunacion().get(2);
+		assertEquals( estado.getEstado(), "Vacunado"); 
 		
-		//parte 2
-		cond = vacuandes.registrarCondicionesDePriorizacion("Adulto mayor (+80)", 3);
-		assertNotNull(cond);
+		//parte 2 prueba para registar un nuevo estado
+		estado = vacuandes.agregarEstadoVacunacion("No se va a vacunar");
+		assertNotNull(estado);
 		
-		//parte 3
-		cond = vacuandes.getCondicion("Adulto mayor (+80)");
-		assertEquals(cond.getEtapa(), 3); 
-
-		vacuandes.registrarCondicionesDePriorizacion("Adulto mayor (+80)", 1);
+		//parte 3 verificar get y borrar el estado creado para prueba
+		estado = vacuandes.darEstadoVacunacionPorNombre("No se va a vacunar");
+		assertEquals(estado.getEstado(), "No se va a vacunar"); 
+		
+		long verEliminacion = vacuandes.eliminarEstadoVacunacion("No se va a vacunar");
+		assertEquals(verEliminacion, 1);
 	}
 	
 	//No es posible que hayan errores en la seleccion de la condicion ni de la etapa porque es un menu desplegable

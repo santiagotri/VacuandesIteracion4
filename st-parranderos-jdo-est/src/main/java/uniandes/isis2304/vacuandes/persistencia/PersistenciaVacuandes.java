@@ -1756,7 +1756,68 @@ public class PersistenciaVacuandes {
 			pm.close();
 		}
 	}
+	
+	public EstadoVacunacion darEstadoVacunacionPorNombre(String estado)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			log.info ("Trayendo el estado: " + estado);
+			tx.begin();
+			EstadoVacunacion rta = sqlEstadoVacunacion.darEstadoVacuancionPorNombre(pm, estado);
+			tx.commit();
+			log.info ("Estado: " + rta.getEstado() + " traido correctamente");
 
+			return rta;
+
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			throw e;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+	public long eliminarEstadoVacunacion(String estado)
+	{
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			log.info ("Eliminando el estado: " + estado);
+			tx.begin();
+			long tuplaInsertada = sqlEstadoVacunacion.eliminarEstadoPorNombre(pm, estado);
+			tx.commit();
+			log.info ("Eliminado el estado: " + estado + ": " + tuplaInsertada + " tupla eliminada");
+
+			return tuplaInsertada;
+
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			throw e;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
 
 	public String darPuntosMasEfectivosPorFecha(Date fecha) {
 		String rta = ""; 

@@ -8456,3 +8456,39 @@ ORA-02292: restricción de integridad (ISIS2304D10202110.OFICINA_REGIONAL_ASIGNA
 18:11:57,904 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
 18:11:57,904 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
 18:11:57,980 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+14:53:34,866 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+14:53:34,883 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+14:53:35,075 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+14:53:52,076 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+14:53:52,092 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+14:53:52,259 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+14:54:06,583 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+14:54:06,600 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+14:54:06,779 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+14:54:06,779 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Insertando el estado de vacunacion: No se va a vacunar
+14:54:06,779 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo estado llamado: No se va a vacunar
+14:54:06,822 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del estado: No se va a vacunar: 1 tuplas insertadas
+14:54:06,822 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregó correctamente el estado: No se va a vacunar
+14:54:06,822 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trayendo el estado de vacunacion: No se va a vacunar
+14:54:06,822 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trayendo el estado: No se va a vacunar
+14:54:06,847 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Estado: No se va a vacunar traido correctamente
+14:54:06,848 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se trajo correctamente el estado: No se va a vacunar
+14:54:06,848 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el estado: No se va a vacunar
+14:54:06,848 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el estado: No se va a vacunar
+14:54:06,878 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminado el estado: No se va a vacunar: 1 tupla eliminada
+14:54:06,878 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó correctamente el estado: No se va a vacunar
+14:54:10,549 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+14:54:10,565 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+14:54:10,726 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+14:54:10,726 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Insertando el estado de vacunacion: No se va a vacunar
+14:54:10,727 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo estado llamado: No se va a vacunar
+14:54:10,753 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del estado: No se va a vacunar: 1 tuplas insertadas
+14:54:10,753 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregó correctamente el estado: No se va a vacunar
+14:54:10,754 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trayendo el estado de vacunacion: No se va a vacunar
+14:54:10,754 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trayendo el estado: No se va a vacunar
+14:54:10,779 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Estado: No se va a vacunar traido correctamente
+14:54:10,779 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se trajo correctamente el estado: No se va a vacunar
+14:54:10,779 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el estado: No se va a vacunar
+14:54:10,780 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el estado: No se va a vacunar
+14:54:10,806 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminado el estado: No se va a vacunar: 1 tupla eliminada
+14:54:10,806 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó correctamente el estado: No se va a vacunar
