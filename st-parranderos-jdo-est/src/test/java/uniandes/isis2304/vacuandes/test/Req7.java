@@ -13,14 +13,11 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
-import uniandes.isis2304.vacuandes.negocio.Ciudadano;
-
-import uniandes.isis2304.vacuandes.negocio.Vacuna;
 import uniandes.isis2304.vacuandes.negocio.OficinaRegionalEPS;
 import uniandes.isis2304.vacuandes.negocio.Vacuandes;
+import uniandes.isis2304.vacuandes.negocio.Vacuna;
 
 public class Req7 {
-
 
 	/**
 	 * Ruta al archivo de configuración de los nombres de tablas de la base de datos: La unidad de persistencia existe y el esquema de la BD también
@@ -38,26 +35,12 @@ public class Req7 {
 
 	@Test
 	public void verificarReq7Registrar() {
-		escenario1(); 
-		int cantidadVacunasAProbar = 100;
-		OficinaRegionalEPS oficina = vacuandes.darOficinaRegionalEPSPorId(1);
-		vacuandes.registrarLlegadaDeLoteDeVacunasEPS(oficina, cantidadVacunasAProbar, "condicion_prueba");
-		
-		OficinaRegionalEPS oficinaNueva = vacuandes.darOficinaRegionalEPSPorId(1);
-		assertEquals(oficinaNueva.getCantidad_Vacunas_Actuales(), oficina.getCantidad_Vacunas_Actuales()+cantidadVacunasAProbar);
-		
-		List<Vacuna> vacunasCreadas = vacuandes.darVacunasPorCondicion("condicion_prueba");
-		assertEquals(vacunasCreadas.size(), cantidadVacunasAProbar);
-		
-		vacuandes.eliminarVacunasPorCondicion("condicion_prueba");
-		vacunasCreadas = vacuandes.darVacunasPorCondicion("condicion_prueba");
-		assertEquals(vacunasCreadas.size(), 0);
-		
-		vacuandes.actualizarCantidadVacunasActualesOficinaRegional(Long.parseLong("1"), cantidadVacunasAProbar);
-		oficinaNueva = vacuandes.darOficinaRegionalEPSPorId(1);
-		assertEquals(oficinaNueva.getCantidad_Vacunas_Actuales(), oficina.getCantidad_Vacunas_Actuales());
+		long cedula = 12345678;
+		long uno = 1;
+		vacuandes.agregarCiudadano(cedula, "ciudadano_test","Vacunado", "Andina", 1, uno,uno,uno);
 		
 	}
+
 	
 	
 	//No es posible que hayan errores en la seleccion de la condicion ni de la etapa porque es un menu desplegable
@@ -79,4 +62,5 @@ public class Req7 {
 		}	
 		return config;
 	}
+
 }
