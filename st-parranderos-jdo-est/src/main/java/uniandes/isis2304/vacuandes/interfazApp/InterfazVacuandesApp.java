@@ -1322,7 +1322,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		
 	}
 
-	//RFC9 PENDIENTE
+	//RFC9
 	public void encontrarCiudadanosEnContacto() {
 		VerificadoEncontrarCiudadanosEnContacto();
 	}

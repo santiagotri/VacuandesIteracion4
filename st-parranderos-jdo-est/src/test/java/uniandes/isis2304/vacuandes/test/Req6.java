@@ -34,7 +34,7 @@ public class Req6 {
 	
 
 	@Test
-	public void verificarReq4RegistrarUnPuntoVacunacion() {
+	public void verificarReq6RegistrarUnPuntoVacunacion() {
 		escenario1(); 
 		
 		//parte 1 verificacion del get del get de un punto existente

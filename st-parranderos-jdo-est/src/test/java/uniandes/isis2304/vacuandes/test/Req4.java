@@ -34,7 +34,7 @@ public class Req4 {
 	
 
 	@Test
-	public void verificarReq3RegistrarUnUsuario() {
+	public void verificarReq4RegistrarUnUsuario() {
 		escenario1(); 
 		
 		//parte 1 verificacion del get del get de un usuario exisitente

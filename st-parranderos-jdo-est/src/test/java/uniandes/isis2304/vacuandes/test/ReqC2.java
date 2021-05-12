@@ -3,6 +3,9 @@ package uniandes.isis2304.vacuandes.test;
 import static org.junit.Assert.*;
 
 import java.io.FileReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -27,6 +30,17 @@ public class ReqC2 {
 	String esperado2 = "149";
 	String esperado3 = "195";
 	String esperado4 = "243";
+	
+	
+	String esperado5 = "1";
+	String esperado6 = "266";
+	String esperado7 = "247";
+	String esperado8 = "161";
+	
+	String esperado9 = "109";
+	
+	String esperado10 = "31";
+	String esperado11 = "188";
 
 	private void escenario1()
 	{
@@ -49,42 +63,63 @@ public class ReqC2 {
 	
 	
 	@Test
-	public void verificarReqC1FechaEspecifica() {
+	public void verificarReqC2FechaEspecifica() {
 		escenario1();
 		
-	
 		
-		String rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionFechaEspecifica(1, "7/7/2021");
-		assertTrue(rta.contains(esperado4));
-		assertTrue(rta.contains(esperado1));
-		assertTrue(rta.contains(esperado2));
-		assertTrue(rta.contains(esperado3));
+		String fechaEspecifica = "7/7/2021";
+		
+		String rta ="";
+		try {
+			rta = vacuandes.mostrar20PuntosMasEfectivosEnFechaEspecifica(new SimpleDateFormat("dd/MM/yyyy").parse(fechaEspecifica));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(rta);
+		assertTrue(rta.contains(esperado5));
+		assertTrue(rta.contains(esperado6));
+		assertTrue(rta.contains(esperado7));
+		assertTrue(rta.contains(esperado8));
 		
 	}
 	
 	@Test
-	public void verificarReqC1RangoFechas() {
+	public void verificarReqC2RangoFechas() {
 		escenario1();
 		
 		
-		String rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionRangoFechas(1, "6/7/2021", "8/7/2021");
+		Date fechaInicial = new Date();
+		fechaInicial.setTime(0);
+		fechaInicial.setYear(121);
+		fechaInicial.setMonth(5);
+		fechaInicial.setDate(7);
+		
+		Date fechaFinal = new Date();
+		fechaFinal.setTime(0);
+		fechaFinal.setYear(121);
+		fechaFinal.setMonth(7);
+		fechaFinal.setDate(7);
+		
+		String rta = vacuandes.mostrar20PuntosMasEfectivosEnRangoDeFechas(fechaInicial, fechaFinal);
+		assertTrue(rta.contains(esperado5));
 		assertTrue(rta.contains(esperado4));
-		assertTrue(rta.contains(esperado1));
-		assertTrue(rta.contains(esperado2));
-		assertTrue(rta.contains(esperado3));
+		assertTrue(rta.contains(esperado7));
+		assertTrue(rta.contains(esperado9));
+		
 		
 	}
 	
 	
 	@Test
-	public void verificarReqC1RangoHora() {
+	public void verificarReqC2RangoHora() {
 		escenario1();
 		
-		String rta = vacuandes.mostrarCiudadanosAtendidosPorUnPuntoDeVacunacionRangoHora(1, 700, 1200);
-		assertFalse(rta.contains(esperado4));
-		assertTrue(rta.contains(esperado1));
-		assertTrue(rta.contains(esperado2));
-		assertTrue(rta.contains(esperado3));
+		String rta = vacuandes.mostrar20PuntosMasEfectivosEnRangoDeHoras(700, 1200);
+		assertTrue(rta.contains(esperado4));
+		assertTrue(rta.contains(esperado5));
+		assertTrue(rta.contains(esperado10));
+		assertTrue(rta.contains(esperado11));
 	}
 
 
