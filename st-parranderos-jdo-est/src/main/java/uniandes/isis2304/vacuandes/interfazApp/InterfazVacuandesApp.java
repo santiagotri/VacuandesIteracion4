@@ -964,7 +964,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	//RF11
-	public void asignarDeVacunacionACiudadano() {
+	public void asignarCitaDeVacunacionACiudadano() {
 		if (trabajadorActual!=null) {
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PUNTO_VACUNACION)) VerificadoAsignarCitaDeVacunacionACiudadano();
 			else {JOptionPane.showMessageDialog(this, "No tiene permiso para ejecutar esta accion", "Permisos insuficientes", JOptionPane.ERROR_MESSAGE, iconoError);}
