@@ -1657,7 +1657,7 @@ public class PersistenciaVacuandes {
 
 			//Verificamos que no exceda las vacunas enviables y también que si se envían, la capacidad sea suficiente para guardar las actuales y las que llegarían
 			OficinaRegionalEPS oficina = sqlOficinaRegionalEPS.darOficinaPorId(pm, punto_vacunacion.getOficina_regional_eps());
-			if((punto_vacunacion.getCantidad_Vacunas_Actuales() + cantidad_vacunas) < punto_vacunacion.getCantidad_Vacunas_Enviables() || oficina.getCantidad_Vacunas_Actuales()<= cantidad_vacunas)
+			if((punto_vacunacion.getCantidad_Vacunas_Actuales() + cantidad_vacunas) < punto_vacunacion.getCantidad_Vacunas_Enviables() || oficina.getCantidad_Vacunas_Actuales() >cantidad_vacunas)
 			{
 				rta = -1; 
 				log.trace ("El punto de vacunación de id: " + punto_vacunacion + " no tiene suficiente capacidad para almacenar las vacunas");
