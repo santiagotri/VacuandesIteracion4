@@ -183,4 +183,10 @@ public class SQLCita {
 		return q.executeList();
 	}
 
+	public long elimarCitaPorId(PersistenceManager pm, long cita) {
+		Query q = pm.newQuery(SQL, "DELETE FROM " + pp.darTablaCita() + " WHERE id_cita = ?");
+        q.setParameters(cita);
+        return (long) q.executeUnique();
+	}
+
 }

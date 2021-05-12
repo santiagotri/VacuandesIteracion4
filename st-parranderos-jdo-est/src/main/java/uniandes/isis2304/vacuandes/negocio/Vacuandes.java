@@ -116,6 +116,21 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public List<Cita> darCitaPorFechaYHora(Date fecha, int hora, long punto_vacunacion)
+	{
+		log.info ("Buscando cita en la fecha " + fecha + " y hora " + hora);
+		List<Cita> rta = pp.darCitasPorFechaYHora(fecha, hora, punto_vacunacion);
+        log.info ("Se retorno la lista de citas ");
+        return rta;
+	}
+	
+	public long eliminarCitaPorId(long cita)
+	{
+		log.info ("Eliminando cita de id" + cita);
+		long rta = pp.eliminarCitaPorId(cita);
+        log.info ("Se retorno la lista de citas ");
+        return rta;
+	}
 //	public String Mostrar20PuntosDeVacunacionMasEfectivos() {
 //		log.info ("Buscando los puntos de vacunacion más efectivos");
 //		String rta = pp.darPuntosVacunacionMasEfectivos();

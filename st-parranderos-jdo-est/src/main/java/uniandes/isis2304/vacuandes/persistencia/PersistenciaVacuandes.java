@@ -2394,6 +2394,64 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public List<Cita> darCitasPorFechaYHora(Date fecha, int hora, long punto_vacunacion) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			tx.begin();
+			List<Cita> lista = sqlCita.darCiudadanosPorFechaYHora(pm, punto_vacunacion, fecha, hora);
+			tx.commit();
+
+			return lista;
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
+	public long eliminarCitaPorId(long cita) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			log.info ("Eliminando la cita de id: " + cita);
+			tx.begin();
+			long tuplasEliminadas = sqlCita.elimarCitaPorId(pm, cita);
+			tx.commit();
+			log.info ("Se elimino: " + tuplasEliminadas + " tupla");
+			return tuplasEliminadas;
+
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return 0;
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
 	
 
 	/**
