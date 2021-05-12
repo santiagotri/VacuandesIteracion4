@@ -117,7 +117,7 @@ public class SQLCita {
 	}
 
 	public List<Object> darPuntosMasEfectivos(PersistenceManager pm) {
-		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " GROUP BY punto_vacunacion ORDER BY citas DESC");
+		Query q = pm.newQuery(SQL, " select * from (SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " GROUP BY punto_vacunacion ORDER BY citas DESC) WHERE rownum<=20");
 		return q.executeList();
 	}
 
@@ -150,21 +150,21 @@ public class SQLCita {
 	}
 
 	public List<Object> darPuntosMasEfectivosPorFecha(PersistenceManager pm, Date fecha){
-		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE fecha = ? GROUP BY punto_vacunacion ORDER BY citas DESC");
+		Query q = pm.newQuery(SQL, "select * from (SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE fecha = ? GROUP BY punto_vacunacion ORDER BY citas DESC) WHERE rownum<=20");
 		q.setParameters( new Timestamp(fecha.getTime()));
 		return q.executeList();
 	}
 
 	public List<Object> darPuntosMasEfectivosPorRangoDeFechas(PersistenceManager pm, Date primera_fecha,
 			Date segunda_fecha) {
-		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE fecha >= ? AND fecha <= ? GROUP BY punto_vacunacion ORDER BY citas DESC");
+		Query q = pm.newQuery(SQL, "select * from (SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE fecha >= ? AND fecha <= ? GROUP BY punto_vacunacion ORDER BY citas DESC) WHERE rownum<=20");
 		q.setParameters( new Timestamp(primera_fecha.getTime()), new Timestamp(segunda_fecha.getTime()));
 		return q.executeList();
 	}
 
 	public List<Object> darPuntosMasEfectivosPorRangoDeHoras(PersistenceManager pm, int primera_hora,
 			int segunda_hora) {
-		Query q = pm.newQuery(SQL, "SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE hora_cita >= ? AND hora_cita <= ? GROUP BY punto_vacunacion ORDER BY citas DESC");
+		Query q = pm.newQuery(SQL, "select * from (SELECT punto_vacunacion, COUNT(id_cita) citas FROM " + pp.darTablaCita() + " WHERE hora_cita >= ? AND hora_cita <= ? GROUP BY punto_vacunacion ORDER BY citas DESC) WHERE rownum<=20");
 		q.setParameters( primera_hora, segunda_hora);
 		return q.executeList();
 	}
