@@ -10395,3 +10395,288 @@ Tipo de columna no válido
 21:22:47,736 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina en la region Region_test
 21:22:47,736 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina de la region: Region_test
 21:22:47,813 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - No se han encontrado oficinas para esa region: Region_test
+21:50:30,087 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 222222
+21:50:30,148 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Ciudadano_test
+21:50:30,949 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 222222: 1 tuplas insertadas
+21:50:30,954 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Ciudadano_test de cedula: 222222
+21:50:30,954 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 222222
+21:50:30,955 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 222222
+21:50:31,242 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 222222
+21:50:31,243 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+21:50:31,244 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 222222
+21:50:31,399 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 222222
+21:50:31,399 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 222222
+21:50:31,400 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 222222
+21:50:31,556 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 222222
+21:50:31,561 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando para ese día las horas de mayor afluencia en el rango de fechas6/6/2021 - 7/7/2021
+21:50:31,782 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron las horas de mayor afluencia
+21:50:31,784 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando para ese día las horas de menor afluencia
+21:50:31,946 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron las horas de menor afluencia
+21:50:31,947 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando para ese día las horas de mayor afluencia
+21:50:32,161 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron las horas de mayor afluencia
+21:50:32,162 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando para ese día las horas de mayor afluencia en el rango de horas700 - 1200
+21:50:32,769 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron las horas de menor afluencia
+21:50:32,770 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando para ese día las horas de mayor afluencia en el rango de horas700 - 1200
+21:50:33,028 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron las horas de mayor afluencia
+21:50:33,029 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando para ese día las horas de menor afluencia en el rango de fechas6/6/2021 - 7/7/2021
+21:50:33,501 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron las horas de menor afluencia
+21:50:33,503 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadanos con cohortes flexibles: 
+21:50:33,862 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los ciudadanos que cumplen 
+21:50:33,864 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadanos que se hayan cruzado en el rango de fechas: 1/7/2021 hasta la fecha 11/7/2021
+21:50:34,753 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los ciudadanos que estuvieron en contacto en las mismas horas, fechas y puntos
+21:50:34,755 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id1
+21:50:34,755 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 1
+21:50:34,822 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id1
+21:50:34,822 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=1, localizacion=Cra 54#178-12 Oficina 1, capacidad_de_Atencion_Simultanea=10, infraestructura_Para_Dosis=Congeladores, Cubiculos separados, cantidad_Vacunas_Enviables=500, cantidad_Vacunas_Actuales=15, tipo_Punto_Vacunacion=Centro de salud, administrador=j.ramirezb, oficina_regional_eps=1] con el id 1
+21:50:34,822 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo punto de vacunacion
+21:50:34,823 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo punto de vacuancion en la localizacion: La clinica de pruebas
+21:50:34,891 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del punto de vacunacion en: La clinica de pruebas: 1 tuplas insertadas
+21:50:34,892 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el punto de vacunacion en la localizacion: La clinica de pruebas
+21:50:34,892 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de localizacion La clinica de pruebas
+21:50:34,892 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de localizacion: La clinica de pruebas
+21:50:34,978 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion de localizacion: La clinica de pruebas
+21:50:34,979 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=301, localizacion=La clinica de pruebas, capacidad_de_Atencion_Simultanea=100, infraestructura_Para_Dosis=Neveras de pruebas, cantidad_Vacunas_Enviables=10, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Otro, administrador=j.ramirezb, oficina_regional_eps=1]
+21:50:34,979 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando punto de vacunacion de localizacion La clinica de pruebas
+21:50:34,980 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el punto de vacunacion de localizacion: La clinica de pruebas
+21:50:35,051 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+21:50:35,052 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó el punto en la localización: La clinica de pruebas
+21:50:35,053 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 12345678
+21:50:35,054 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: ciudadano_test
+21:50:35,122 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 12345678: 1 tuplas insertadas
+21:50:35,122 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: ciudadano_test de cedula: 12345678
+21:50:35,122 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo trabajador
+21:50:35,122 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo trabajador con cedula: 12345678
+21:50:35,189 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del trabajador de cedula: 12345678: 1 tuplas insertadas
+21:50:35,191 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el trabajador con cedula: 12345678
+21:50:35,191 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 12345678
+21:50:35,191 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 12345678
+21:50:35,245 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:35,245 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+21:50:35,246 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando trabajador
+21:50:35,246 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el trabajador de cedula: 12345678
+21:50:35,309 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+21:50:35,310 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó el trabajador con cedula: 12345678
+21:50:35,310 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 12345678
+21:50:35,310 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 12345678
+21:50:35,366 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:35,367 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+21:50:35,367 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 12345678
+21:50:35,427 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 12345678
+21:50:35,427 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+21:50:35,427 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+21:50:35,487 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:35,489 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+21:50:35,490 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+21:50:35,590 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+21:50:35,590 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+21:50:35,591 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+21:50:35,592 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+21:50:35,667 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+21:50:35,668 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+21:50:35,668 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Actualizando una condicion
+21:50:35,669 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Actualizando la condicion llamada: Adulto mayor (+80)
+21:50:35,784 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se actualizo la condicion Adulto mayor (+80) a etapa 3
+21:50:35,784 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se actualizo la condicionAdulto mayor (+80) a etapa 3
+21:50:35,784 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+21:50:35,784 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+21:50:35,861 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+21:50:35,861 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+21:50:35,861 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando una condicion
+21:50:35,861 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando la condicion llamada Adulto mayor (+80)
+21:50:35,975 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontró la condicion Adulto mayor (+80)
+21:50:35,975 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró la condición: Adulto mayor (+80)
+21:50:35,975 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Actualizando una condicion
+21:50:35,976 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Actualizando la condicion llamada: Adulto mayor (+80)
+21:50:36,007 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se actualizo la condicion Adulto mayor (+80) a etapa 1
+21:50:36,008 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se actualizo la condicionAdulto mayor (+80) a etapa 1
+21:50:36,008 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando estados de vacunacion existentes
+21:50:36,009 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las condiciones en BD
+21:50:36,066 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 3 estado(s) de vacunacion
+21:50:36,066 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Insertando el estado de vacunacion: No se va a vacunar
+21:50:36,066 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo estado llamado: No se va a vacunar
+21:50:36,142 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del estado: No se va a vacunar: 1 tuplas insertadas
+21:50:36,143 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregó correctamente el estado: No se va a vacunar
+21:50:36,143 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trayendo el estado de vacunacion: No se va a vacunar
+21:50:36,144 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trayendo el estado: No se va a vacunar
+21:50:36,228 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Estado: No se va a vacunar traido correctamente
+21:50:36,229 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se trajo correctamente el estado: No se va a vacunar
+21:50:36,229 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el estado: No se va a vacunar
+21:50:36,229 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el estado: No se va a vacunar
+21:50:36,301 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminado el estado: No se va a vacunar: 1 tupla eliminada
+21:50:36,302 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó correctamente el estado: No se va a vacunar
+21:50:36,303 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 12345678
+21:50:36,304 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: ciudadano_test
+21:50:36,392 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 12345678: 1 tuplas insertadas
+21:50:36,392 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: ciudadano_test de cedula: 12345678
+21:50:36,392 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+21:50:36,393 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+21:50:36,553 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:36,553 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+21:50:36,554 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Actualizando ciudadano de cedula: 12345678
+21:50:36,554 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+21:50:36,628 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:36,628 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Actualizando el ciudadano de cedula: 12345678 con el punto de vacunación: 1
+21:50:36,708 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se actualizo el ciudadano de cedula: 12345678 a punto vacunacion: 1
+21:50:36,708 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+21:50:36,708 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+21:50:36,709 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+21:50:36,772 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:36,772 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+21:50:36,772 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 12345678
+21:50:36,860 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 12345678
+21:50:36,861 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+21:50:36,861 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+21:50:36,944 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:36,946 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+21:50:36,947 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_Test
+21:50:37,015 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_Test: 1 tuplas insertadas
+21:50:37,018 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_Test con el administrador: a.trianaa
+21:50:37,018 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+21:50:37,021 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+21:50:37,470 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 36 oficinas regionales
+21:50:37,471 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 36
+21:50:37,474 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 36
+21:50:37,548 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 36
+21:50:37,548 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando la oficina regional con el id: 36
+21:50:37,548 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando la oficina de id: 36
+21:50:37,623 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se eliminó 1 oficina de id: 36
+21:50:37,623 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 36
+21:50:37,624 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 36
+21:50:37,628 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 36
+21:50:37,694 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - No se han encontrado oficinas regionales con id 36
+21:50:37,695 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 12345678
+21:50:37,695 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: ciudadano_test
+21:50:37,804 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 12345678: 1 tuplas insertadas
+21:50:37,804 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: ciudadano_test de cedula: 12345678
+21:50:37,805 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+21:50:37,825 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+21:50:37,902 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:37,902 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+21:50:37,903 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+21:50:38,165 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+21:50:38,524 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
+21:50:38,525 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 12345678
+21:50:38,553 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando cita en la fecha Thu Nov 11 19:00:00 COT 2021 y hora 1200
+21:50:38,665 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+21:50:38,665 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando cita de id1008
+21:50:38,666 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando la cita de id: 1008
+21:50:38,765 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+21:50:38,765 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+21:50:38,765 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando cita en la fecha Thu Nov 11 19:00:00 COT 2021 y hora 1200
+21:50:38,842 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+21:50:38,842 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 12345678
+21:50:38,908 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 12345678
+21:50:38,908 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+21:50:38,908 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+21:50:38,980 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+21:50:38,984 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: j.ramirezb
+21:50:38,984 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb"
+21:50:39,067 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" 
+21:50:39,067 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+21:50:39,068 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 1001591721
+21:50:39,068 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: Juan Prueba Ramirez
+21:50:39,194 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 1001591721: 1 tuplas insertadas
+21:50:39,194 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: Juan Prueba Ramirez de cedula: 1001591721
+21:50:39,196 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo usuario en VacuAndes
+21:50:39,199 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo usuario llamado: usuarioPrueba
+21:50:39,273 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del usuario: usuarioPrueba: 1 tuplas insertadas
+21:50:39,274 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el usuario: usuarioPrueba de cedula: 1001591721
+21:50:39,274 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando usuario por username: usuarioPrueba
+21:50:39,275 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "usuarioPrueba"
+21:50:39,345 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "usuarioPrueba" 
+21:50:39,346 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Usuario encontrado
+21:50:39,346 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando el usuario: usuarioPrueba
+21:50:39,347 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando desde persistencia al usuario: usuarioPrueba
+21:50:39,411 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+21:50:39,411 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el usuario: usuarioPrueba
+21:50:39,411 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 1001591721
+21:50:39,462 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 1001591721
+21:50:39,468 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los 20 puntos de vacunación más efectivos en la fecha: Wed Jul 07 00:00:00 COT 2021
+21:50:39,539 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los 20 puntos de vacunación más efectivos
+21:50:39,542 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los 20 puntos de vacunación más efectivos entre las horas: 700  -  1200
+21:50:39,631 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los 20 puntos de vacunación más efectivos
+21:50:39,632 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los 20 puntos de vacunación más efectivos entre las fechas: Mon Jun 07 19:00:00 COT 2021  -  Sat Aug 07 19:00:00 COT 2021
+21:50:39,776 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los 20 puntos de vacunación más efectivos
+21:50:39,779 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los 20 puntos de vacunación más efectivos
+21:50:39,887 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los 20 puntos de vacunación más efectivos
+21:50:39,889 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la fecha 7/7/2021
+21:50:39,889 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos 1
+21:50:39,966 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+21:50:39,967 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la horas indicadas 
+21:50:39,968 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el rango de horas en el punto: 1
+21:50:40,063 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+21:50:40,066 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la fechas indicadas 
+21:50:40,067 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el rango de fechas en el punto: 1
+21:50:40,177 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+21:50:40,180 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos atendidos en el punto de vacunacion: 1
+21:50:40,181 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el punto: 1
+21:50:40,527 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos atendidos que fueron encontrados
+21:50:40,528 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+21:50:40,529 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+21:50:40,588 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+21:50:40,588 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=1, region=Andina, administrador=alemores, cantidad_Vacunas_Actuales=0, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=200000]
+21:50:43,173 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 100 a la eps de id 1
+21:50:43,173 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+21:50:43,174 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+21:50:43,247 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+21:50:43,247 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+21:50:43,842 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 100
+21:50:43,842 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando vacunas por condicion condicion_prueba
+21:50:43,921 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas eliminadas
+21:50:43,921 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_prueba
+21:50:43,990 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 0
+21:50:43,990 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - actualizando la oficina regional con id 1
+21:50:44,060 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 1
+21:50:44,060 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina regional con id 1
+21:50:44,060 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina regional con id 1
+21:50:44,112 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina con id: 1
+21:50:44,113 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Registrando una nueva oficina regional
+21:50:44,114 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando oficina regional en la region Region_test
+21:50:44,177 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la oficina en la region: Region_test: 1 tuplas insertadas
+21:50:44,177 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo la oficina en la region: Region_test con el administrador: alemores
+21:50:44,177 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina en la region Region_test
+21:50:44,177 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina de la region: Region_test
+21:50:44,247 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina en la region: Region_test
+21:50:44,247 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a oficina regional EPS de id: OficinaRegionalEPS [id_oficina=37, region=Region_test, administrador=alemores, cantidad_Vacunas_Actuales=0, plan_De_Vacunacion=1, cantidad_Vacunas_Enviables=2000]
+21:51:07,448 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 1000 a la eps de id 37
+21:51:07,448 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina en la region Region_test
+21:51:07,448 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina de la region: Region_test
+21:51:07,533 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina en la region: Region_test
+21:51:07,533 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo punto de vacunacion
+21:51:07,534 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo punto de vacuancion en la localizacion: localizacion_test
+21:51:07,641 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del punto de vacunacion en: localizacion_test: 1 tuplas insertadas
+21:51:07,641 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el punto de vacunacion en la localizacion: localizacion_test
+21:51:07,641 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de localizacion localizacion_test
+21:51:07,641 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de localizacion: localizacion_test
+21:51:08,053 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion de localizacion: localizacion_test
+21:51:08,053 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=302, localizacion=localizacion_test, capacidad_de_Atencion_Simultanea=5, infraestructura_Para_Dosis=infraestructura_de_prueba, cantidad_Vacunas_Enviables=1500, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=37]
+21:51:08,053 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Enviando lote de vacunas a punto vacunacion de id: PuntoVacunacion [id_Punto_Vacunacion=302, localizacion=localizacion_test, capacidad_de_Atencion_Simultanea=5, infraestructura_Para_Dosis=infraestructura_de_prueba, cantidad_Vacunas_Enviables=1500, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=37]
+21:51:09,028 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se agregaron 1000 a la eps de id PuntoVacunacion [id_Punto_Vacunacion=302, localizacion=localizacion_test, capacidad_de_Atencion_Simultanea=5, infraestructura_Para_Dosis=infraestructura_de_prueba, cantidad_Vacunas_Enviables=1500, cantidad_Vacunas_Actuales=0, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=37]
+21:51:09,028 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de localizacion localizacion_test
+21:51:09,028 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de localizacion: localizacion_test
+21:51:09,189 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion de localizacion: localizacion_test
+21:51:09,189 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=302, localizacion=localizacion_test, capacidad_de_Atencion_Simultanea=5, infraestructura_Para_Dosis=infraestructura_de_prueba, cantidad_Vacunas_Enviables=1500, cantidad_Vacunas_Actuales=1000, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=37]
+21:51:09,189 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina en la region Region_test
+21:51:09,189 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina de la region: Region_test
+21:51:09,253 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se ha encontrado una oficina en la region: Region_test
+21:51:09,253 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_test
+21:51:13,131 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 1000
+21:51:13,131 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - eliminando vacunas por condicion condicion_test
+21:51:13,209 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas eliminadas
+21:51:13,209 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando punto de vacunacion de localizacion localizacion_test
+21:51:13,209 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando el punto de vacunacion de localizacion: localizacion_test
+21:51:13,292 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+21:51:13,292 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se eliminó el punto en la localización: localizacion_test
+21:51:13,292 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando la oficina regional con el id: 37
+21:51:13,292 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando la oficina de id: 37
+21:51:13,360 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se eliminó 1 oficina de id: 37
+21:51:13,360 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino la oficina en la region con id 37
+21:51:13,360 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - buscando vacunas por condicion condicion_test
+21:51:13,438 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - vacunas encotradas 0
+21:51:13,438 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de localizacion localizacion_test
+21:51:13,439 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de localizacion: localizacion_test
+21:51:13,511 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion de localizacion: localizacion_test
+21:51:13,512 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto null
+21:51:13,512 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficina en la region Region_test
+21:51:13,512 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando oficina de la region: Region_test
+21:51:13,571 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - No se han encontrado oficinas para esa region: Region_test
