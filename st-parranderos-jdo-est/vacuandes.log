@@ -9060,3 +9060,180 @@ Tipo de columna no válido
 19:24:04,025 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
 19:24:04,025 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
 19:24:04,092 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+19:40:51,783 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+19:40:51,785 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+19:40:51,861 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+19:41:32,583 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+19:41:32,644 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+19:41:33,013 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+19:41:33,016 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+19:41:33,016 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+19:41:33,020 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+19:41:33,098 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+19:41:33,098 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+19:41:34,784 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando oficinas regionales existentes
+19:41:34,785 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando todas las OficinaRegionalEPS en BD
+19:41:35,025 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 35 oficinas regionales
+19:41:37,248 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los puntos de vacunación habilitados para la región: Andina
+19:41:37,249 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando los puntos de vacunación que estén habilitados en la región Andina en BD
+19:41:37,331 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se han encontrado: 8 puntos vacunacion de la region Andina que están habilitados
+19:42:19,943 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos atendidos en el punto de vacunacion: 1
+19:42:19,945 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el punto: 1
+19:42:20,103 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos atendidos que fueron encontrados
+19:49:21,231 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos atendidos en el punto de vacunacion: 1
+19:49:21,316 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el punto: 1
+19:49:21,916 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos atendidos que fueron encontrados
+19:49:21,916 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la fecha 7/7/2021
+19:49:21,917 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos 1
+19:49:22,007 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+19:49:22,007 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la fechas indicadas 
+19:49:22,007 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el rango de fechas en el punto: 1
+19:49:22,142 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+19:49:22,142 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la horas indicadas 
+19:49:22,143 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el rango de horas en el punto: 1
+19:49:22,230 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+19:51:23,960 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la horas indicadas 
+19:51:23,997 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el rango de horas en el punto: 1
+19:51:24,625 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+19:51:41,544 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la fecha 7/7/2021
+19:51:41,582 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos 1
+19:51:41,995 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+19:51:41,996 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la horas indicadas 
+19:51:41,997 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el rango de horas en el punto: 1
+19:51:42,085 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+19:51:42,086 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos en el punto de vacunacion: 1 en la fechas indicadas 
+19:51:42,087 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el rango de fechas en el punto: 1
+19:51:42,203 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos encontrados
+19:51:42,205 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los ciudadanos atendidos en el punto de vacunacion: 1
+19:51:42,206 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando ciudadanos en el punto: 1
+19:51:42,332 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron todos los ciudadanos atendidos que fueron encontrados
+19:53:31,337 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 12345678
+19:53:31,381 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: ciudadano_test
+19:53:31,699 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 12345678: 1 tuplas insertadas
+19:53:31,701 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: ciudadano_test de cedula: 12345678
+19:53:31,701 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+19:53:31,702 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+19:53:31,781 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+19:53:31,782 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+19:53:31,782 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+19:53:31,967 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+19:53:32,208 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
+19:53:32,208 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 12345678
+19:53:32,226 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando cita en la fecha Thu Nov 11 19:53:31 COT 2021 y hora 1200
+19:53:32,276 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+19:57:54,155 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 12345678
+19:57:54,216 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: ciudadano_test
+19:57:54,562 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 12345678: 1 tuplas insertadas
+19:57:54,564 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: ciudadano_test de cedula: 12345678
+19:57:54,564 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+19:57:54,565 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+19:57:54,660 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+19:57:54,661 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+19:57:54,661 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+19:57:54,825 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+19:57:55,084 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
+19:57:55,084 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 12345678
+19:57:55,106 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando cita en la fecha Thu Nov 11 19:57:54 COT 2021 y hora 1200
+19:57:55,184 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+19:58:52,463 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 12345678
+19:58:52,508 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: ciudadano_test
+19:58:52,848 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 12345678: 1 tuplas insertadas
+19:58:52,850 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: ciudadano_test de cedula: 12345678
+19:58:52,850 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+19:58:52,851 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+19:58:52,926 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+19:58:52,927 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+19:58:52,927 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+19:58:53,108 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+19:58:53,324 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
+19:58:53,324 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 12345678
+19:58:53,336 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando cita en la fecha Thu Nov 11 19:58:52 COT 2021 y hora 1200
+19:58:53,405 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+20:01:51,121 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:01:51,123 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:01:51,302 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:02:20,720 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+20:02:20,765 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+20:02:21,216 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+20:02:21,219 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:02:21,220 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+20:02:21,221 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+20:02:21,626 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+20:02:21,627 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:02:31,191 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario alemores
+20:02:31,192 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "alemores" con contrasena "contrasena3"
+20:02:31,259 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "alemores" con contrasena "contrasena3"
+20:02:31,259 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:02:31,259 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168162
+20:02:31,260 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168162
+20:02:31,312 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168162
+20:02:31,312 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:02:51,251 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario j.ramirezb
+20:02:51,253 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "j.ramirezb" con contrasena "contrasena2"
+20:02:51,319 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "j.ramirezb" con contrasena "contrasena2"
+20:02:51,319 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:02:51,319 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168161
+20:02:51,320 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168161
+20:02:51,379 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168161
+20:02:51,379 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:03:42,530 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 1001168164
+20:03:42,531 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 1001168164
+20:03:42,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168164
+20:03:42,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+20:03:42,593 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando punto de vacunacion de id2
+20:03:42,594 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el punto de vacunacion de id 2
+20:03:42,748 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se encontro el punto de vacunacion por el id2
+20:03:42,749 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se encontró el punto PuntoVacunacion [id_Punto_Vacunacion=2, localizacion=Calle 12#57-34, capacidad_de_Atencion_Simultanea=1, infraestructura_Para_Dosis=Todos los necesarios, cantidad_Vacunas_Enviables=3000, cantidad_Vacunas_Actuales=15, tipo_Punto_Vacunacion=Hospital, administrador=j.ramirezb, oficina_regional_eps=1] con el id 2
+20:03:42,749 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificando si el horario está disponible para esa cita
+20:03:42,749 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Verificando horario para la cita en el punto 2
+20:03:42,761 (AWT-EventQueue-0) ERROR [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Exception : SQL query "SELECT * FROM CITA WHERE FECHA = ? AND HORA_CITA = ? AND PUNTO_VACUNACION = ?" necesita 3 parametros pero no hay ninguno
+
+20:03:42,762 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Ese horario está disponible para el punto de vacunacion? false
+20:03:42,762 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+20:03:42,993 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 2
+20:03:43,125 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 2 para el ciudadano de cedula: 1001168164
+20:06:14,683 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando un nuevo ciudadano en VacuAndes de cedula: 12345678
+20:06:14,730 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando un nuevo ciudadano llamado: ciudadano_test
+20:06:15,183 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción del ciudadano de cedula: 12345678: 1 tuplas insertadas
+20:06:15,185 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el ciudadano: ciudadano_test de cedula: 12345678
+20:06:15,185 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+20:06:15,187 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+20:06:15,289 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+20:06:15,289 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - ciudadano encontrado
+20:06:15,289 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Creando una nueva cita
+20:06:15,504 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Agregando una nueva cita en el punto de vacunación: 1
+20:06:15,773 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Inserción de la cita en el punto: 1: 1 tuplas insertadas
+20:06:15,773 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se creo el cita en el punto: 1 para el ciudadano de cedula: 12345678
+20:06:15,791 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando cita en la fecha Thu Nov 11 19:00:00 COT 2021 y hora 1200
+20:06:15,897 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+20:06:15,898 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando cita de id1024
+20:06:15,899 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Eliminando la cita de id: 1024
+20:06:15,994 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Se elimino: 1 tupla
+20:06:15,994 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+20:06:15,994 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando cita en la fecha Thu Nov 11 19:00:00 COT 2021 y hora 1200
+20:06:16,042 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retorno la lista de citas 
+20:06:16,042 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Eliminando ciudadano en VacuAndes de cedula: 12345678
+20:06:16,090 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se elimino el ciudadano  de cedula: 12345678
+20:06:16,090 (main) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando ciudadano por cedula: 12345678
+20:06:16,091 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el ciudadano de la cedula 12345678
+20:06:16,138 (main) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 12345678
+20:07:01,255 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:07:01,259 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:07:01,556 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:07:31,558 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Interfaz
+20:07:31,572 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se aplica configuración indicada en el archivo de configuración
+20:07:31,712 (main) INFO  [uniandes.isis2304.vacuandes.interfazApp.InterfazVacuandesApp] - Se encontró un archivo de configuración válido: Tablas BD
+20:08:03,787 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Iniciando sesion para usuario a.trianaa
+20:08:03,836 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando usuario "a.trianaa" con contrasena "contrasena1"
+20:08:04,207 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Usuario buscado "a.trianaa" con contrasena "contrasena1"
+20:08:04,208 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Verificado inicio sesion
+20:08:04,209 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando trabjador de cedula: 1001168160
+20:08:04,209 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Buscando el trabajo de la cedula 1001168160
+20:08:04,346 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.persistencia.PersistenciaVacuandes] - Trabajador buscado por cedula 1001168160
+20:08:04,346 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Trabajo verificado
+20:08:19,777 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los 20 puntos de vacunación más efectivos
+20:08:20,427 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los 20 puntos de vacunación más efectivos
+20:08:29,269 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los 20 puntos de vacunación más efectivos
+20:08:29,809 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los 20 puntos de vacunación más efectivos
+20:09:58,748 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Buscando los 20 puntos de vacunación más efectivos
+20:09:59,287 (AWT-EventQueue-0) INFO  [uniandes.isis2304.vacuandes.negocio.Vacuandes] - Se retornaron los 20 puntos de vacunación más efectivos
