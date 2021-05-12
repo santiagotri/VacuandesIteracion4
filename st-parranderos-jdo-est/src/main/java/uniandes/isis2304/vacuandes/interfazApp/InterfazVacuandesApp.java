@@ -1467,6 +1467,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		ImageIcon fotoCreadores = new ImageIcon(guiConfig.get("foto_creadores").getAsString());
 		JOptionPane.showMessageDialog(this,"", "Foto Creadores",JOptionPane.INFORMATION_MESSAGE,fotoCreadores);
 		
+		
+		
 	}
 
 

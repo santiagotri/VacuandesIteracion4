@@ -124,11 +124,11 @@ public class SQLVacuna {
 		return (List<Vacuna>) q.executeList();
 	}
 
-	public long updateMultiplePuntoVacunacion(PersistenceManager pm, OficinaRegionalEPS oficina,
-			PuntoVacunacion punto_vacunacion, int cantidad_vacunas) 
+	public long updateMultiplePuntoVacunacion(PersistenceManager pm, long oficina,
+			long punto_vacunacion, int cantidad_vacunas) 
 	{
-		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaVacuna() + " SET punto_vacunacion = ? WHERE oficina_regional = ? AND punto_vacunacion is null AND rownum<= ?");
-		q.setParameters(punto_vacunacion, oficina, cantidad_vacunas);
+		Query q = pm.newQuery(SQL, "UPDATE " + pp.darTablaVacuna() + " SET punto_vacunacion = ? WHERE oficina_regional = ? AND punto_vacunacion is null AND rownum<= " + cantidad_vacunas );
+		q.setParameters(punto_vacunacion, oficina);
 		return (long) q.executeUnique();
 	}
 }

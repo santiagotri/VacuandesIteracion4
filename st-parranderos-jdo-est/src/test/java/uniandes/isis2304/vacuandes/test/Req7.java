@@ -14,6 +14,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonReader;
 
 import uniandes.isis2304.vacuandes.negocio.OficinaRegionalEPS;
+import uniandes.isis2304.vacuandes.negocio.Trabajador;
 import uniandes.isis2304.vacuandes.negocio.Vacuandes;
 import uniandes.isis2304.vacuandes.negocio.Vacuna;
 
@@ -35,9 +36,22 @@ public class Req7 {
 
 	@Test
 	public void verificarReq7Registrar() {
+		escenario1();
 		long cedula = 12345678;
 		long uno = 1;
 		vacuandes.agregarCiudadano(cedula, "ciudadano_test","Vacunado", "Andina", 1, uno,uno,uno);
+		vacuandes.agregarTrabajador(cedula, "Talento humano punto vacunacion", 0, uno);
+		Trabajador trabajador = vacuandes.darTrabajadorPorCedula(cedula);
+		assertNotNull(trabajador);
+		assertEquals(cedula, trabajador.getCedula());
+		
+		long rta = vacuandes.eliminarTrabajador(cedula);
+		trabajador = vacuandes.darTrabajadorPorCedula(cedula);
+		assertNull(trabajador);
+		assertEquals(uno, rta);
+		
+		vacuandes.eliminarCiudadanoPorCedula(cedula);
+		assertNull(vacuandes.darCiudadanoPorCedula(cedula));
 		
 	}
 
