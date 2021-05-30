@@ -1354,7 +1354,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//RFC10gitgitgiig
+	//RFC10
 	public void consultarVacunados () {
 		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS))VerificadoConsultarVacunados();
 	}
