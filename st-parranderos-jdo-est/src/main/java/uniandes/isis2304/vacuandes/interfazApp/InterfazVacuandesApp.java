@@ -1355,11 +1355,16 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
-	//RFC10
+	//RFC10 y RFC11
 	public void consultarVacunados () {
-		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS))VerificadoConsultarVacunados();
+		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS))VerificadoConsultarVacunados(true);
 	}
-	private void VerificadoConsultarVacunados() {
+	
+	public void consultarNoVacunados () {
+		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS))VerificadoConsultarVacunados(false);
+	}
+	
+	private void VerificadoConsultarVacunados(boolean vacunados) {
 		try {
 			mostrarMensajeInformativo("Rango de fechas", "Ingrese el rango de fechas para la consulta de vacunados");
 			String[] fechas = escogerRangoDeFechas();
@@ -1402,13 +1407,13 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 			infoUsuarioActual();
 			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) {
 				
-				rta = vacuandes.consultarVacunadosAdminPlan(fechas[0], fechas[1], tipo, orderBy);
-				
+				if(vacunados)rta = vacuandes.consultarVacunadosAdminPlan(fechas[0], fechas[1], tipo, orderBy);
+				else {}
 			} else{
 				mostrarMensajeInformativo("Escoja una oficina", "De las oficinas de las que es administrador, escoja con la que desea hacer la consulta");
 				long idOficina = escogerOficinaRegionalEPS();
-				rta = vacuandes.consultarVacunadosAdminEps(fechas[0], fechas[1], tipo, orderBy, idOficina);
-				
+				if(vacunados)rta = vacuandes.consultarVacunadosAdminEps(fechas[0], fechas[1], tipo, orderBy, idOficina);
+				else{}
 			}
 			if(rta ==null)rta = "No se han encontrado resultados para la busqueda realizada (error00)";
 			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
@@ -1426,16 +1431,40 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		
 	}
 	
-	//RFC11 
-	public void consultarNoVacunados () {
-
-	}
 	
 	//RFC12 
 	public void consultarFuncionamiento() {
-		System.out.println(3);
+		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS))VerificadoConsultarFuncionamiento();
 	}
-	
+	private void VerificadoConsultarFuncionamiento() {
+		try {
+			String rta =null;
+			
+			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) {
+				//adminsitrador plan
+				rta = ;
+			}else {
+				//adminsitrador oficina eps
+				mostrarMensajeInformativo("Escoja una oficina", "De las oficinas de las que es administrador, escoja con la que desea hacer la consulta");
+				long idOficina = escogerOficinaRegionalEPS();
+				rta = ;
+			}
+			
+			if(rta ==null)rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+			else {
+				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+			}
+			
+			panelDatos.actualizarInterfaz(rta);
+			interfazCargandoRequerimiento.ocultar();
+		} catch (Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
+		}
+	}
 	
 
 	/* ****************************************************************
@@ -1537,8 +1566,8 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		resultado += " * Departamento	de	Ingeniería	de	Sistemas	y	Computación\n";
 		resultado += " * \n";		
 		resultado += " * Curso: isis2304 - Sistemas Transaccionales\n";
-		resultado += " * Proyecto: Vacuandes Uniandes - Iteracion 3\n";
-		resultado += " * @version 2.0\n";
+		resultado += " * Proyecto: Vacuandes Uniandes - Iteracion 4\n";
+		resultado += " * @version 3.0\n";
 		resultado += " * @author Santiago Triana 201923265\n";
 		resultado += " * @author Juan Sebastian Ramirez 201923800\n";
 		resultado += " * Mayo de 2021\n";

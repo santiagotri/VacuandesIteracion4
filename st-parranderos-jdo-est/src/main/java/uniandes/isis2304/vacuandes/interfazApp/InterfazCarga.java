@@ -6,7 +6,7 @@ import java.awt.*;
 public class InterfazCarga {
     JFrame frame;
     JLabel image=new JLabel(new ImageIcon("./src/main/resources/config/vacuna-covid-n.png"));
-    JLabel text=new JLabel("VacuAndes v2.0");
+    JLabel text=new JLabel("VacuAndes v3.0");
     JProgressBar progressBar=new JProgressBar();
     JLabel message=new JLabel();
     InterfazCarga()
