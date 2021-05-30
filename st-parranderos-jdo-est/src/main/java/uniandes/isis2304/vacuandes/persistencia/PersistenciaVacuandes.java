@@ -1487,7 +1487,7 @@ public class PersistenciaVacuandes {
 					Cita citaAdicionada = adicionarCita(fechaCita, citaAct.getCiudadano(), nuevo_punto, horaCita); 	
 					cantidadVacunas--;
 					if(citaAdicionada !=null) {
-						
+
 						rta += "- Ciudadano: (" + (i+1) + ") de cedula: " +  listaEliminadas.get(i).getCiudadano() + ", Se le cambio la cita a la fecha: " + fechaCita + " y hora: " + horaCita+"\n"; 
 					}else {
 						rta += "- Ha existido un error asignando la cita del ciudadno "+ listaEliminadas.get(i).getCiudadano() + "\n";
@@ -1507,7 +1507,7 @@ public class PersistenciaVacuandes {
 		{	
 			e.printStackTrace();
 			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-			
+
 		}
 		finally
 		{
@@ -1749,7 +1749,7 @@ public class PersistenciaVacuandes {
 			pm.close();
 		}
 	}
-	
+
 	public EstadoVacunacion darEstadoVacunacionPorNombre(String estado)
 	{
 		PersistenceManager pm = pmf.getPersistenceManager();
@@ -1879,7 +1879,7 @@ public class PersistenciaVacuandes {
 
 		return rta;
 	}
-	
+
 	private String pasarDateAString(Date fecha) {
 		return fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + (fecha.getYear()+1900);
 	}
@@ -1999,12 +1999,12 @@ public class PersistenciaVacuandes {
 			long horaCita = ((BigDecimal) datos [1]).longValue ();
 			long idPuntoVacunacion = ((BigDecimal) datos [2]).longValue ();
 			long conteo = ((BigDecimal) datos [3]).longValue ();
-			
+
 			if(conteo>1)
 			{
 				List<Long> ciudadanosCruzados = sqlCita.getCiudadanosQueSeCruzan(pmf.getPersistenceManager(), idPuntoVacunacion, fechaBusquedaEnString, horaCita);
 				rta += "\n-" + " Los ciudadanos : ";
-				
+
 				for (int i = 0; i < ciudadanosCruzados.size(); i++) 
 				{
 					rta += "\n-" + ciudadanosCruzados.get(i); 
@@ -2019,11 +2019,11 @@ public class PersistenciaVacuandes {
 
 	public String analizarCohorteFlexibleCondiciones(ArrayList<String> condiciones) {
 		String rta = "";
-		
+
 		if(condiciones.size()>0)
 		{
 			for (int i = 0; i < condiciones.size(); i++) {
-				
+
 				if(i == 0)
 				{
 					rta+= " WHERE condicion = '" + condiciones.get(i) + "' "; 
@@ -2037,14 +2037,14 @@ public class PersistenciaVacuandes {
 
 		return rta;
 	}
-	
+
 	public String analizarCohorteFlexiblePuntos(ArrayList<Long> puntos) {
 		String rta = "";
-		
+
 		if(puntos.size()>0)
 		{
 			for (int i = 0; i < puntos.size(); i++) {
-				
+
 				if(i == 0)
 				{
 					rta+= " WHERE tabla_ciudadano.punto_vacunacion = " + puntos.get(i) + " "; 
@@ -2058,14 +2058,14 @@ public class PersistenciaVacuandes {
 
 		return rta;
 	}
-	
+
 	public String analizarCohorteFlexibleCantidad(Integer cantVacunasAplicadas) {
 		String rta = "";
 		if(cantVacunasAplicadas!= null)
 		{
 			rta+= " Where tabla_citas.contador = " + cantVacunasAplicadas; 
 		}
-		
+
 		return rta;
 	}
 
@@ -2076,7 +2076,7 @@ public class PersistenciaVacuandes {
 		String stringPuntosVacunacion = analizarCohorteFlexiblePuntos(puntos_vacunacion); 
 		String stringCantVacunasAplicadas = analizarCohorteFlexibleCantidad(cantVacunasAplicadas); 
 		List<Ciudadano> ciudadanosQueCumplen = sqlCiudadano.darCohorteFlexible(pmf.getPersistenceManager(), stringCondiciones, stringPuntosVacunacion, stringCantVacunasAplicadas);
-		
+
 		rta+= "\n-" + " Los ciudadanos que cumplen los criterios son : ";
 		for (int i = 0; i < ciudadanosQueCumplen.size(); i++) 
 		{
@@ -2084,10 +2084,10 @@ public class PersistenciaVacuandes {
 			rta+= "\n\n" + (i+1) +".\n" + " Nombre: " + act.getNombre_Completo() + "\n Cedula: " + act.getCedula() + "\n Estado vacunacion: " + act.getEstado_vacunacion() 
 			+ "\n El ciudadano desea ser vacunado: " + act.getDesea_ser_vacunado() + "\n Plan de vacunacion: " + act.getPlan_De_Vacunacion() 
 			+ "\n Punto de vacunacion: " + act.getPunto_Vacunacion() + "\n Oficina Regional " + act.getOficina_Regional_Asignada();
-			
+
 			if(cantVacunasAplicadas!=null)rta+= "\n Numero de dosis aplicadas: " + cantVacunasAplicadas;
-			
-			
+
+
 		}
 		return rta; 
 	}
@@ -2131,7 +2131,7 @@ public class PersistenciaVacuandes {
 			tx.begin();
 			long tuplaEliminado = sqlCiudadano.eliminarCiudadanoPorCedula(pm, cedula);
 			tx.commit();
-		
+
 			return tuplaEliminado;
 		}
 		catch (Exception e)
@@ -2160,7 +2160,7 @@ public class PersistenciaVacuandes {
 			tx.begin();
 			long tuplaEliminado = sqlVacuna.eliminarVacunasPorCondicion(pm, condicion);
 			tx.commit();
-		
+
 			return tuplaEliminado;
 		}
 		catch (Exception e)
@@ -2462,7 +2462,7 @@ public class PersistenciaVacuandes {
 			List<Ciudadano> ciudadanos = sqlCiudadano.darCiudadanosVacunadosAdminPlan(pm, primera_fecha, segunda_fecha, agrupar, ordenar); ;
 			tx.commit();
 			log.info ("Se encontraron: " + ciudadanos.size() + " ciudadanos");
-			
+
 			String rta = ""; 
 			for (int i = 0; i < ciudadanos.size(); i++) {
 				Ciudadano act = ciudadanos.get(i); 
@@ -2499,7 +2499,7 @@ public class PersistenciaVacuandes {
 			List<Ciudadano> ciudadanos = sqlCiudadano.darCiudadanosVacunadosAdminEPS(pm, primera_fecha, segunda_fecha, agrupar, ordenar, eps); ;
 			tx.commit();
 			log.info ("Se encontraron: " + ciudadanos.size() + " ciudadanos");
-			
+
 			String rta = ""; 
 			for (int i = 0; i < ciudadanos.size(); i++) {
 				Ciudadano act = ciudadanos.get(i); 
@@ -2536,7 +2536,7 @@ public class PersistenciaVacuandes {
 			List<Ciudadano> ciudadanos = sqlCiudadano.darCiudadanosNoVacunadosAdminPlan(pm, primera_fecha, segunda_fecha, agrupar, ordenar); ;
 			tx.commit();
 			log.info ("Se encontraron: " + ciudadanos.size() + " ciudadanos");
-			
+
 			String rta = ""; 
 			for (int i = 0; i < ciudadanos.size(); i++) {
 				Ciudadano act = ciudadanos.get(i); 
@@ -2573,7 +2573,7 @@ public class PersistenciaVacuandes {
 			List<Ciudadano> ciudadanos = sqlCiudadano.darCiudadanosNoVacunadosAdminEPS(pm, primera_fecha, segunda_fecha, agrupar, ordenar, eps); ;
 			tx.commit();
 			log.info ("Se encontraron: " + ciudadanos.size() + " ciudadanos");
-			
+
 			String rta = ""; 
 			for (int i = 0; i < ciudadanos.size(); i++) {
 				Ciudadano act = ciudadanos.get(i); 
@@ -2599,7 +2599,61 @@ public class PersistenciaVacuandes {
 	}
 
 
-	
+	public String consultarFuncionamiento() {
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				log.info ("Consultando funcionamiento optimo");
+				tx.begin();
+				List<Object []> respuesta = new LinkedList <Object []> ();
+				List<Object> tuplas = sqlCita.consultarFuncionamiento(pm);
+				tx.commit();
+				log.info ("Se encontraron: " + tuplas.size() + " datos");
+				String rta = ""; 
+				long semanaAct = -1;
+				long centinela = 0;
+				for ( Object tupla : tuplas)
+				{
+					Object [] datos = (Object []) tupla;
+					String direccion = (String) datos[0];
+					long punto_vacunacion = ((BigDecimal) datos [1]).longValue();
+					long semana = ((BigDecimal) datos [2]).longValue();
+					long contador = ((BigDecimal) datos [3]).longValue();
+
+					if(semanaAct!=semana) {
+						semanaAct=semana;
+						centinela = 0;
+						rta+= "\n Semana " + semana + ":\n"; 
+					}
+					if(centinela<10) {
+						rta+= centinela + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador;
+					}
+					centinela++;
+				}
+				return rta; 
+
+			}
+			catch (Exception e)
+			{
+				// e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null; 
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	}
+
+
+
 
 	/**
 	public Cita buscarCita(Date fecha, long ciudadano) {
@@ -2632,5 +2686,5 @@ public class PersistenciaVacuandes {
         }
 	}
 	 */
- 
+
 }

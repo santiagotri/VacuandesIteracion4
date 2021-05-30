@@ -148,6 +148,14 @@ public class Vacuandes {
 	}
 	 */
 	
+	public String consultarFuncionamientoAdminPlan()
+	{
+		log.info ("Consultando funcionamiento");
+		String rta = pp.consultarFuncionamiento();
+        log.info ("Se retornó el funcionamiento para todas las semanas del año");
+        return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar CIUDADANO
 	 *****************************************************************/

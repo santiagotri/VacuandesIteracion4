@@ -189,4 +189,12 @@ public class SQLCita {
         return (long) q.executeUnique();
 	}
 
+	public List<Object> consultarFuncionamiento(PersistenceManager pm) {
+		Query q = pm.newQuery(SQL, "SELECT p.localizacion, punto_vacunacion, to_char(fecha - 7/24,'IW') semana,count(id_cita) contador"
+				+ " FROM cita c inner join punto_vacunacion p on c.punto_vacunacion = p.id_punto_vacunacion" 
+				+ " GROUP BY p.localizacion,punto_vacunacion, to_char(fecha - 7/24,'IW')"
+				+ " order by semana, contador DESC");
+		return q.executeList();
+	}
+
 }
