@@ -1197,7 +1197,7 @@ public class PersistenciaVacuandes {
 		}
 	}
 
-	private String convertirDateAformatoString (Date fechaAConvertir) {
+	public String convertirDateAformatoString (Date fechaAConvertir) {
 		String rta = fechaAConvertir.getDate() + "/" + (fechaAConvertir.getMonth()+1) + "/" + (fechaAConvertir.getYear()+1900);
 		return rta;
 	}
@@ -1884,6 +1884,20 @@ public class PersistenciaVacuandes {
 		return fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + (fecha.getYear()+1900);
 	}
 
+	@SuppressWarnings("deprecation")
+	public Date convertirFechaDeStringADate(String fechaIngresada){
+
+			String[] fechaIngresadaSplit = fechaIngresada.split("/");
+			Date fecha = new Date();
+			fecha.setDate(Integer.parseInt(fechaIngresadaSplit[0]));
+			fecha.setMonth(Integer.parseInt(fechaIngresadaSplit[1])-1);
+			fecha.setYear(Integer.parseInt(fechaIngresadaSplit[2])-1900);
+			fecha.setSeconds(0);
+			fecha.setMinutes(0);
+			fecha.setHours(0);
+			return fecha;
+	}
+	
 	public String analizarOperacionesEnDiaEspecificoFaltaDeCupo(String tipo_punto, String dia) {
 		String rta = ""; 
 		List<Object []> respuesta = new LinkedList <Object []> ();
@@ -2611,7 +2625,7 @@ public class PersistenciaVacuandes {
 				List<Object> tuplas = sqlCita.consultarFuncionamiento(pm);
 				tx.commit();
 				log.info ("Se encontraron: " + tuplas.size() + " datos");
-				String rta = ""; 
+				String rta = "******* MEJORES PUNTOS POR SEMANA *******"; 
 				int semanaAct = -1;
 				int centinela = 0;
 				for ( Object tupla : tuplas)
@@ -2628,7 +2642,29 @@ public class PersistenciaVacuandes {
 						rta+= "\n Semana " + semana + ":\n"; 
 					}
 					if(centinela<10) {
-						rta+= centinela + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador;
+						rta+= (centinela+1) + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador + "\n";
+					}
+					centinela++;
+				}
+				
+				rta += "\n\n******* PEORES PUNTOS POR SEMANA *******\n\n"; 
+				 semanaAct = -1;
+				 centinela = 0;
+				for ( int i = tuplas.size()-1; i>=0; i--)
+				{
+					Object [] datos = (Object []) tuplas.get(i);
+					String direccion = (String) datos[0];
+					long punto_vacunacion = ((BigDecimal) datos [1]).longValue();
+					int semana = Integer.parseInt((String) datos[2]);
+					long contador = ((BigDecimal) datos [3]).longValue();
+
+					if(semanaAct!=semana) {
+						semanaAct=semana;
+						centinela = 0;
+						rta+= "\n Semana " + semana + ":\n"; 
+					}
+					if(centinela<10) {
+						rta+= (centinela+1) + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador + "\n";
 					}
 					centinela++;
 				}
@@ -2637,9 +2673,9 @@ public class PersistenciaVacuandes {
 			}
 			catch (Exception e)
 			{
-				// e.printStackTrace();
+				e.printStackTrace();
 				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-				return null; 
+				return ""; 
 			}
 			finally
 			{
@@ -2659,13 +2695,13 @@ public class PersistenciaVacuandes {
 			Transaction tx=pm.currentTransaction();
 			try
 			{
-				log.info ("Consultando funcionamiento optimo para eps");
+				log.info ("Consultando funcionamiento optimo");
 				tx.begin();
 				List<Object []> respuesta = new LinkedList <Object []> ();
 				List<Object> tuplas = sqlCita.consultarFuncionamientoEPS(pm, eps);
 				tx.commit();
 				log.info ("Se encontraron: " + tuplas.size() + " datos");
-				String rta = ""; 
+				String rta = "******* MEJORES PUNTOS POR SEMANA *******"; 
 				int semanaAct = -1;
 				int centinela = 0;
 				for ( Object tupla : tuplas)
@@ -2682,7 +2718,29 @@ public class PersistenciaVacuandes {
 						rta+= "\n Semana " + semana + ":\n"; 
 					}
 					if(centinela<10) {
-						rta+= centinela + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador;
+						rta+= (centinela+1) + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador + "\n";
+					}
+					centinela++;
+				}
+				
+				rta += "\n\n******* PEORES PUNTOS POR SEMANA *******\n\n"; 
+				 semanaAct = -1;
+				 centinela = 0;
+				for ( int i = tuplas.size()-1; i>=0; i--)
+				{
+					Object [] datos = (Object []) tuplas.get(i);
+					String direccion = (String) datos[0];
+					long punto_vacunacion = ((BigDecimal) datos [1]).longValue();
+					int semana = Integer.parseInt((String) datos[2]);
+					long contador = ((BigDecimal) datos [3]).longValue();
+
+					if(semanaAct!=semana) {
+						semanaAct=semana;
+						centinela = 0;
+						rta+= "\n Semana " + semana + ":\n"; 
+					}
+					if(centinela<10) {
+						rta+= (centinela+1) + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador + "\n";
 					}
 					centinela++;
 				}
@@ -2714,15 +2772,15 @@ public class PersistenciaVacuandes {
 		{
 			log.info ("Consultando los lideres EPS");
 			tx.begin();
-			List<Object[]> citasCumplidas3dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 3);
-			List<Object[]> citasCumplidas5dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 5);
-			List<Object[]> citasCumplidas10dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 10);
+			List<Object> citasCumplidas3dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 3);
+			List<Object> citasCumplidas5dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 5);
+			List<Object> citasCumplidas10dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 10);
 			tx.commit();
 			log.info ("Se encontraron: " + citasCumplidas3dias.size() + citasCumplidas5dias.size() + citasCumplidas10dias.size() + " tuplas");
 
 			String rta = ""; 
 			for (int i = 0; i < citasCumplidas3dias.size(); i++) {
-				Object[] act = citasCumplidas3dias.get(i); 
+				Object act = citasCumplidas3dias.get(i); 
 				String dia = (String) act[0];
 				long oficinaRegional = ((BigDecimal) act[1]).longValue();
 				long contador = ((BigDecimal) act[2]).longValue();
