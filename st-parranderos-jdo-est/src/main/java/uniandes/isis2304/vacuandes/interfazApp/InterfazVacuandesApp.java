@@ -1354,6 +1354,79 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		}
 	}
 
+	//RFC10gitgitgiig
+	public void consultarVacunados () {
+		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION+ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS))VerificadoConsultarVacunados();
+	}
+	private void VerificadoConsultarVacunados() {
+		try {
+			mostrarMensajeInformativo("Rango de fechas", "Ingrese el rango de fechas para la consulta de vacunados");
+			String[] fechas = escogerRangoDeFechas();
+			int tipoBusqueda = escogerTipoDeConsultaVacunadoNoVacunado();
+			int ordenBusqeuda = escogerOrdenDeConsultaVacunadoNoVacunado();
+			String orderBy ="";
+			String tipo = "";
+			
+			if(tipoBusqueda==0 && trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) {
+				//eps
+				long id = escogerOficinaRegionalEPS();
+				tipo = " and cd.oficina_regional_asignada = " + id +" ";
+			}else if(tipoBusqueda==1) {
+				String condicion = escogerCondicionCiudadano();
+				//Grupo de priorizacion
+				tipo = " and cond.condicion = '" + condicion + "' ";
+			}else if(tipoBusqueda==2) {
+				mostrarVentanaCargando();
+				long id = escogerPuntoVacunacionConDeshabilitados();
+				tipo =  " and cd.punto_vacunacion = " + id + " ";
+				//Punto de vacunacion
+			}else if(tipoBusqueda==3) {
+				//Sin tipo 
+			}
+			
+			if(ordenBusqeuda==0) {
+				//eps
+				orderBy = " cd.oficina_regional_asignada ";
+			}else if(ordenBusqeuda==1) {
+				//Grupo de priorizacion
+				orderBy = " cond.condicion ";
+			}else if(ordenBusqeuda==2) {
+				//Punto de vacunacion
+				orderBy = " cd.punto_vacunacion ";
+			}else if(ordenBusqeuda==3) {
+				orderBy = " cd.cedula ";
+			}
+			
+			String rta = null;
+			infoUsuarioActual();
+			if(trabajadorActual.getTrabajo().equals(ADMINISTRADOR_PLAN_DE_VACUNACION)) {
+				
+				rta = vacuandes.consultarVacunadosAdminPlan(fechas[0], fechas[1], tipo, orderBy);
+				
+			} else{
+				mostrarMensajeInformativo("Escoja una oficina", "De las oficinas de las que es administrador, escoja con la que desea hacer la consulta");
+				long idOficina = escogerOficinaRegionalEPS();
+				rta = vacuandes.consultarVacunadosAdminEps(fechas[0], fechas[1], tipo, orderBy, idOficina);
+				
+			}
+			if(rta ==null)rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+			else {
+				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+			}
+			panelDatos.actualizarInterfaz(rta);
+			interfazCargandoRequerimiento.ocultar();
+		} catch (Exception e) {
+			e.printStackTrace();
+			String resultado = generarMensajeError(e);
+			panelDatos.actualizarInterfaz(resultado);
+			interfazCargandoRequerimiento.ocultar();
+		}
+		
+	}
+	
+	//RFC11 
+	public void consultarNoVacunados () {
 
 
 	/* ****************************************************************
