@@ -235,6 +235,14 @@ public class Vacuandes {
         log.info ("Se retornaron los ciudadanos vacunados en ese rango");
         return rta;
 	}
+	
+	public String consultarNoVacunadosAdminPlan(String primera_fecha, String segunda_fecha, String agrupar, String ordenar)
+	{
+		log.info ("Buscando no vacunados en el rango de fechas: " + primera_fecha + "  -  " + segunda_fecha + " agrupados por: " + agrupar + ", ordenados por: " + ordenar);
+		String rta = pp.consultarNoVacunadosAdminPlan(primera_fecha,segunda_fecha, agrupar, ordenar);
+        log.info ("Se retornaron los ciudadanos vacunados en ese rango");
+        return rta;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar Estado_Vacunacion
 	 *****************************************************************/
