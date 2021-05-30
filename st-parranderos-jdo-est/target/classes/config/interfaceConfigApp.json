@@ -134,6 +134,18 @@
 				{
 					"label": "Encontrar ciudadanos en contacto",
 					"event": "encontrarCiudadanosEnContacto"
+				},
+				{
+					"label": "Consultar Vacunados",
+					"event": "consultarVacunados"
+				},
+				{
+					"label": "Consultar No Vacunados",
+					"event": "consultarNoVacunados"
+				},
+				{
+					"label": "Consultar Funcionamiento",
+					"event": "consultarFuncionamiento"
 				}
 			]
 		},

@@ -99,7 +99,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private static final String ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS = "Administrador oficina punto regional eps";
 	private static final String OPERADOR_PUNTO_VACUNACION = "Operador punto vacunacion";
 	private static final String TALENTO_HUMANO_PUNTO_VACUNACION = "Talento humano punto vacunacion";
-	private static final Boolean MOSTRAR_VENTANA_DE_CARGA = true;
+	private static final Boolean MOSTRAR_VENTANA_DE_CARGA = false;
 	private static final Boolean REPRODUCIR_SOUNDTRACK = false;
 
 
@@ -982,6 +982,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 
 			Date dateIngresada = interfazDate.getDate();
 			Date dateActual = new Date();
+			
 			int horaIngresada = interfazDate.getHora();
 			Long cedulaCiudadano = interfazDate.getCedula();
 
@@ -1428,6 +1429,14 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	//RFC11 
 	public void consultarNoVacunados () {
 
+	}
+	
+	//RFC12 
+	public void consultarFuncionamiento() {
+		System.out.println(3);
+	}
+	
+	
 
 	/* ****************************************************************
 	 * 			Métodos administrativos
@@ -1714,8 +1723,6 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	}
 
 	private Long escogerPuntoVacunacionPorRegionConDeshabilitados(String region) {
-		interfazCargandoRequerimiento.mostrar();
-		interfazCargandoRequerimiento.traerAlfrente();
 		
 		List <PuntoVacunacion> planes = vacuandes.darTodosLosPuntosVacunacionDeLaRegion(region);
 		String [] nombresDePlanes = new String [planes.size()];
@@ -1729,6 +1736,11 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		JOptionPane.showMessageDialog(this, optionList1, "Seleccione punto", JOptionPane.QUESTION_MESSAGE, iconoLugar);
 
 		return planes.get(optionList1.getSelectedIndex()).getId_Punto_Vacunacion();
+	}
+	
+	private void mostrarVentanaCargando() {
+		interfazCargandoRequerimiento.mostrar();
+		interfazCargandoRequerimiento.traerAlfrente();
 	}
 
 	private Long escogerPuntoVacunacionConDeshabilitados() {
@@ -1888,6 +1900,38 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 		return n;
 	}
 
+	private int escogerTipoDeConsultaVacunadoNoVacunado() {
+		Object[] options = {"EPS regional",
+				"Grupo de priorizacion",
+				"Punto de vacunacion",
+				"Sin tipo"};
+		int n = JOptionPane.showOptionDialog(null,//parent container of JOptionPane
+				"Escoja el tipo de consulta que desea realizar (Agrupado por)",
+				"Tipo de consulta",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,//do not use a custom Icon
+				options,//the titles of buttons
+				options[0]);
+		return n;
+	}
+	
+	private int escogerOrdenDeConsultaVacunadoNoVacunado() {
+		Object[] options = {"EPS regional",
+				"Grupo de priorizacion",
+				"Punto de vacunacion",
+				"Cedula"};
+		int n = JOptionPane.showOptionDialog(null,//parent container of JOptionPane
+				"Escoja el orden en el que desea organizar la información (Ordenado por)",
+				"Orden de consulta",
+				JOptionPane.YES_NO_CANCEL_OPTION,
+				JOptionPane.QUESTION_MESSAGE,
+				null,//do not use a custom Icon
+				options,//the titles of buttons
+				options[0]);
+		return n;
+	}
+	
 	private String escogerFechaEspecifica(){
 		boolean centinela =true;
 		String fechaEspecifica ="";
