@@ -2612,14 +2612,14 @@ public class PersistenciaVacuandes {
 				tx.commit();
 				log.info ("Se encontraron: " + tuplas.size() + " datos");
 				String rta = ""; 
-				long semanaAct = -1;
-				long centinela = 0;
+				int semanaAct = -1;
+				int centinela = 0;
 				for ( Object tupla : tuplas)
 				{
 					Object [] datos = (Object []) tupla;
 					String direccion = (String) datos[0];
 					long punto_vacunacion = ((BigDecimal) datos [1]).longValue();
-					long semana = ((BigDecimal) datos [2]).longValue();
+					int semana = Integer.parseInt((String) datos[2]);
 					long contador = ((BigDecimal) datos [3]).longValue();
 
 					if(semanaAct!=semana) {
@@ -2666,14 +2666,14 @@ public class PersistenciaVacuandes {
 				tx.commit();
 				log.info ("Se encontraron: " + tuplas.size() + " datos");
 				String rta = ""; 
-				long semanaAct = -1;
-				long centinela = 0;
+				int semanaAct = -1;
+				int centinela = 0;
 				for ( Object tupla : tuplas)
 				{
 					Object [] datos = (Object []) tupla;
 					String direccion = (String) datos[0];
 					long punto_vacunacion = ((BigDecimal) datos [1]).longValue();
-					long semana = ((BigDecimal) datos [2]).longValue();
+					int semana = Integer.parseInt((String) datos[2]);
 					long contador = ((BigDecimal) datos [3]).longValue();
 
 					if(semanaAct!=semana) {
