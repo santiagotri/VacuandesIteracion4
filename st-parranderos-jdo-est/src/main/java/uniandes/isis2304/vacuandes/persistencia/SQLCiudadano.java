@@ -1,6 +1,7 @@
 package uniandes.isis2304.vacuandes.persistencia;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.jdo.PersistenceManager;
@@ -128,5 +129,31 @@ public class SQLCiudadano {
 		return (List<Ciudadano>) q.execute();
 		}
 	}
+
+	public List<Ciudadano> darCiudadanosVacunadosAdminPlan(PersistenceManager pm, String primera_fecha, String segunda_fecha, String agrupar,
+			String ordenar) {
+
+			Query q = pm.newQuery(SQL,
+					" SELECT cd.cedula, cd.nombre_completo, cd.estado_vacunacion, cd.region, cd.desea_ser_vacunado, cd.plan_de_vacunacion, cd.punto_vacunacion, cd.oficina_regional_asignada"
+					+ " FROM ciudadano cd inner join cita cta on cd.cedula = cta.ciudadano "
+					+ " INNER JOIN list_condiciones_ciudadano cond on cd.cedula = cond.ciudadano "
+					+ " WHERE fecha BETWEEN TO_DATE('2021/06/08', 'yyyy/mm/dd') and TO_DATE('2021/12/08', 'yyyy/mm/dd') and estado_vacunacion = 'Vacunado' " + agrupar 
+					+ " ORDER BY " + ordenar);
+				q.setResultClass(Ciudadano.class);
+				return (List<Ciudadano>) q.execute();
+	}
+
+	public List<Ciudadano> darCiudadanosVacunadosAdminEPS(PersistenceManager pm, String primera_fecha,
+			String segunda_fecha, String agrupar, String ordenar, long eps) {
+
+		Query q = pm.newQuery(SQL,
+				" SELECT cd.cedula, cd.nombre_completo, cd.estado_vacunacion, cd.region, cd.desea_ser_vacunado, cd.plan_de_vacunacion, cd.punto_vacunacion, cd.oficina_regional_asignada"
+				+ " FROM ciudadano cd inner join cita cta on cd.cedula = cta.ciudadano "
+				+ " INNER JOIN list_condiciones_ciudadano cond on cd.cedula = cond.ciudadano "
+				+ " WHERE fecha BETWEEN TO_DATE('2021/06/08', 'yyyy/mm/dd') and TO_DATE('2021/12/08', 'yyyy/mm/dd') and estado_vacunacion = 'Vacunado' and oficina_regional = " + eps + " " + agrupar 
+				+ " ORDER BY " + ordenar);
+			q.setResultClass(Ciudadano.class);
+			return (List<Ciudadano>) q.execute();
+}
 	
 }

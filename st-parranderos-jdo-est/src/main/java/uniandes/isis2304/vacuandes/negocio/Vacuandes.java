@@ -220,6 +220,21 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public String consultarVacunadosAdminPlan(String primera_fecha, String segunda_fecha, String agrupar, String ordenar)
+	{
+		log.info ("Buscando vacunados en el rango de fechas: " + primera_fecha + "  -  " + segunda_fecha + " agrupados por: " + agrupar + ", ordenados por: " + ordenar);
+		String rta = pp.consultarVacunadosAdminPlan(primera_fecha,segunda_fecha, agrupar, ordenar);
+        log.info ("Se retornaron los ciudadanos vacunados en ese rango");
+        return rta;
+	}
+	
+	public String consultarVacunadosAdminEps(String primera_fecha, String segunda_fecha, String agrupar, String ordenar, long eps)
+	{
+		log.info ("Buscando vacunados en el rango de fechas: " + primera_fecha + "  -  " + segunda_fecha + " agrupados por: " + agrupar + ", ordenados por: " + ordenar + " para la eps de id: " + eps);
+		String rta = pp.consultarVacunadosAdminEps(primera_fecha,segunda_fecha, agrupar, ordenar, eps);
+        log.info ("Se retornaron los ciudadanos vacunados en ese rango");
+        return rta;
+	}
 	/* ****************************************************************
 	 * 			Métodos para manejar Estado_Vacunacion
 	 *****************************************************************/
