@@ -181,5 +181,19 @@ public class SQLCiudadano {
 			q.setResultClass(Ciudadano.class);
 			return (List<Ciudadano>) q.execute();
 }
+
+	@SuppressWarnings("deprecation")
+	public List<Object[]> consultarLideresEPS(PersistenceManager pm, String fecha, int diasAtras) {
+		Date fechaEnDate = new Date(fecha);
+		Date fechaInicial = new Date(fechaEnDate.getTime()-diasAtras*(1000 * 60 * 60 * 24));
+		Query q = pm.newQuery(SQL,
+				" SELECT c.fecha, p.oficina_regional_eps, COUNT(id_cita)"
+				+ " from cita c INNER JOIN punto_vacunacion p on c.punto_vacunacion = p.id_punto_vacunacion "
+				+ " where fecha between TO_DATE('"+ fechaInicial.toString() + "', 'dd/mm/yyyy') and TO_DATE('"+ fecha + "', 'dd/mm/yyyy') "
+				+ " GROUP BY c.fecha, p.oficina_regional_eps"
+				+ " ORDER BY p.oficina_regional_eps");
+			q.setResultClass(Object.class);
+			return (List<Object[]> ) q.execute();
+	}
 	
 }
