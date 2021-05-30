@@ -2466,7 +2466,7 @@ public class PersistenciaVacuandes {
 			String rta = ""; 
 			for (int i = 0; i < ciudadanos.size(); i++) {
 				Ciudadano act = ciudadanos.get(i); 
-				rta += act.toString() + "/n"; 
+				rta += act.toString() + " \n"; 
 			}
 			return rta;
 
@@ -2503,7 +2503,7 @@ public class PersistenciaVacuandes {
 			String rta = ""; 
 			for (int i = 0; i < ciudadanos.size(); i++) {
 				Ciudadano act = ciudadanos.get(i); 
-				rta += act.toString() + "/n"; 
+				rta += act.toString() + "\n"; 
 			}
 			return rta;
 
@@ -2540,7 +2540,7 @@ public class PersistenciaVacuandes {
 			String rta = ""; 
 			for (int i = 0; i < ciudadanos.size(); i++) {
 				Ciudadano act = ciudadanos.get(i); 
-				rta += act.toString() + "/n"; 
+				rta += act.toString() + "\n"; 
 			}
 			return rta;
 

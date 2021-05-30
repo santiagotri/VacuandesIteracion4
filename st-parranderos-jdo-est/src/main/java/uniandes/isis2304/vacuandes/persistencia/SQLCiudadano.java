@@ -150,7 +150,7 @@ public class SQLCiudadano {
 				" SELECT cd.cedula, cd.nombre_completo, cd.estado_vacunacion, cd.region, cd.desea_ser_vacunado, cd.plan_de_vacunacion, cd.punto_vacunacion, cd.oficina_regional_asignada"
 				+ " FROM ciudadano cd inner join cita cta on cd.cedula = cta.ciudadano "
 				+ " INNER JOIN list_condiciones_ciudadano cond on cd.cedula = cond.ciudadano "
-				+ " WHERE fecha BETWEEN TO_DATE('"+ primera_fecha +"', 'dd/mm/yyyy') and TO_DATE('"+ segunda_fecha +"', 'dd/mm/yyyy') and estado_vacunacion = 'Vacunado' and oficina_regional = " + eps + " " + agrupar 
+				+ " WHERE fecha BETWEEN TO_DATE('"+ primera_fecha +"', 'dd/mm/yyyy') and TO_DATE('"+ segunda_fecha +"', 'dd/mm/yyyy') and estado_vacunacion = 'Vacunado' and oficina_regional_asignada = " + eps + " " + agrupar 
 				+ " ORDER BY " + ordenar);
 			q.setResultClass(Ciudadano.class);
 			return (List<Ciudadano>) q.execute();
