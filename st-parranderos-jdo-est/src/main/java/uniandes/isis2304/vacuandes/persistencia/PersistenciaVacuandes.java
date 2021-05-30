@@ -2653,6 +2653,60 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public String consultarFuncionamientoEPS(long eps) {
+		{
+			PersistenceManager pm = pmf.getPersistenceManager();
+			Transaction tx=pm.currentTransaction();
+			try
+			{
+				log.info ("Consultando funcionamiento optimo para eps");
+				tx.begin();
+				List<Object []> respuesta = new LinkedList <Object []> ();
+				List<Object> tuplas = sqlCita.consultarFuncionamientoEPS(pm, eps);
+				tx.commit();
+				log.info ("Se encontraron: " + tuplas.size() + " datos");
+				String rta = ""; 
+				long semanaAct = -1;
+				long centinela = 0;
+				for ( Object tupla : tuplas)
+				{
+					Object [] datos = (Object []) tupla;
+					String direccion = (String) datos[0];
+					long punto_vacunacion = ((BigDecimal) datos [1]).longValue();
+					long semana = ((BigDecimal) datos [2]).longValue();
+					long contador = ((BigDecimal) datos [3]).longValue();
+
+					if(semanaAct!=semana) {
+						semanaAct=semana;
+						centinela = 0;
+						rta+= "\n Semana " + semana + ":\n"; 
+					}
+					if(centinela<10) {
+						rta+= centinela + ". " + "Localizacion: " + direccion + ", id: " + punto_vacunacion + ", cantidad citas: " + contador;
+					}
+					centinela++;
+				}
+				return rta; 
+
+			}
+			catch (Exception e)
+			{
+				// e.printStackTrace();
+				log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+				return null; 
+			}
+			finally
+			{
+				if (tx.isActive())
+				{
+					tx.rollback();
+				}
+				pm.close();
+			}
+		}
+	}
+
+
 
 
 	/**

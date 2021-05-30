@@ -197,4 +197,13 @@ public class SQLCita {
 		return q.executeList();
 	}
 
+	public List<Object> consultarFuncionamientoEPS(PersistenceManager pm, long eps) {
+		Query q = pm.newQuery(SQL, "SELECT p.localizacion, punto_vacunacion, to_char(fecha - 7/24,'IW') semana,count(id_cita) contador"
+				+ " FROM cita c inner join punto_vacunacion p on c.punto_vacunacion = p.id_punto_vacunacion" 
+				+ " WHERE p.oficina_regional_eps = " + eps
+				+ " GROUP BY p.localizacion,punto_vacunacion, to_char(fecha - 7/24,'IW')"
+				+ " order by semana, contador DESC");
+		return q.executeList();
+	}
+
 }

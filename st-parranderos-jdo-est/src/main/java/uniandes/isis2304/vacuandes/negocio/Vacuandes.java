@@ -156,6 +156,14 @@ public class Vacuandes {
         return rta;
 	}
 	
+	public String consultarFuncionamientoAdminEPS(long eps)
+	{
+		log.info ("Consultando funcionamiento admin eps");
+		String rta = pp.consultarFuncionamientoEPS(eps);
+        log.info ("Se retornó el funcionamiento para todas las semanas del año");
+        return rta;
+	}
+	
 	/* ****************************************************************
 	 * 			Métodos para manejar CIUDADANO
 	 *****************************************************************/
