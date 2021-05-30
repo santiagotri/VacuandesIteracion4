@@ -240,7 +240,15 @@ public class Vacuandes {
 	{
 		log.info ("Buscando no vacunados en el rango de fechas: " + primera_fecha + "  -  " + segunda_fecha + " agrupados por: " + agrupar + ", ordenados por: " + ordenar);
 		String rta = pp.consultarNoVacunadosAdminPlan(primera_fecha,segunda_fecha, agrupar, ordenar);
-        log.info ("Se retornaron los ciudadanos vacunados en ese rango");
+        log.info ("Se retornaron los ciudadanos no vacunados en ese rango");
+        return rta;
+	}
+	
+	public String consultarNoVacunadosAdminEps(String primera_fecha, String segunda_fecha, String agrupar, String ordenar, long eps)
+	{
+		log.info ("Buscando no vacunados en el rango de fechas: " + primera_fecha + "  -  " + segunda_fecha + " agrupados por: " + agrupar + ", ordenados por: " + ordenar + " para la eps de id: " + eps);
+		String rta = pp.consultarNoVacunadosAdminEps(primera_fecha,segunda_fecha, agrupar, ordenar, eps);
+        log.info ("Se retornaron los ciudadanos no vacunados en ese rango");
         return rta;
 	}
 	/* ****************************************************************

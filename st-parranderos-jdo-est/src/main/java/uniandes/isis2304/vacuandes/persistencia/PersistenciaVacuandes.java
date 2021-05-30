@@ -2562,6 +2562,43 @@ public class PersistenciaVacuandes {
 	}
 
 
+	public String consultarNoVacunadosAdminEps(String primera_fecha, String segunda_fecha, String agrupar,
+			String ordenar, long eps) {
+		PersistenceManager pm = pmf.getPersistenceManager();
+		Transaction tx=pm.currentTransaction();
+		try
+		{
+			log.info ("Buscando vacunados en el rango de fechas: " + primera_fecha + " - " + segunda_fecha);
+			tx.begin();
+			List<Ciudadano> ciudadanos = sqlCiudadano.darCiudadanosNoVacunadosAdminEPS(pm, primera_fecha, segunda_fecha, agrupar, ordenar, eps); ;
+			tx.commit();
+			log.info ("Se encontraron: " + ciudadanos.size() + " ciudadanos");
+			
+			String rta = ""; 
+			for (int i = 0; i < ciudadanos.size(); i++) {
+				Ciudadano act = ciudadanos.get(i); 
+				rta += act.toString() + "\n"; 
+			}
+			return rta;
+
+		}
+		catch (Exception e)
+		{
+			// e.printStackTrace();
+			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+			return null; 
+		}
+		finally
+		{
+			if (tx.isActive())
+			{
+				tx.rollback();
+			}
+			pm.close();
+		}
+	}
+
+
 	
 
 	/**
