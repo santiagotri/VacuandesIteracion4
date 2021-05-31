@@ -188,6 +188,14 @@
 				{
 					"label": "Script creación de la BD",
 					"event": "mostrarScriptBD"
+				},
+				{
+					"label": "Documentacion iteracion 3",
+					"event": "mostrarDocumentacionIteracion3"
+				},
+				{
+					"label": "Documentacion iteracion 4",
+					"event": "mostrarDocumentacionIteracion4"
 				}
 			]
 		},		

@@ -99,7 +99,7 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	private static final String ADMINISTRADOR_OFICINA_PUNTO_REGIONAL_EPS = "Administrador oficina punto regional eps";
 	private static final String OPERADOR_PUNTO_VACUNACION = "Operador punto vacunacion";
 	private static final String TALENTO_HUMANO_PUNTO_VACUNACION = "Talento humano punto vacunacion";
-	private static final Boolean MOSTRAR_VENTANA_DE_CARGA = false;
+	private static final Boolean MOSTRAR_VENTANA_DE_CARGA = true;
 	private static final Boolean REPRODUCIR_SOUNDTRACK = false;
 
 
@@ -1582,6 +1582,14 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	public void mostrarScriptBD ()
 	{
 		mostrarArchivo ("doc/archivos_SQL/todoJuntoIteracion3.sql");
+	}
+	
+	public void mostrarDocumentacionIteracion4(){
+		mostrarArchivo("data/Iteración_4_a.trianaa_j.ramirezb.pdf");
+	}
+	
+	public void mostrarDocumentacionIteracion3(){
+		mostrarArchivo("data/Iteración_3_a.trianaa_j.ramirezb.pdf");
 	}
 
 
