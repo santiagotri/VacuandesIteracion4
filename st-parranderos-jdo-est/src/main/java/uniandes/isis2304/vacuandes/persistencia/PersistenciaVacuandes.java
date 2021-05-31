@@ -2765,96 +2765,96 @@ public class PersistenciaVacuandes {
 	}
 
 
-	public String consultarLideresEPS(String fecha) {
-		PersistenceManager pm = pmf.getPersistenceManager();
-		Transaction tx=pm.currentTransaction();
-		try
-		{
-			log.info ("Consultando los lideres EPS");
-			tx.begin();
-			List<Object> citasCumplidas3dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 3);
-			List<Object> citasCumplidas5dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 5);
-			List<Object> citasCumplidas10dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 10);
-			tx.commit();
-			log.info ("Se encontraron: " + citasCumplidas3dias.size() + citasCumplidas5dias.size() + citasCumplidas10dias.size() + " tuplas");
-
-			String rta = ""; 
-			for (int i = 0; i < citasCumplidas3dias.size(); i++) {
-				Object act = citasCumplidas3dias.get(i); 
-				String dia = (String) act[0];
-				long oficinaRegional = ((BigDecimal) act[1]).longValue();
-				long contador = ((BigDecimal) act[2]).longValue();
-				
-				long contadorGeneral = 0; 
-				long oficinaAct = -1;
-				if(oficinaAct != oficinaRegional)
-				{
-					rta += "Oficina regional: " + oficinaAct +" tiene " + contadorGeneral + " citas " +" \n";
-					contadorGeneral = 0; 
-					oficinaAct = oficinaRegional; 
-				}
-				else
-				{
-					contadorGeneral += contador; 
-				}
-			}
-			
-			for (int i = 0; i < citasCumplidas5dias.size(); i++) {
-				Object[] act = citasCumplidas5dias.get(i); 
-				String dia = (String) act[0];
-				long oficinaRegional = ((BigDecimal) act[1]).longValue();
-				long contador = ((BigDecimal) act[2]).longValue();
-				
-				long contadorGeneral = 0; 
-				long oficinaAct = -1;
-				if(oficinaAct != oficinaRegional)
-				{
-					rta += "Oficina regional: " + oficinaAct +" tiene " + contadorGeneral + " citas " +" \n";
-					contadorGeneral = 0; 
-					oficinaAct = oficinaRegional; 
-				}
-				else
-				{
-					contadorGeneral += contador; 
-				}
-			}
-			
-			for (int i = 0; i < citasCumplidas10dias.size(); i++) {
-				Object[] act = citasCumplidas10dias.get(i); 
-				String dia = (String) act[0];
-				long oficinaRegional = ((BigDecimal) act[1]).longValue();
-				long contador = ((BigDecimal) act[2]).longValue();
-				
-				long contadorGeneral = 0; 
-				long oficinaAct = -1;
-				if(oficinaAct != oficinaRegional)
-				{
-					rta += "Oficina regional: " + oficinaAct +" tiene " + contadorGeneral + " citas " +" \n";
-					contadorGeneral = 0; 
-					oficinaAct = oficinaRegional; 
-				}
-				else
-				{
-					contadorGeneral += contador; 
-				}
-			}
-			return rta;
-		}
-		catch (Exception e)
-		{
-			// e.printStackTrace();
-			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
-			return null; 
-		}
-		finally
-		{
-			if (tx.isActive())
-			{
-				tx.rollback();
-			}
-			pm.close();
-		}
-	}
+//	public String consultarLideresEPS(String fecha) {
+//		PersistenceManager pm = pmf.getPersistenceManager();
+//		Transaction tx=pm.currentTransaction();
+//		try
+//		{
+//			log.info ("Consultando los lideres EPS");
+//			tx.begin();
+//			List<Object> citasCumplidas3dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 3);
+//			List<Object> citasCumplidas5dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 5);
+//			List<Object> citasCumplidas10dias = sqlCiudadano.consultarLideresEPS(pm, fecha, 10);
+//			tx.commit();
+//			log.info ("Se encontraron: " + citasCumplidas3dias.size() + citasCumplidas5dias.size() + citasCumplidas10dias.size() + " tuplas");
+//
+//			String rta = ""; 
+//			for (int i = 0; i < citasCumplidas3dias.size(); i++) {
+//				Object act = citasCumplidas3dias.get(i); 
+//				String dia = (String) act[0];
+//				long oficinaRegional = ((BigDecimal) act[1]).longValue();
+//				long contador = ((BigDecimal) act[2]).longValue();
+//				
+//				long contadorGeneral = 0; 
+//				long oficinaAct = -1;
+//				if(oficinaAct != oficinaRegional)
+//				{
+//					rta += "Oficina regional: " + oficinaAct +" tiene " + contadorGeneral + " citas " +" \n";
+//					contadorGeneral = 0; 
+//					oficinaAct = oficinaRegional; 
+//				}
+//				else
+//				{
+//					contadorGeneral += contador; 
+//				}
+//			}
+//			
+//			for (int i = 0; i < citasCumplidas5dias.size(); i++) {
+//				Object[] act = citasCumplidas5dias.get(i); 
+//				String dia = (String) act[0];
+//				long oficinaRegional = ((BigDecimal) act[1]).longValue();
+//				long contador = ((BigDecimal) act[2]).longValue();
+//				
+//				long contadorGeneral = 0; 
+//				long oficinaAct = -1;
+//				if(oficinaAct != oficinaRegional)
+//				{
+//					rta += "Oficina regional: " + oficinaAct +" tiene " + contadorGeneral + " citas " +" \n";
+//					contadorGeneral = 0; 
+//					oficinaAct = oficinaRegional; 
+//				}
+//				else
+//				{
+//					contadorGeneral += contador; 
+//				}
+//			}
+//			
+//			for (int i = 0; i < citasCumplidas10dias.size(); i++) {
+//				Object[] act = citasCumplidas10dias.get(i); 
+//				String dia = (String) act[0];
+//				long oficinaRegional = ((BigDecimal) act[1]).longValue();
+//				long contador = ((BigDecimal) act[2]).longValue();
+//				
+//				long contadorGeneral = 0; 
+//				long oficinaAct = -1;
+//				if(oficinaAct != oficinaRegional)
+//				{
+//					rta += "Oficina regional: " + oficinaAct +" tiene " + contadorGeneral + " citas " +" \n";
+//					contadorGeneral = 0; 
+//					oficinaAct = oficinaRegional; 
+//				}
+//				else
+//				{
+//					contadorGeneral += contador; 
+//				}
+//			}
+//			return rta;
+//		}
+//		catch (Exception e)
+//		{
+//			// e.printStackTrace();
+//			log.error ("Exception : " + e.getMessage() + "\n" + darDetalleException(e));
+//			return null; 
+//		}
+//		finally
+//		{
+//			if (tx.isActive())
+//			{
+//				tx.rollback();
+//			}
+//			pm.close();
+//		}
+//	}
 
 
 

@@ -372,13 +372,13 @@ public class Vacuandes {
         return rta;
 	}
 	
-	public String consultarLideresEPSEfectivas(String fecha)
-	{
-		log.info ("Buscando las oficinas regionales que lograron aplicar el 90% de sus vacunas ");
-		String rta = pp.consultarLideresEPS(fecha);
-        log.info ("Se retornaron las oficinas correctamentes");
-        return rta;
-	}
+//	public String consultarLideresEPSEfectivas(String fecha)
+//	{
+//		log.info ("Buscando las oficinas regionales que lograron aplicar el 90% de sus vacunas ");
+//		String rta = pp.consultarLideresEPS(fecha);
+//        log.info ("Se retornaron las oficinas correctamentes");
+//        return rta;
+//	}
 	/* ****************************************************************
 	 * 			Métodos para manejar PLAN_DE_VACUNACION
 	 *****************************************************************/

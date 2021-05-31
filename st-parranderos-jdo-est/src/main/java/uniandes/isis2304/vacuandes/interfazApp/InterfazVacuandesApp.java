@@ -1469,35 +1469,35 @@ public class InterfazVacuandesApp extends JFrame implements ActionListener
 	
 	
 	//RFC13
-	public void consultarLideresEnGestion() {
-		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION))VerificadoConsultarLideresEnGestion();
-	}
-	private void VerificadoConsultarLideresEnGestion () {
-		
-		try {
-			String rta =null;
-			
-			mostrarMensajeInformativo("Fecha lote de vacunas", "Introduzca la fecha en la que llegó el lote de vacunas");
-			String fecha = escogerFechaEspecifica();
-			mostrarVentanaCargando();
-			rta = vacuandes.consultarLideresEPSEfectivas(fecha);
-			
-			if(rta ==null)rta = "No se han encontrado resultados para la busqueda realizada (error00)";
-			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
-			else {
-				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
-			}
-			
-			panelDatos.actualizarInterfaz(rta);
-			interfazCargandoRequerimiento.ocultar();
-		} catch (Exception e) {
-			e.printStackTrace();
-			String resultado = generarMensajeError(e);
-			panelDatos.actualizarInterfaz(resultado);
-			interfazCargandoRequerimiento.ocultar();
-		}
-		
-	}
+//	public void consultarLideresEnGestion() {
+//		if(verificarPermisos(ADMINISTRADOR_PLAN_DE_VACUNACION))VerificadoConsultarLideresEnGestion();
+//	}
+//	private void VerificadoConsultarLideresEnGestion () {
+//		
+//		try {
+//			String rta =null;
+//			
+//			mostrarMensajeInformativo("Fecha lote de vacunas", "Introduzca la fecha en la que llegó el lote de vacunas");
+//			String fecha = escogerFechaEspecifica();
+//			mostrarVentanaCargando();
+//			rta = vacuandes.consultarLideresEPSEfectivas(fecha);
+//			
+//			if(rta ==null)rta = "No se han encontrado resultados para la busqueda realizada (error00)";
+//			else if(rta.equals(""))rta = "No se han encontrado resultados para la busqueda realizada (error01)";
+//			else {
+//				rta = "-- Resultados busqueda --\n \n" + rta + "\nOperacion terminada.";
+//			}
+//			
+//			panelDatos.actualizarInterfaz(rta);
+//			interfazCargandoRequerimiento.ocultar();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			String resultado = generarMensajeError(e);
+//			panelDatos.actualizarInterfaz(resultado);
+//			interfazCargandoRequerimiento.ocultar();
+//		}
+//		
+//	}
 
 	/* ****************************************************************
 	 * 			Métodos administrativos

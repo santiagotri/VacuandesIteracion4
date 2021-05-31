@@ -146,10 +146,6 @@
 				{
 					"label": "Consultar Funcionamiento",
 					"event": "consultarFuncionamiento"
-				},
-				{
-					"label": "Consultar Lideres en gestion",
-					"event": "consultarLideresEnGestion"
 				}
 			]
 		},
